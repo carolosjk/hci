@@ -435,9 +435,32 @@ a img.aligncenter {
 
 .header_style_01 .navbar-default .navbar-nav > li:hover a,
 .header_style_01 .navbar-default .navbar-nav > li:focus a {
-    background-color: #009C91;
+    background-color: #4c8ab9
+    ;
 	color: #ffffff;
 }
+.icon-bar {
+    position: fixed;
+    z-index:100;
+    right: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+  .icon-bar a {
+    display: block;
+    text-align: center;
+    padding: 16px;
+    transition: all 0.3s ease;
+    color: rgb(151, 153, 179);
+    font-size: 25px;
+  }
+  
+  .icon-bar a:hover {
+    background-color: transparent;
+  }
 
 body.realestate_version .social-links:hover a{
 	background-color: transparent !important;
@@ -549,7 +572,6 @@ li.social-links a {
     box-shadow: 0 0 8px 0 rgba(0,0,0,.12);
 }
 
-
 body.realestate_version .header_style_01 .navbar-right > li.search-option{
 	position: relative;
 }
@@ -563,7 +585,7 @@ body.realestate_version .header_style_01 .navbar-right > li.search-option button
 	border-radius: 2px;
 }
 body.realestate_version .header_style_01 .navbar-right > li.search-option button.search:hover{
-	background: #009C91;
+	background: #4c8ab9;
 }
 body.realestate_version .header_style_01 .navbar-right > li.search-option form.dropdown-menu{
 	position: absolute;
@@ -606,7 +628,75 @@ body.realestate_version .header_style_01 .navbar-right > li.search-option form b
 	border-radius: 2px;
 }
 
+.login-trigger {
+	line-height: 43px;
+	width: 45px;
+	color: #fff;
+	background: #00599C;
+	border: none;
+	transition: all .3s ease-in-out;
+    border-radius: 2px;
+    margin-left: 30%;
+}
+  
+/* modal */
+.close {
+    color: #fff;
+    transform: scale(1.5)
+}
 
+.modal-content {
+    font-weight: bold;
+    background: linear-gradient(to bottom right,#7faccd,#1969a5);
+}
+
+.form-control {
+    margin: 1em 0;
+}
+
+.form-control:hover, .form-control:focus {
+    box-shadow: none;  
+    border-color: #fff;
+}
+
+.username, .password {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    border-bottom: 2px solid #eee;
+    padding-left: 0;
+    font-weight: normal;
+    background: transparent;  
+}
+
+.form-control::-webkit-input-placeholder {
+    color: #eee;  
+}
+
+.form-control:focus::-webkit-input-placeholder {
+    font-weight: bold;
+    color: #fff;
+}
+
+.login {
+    padding: 6px 20px;
+    border-radius: 20px;
+    background: none;
+    border: 2px solid;
+    color: #ffffff;
+    font-weight: bold;
+    transition: all .5s;
+    margin-top: 1em;
+}
+
+.login:hover {
+    background: #327aaf;
+    color: #fff;
+}
+
+.modal-backdrop {
+    z-index: -1;
+}
 /*------------------------------------------------------------------
     SECTIONS
 -------------------------------------------------------------------*/
@@ -1752,7 +1842,6 @@ hr.invis1 {
     font-size: 19px;
 }
 
-
 /*------------------------------------------------------------------
     CONTACT
 -------------------------------------------------------------------*/
@@ -2165,7 +2254,7 @@ select.mobile-device {
 .footer {
     padding: 90px 0 80px !important;
     color: #999;
-    background-color: #333333;
+    background-color: #2B2B2B;
 }
 
 .footer .widget-title {
@@ -2184,7 +2273,7 @@ select.mobile-device {
 .footer .widget-title h3 {
     color: #fff;
     font-weight: 300;
-    font-size: 21px;
+    font-size: 16px;
     padding: 0;
     margin: 0;
     line-height: 1 !important;
@@ -2604,7 +2693,7 @@ select.mobile-device {
     transform: translateY(-50%);
 }
 #breadcrumbs:hover{
-	background: #009C91;
+	background: #4c8ab9;
 }
 
 #breadcrumbs ul {

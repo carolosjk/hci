@@ -80,7 +80,7 @@ body.realestate_version .grd1:hover,
 body.realestate_version .grd1:focus {
     background-position: 100px;
     color: #ffffff;
-    background: #009C91;
+    background: #00599c;
 }
 
 body.realestate_version .effect-1,
@@ -133,7 +133,7 @@ body.realestate_version .social-links {
 }
 
 body.realestate_version .social-links i {
-    border: 1px solid #009C91;
+    border: 1px solid #00599c;
     display: block;
     font-size: 14px;
     height: 30px;
