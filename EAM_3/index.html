@@ -212,7 +212,34 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <h4><i class="fa fa-cogs global-radius"></i> <i><a href="#" onclick="openPrefs()">Προτιμήσεις</a></i></h4>
                                     <div id="prefs"  style="display: none;">
-                                        <fieldset role="tabpanel">
+                                        <div class="card">
+                                                <ul>
+                                                    <li>
+                                                        <label>
+                                                            <input type="radio" class="option-input radio" name="example" checked/>
+                                                            Βέλτιστη Διαδρομή
+                                                        </label>                    
+                                                    </li>
+                                                    <li>
+                                                        <label>
+                                                            <input type="radio" class="option-input radio" name="example" />
+                                                            Διαδρομή με τις λιγότερες αλλαγές
+                                                          </label>
+                                                    </li>
+                                                    <li>
+                                                        <label>
+                                                            <input type="radio" class="option-input radio" name="example" />
+                                                            Διαδρομή με το λιγότερο περπάτημα
+                                                          </label>
+                                                    </li>
+                                                    <li>
+                                                        <label>
+                                                            <input type="radio" class="option-input radio" name="example" />
+                                                            Διαδρομή μόνο μέσω λεωφορειακών γραμμών
+                                                          </label>
+                                                    </li>
+                                                </ul>
+                                        <!-- <fieldset role="tabpanel">
                                             <legend class="bold"><h5>Επιλέξτε:</h5></legend>
                                             <div class="radio">
                                                 <label><input type="radio" name="optradio" checked>Βέλτιστη διαδρομή</label>
@@ -226,7 +253,7 @@
                                               <div class="radio">
                                                 <label><input type="radio" name="optradio">Διαδρομή μόνο μέσω λεωφορειακών γραμμών</label>
                                               </div>
-                                        </fieldset>
+                                        </fieldset> -->
                                     </div>
 
                                     <script>
