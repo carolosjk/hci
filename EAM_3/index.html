@@ -54,10 +54,10 @@
 
     <!--ICON BAR-->
     <div class="icon-bar">
-        <a href="#" class="social-links"><i class="fa fa-facebook global-radius"></i></a> 
-        <a href="#" class="social-links"><i class="fa fa-twitter global-radius"></i></a> 
-        <a href="#" class="social-links"><i class="fa fa-linkedin global-radius"></i></a>
-        <a href="#" class="social-links"><i class="fa fa-youtube global-radius"></i></a> 
+        <a href="https://www.facebook.com/OASA.GR" class="social-links" target="_blank"><i class="fa fa-facebook global-radius"></i></a> 
+        <a href="https://www.instagram.com/OASA.GR/" class="social-links" target="_blank"><i class="fa fa-instagram global-radius"></i></a> 
+        <a href="https://www.linkedin.com/company/athenspublictransportoasa/about/" class="social-links" target="_blank"><i class="fa fa-linkedin global-radius"></i></a>
+        <a href="https://www.youtube.com/channel/UC0XdkZnOHhRLc3NE9tm4NUQ" class="social-links" target="_blank"><i class="fa fa-youtube global-radius"></i></a> 
     </div>
     <!--end of ICON BAR-->
 
@@ -85,7 +85,14 @@
                         <li><a href="#">Χάρτες</a></li>
                         <li><a href="#">Εισιτήρια-Κάρτες</a></li>
                         <li><a href="#">Προσβασιμότητα</a></li>
-                        <li><a href="#">Οργανισμός ΟΑΣΑ</a></li>
+                        <li class="dropdown">
+                            <a href="javascript:void(0)" class="dropbtn">Dropdown</a>
+                            <div class="dropdown-content">
+                                <a href="https://www.google.gr/">Link 1</a>
+                                <a href="https://stackoverflow.com/questions/37199574/drop-down-menu-from-existing-navbar">Link 2</a>
+                                <a href="#">Link 3</a>
+                            </div>
+                        </li>    
                         <li><a href="contact.html">Επικοινωνία</a></li>
 						<li class="search-option">
 							<button class="search tran3s dropdown-toggle" id="searchDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search" aria-hidden="true"></i></button>
@@ -166,10 +173,62 @@
                                     <input type="text" name="last_name1" id="last_name1" class="form-control" placeholder="Προς">
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <h4 style="margin-top:5px"><i class="fa fa-clock-o global-radius"></i> ΦΕΥΓΩ: <i><a href="/">όρισε ώρα</a></i></h4>
+                                    <h4 style="margin-top:5px"><i class="fa fa-clock-o global-radius"></i> ΦΕΥΓΩ: <i>
+                                    <a href="#" onclick="openTime()">όρισε ώρα</a></i></h4>
+                                    <div id="times" style="display: none;">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md-4 wow slideInRight hidden-xs hidden-sm">
+                                                    hello
+                                                </div>
+                                            </div>   
+                                        </div>
+
+                                        <script>
+                                            function openTime() {
+                                              var x = document.getElementById("times");
+                                              if (x.style.display === "none") {
+                                                    $("#times").slideDown("slow");
+                                                x.style.display = "block";
+                                              } else {
+                                                x.style.display = "none";
+                                              }
+                                            }
+                                        </script>
+                                    </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <h4><i class="fa fa-cogs global-radius"></i> <i><a href="/">Προτιμήσεις</a></i></h4>
+                                    <h4><i class="fa fa-cogs global-radius"></i> <i><a href="#" onclick="openPrefs()">Προτιμήσεις</a></i></h4>
+                                    <div id="prefs"  style="display: none;">
+                                        <fieldset role="tabpanel">
+                                            <legend class="bold"><h5>Επιλέξτε:</h5></legend>
+                                            <div class="radio">
+                                                <label><input type="radio" name="optradio" checked>Βέλτιστη διαδρομή</label>
+                                              </div>
+                                              <div class="radio">
+                                                <label><input type="radio" name="optradio">Διαδρομή με τις λιγότερες αλλαγές</label>
+                                              </div>
+                                              <div class="radio">
+                                                <label><input type="radio" name="optradio">Διαδρομή με το λιγότερο περπάτημα</label>
+                                              </div>
+                                              <div class="radio">
+                                                <label><input type="radio" name="optradio">Διαδρομή μόνο μέσω λεωφορειακών γραμμών</label>
+                                              </div>
+                                        </fieldset>
+                                    </div>
+
+                                    <script>
+                                        function openPrefs() {
+                                          var x = document.getElementById("prefs");
+                                          if (x.style.display === "none") {
+                                                $("#prefs").slideDown("slow");
+                                            x.style.display = "block";
+                                          } else {
+                                            // $("#prefs").slideUp();
+                                            x.style.display = "none";
+                                          }
+                                        }
+                                    </script>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-lg-offset-12 text-center">
                                     <button type="submit" value="SEND" id="submit1" class="btn btn-light btn-radius btn-brd grd1 btn-block">Πάμε!</button>
@@ -286,10 +345,10 @@
                         </div>
 
                         <ul class="footer-links">
-                            <li><a href="mailto:#">info@yoursite.com</a></li>
-                            <li><a href="#">www.yoursite.com</a></li>
-                            <li>PO Box 16122 Collins Street West Victoria 8007 Australia</li>
-                            <li>+61 3 8376 6284</li>
+                            <li><a href="mailto:#">_oasa@oasa.gr</a></li>
+                            <li><a href="index.html">_oasa.gr</a></li>
+                            <li>Μετσόβου 15, Αθήνα 106 82</li>
+                            <li>210 8200999</li>
                         </ul><!-- end links -->
                     </div><!-- end clearfix -->
                 </div><!-- end col -->
@@ -300,10 +359,10 @@
                             <h3>Μέσα Δικτύωσης</h3>
                         </div>
                         <ul class="footer-links">
-                            <li><a href="#"><i class="fa fa-facebook"></i> Facebook</a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i> Twitter</a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i> Linkedin</a></li>
-                            <li><a href="#"><i class="fa fa-youtube"></i> Youtube</a></li>
+                            <li><a href="https://www.facebook.com/OASA.GR" target="_blank"><i class="fa fa-facebook"></i> Facebook</a></li>
+                            <li><a href="https://www.instagram.com/OASA.GR/" target="_blank"><i class="fa fa-instagram"></i> Instagram</a></li>
+                            <li><a href="https://www.linkedin.com/company/athenspublictransportoasa/about/" target="_blank"><i class="fa fa-linkedin"></i> Linkedin</a></li>
+                            <li><a href="https://www.youtube.com/channel/UC0XdkZnOHhRLc3NE9tm4NUQ" target="_blank"><i class="fa fa-youtube"></i> Youtube</a></li>
                         </ul><!-- end links -->
                     </div><!-- end clearfix -->
                 </div><!-- end col -->
