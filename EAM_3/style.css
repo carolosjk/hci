@@ -638,6 +638,10 @@ body.realestate_version .header_style_01 .navbar-right > li.search-option form b
     border-radius: 2px;
     margin-left: 30%;
 }
+
+.login-trigger:hover {
+    background: #4c8ab9;
+}
   
 /* modal */
 .close {
@@ -700,6 +704,22 @@ body.realestate_version .header_style_01 .navbar-right > li.search-option form b
 /*------------------------------------------------------------------
     SECTIONS
 -------------------------------------------------------------------*/
+
+.btnn {
+    background-color: #00599C;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    opacity: 0.6;
+    transition: 0.3s;
+  }
+  
+.btnn:hover {
+    background: #1969a5;
+} 
 
 .dropdown-content {
     display: none;
