@@ -667,14 +667,14 @@ body.realestate_version .header_style_01 .navbar-right > li.search-option form b
     border: none;
     border-radius: 0;
     box-shadow: none;
-    border-bottom: 2px solid #eee;
+    border-bottom: 2px solid #ffffff;
     padding-left: 0;
     font-weight: normal;
     background: transparent;  
 }
 
 .form-control::-webkit-input-placeholder {
-    color: #eee;  
+    color: #ffffff;  
 }
 
 .form-control:focus::-webkit-input-placeholder {
