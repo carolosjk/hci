@@ -43,6 +43,12 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment-with-locales.js"></script>
+    <script src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/d004434a5ff76e7b97c8b07c01f34ca69e635d97/src/js/bootstrap-datetimepicker.js"></script>
+
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/d004434a5ff76e7b97c8b07c01f34ca69e635d97/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
+
 </head>
 <body class="realestate_version">
 
@@ -81,7 +87,7 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a class="active" href="index.html">Αρχική</a></li>
-                        <li><a href="status.html">Κατάσταση Μέσων</a></li>
+                        <li><a href="#">Κατάσταση Μέσων</a></li>
                         <li><a href="#">Χάρτες</a></li>
                         <li class="dropdown" >
                             <a href="https://github.com/wmsksf/hci" class="dropbtn">Εισιτήρια-Κάρτες</a>
@@ -188,13 +194,19 @@
                                     <h4 style="margin-top:5px"><i class="fa fa-clock-o global-radius"></i> ΦΕΥΓΩ: <i>
                                     <a href="#" onclick="openTime()">όρισε ώρα</a></i></h4>
                                     <div id="times" style="display: none;">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-md-4 wow slideInRight hidden-xs hidden-sm">
-                                                    hello
-                                                </div>
-                                            </div>   
+
+                                        <div class="form-group">
+                                            <div class='input-group date' id='datetimepicker1'>
+                                                    <input type='text' class="form-control" />
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                    </span>
+                                            </div>
                                         </div>
+                                        
+                                        <script>
+                                            $('#datetimepicker1').datetimepicker({locale: 'el'});
+                                        </script>
 
                                         <script>
                                             function openTime() {
@@ -214,46 +226,31 @@
                                     <div id="prefs"  style="display: none;">
                                         <div class="card">
                                                 <ul>
-                                                    <li>
+                                                    <li style="font-size: 13px;">
                                                         <label>
                                                             <input type="radio" class="option-input radio" name="example" checked/>
                                                             Βέλτιστη Διαδρομή
-                                                        </label>
+                                                        </label>                    
                                                     </li>
-                                                    <li>
+                                                    <li style="font-size: 13px;">
                                                         <label>
                                                             <input type="radio" class="option-input radio" name="example" />
                                                             Διαδρομή με τις λιγότερες αλλαγές
                                                           </label>
                                                     </li>
-                                                    <li>
+                                                    <li style="font-size: 13px;">
                                                         <label>
                                                             <input type="radio" class="option-input radio" name="example" />
                                                             Διαδρομή με το λιγότερο περπάτημα
                                                           </label>
                                                     </li>
-                                                    <li>
+                                                    <li style="font-size: 13px;">
                                                         <label>
                                                             <input type="radio" class="option-input radio" name="example" />
                                                             Διαδρομή μόνο μέσω λεωφορειακών γραμμών
                                                           </label>
                                                     </li>
                                                 </ul>
-                                        <!-- <fieldset role="tabpanel">
-                                            <legend class="bold"><h5>Επιλέξτε:</h5></legend>
-                                            <div class="radio">
-                                                <label><input type="radio" name="optradio" checked>Βέλτιστη διαδρομή</label>
-                                              </div>
-                                              <div class="radio">
-                                                <label><input type="radio" name="optradio">Διαδρομή με τις λιγότερες αλλαγές</label>
-                                              </div>
-                                              <div class="radio">
-                                                <label><input type="radio" name="optradio">Διαδρομή με το λιγότερο περπάτημα</label>
-                                              </div>
-                                              <div class="radio">
-                                                <label><input type="radio" name="optradio">Διαδρομή μόνο μέσω λεωφορειακών γραμμών</label>
-                                              </div>
-                                        </fieldset> -->
                                     </div>
 
                                     <script>
