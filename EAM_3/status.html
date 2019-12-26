@@ -35,6 +35,12 @@
     <script src="http://code.jquery.com/jquery-1.12.4.js" type="text/javascript"></script>
     <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js" type="text/javascript"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment-with-locales.js"></script>
+    <script src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/d004434a5ff76e7b97c8b07c01f34ca69e635d97/src/js/bootstrap-datetimepicker.js"></script>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/d004434a5ff76e7b97c8b07c01f34ca69e635d97/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
+
     <!-- Modernizer for Portfolio -->
     <script src="js/modernizer.js"></script>
 
@@ -81,7 +87,7 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a class="active" href="index.html">Αρχική</a></li>
-                        <li><a href="status.html">Κατάσταση Μέσων</a></li>
+                        <li><a href="#">Κατάσταση Μέσων</a></li>
                         <li><a href="#">Χάρτες</a></li>
                         <li class="dropdown" >
                             <a href="https://github.com/wmsksf/hci" class="dropbtn">Εισιτήρια-Κάρτες</a>
@@ -152,200 +158,37 @@
     </header>
     <!--end of HEADER-->
 
-    <!--SLIDE SHOW-->
-	<ul class='slideshow'>
-		<li>
-			<span>Slide1</span>
-		</li>
-		<li>		
-			<span>Slide2</span>
-		</li>
-		<li>		
-			<span>Slide3</span>
-		</li>
-		<li>
-			<span>Slide4</span>
-		</li>
-    </ul>
-    <!--end of SLIDE SHOW-->
-    
-    <!--FIRST SECTION (overlaying slide show)-->
-    <div class="parallax first-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 wow slideInLeft hidden-xs hidden-sm">
-                    <div class="contact_form">
-                        <h3><i class="fa fa-map-marker grd1 global-radius"></i> ΒΡΕΣ ΔΙΑΔΡΟΜΗ</h3>
-                        <form id="contactform1" class="row" name="contactform" method="post">
-                            <fieldset class="row-fluid">
-                                <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" name="first_name1" id="first_name1" class="form-control" placeholder="Από">
-                                </div>
-                                <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" name="last_name1" id="last_name1" class="form-control" placeholder="Προς">
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <h4 style="margin-top:5px"><i class="fa fa-clock-o global-radius"></i> ΦΕΥΓΩ: <i>
-                                    <a href="#" onclick="openTime()">όρισε ώρα</a></i></h4>
-                                    <div id="times" style="display: none;">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-md-4 wow slideInRight hidden-xs hidden-sm">
-                                                    hello
-                                                </div>
-                                            </div>   
-                                        </div>
+    <div class="about-box">
+		<div class="container">
+            <nav id="breadcrumbs">
+                <ul>
+                    <li><a href="#"><i class="fa fa-home global-radius"></i></a></li>
+                    <li>Κατάσταση μέσων</li>
+                </ul>
+            </nav>
 
-                                        <script>
-                                            function openTime() {
-                                              var x = document.getElementById("times");
-                                              if (x.style.display === "none") {
-                                                    $("#times").slideDown("slow");
-                                                x.style.display = "block";
-                                              } else {
-                                                x.style.display = "none";
-                                              }
-                                            }
-                                        </script>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <h4><i class="fa fa-cogs global-radius"></i> <i><a href="#" onclick="openPrefs()">Προτιμήσεις</a></i></h4>
-                                    <div id="prefs"  style="display: none;">
-                                        <div class="card">
-                                                <ul>
-                                                    <li>
-                                                        <label>
-                                                            <input type="radio" class="option-input radio" name="example" checked/>
-                                                            Βέλτιστη Διαδρομή
-                                                        </label>
-                                                    </li>
-                                                    <li>
-                                                        <label>
-                                                            <input type="radio" class="option-input radio" name="example" />
-                                                            Διαδρομή με τις λιγότερες αλλαγές
-                                                          </label>
-                                                    </li>
-                                                    <li>
-                                                        <label>
-                                                            <input type="radio" class="option-input radio" name="example" />
-                                                            Διαδρομή με το λιγότερο περπάτημα
-                                                          </label>
-                                                    </li>
-                                                    <li>
-                                                        <label>
-                                                            <input type="radio" class="option-input radio" name="example" />
-                                                            Διαδρομή μόνο μέσω λεωφορειακών γραμμών
-                                                          </label>
-                                                    </li>
-                                                </ul>
-                                        <!-- <fieldset role="tabpanel">
-                                            <legend class="bold"><h5>Επιλέξτε:</h5></legend>
-                                            <div class="radio">
-                                                <label><input type="radio" name="optradio" checked>Βέλτιστη διαδρομή</label>
-                                              </div>
-                                              <div class="radio">
-                                                <label><input type="radio" name="optradio">Διαδρομή με τις λιγότερες αλλαγές</label>
-                                              </div>
-                                              <div class="radio">
-                                                <label><input type="radio" name="optradio">Διαδρομή με το λιγότερο περπάτημα</label>
-                                              </div>
-                                              <div class="radio">
-                                                <label><input type="radio" name="optradio">Διαδρομή μόνο μέσω λεωφορειακών γραμμών</label>
-                                              </div>
-                                        </fieldset> -->
-                                    </div>
-
-                                    <script>
-                                        function openPrefs() {
-                                          var x = document.getElementById("prefs");
-                                          if (x.style.display === "none") {
-                                                $("#prefs").slideDown("slow");
-                                            x.style.display = "block";
-                                          } else {
-                                            // $("#prefs").slideUp();
-                                            x.style.display = "none";
-                                          }
-                                        }
-                                    </script>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-lg-offset-12 text-center">
-                                    <button type="submit" value="SEND" id="submit1" class="btn btn-light btn-radius btn-brd grd1 btn-block">Πάμε!</button>
-                                </div>
-                            </fieldset>
-                        </form>
-                    </div>
-                </div>
-            </div><!-- end row -->
-            <div class="row">
-                <div class="col-md-3 col-md-offset-9 wow slideInRight hidden-xs hidden-sm">
-                    <button class="btnn" onclick="window.open('#', '_blank')">Ανακαλύψτε την Αθήνα</button>
-                        <!-- <a data-scroll href="#" class="btnn">Ανακαλύψτε την Αθήνα</a> -->
-                    </div>
+            <div class="section-title row text-center">
+                <div class="col-md-8 col-md-offset-2">
+                    <h3>ΚΑΤΑΣΤΑΣΗ ΜΕΣΩΝ</h3>
                 </div>
             </div>
-        </div><!-- end container -->
-    </div>
-    <!--end of FIRST SECTION-->
 
-    <!--SECOND SECTION-->
-	<div class="about-box">
-		<div class="container">
-			<div class="row">
-				<div class="top-feature owl-carousel owl-theme">
-					<div class="item">
-						<div class="single-feature">
-							<div class="icon"><img src="uploads/icon-01.png" class="img-responsive" alt=""></div>
-							<h4><a href="#">Full Furnished</a></h4>
-							<p>Mauris eu porta orci. In at erat enim. Suspendisse felis erat, volutpat at nisl sit amet, maximus molestie nisi. </p>
-						</div> 
-					</div>
-					<div class="item">
-						<div class="single-feature">
-							<div class="icon"><img src="uploads/icon-02.png" class="img-responsive" alt=""></div>
-							<h4><a href="#">Living Inside a Nature</a></h4>
-							<p>Mauris eu porta orci. In at erat enim. Suspendisse felis erat, volutpat at nisl sit amet, maximus molestie nisi.</p>
-						</div> 
-					</div>
-					<div class="item">
-						<div class="single-feature">
-							<div class="icon"><img src="uploads/icon-03.png" class="img-responsive" alt=""></div>
-							<h4><a href="#">Luxurious Fittings</a></h4>
-							<p>Mauris eu porta orci. In at erat enim. Suspendisse felis erat, volutpat at nisl sit amet, maximus molestie nisi. </p>
-						</div> 
-					</div>
-					<div class="item">
-						<div class="single-feature">
-							<div class="icon"><img src="uploads/icon-04.png" class="img-responsive" alt=""></div>
-							<h4><a href="#">Non Stop Security</a></h4>
-							<p>Lorem Is a dummy Mauris eu porta orci. In at erat enim. Suspendisse felis erat, volutpat at nisl sit amet, maximus molestie nisi. </p>
-						</div> 
-					</div>
-				</div>
-			</div>
-			
-			<hr class="hr1">
-			
-			<div class="row">
-				<div class="col-md-6">
-                    <div class="post-media wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
-                        <img src="uploads/about_bg.jpg" alt="" class="img-responsive">                        
-                    </div><!-- end media -->
-                </div>
-				<div class="col-md-6">
-					<div class="message-box right-ab">
-                        <h4>Awards Winning Real Estate Company</h4>
-                        <h2>Welcome to CITY Real Estate</h2>
-                        <p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus. Sed a tellus quis mi rhoncus dignissim.</p>
-						<p>Aenean eleifend in felis id viverra. Vestibulum semper ex eu molestie pulvinar. Maecenas non efficitur metus, et semper sem. Mauris ligula sapien, gravida a scelerisque ut, vehicula sed mauris. Proin dapibus mi id vulputate euismod. Nam ullamcorper dui tellus, non lacinia lorem hendrerit eu. Donec at orci cursus, rutrum metus eget, cursus turpis.  </p>
-						<a href="#" class="btn btn-light btn-radius grd1 btn-brd"> Read More </a>
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <div class='input-group date' id='datetimepicker1'>
+                            <input type='text' class="form-control" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
                     </div>
-				</div>
-			</div>
-			
-		</div>
+                    <script>
+                        $('#datetimepicker1').datetimepicker();
+                    </script>
+                </div>
+        </div>
     </div>
-    <!--END OF SECOND SECTION-->
 
     <!--FOOTER-->
     <footer class="footer">

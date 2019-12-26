@@ -948,7 +948,7 @@ body.realestate_version .header_style_01 .navbar-right > li.search-option form b
 }
 
 .section-title h3 {
-    font-size: 42px;
+    font-size: 32px;
     font-weight: 300;
     line-height: 62px;
     margin: 0 0 25px;
@@ -1310,7 +1310,7 @@ body.realestate_version .header_style_01 .navbar-right > li.search-option form b
 -------------------------------------------------------------------*/
 
 .about-box{
-	padding: 70px 0px;
+	padding: 150px 0px;
 }
 
 .single-feature {
@@ -2769,7 +2769,7 @@ select.mobile-device {
 -------------------------------------------------------------------*/
 
 .all-title-box{
-	background: url(uploads/inner-bg.jpg);
+	/*background: url(uploads/inner-bg.jpg);*/
 	position: relative;
 	padding: 200px 0 70px 0px;
 	margin-bottom: 0px;
@@ -2799,7 +2799,7 @@ select.mobile-device {
 #breadcrumbs {
 	background: #00599C;
 	padding: 10px 20px;
-    position: absolute;
+    position: left;
     right: 0px;
     display: inline-block;
     font-size: 15px;
