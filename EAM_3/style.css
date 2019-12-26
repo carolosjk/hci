@@ -526,7 +526,20 @@ li.social-links a {
     top: 13px;
 }
 
+.navbar-inner {
+    font-size: 18px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(3, 33%)
+}
 
+.navbar-inner > li {
+    border: 1px solid #fff;
+}
+
+ul.nav.navbar-inner::before{
+    display: none !important;
+}
 
 .fixed-menu .navbar-default {
     position: fixed;
@@ -936,7 +949,7 @@ body.realestate_version .header_style_01 .navbar-right > li.search-option form b
 .section-title {
     display: block;
     position: relative;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 
 .section-title p {
@@ -2774,7 +2787,7 @@ select.mobile-device {
 -------------------------------------------------------------------*/
 
 .all-title-box{
-	/*background: url(uploads/inner-bg.jpg);*/
+	background: url(uploads/inner-bg.jpg);
 	position: relative;
 	padding: 200px 0 70px 0px;
 	margin-bottom: 0px;
