@@ -1310,23 +1310,28 @@ body.realestate_version .header_style_01 .navbar-right > li.search-option form b
 -------------------------------------------------------------------*/
 
 .about-box{
-	padding: 150px 0px;
+    padding: 100px 0px;
+
 }
 
 .single-feature {
     background: #f7f4f4;
-    border-bottom: 10px solid transparent;
+    border-bottom: 5px solid transparent;
 	text-align: center;
-	padding: 30px 25px 45px 25px;
+	padding: 25px 20px 40px 20px;
 }
 
 .single-feature h4 {
-    margin: 35px 0 25px 0;
+    margin: 30px 0 20px 0;
 	padding: 0px;
-	font-size: 22px;
+	font-size: 20px;
 }
 
-.top-feature .center .single-feature, .top-feature .single-feature:hover {
+.single-feature:hover {
+    border-bottom-color: #00599C;
+}
+
+.top-feature .center .single-feature, .top-feature {
     border-bottom-color: #00599C;
 }
 
