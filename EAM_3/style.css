@@ -537,6 +537,17 @@ li.social-links a {
     border: 1px solid #fff;
 }
 
+.navbar-inner > li a.active::before {
+    font-family: FontAwesome;
+    content: "\f00c";
+    float: left;
+}
+
+.navbar-inner > li a.active {
+    background-color: #fcfcfc;
+    color:#00599C;
+}
+
 ul.nav.navbar-inner::before{
     display: none !important;
 }
@@ -664,7 +675,7 @@ body.realestate_version .header_style_01 .navbar-right > li.search-option form b
 
 .modal-content {
     font-weight: bold;
-    background: linear-gradient(to bottom right,#7faccd,#1969a5);
+    background: linear-gradient(to bottom right,#7eaccd,#1969a5);
 }
 
 .form-control {
@@ -2737,6 +2748,28 @@ select.mobile-device {
 	100% {
 	height: 0%;
 	}
+}
+
+/* status alert */
+
+.alert {
+    background-color: #4c8ab9;
+    font-weight: bold;
+    color: white;
+}
+  
+.closebtn {
+    margin-left: 15px;
+    font-weight: bold;
+    float: right;
+    font-size: 26px;
+    line-height: 24px;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+  
+.closebtn:hover {
+    color: black;
 }
 
 /*------------------------------------------------------------------

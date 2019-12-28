@@ -78,8 +78,8 @@
                 <!--NAV-BAR-->
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a class="active" href="index.html">Αρχική</a></li>
-                        <li><a href="status.html">Κατάσταση Μέσων</a></li>
+                        <li><a href="index.html">Αρχική</a></li>
+                        <li><a class="active" href="status.html">Κατάσταση Μέσων</a></li>
                         <li><a href="#">Χάρτες</a></li>
                         <li class="dropdown" >
                             <a href="#" class="dropbtn">Εισιτήρια-Κάρτες</a>
@@ -175,11 +175,18 @@
                     </ul>
                 </nav>
 
+                <!--<div class="col-md-12">
+                    <div class="alert">
+                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                        <strong>Προσοχή!</strong> Απεργία...
+                    </div>
+                </div>-->
+
                 <div class="col-md-12">
                     <div class="navbar navbar-default">
                         <div id="navbar2" class="navbar-collapse collapse">
                             <ul class="nav navbar-inner">
-                                <li><a class="active" href="index.html">Τώρα</a></li>
+                                <li><a class="active" role="button" href="#">Τώρα</a></li>
                                 <li><a href="#">Αυτή την εβδομάδα</a></li>
                                 <li><a onclick="getCalendar()">Επιλογή ημερομηνίας</a>
                                 <div id="calendar" style="display:none;">
@@ -222,8 +229,8 @@
                                 <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
                                     <input type="text" name="line" id="line" class="form-control" placeholder="Από">
                                 </div>
-                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 col-lg-offset-8 text-center">
-                                    <button type="submit" value="SEND" id="submit1" class="btn btn-light btn-radius btn-brd grd1 btn-block">>></button>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-lg-offset-8 text-center">
+                                    <button type="submit" value="SEND" id="submit" class="btn btn-light btn-radius btn-brd grd1 btn-block">>></button>
                                 </div>
                             </fieldset>
                         </form>
