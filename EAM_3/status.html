@@ -175,54 +175,53 @@
                         <li>Κατάσταση μέσων</li>
                     </ul>
                 </nav>
-
+            </div>
                 <!--<div class="col-md-12">
                     <div class="alert">
                         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
                         <strong>Προσοχή!</strong> Απεργία...
                     </div>
                 </div>-->
-
+            <div class="row">
                 <div class="col-md-12">
-                    <div class="navbar navbar-default">
-                        <div id="navbar2" class="navbar-collapse collapse">
-                            <ul class="nav navbar-inner">
-                                <li><a class="active" role="button" href="#">Τώρα</a></li>
-                                <li><a href="#">Αυτή την εβδομάδα</a></li>
-                                <li><a onclick="getCalendar()">Επιλογή ημερομηνίας</a>
-                                <div id="calendar" style="display:none;">
-                                    <div class="form-group">
-                                        <div class='input-group date' id='datetimepicker'>
-                                            <input type='text' class="form-control" />
-                                            <span class="input-group-addon">
-                                                <span class="glyphicon glyphicon-calendar"></span>
-                                            </span>
-                                        </div>
+                    <ul class="nav nav-pills nav-fill" id="mynav">
+                        <li class="active" style="width:33%"><a data-toggle="pill" href="#now">Τώρα</a></li>
+                        <li style="width:33%"><a data-toggle="pill" href="#week">Αυτή την εβδομάδα</a></li>
+                        <li style="width:33%"><a data-toggle="pill" onclick="getCalendar()">Επιλογή ημερομηνίας</a>
+                            <div id="calendar" style="display:none;">
+                                <div class="form-group">
+                                    <div class='input-group date' id='datetimepicker'>
+                                        <input type='text' class="form-control" />
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
                                     </div>
-                                    <script>
-                                        $('#datetimepicker').datetimepicker({
-                                            locale: 'el',
-                                            format: 'DD/MM/YYYY',
-                                            minDate: new Date()});
-                                    </script>
-                    
-                                    <script>
-                                        function getCalendar() {
-                                          var x = document.getElementById("calendar");
-                                          if (x.style.display === "none") {
-                                                $("#calendar").slideDown("slow");
-                                            x.style.display = "block";
-                                          } else {
-                                            x.style.display = "none";
-                                          }
-                                        }
-                                    </script>
-                                </div></li>
-                            </ul>
-                        </div>
-                    </div>
+                                </div>
+                                <script>
+                                    $('#datetimepicker').datetimepicker({
+                                        locale: 'el',
+                                        format: 'DD/MM/YYYY',
+                                        minDate: new Date()});
+                                </script>
+                
+                                <script>
+                                    function getCalendar() {
+                                      var x = document.getElementById("calendar");
+                                      if (x.style.display === "none") {
+                                            $("#calendar").slideDown("slow");
+                                        x.style.display = "block";
+                                      } else {
+                                        x.style.display = "none";
+                                      }
+                                    }
+                                </script>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
+            </div>
 
+            <div class="row" style="margin-top: 20px;">
                 <div class="col-md-3 wow slideInLeft hidden-xs hidden-sm">
                     <div class="contact_form">
                         <h3>Αναζήτηση Γραμμής</h3>
@@ -242,6 +241,7 @@
                 <div class="col-md-9 wow slideInRight hidden-xs hidden-sm">
                     <div id="map"></div>
                 </div>
+
             </div>
         </div>
     </div>
