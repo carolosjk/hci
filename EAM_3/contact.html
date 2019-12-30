@@ -180,22 +180,22 @@
                         <form id="contactform" class="row" action="contact.php" name="contactform" method="post">
                             <fieldset class="row-fluid">
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Επώνυμο">
+                                    <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Επώνυμο" required oninvalid="setCustomValidity('Άδειο πεδίο. Χρειάζεται να εισαχθεί επώνυμο!')" oninput="setCustomValidity('')">
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" name="first_name" id="first_name" class="form-control" placeholder="Όνομα">
+                                    <input type="text" name="first_name" id="first_name" class="form-control" placeholder="Όνομα" required oninvalid="setCustomValidity('Άδειο πεδίο. Χρειάζεται να εισαχθεί όνομα!')" oninput="setCustomValidity('')">
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+                                    <input type="email" name="email" id="email" class="form-control" placeholder="example@example.com/gr" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required oninvalid="setCustomValidity('Άδειο πεδίο ή μη έγκυρη διεύθυνση email! Προσθέστε έγκυρη διεύθυνση email.')" oninput="setCustomValidity('')">
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <input type="tel" name="phone" id="phone"  pattern="[0-9]{10}" class="form-control" placeholder="Τηλέφωνο">
+                                    <input type="tel" name="phone" id="phone"  pattern="[0-9]{10}" class="form-control" placeholder="Τηλέφωνο" required oninvalid="setCustomValidity('Άδειο πεδίο ή μη έγκυρος αριθμός τηλεφώνου! Προσθέστε έγκυρο δεκαψήφιο αριθμό τηλεφώνου.')" oninput="setCustomValidity('')">
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-                                    <input type="text" name="subject" id="subject" class="form-control" placeholder="Θέμα">
+                                    <input type="text" name="subject" id="subject" class="form-control" placeholder="Θέμα" required oninvalid="setCustomValidity('Άδειο πεδίο. Προσθέστε θέμα αιτήματος!')" oninput="setCustomValidity('')">
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <textarea class="form-control" name="comments" id="comments" rows="6" placeholder="Δώστε λεπτομέρειες..."></textarea>
+                                    <textarea class="form-control" name="comments" id="comments" rows="6" placeholder="Δώστε λεπτομέρειες..." required oninvalid="setCustomValidity('Άδειο πεδίο. Προσθέστε λεπτομέρειες!')" oninput="setCustomValidity('')"></textarea>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
                                     <button type="submit" value="SEND" id="submit" class="btn btn-light btn-radius btn-brd grd1 btn-block">Αποστολή αιτήματος!</button>
