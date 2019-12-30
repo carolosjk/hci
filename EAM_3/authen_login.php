@@ -1,26 +1,37 @@
 <?php  
- require('db_connect.php');
 
-if (isset($_POST['user_id']) and isset($_POST['user_pass'])){
-	
-// Assigning POST values to variables.
-$username = $_POST['user_id'];
-$password = $_POST['user_pass'];
+require('db_connect.php');
 
-// CHECK FOR THE RECORD FROM TABLE
-$query = "SELECT * FROM `users` WHERE email='$username' and password='$password'";
- 
-$result = mysqli_query($connection, $query) or die(mysqli_error($connection));
-$count = mysqli_num_rows($result);
+if (!isset($_POST)) exit();
+if (isset($_POST['user_id']) and isset($_POST['user_pass']))
+{
+    // Assigning POST values to variables.
+    $username = $_POST['user_id'];
+    $password = $_POST['user_pass'];
 
-if ($count == 1){
+    // CHECK FOR THE RECORD FROM TABLE
+    $query = "SELECT * FROM `users` WHERE email='$username' and password='$password'";
+    
+    $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
+    $count = mysqli_num_rows($result);
 
-//echo "Login Credentials verified";
-echo "<script type='text/javascript'>alert('Login Credentials verified')</script>";
+    if ($count == 1) {
 
-}else{
-echo "<script type='text/javascript'>alert('Invalid Login Credentials')</script>";
-//echo "Invalid Login Credentials";
-}
+        // session_start();
+        // $_SESSION['user_id'] = $username;
+
+        mysqli_close($connection);
+
+        // comment out to work with ajax, js
+        echo "<script> alert('Login Credentials Verified');</script>";
+        header('Location: index.html');
+    }
+    else
+    {
+        mysqli_close($connection);
+
+        // comment out to work with ajax, js
+        echo "<script> alert('Invalid Login Credentials'); window.history.go(-1); </script>";
+    }
 }
 ?>

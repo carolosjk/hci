@@ -136,14 +136,35 @@
                                         </ul>
                                         <div class="tab-content">
                                             <div role="tabpanel" class="tab-pane active" id="home">
-                                                <form id="login-form" method="post" action="authen_login.php" >
-                                                    <input type="text" name="user_id" class="username form-control" placeholder="Email"/>
-                                                    <input type="password" name="user_pass" class="password form-control" placeholder="Συνθηματικό"/>
+                                                <!-- <form id="login-form"> -->
+                                                <form id="login-form" method="post" action="authen_login.php">
+                                                    <input type="email" name="user_id" class="username form-control" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required oninvalid="setCustomValidity('Άδειο πεδίο ή μη έγκυρη διεύθυνση email! Προσθέστε έγκυρη διεύθυνση email.')" oninput="setCustomValidity('')"/>
+                                                    <input type="password" name="user_pass" class="password form-control" placeholder="Συνθηματικό" required oninvalid="setCustomValidity('Άδειο πεδίο! Προσθέστε συνθηματικό.')" oninput="setCustomValidity('')"/>
                                                     <input class="btn login" type="submit" value="Είσοδος"/>
                                                 </form>
+
+                                                <!-- <script>
+                                                    $('#login_form').submit(function(e)
+                                                    {
+                                                        e.preventDefault();
+                                                        $.ajax({
+                                                            url: authen_login.php,
+                                                            type: post,
+                                                            data: $('#login_form').serialize(),
+                                                            success: function()
+                                                            {
+                                                                alert('Επιτυχής Είσοδος!')
+                                                            },
+                                                            error: function()
+                                                            {
+                                                                alert("Ανεπιτυχής Σύνδεση! Δοκιμάστε ξανά, αλλιώς κάνετε εγγραφή αν δεν είστε ήδη εγγεγραμμένος.");
+                                                            }
+                                                        });
+                                                    });
+                                                </script> -->
                                             </div>
                                             <div role="tabpanel" class="tab-pane" id="next">
-                                                <form id="register-form" method="post" action="register.php" >
+                                                <form id="register-form" method="post" action="register.php">
                                                     <input type="text" name="username" class="username form-control" placeholder="Email"/>
                                                     <input type="password" name="password1" class="password form-control" placeholder="Συνθηματικό"/>
                                                     <input type="password" name="password2" class="password form-control" placeholder="Επανάληψη Συνθηματικού"/>
@@ -159,7 +180,8 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="login-trigger" onclick="javascript:$('#myModal').modal('show');"><i class="fa fa-user" aria-hidden="true"></i></button>
+                        <!-- <button class="login-trigger" onclick="javascript:$('#myModal').modal('show');"><i class="fa fa-user" aria-hidden="true"></i></button> -->
+                        <button class="login-trigger" onclick="window.open('userpass.html', '_blank')"><i class="fa fa-user" aria-hidden="true"></i></button>
                         </li>
                     </ul>
                 </div>
