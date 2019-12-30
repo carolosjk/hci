@@ -79,8 +79,8 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="index.html">Αρχική</a></li>
-                        <li><a class="active" href="status.html">Κατάσταση Μέσων</a></li>
-                        <li><a href="#">Χάρτες</a></li>
+                        <li><a class="active" href="status.php">Κατάσταση Μέσων</a></li>
+                        <li><a href="maps.html">Χάρτες</a></li>
                         <li class="dropdown" >
                             <a href="#" class="dropbtn">Εισιτήρια-Κάρτες</a>
                             <div class="dropdown-content">
@@ -222,7 +222,7 @@
             </div>
 
             <div class="row" style="margin-top: 20px;">
-                <div class="col-md-3 wow slideInLeft hidden-xs hidden-sm">
+                <div class="col-md-4 wow slideInLeft hidden-xs hidden-sm">
                     <div class="contact_form">
                         <h3>Αναζήτηση Γραμμής</h3>
                         <form id="contactform1" class="row" name="contactform" method="post">
@@ -247,7 +247,7 @@
                     </div>    
                 </div>
 
-                <div class="col-md-9 wow slideInRight hidden-xs hidden-sm">
+                <div class="col-md-8 wow slideInRight hidden-xs hidden-sm">
                     <div id="map"></div>
                 </div>
 
