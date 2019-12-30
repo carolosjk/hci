@@ -17,8 +17,8 @@ if (isset($_POST['user_id']) and isset($_POST['user_pass']))
 
     if ($count == 1) {
 
-        // session_start();
-        // $_SESSION['user_id'] = $username;
+        session_start();
+        $_SESSION['user_id'] = $username;
 
         mysqli_close($connection);
 
@@ -31,7 +31,8 @@ if (isset($_POST['user_id']) and isset($_POST['user_pass']))
         mysqli_close($connection);
 
         // comment out to work with ajax, js
-        echo "<script> alert('Invalid Login Credentials'); window.history.go(-1); </script>";
+        echo "<script> alert('Invalid Login Credentials');</script>";
+        header('Location: index.html');
     }
 }
 ?>
