@@ -606,7 +606,8 @@ body.realestate_version .header_style_01 .navbar-right > li.search-option button
 	background: #00599C;
 	border: none;
 	transition: all .3s ease-in-out;
-	border-radius: 2px;
+    border-radius: 2px;
+    margin-left:-10%;
 }
 body.realestate_version .header_style_01 .navbar-right > li.search-option button.search:hover{
 	background: #4c8ab9;
@@ -652,6 +653,11 @@ body.realestate_version .header_style_01 .navbar-right > li.search-option form b
 	border-radius: 2px;
 }
 
+.loginSet {
+    border-bottom: solid 1px #00599C;
+    border-radius: 2px;
+}
+
 .login-trigger {
 	line-height: 43px;
 	width: 45px;
@@ -660,7 +666,6 @@ body.realestate_version .header_style_01 .navbar-right > li.search-option form b
 	border: none;
 	transition: all .3s ease-in-out;
     border-radius: 2px;
-    margin-left: 30%;
 }
 
 .login-trigger:hover {
@@ -2823,7 +2828,7 @@ select.mobile-device {
 .all-title-box{
 	background: linear-gradient(to bottom right,#7faccd,#1969a5);
 	position: relative;
-	padding: 200px 0 70px 0px;
+	padding: 150px 0 40px 0px;
 	margin-bottom: 0px;
 }
 
