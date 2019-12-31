@@ -1,12 +1,4 @@
 <?php
-    session_start();
-    if ( isset( $_SESSION['user_id']))
-    {
-
-    }
-    else {
-        <button class="login-trigger" onclick="window.open('userpass.html', '_blank')"><i class="fa fa-user" aria-hidden="true"></i></button>
-    }
 
 ?>
 
@@ -193,7 +185,7 @@
                             </div>
                         </div>
                         <!-- <button class="login-trigger" onclick="javascript:$('#myModal').modal('show');"><i class="fa fa-user" aria-hidden="true"></i></button> -->
-                        <!-- <button class="login-trigger" onclick="window.open('userpass.html', '_blank')"><i class="fa fa-user" aria-hidden="true"></i></button> -->
+                        <button class="login-trigger" onclick="window.open('userpass.php', '_blank')"><i class="fa fa-user" aria-hidden="true"></i></button>
                         </li>
                     </ul>
                 </div>
@@ -250,7 +242,7 @@
                                         </div>
                                         
                                         <script>
-                                            $('#datetimepicker1').datetimepicker({locale: 'el'});
+                                            $('#datetimepicker1').datetimepicker({locale: 'el', minDate: new Date()});
                                         </script>
 
                                         <script>

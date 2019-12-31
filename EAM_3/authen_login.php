@@ -23,7 +23,7 @@ if (isset($_POST['user_id']) and isset($_POST['user_pass']))
         mysqli_close($connection);
 
         // comment out to work with ajax, js
-        echo "<script> alert('Login Credentials Verified');</script>";
+        // echo "<script> alert('Login Credentials Verified');</script>";
         header('Location: index.html');
     }
     else
@@ -31,8 +31,14 @@ if (isset($_POST['user_id']) and isset($_POST['user_pass']))
         mysqli_close($connection);
 
         // comment out to work with ajax, js
-        echo "<script> alert('Invalid Login Credentials');</script>";
-        header('Location: index.html');
+        // echo "<script> alert('Ανεπιτυχής σύνδεση! Δοκιμάστε ξανά.');</script>";
+        // appearance of blank page still occuring
+        // echo "<script>setTimeout(function () {
+        //     //Redirect with JavaScript
+        //     window.location.href= 'userpass.php';
+        //  }, 0); </script>";
+
+        header('Location: userpass.php?error=invalidcredentials');
     }
 }
 ?>
