@@ -102,7 +102,7 @@
                                     <fieldset class="row-fluid">
                                         <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
                                             <br/><h4>Επιλέξτε γραμμή:</h4>
-                                            <select name="select_bus" id="select_bus" class="selectpicker form-control" data-style="btn-white">
+                                            <select name="select_bus" id="select_bus" class="selectpicker form-control" data-style="btn-white" data-live-search="true">
                                             <!--<input type="text" name="line" id="line" class="form-control" style="margin-top:5px;" placeholder="">-->
                                                 <?php  
 
@@ -119,15 +119,31 @@
                                             <input type="text" name="address1" id="address1" class="form-control" style="margin-top:5px;" placeholder="">
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-lg-offset-8 text-center">
-                                            <input type="button" value=">>" id="submit" class="btn btn-light btn-radius btn-brd grd1 btn-block" onclick="selectedLine()">
+                                            <button type="submit" value=">>" id="submit" class="btn btn-light btn-radius btn-brd grd1 btn-block">>></button>
 
                                             <script>
-                                                function selectedLine() {
-                                                    var selected = $('#select_bus option:selected').text();
-                                                    var selectedNum = selected.split(' : ')[0];
-                                                    window.location.hash = 'lineDetails_'+selectedNum;
-                                                    $('.item').empty();
-                                                    //have line info slide in???
+                                                $(document).ready(function(){
+                                                    $("button").click(function(event){
+                                                        var selected = $('#select_bus option:selected').text();
+                                                        //var selectedNum = selected.split(' : ')[0];
+                                                        window.location.hash = 'lineDetails_'+selected;
+                                                        $(".item").empty();
+                                                        event.preventDefault();
+
+                                                        $("#lineInfo").slideDown();
+
+                                                        changeLineInfo(selected);
+                                                    });
+                                                });
+                                            </script>
+
+                                            <script>
+                                                function changeLineInfo(selected) {
+                                                    var number = selected.split(' : ')[0];
+                                                    var h = 'Πληροφορίες γραμμής: ' + selected + '<i class="fa fa-heart" style="float:right; line-height:25px"></i>';
+                                                    document.getElementById("infoTitle").innerHTML = h;
+                                                    document.getElementById("option1").innerHTML = number;  //doesn't work
+                                                    document.getElementById("option2").innerHTML = number;
                                                 }
                                             </script>
                                         </div>
@@ -143,7 +159,7 @@
                                     <fieldset class="row-fluid">
                                         <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
                                             <br/><h4>Επιλέξτε στάση:</h4>
-                                            <select name="select_station" id="select_station" class="selectpicker form-control" data-style="btn-white">
+                                            <select name="select_station" id="select_station" class="selectpicker form-control" data-style="btn-white" data-live-search="true">
                                                 <?php  
 
                                                 require('php_utils/db_connect.php');
@@ -182,6 +198,31 @@
                         <div class="single-feature" style="margin-top:50px;">
                             <h1 style="text-align: left;"><i class="fa fa-info-circle"></i><a href="contact.php"> Στοιχεία επικοινωνίας</a></h1>
                         </div>
+                    </div>
+                </div>
+
+                <div id="lineInfo">
+                    <div class="col-md-8">
+                        <h3 style="text-align: left; border-bottom:solid 1px #e1e1e1;" id="infoTitle"></h3>
+                        <div id="map" style="margin-top:20px"></div>
+
+                        </br>
+                        <ul class="nav nav-pills nav-fill" id="direction_nav">
+                            <li style="width:100%"><a data-toggle="pill">Κατεύθυνση</a>
+                        
+                            <select name="direction" id="direction" class="selectpicker form-control" data-style="btn-white">
+                                <option value="option1" id="option1"></option>
+                                <option value="option2" id="option2"></option>
+                            </select>
+                            </li>
+                        </ul>
+
+                        </br>
+                        <ul class="nav nav-pills nav-fill" id="schedule_nav">
+                            <li class="active" style="width:33%"><a data-toggle="pill" href="#everyday">Καθημερινή</a></li>
+                            <li style="width:33%"><a data-toggle="pill" href="#saturday">Σάββατο</a></li>
+                            <li style="width:33%"><a data-toggle="pill" href="#sunday">Κυριακή</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>

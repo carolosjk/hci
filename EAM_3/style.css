@@ -2936,6 +2936,10 @@ select.mobile-device {
 	font-weight: 400;
 }
 
+#lineInfo {
+    display: none;
+}
+
 #userProf_DIV_1 {
     bottom: 0px;
     box-sizing: border-box;

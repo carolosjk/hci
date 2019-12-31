@@ -136,7 +136,7 @@
                         <form id="contactform1" class="row" name="contactform" method="post">
                             <fieldset class="row-fluid">
                                 <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
-                                    <select name="select_bus" id="select_bus" class="selectpicker form-control" data-style="btn-white">
+                                    <select name="select_bus" id="select_bus" class="selectpicker form-control" data-style="btn-white" data-live-search="true">
                                         <?php  
 
                                         require('php_utils/db_connect.php');
