@@ -17,9 +17,9 @@
                 <!--NAV-BAR-->
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a class="active" href="index.php">Αρχική</a></li>
-                        <li><a href="status.php">Κατάσταση Μέσων</a></li>
-                        <li><a href="maps.php">Χάρτες</a></li>
+                        <li><a <?php if (basename($_SERVER['PHP_SELF']) == 'index.php') echo 'class="active"' ?> href="index.php">Αρχική</a></li>
+                        <li><a <?php if (basename($_SERVER['PHP_SELF']) == 'status.php') echo 'class="active"' ?> href="status.php">Κατάσταση Μέσων</a></li>
+                        <li><a <?php if (basename($_SERVER['PHP_SELF']) == 'maps.php') echo 'class="active"' ?> href="maps.php">Χάρτες</a></li>
                         <li class="dropdown" >
                             <a href="#" class="dropbtn">Εισιτήρια-Κάρτες</a>
                             <div class="dropdown-content">
@@ -37,13 +37,13 @@
                             </div>
                         </li> 
                         <li class="dropdown" >
-                            <a href="about.php" class="dropbtn">Οργανισμός ΟΑΣΑ</a>
+                            <a <?php if (basename($_SERVER['PHP_SELF']) == 'about.php') echo 'class="active"' ?> href="about.php" class="dropbtn">Οργανισμός ΟΑΣΑ</a>
                             <div class="dropdown-content">
                                 <a href="news.php">Νέα-Ανακοινώσεις</a>
                                 <a href="org.php">Προφίλ Οργανισμού</a>
                             </div>
                         </li>   
-                        <li><a href="contact.php">Επικοινωνία</a></li>
+                        <li><a <?php if (basename($_SERVER['PHP_SELF']) == 'contact.php') echo 'class="active"' ?> href="contact.php">Επικοινωνία</a></li>
                         <li class="search-option">
                             <button class="search tran3s dropdown-toggle" id="searchDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search" aria-hidden="true"></i></button>
                             <form action="#" class="p-color-bg dropdown-menu tran3s" aria-labelledby="searchDropdown">
