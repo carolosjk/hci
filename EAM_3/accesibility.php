@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +13,7 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
  
      <!-- Site Metas -->
-    <title>ΟΑΣΑ Επικοινωνία</title>  
+    <title>ΟΑΣΑ Προσβασιμότητα</title>  
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -47,7 +51,7 @@
         <span class="loader"><span class="loader-inner"></span></span>
     </div><!-- end loader -->
     <!-- END LOADER -->
-   
+
     <!--HEADER-->
     <header class="header header_style_01">
         <nav class="megamenu navbar navbar-default">
@@ -60,15 +64,15 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"><img src="images/logos/oasa_logo2.png" alt="image"></a>
+                    <a class="navbar-brand" href="index.php"><img src="images/logos/oasa_logo2.png" alt="image"></a>
                 </div>
                 <!--end of NAV HEADER-->
 
                 <!--NAV-BAR-->
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="index.html">Αρχική</a></li>
-                        <li><a href="status.html">Κατάσταση Μέσων</a></li>
+                        <li><a href="index.php">Αρχική</a></li>
+                        <li><a href="status.php">Κατάσταση Μέσων</a></li>
                         <li><a href="#">Χάρτες</a></li>
                         <li class="dropdown" >
                             <a href="#" class="dropbtn">Εισιτήρια-Κάρτες</a>
@@ -79,21 +83,21 @@
                             </div>
                         </li>
                         <li class="dropdown" >
-                            <a href="accesibility.html" class="dropbtn">Προσβασιμότητα</a>
+                            <a class="active" href="accesibility.php" class="dropbtn">Προσβασιμότητα</a>
                             <div class="dropdown-content">
-                                <a href="acs_instrc.html">Οδηγίες Πρόσβασης</a>
-                                <a href="acs_points.html">Προσβάσιμα Σημεία</a>
-                                <a href="acs_news.html">Ανακοινώσεις</a>
+                                <a href="acs_instrc.php">Οδηγίες Πρόσβασης</a>
+                                <a href="acs_points.php">Προσβάσιμα Σημεία</a>
+                                <a href="acs_news.php">Ανακοινώσεις</a>
                             </div>
                         </li> 
                         <li class="dropdown" >
-                            <a href="about.html" class="dropbtn">Οργανισμός ΟΑΣΑ</a>
+                            <a href="about.php" class="dropbtn">Οργανισμός ΟΑΣΑ</a>
                             <div class="dropdown-content">
-                                <a href="news.html">Νέα-Ανακοινώσεις</a>
-                                <a href="org.html">Προφίλ Οργανισμού</a>
+                                <a href="news.php">Νέα-Ανακοινώσεις</a>
+                                <a href="org.php">Προφίλ Οργανισμού</a>
                             </div>
                         </li>   
-                        <li><a class="active" href="contact.html">Επικοινωνία</a></li>
+                        <li><a href="contact.php">Επικοινωνία</a></li>
                         <li class="search-option">
                             <button class="search tran3s dropdown-toggle" id="searchDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search" aria-hidden="true"></i></button>
                             <form action="#" class="p-color-bg dropdown-menu tran3s" aria-labelledby="searchDropdown">
@@ -144,103 +148,61 @@
         </nav>
     </header>
     <!--end of HEADER-->
-	
-	<div class="all-title-box">
+    
+    <div class="all-title-box">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h2>Επικοινωνία</h2>
+					<h2>Προσβασιμότητα</h2>
 				</div>
 			</div>
 		</div>
-	</div>
+    </div>
     
     <!-- SECTION -->
-	<div id="support" class="section wb">
-        <div class="container">
-            <!-- Breadcrumbs -->
-			<nav id="breadcrumbs">
-				<ul>
-					<li><a href="index.html"><i class="fa fa-home global-radius fa-lg"></i></a></li>
-					<li>Επικοινωνία</li>
-				</ul>
-            </nav>
+	<div class="about-box">
+		<div class="container">
+			<div class="row">
+                <!-- Breadcrumbs -->
+                <nav id="breadcrumbs">
+                    <ul>
+                        <li><a href="index.php"><i class="fa fa-home global-radius fa-lg"></i></a></li>
+                        <li>Προσβασιμότητα</li>
+                    </ul>
+                </nav>
             
-            <div class="section-title text-center">
-                <h3>Αίτημα για Επικοινωνία</h3>
-                <p class="lead">Οποιαδήποτε στιγμή μπορείτε να επικοινωνήσετε μαζί μας είτε τηλεφωνικώς, 
-                    είτε μέσω ηλεκτρονικής αλληλογραφίας, email, ακόμη και συμπληρώνοντας την παρακάτω φόρμα παραθέτοντας τον λόγο επικοινωνίας.
-                <br>Θα απαντήσουμε στο αίτημα σας όσο το δυνατόν γρηγορότερα και αποτελεσματικά μπορούμε!</p>
+				<div class="item">
+					<div class="single-feature" style="margin-top: 50px;">
+                        <div class="icon"><i class="fa fa-universal-access fa-4x" style="height: 20%; width: 20%; float:left; padding-bottom: 30px;"></i>
+                            <h4 style="text-align: left;"><a href="acs_instrc.php">Οδηγίες Πρόσβασης</a></h4 style="text-align: left;">
+                            <p style="text-align: left;"> Οι οδηγίες απευθύνονται σε Αμεα, ηλικιωμένους και άτομα με κινητικά προβλήματα
+                            και αφορούν την πρόσβαση αυτών σε στάσεις λεωφορείων/τρόλει και σε σταθμούς μετρό.</p>
+                        </div>
+					</div> 
+				</div>
+			</div>
+			<div class="row">
+                <div class="single-feature" style="margin-top: 50px;">
+                    <div class="icon"><i class="fa fa-info-circle fa-4x" style="height: 20%; width: 20%; float:left; padding-bottom: 30px;"></i>
+                        <h4 style="text-align: left;"><a href="acs_points.php">Προσβάσιμα Σημεία</a></h4 style="text-align: left;">
+                        <p style="text-align: left;"> Πληροφορίες για Αμεα, ηλικιωμένους και άτομα με κινητικά προβλήματα σχετικά με ποιες στάσεις λεωφορείων/τρόλει
+                             και ποιοι σταθμοί μετρό μπορούν να χρησιμοποιήσουν για να διευκολυνθούν κατά την μετακίνησή τους με τα μέσα.</p>
+                    </div>
+                </div> 
+            </div>	
+            <div class="row">
+                <div class="single-feature" style="margin-top: 50px;">
+                    <div class="icon"><i class="fa fa-info fa-4x" style="height: 20%; width: 20%; float:left;"></i>
+                        <h4 style="text-align: left;"><a href="acs_news.php">Ανακοινώσεις</a></h4 style="text-align: left;">
+                        <p style="text-align: left;"> Ενημερωθείτε για προβλήματα στα διάφορα προσβάσιμα σημεία, στάσεις λεωφορείων/τρόλει και σταθμών μετρό.</p>
+                    </div>
+                </div> 
             </div>
 
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="contact_form">
-                        <div id="message"></div>
-                        <form id="contactform" class="row" action="contact.php" name="contactform" method="post">
-                            <fieldset class="row-fluid">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Επώνυμο" required oninvalid="setCustomValidity('Άδειο πεδίο. Χρειάζεται να εισαχθεί επώνυμο!')" oninput="setCustomValidity('')">
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" name="first_name" id="first_name" class="form-control" placeholder="Όνομα" required oninvalid="setCustomValidity('Άδειο πεδίο. Χρειάζεται να εισαχθεί όνομα!')" oninput="setCustomValidity('')">
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <input type="email" name="email" id="email" class="form-control" placeholder="example@example.com/gr" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required oninvalid="setCustomValidity('Άδειο πεδίο ή μη έγκυρη διεύθυνση email! Προσθέστε έγκυρη διεύθυνση email.')" oninput="setCustomValidity('')">
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <input type="tel" name="phone" id="phone"  pattern="[0-9]{10}" class="form-control" placeholder="Τηλέφωνο" required oninvalid="setCustomValidity('Άδειο πεδίο ή μη έγκυρος αριθμός τηλεφώνου! Προσθέστε έγκυρο δεκαψήφιο αριθμό τηλεφώνου.')" oninput="setCustomValidity('')">
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-                                    <input type="text" name="subject" id="subject" class="form-control" placeholder="Θέμα" required oninvalid="setCustomValidity('Άδειο πεδίο. Προσθέστε θέμα αιτήματος!')" oninput="setCustomValidity('')">
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <textarea class="form-control" name="comments" id="comments" rows="6" placeholder="Δώστε λεπτομέρειες..." required oninvalid="setCustomValidity('Άδειο πεδίο. Προσθέστε λεπτομέρειες!')" oninput="setCustomValidity('')"></textarea>
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-                                    <button type="submit" value="SEND" id="submit" class="btn btn-light btn-radius btn-brd grd1 btn-block">Αποστολή αιτήματος!</button>
-                                </div>
-                            </fieldset>
-                        </form>
-                    </div>
-                </div>
-				<div class="col-md-6">
-					<div class="right-box-contact">
-						<h4>Τηλέφωνο Επικοινωνίας</h4>
-						<div class="support-info">
-							<div class="info-title">
-								<i class="fa fa-phone" aria-hidden="true"></i>
-								210 8200999
-								<span>Ώρες λειτουργίας: 09:00 - 16:00</span>
-							</div>
-						</div>
-					</div>
-					<div class="right-box-contact">
-						<h4>Διεύθυνση</h4>
-						<div class="support-info">
-							<div class="info-title">
-								<i class="fa fa-map-marker" aria-hidden="true"></i>
-								Διεύθυνση
-								<span>Μετσόβου 15, Αθήνα 106 82</span>
-							</div>
-						</div>
-					</div>
-					<div class="right-box-contact">
-						<h4>Στείλτε μας τα σχόλιά σας</h4>
-						<div class="support-info">
-							<div class="info-title">
-								<i class="fa fa-envelope" aria-hidden="true"></i>
-								info@_oasa.gr
-								<span>Βοηθήστε μας να βελτιωθούμε!</span>
-							</div>
-						</div>
-					</div>
-				</div>
-            </div>
-        </div>
+		</div>
     </div>
     <!-- end of SECTION -->
-
+   
     <!--FOOTER-->
     <footer class="footer">
         <div class="container">
@@ -262,12 +224,12 @@
                         </div>
 
                         <ul class="twitter-widget footer-links">
-                            <li><a href="status.html">Κατάσταση μέσων</a></li>
+                            <li><a href="status.php">Κατάσταση μέσων</a></li>
                             <li><a href="#">Χάρτες</a></li>
                             <li><a href="#">Εισιτήρια-Κάρτες</a></li>
-							<li><a href="accesibility.html">Προσβασιμότητα</a></li>
-							<li><a href="about.html">Οργανισμός ΟΑΣΑ</a></li>
-							<li><a href="contact.html">Επικοινωνία</a></li>
+							<li><a href="accesibility.php">Προσβασιμότητα</a></li>
+							<li><a href="about.php">Οργανισμός ΟΑΣΑ</a></li>
+							<li><a href="contact.php">Επικοινωνία</a></li>
                         </ul><!-- end links -->
                     </div><!-- end clearfix -->
                 </div><!-- end col -->
@@ -280,7 +242,7 @@
 
                         <ul class="footer-links">
                             <li><a href="mailto:#">_oasa@oasa.gr</a></li>
-                            <li><a href="index.html">_oasa.gr</a></li>
+                            <li><a href="index.php">_oasa.gr</a></li>
                             <li>Μετσόβου 15, Αθήνα 106 82</li>
                             <li>210 8200999</li>
                         </ul><!-- end links -->
@@ -311,7 +273,7 @@
             <div class="container">
                 <div class="footer-distributed">
                     <div class="footer-left">
-                        <p class="footer-company-name">2018 &copy;<a href="index.html"> ΟΑΣΑ</a>  Σχεδιασμός: <a href="https://html.design/">html design</a></p>
+                        <p class="footer-company-name">2018 &copy;<a href="index.php"> ΟΑΣΑ</a>  Σχεδιασμός: <a href="https://html.design/">html design</a></p>
                     </div>
                 </div>
             </div><!-- end container -->

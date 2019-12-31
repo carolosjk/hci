@@ -19,12 +19,16 @@ if (isset($_POST['user_id']) and isset($_POST['user_pass']))
 
         session_start();
         $_SESSION['user_id'] = $username;
+        $array = mysqli_fetch_array($result,MYSQLI_ASSOC);
+        $_SESSION['name'] = $array["name"];
+        $_SESSION['surname'] = $array["surname"];
+        $_SESSION['address'] = $array["address"];
 
         mysqli_close($connection);
 
         // comment out to work with ajax, js
         // echo "<script> alert('Login Credentials Verified');</script>";
-        header('Location: index.html');
+        header('Location: index.php?success=1');
     }
     else
     {

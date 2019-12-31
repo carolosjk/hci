@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +13,7 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
  
      <!-- Site Metas -->
-    <title>ΟΑΣΑ Οργανισμός</title>  
+    <title>ΟΑΣΑ Οδηγίες Πρόσβασης</title>  
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -30,6 +34,10 @@
     <link rel="stylesheet" href="css/responsive.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css">
+
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.12.4.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js" type="text/javascript"></script>
 
     <!-- Modernizer for Portfolio -->
     <script src="js/modernizer.js"></script>
@@ -60,15 +68,15 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"><img src="images/logos/oasa_logo2.png" alt="image"></a>
+                    <a class="navbar-brand" href="index.php"><img src="images/logos/oasa_logo2.png" alt="image"></a>
                 </div>
                 <!--end of NAV HEADER-->
 
                 <!--NAV-BAR-->
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="index.html">Αρχική</a></li>
-                        <li><a href="status.html">Κατάσταση Μέσων</a></li>
+                        <li><a href="index.php">Αρχική</a></li>
+                        <li><a href="status.php">Κατάσταση Μέσων</a></li>
                         <li><a href="#">Χάρτες</a></li>
                         <li class="dropdown" >
                             <a href="#" class="dropbtn">Εισιτήρια-Κάρτες</a>
@@ -79,21 +87,21 @@
                             </div>
                         </li>
                         <li class="dropdown" >
-                            <a href="accesibility.html" class="dropbtn">Προσβασιμότητα</a>
+                            <a class="active" href="accesibility.php" class="dropbtn">Προσβασιμότητα</a>
                             <div class="dropdown-content">
-                                <a href="acs_instrc.html">Οδηγίες Πρόσβασης</a>
-                                <a href="acs_points.html">Προσβάσιμα Σημεία</a>
-                                <a href="acs_news.html">Ανακοινώσεις</a>
+                                <a href="acs_instrc.php">Οδηγίες Πρόσβασης</a>
+                                <a href="acs_points.php">Προσβάσιμα Σημεία</a>
+                                <a href="acs_news.php">Ανακοινώσεις</a>
                             </div>
                         </li> 
                         <li class="dropdown" >
-                            <a class="active" href="about.html" class="dropbtn">Οργανισμός ΟΑΣΑ</a>
+                            <a href="about.php" class="dropbtn">Οργανισμός ΟΑΣΑ</a>
                             <div class="dropdown-content">
-                                <a href="news.html">Νέα-Ανακοινώσεις</a>
-                                <a href="org.html">Προφίλ Οργανισμού</a>
+                                <a href="news.php">Νέα-Ανακοινώσεις</a>
+                                <a href="org.php">Προφίλ Οργανισμού</a>
                             </div>
                         </li>   
-                        <li><a href="contact.html">Επικοινωνία</a></li>
+                        <li><a href="contact.php">Επικοινωνία</a></li>
                         <li class="search-option">
                             <button class="search tran3s dropdown-toggle" id="searchDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search" aria-hidden="true"></i></button>
                             <form action="#" class="p-color-bg dropdown-menu tran3s" aria-labelledby="searchDropdown">
@@ -149,57 +157,74 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h2>Ενημερωθείτε μέσα από Νέα, Ανακοινώσεις και Πληροφορίες για τον ΟΑΣΑ</h2>
+					<h2>Οδηγίες Πρόσβασης</h2>
 				</div>
 			</div>
 		</div>
     </div>
-    
+
     <!-- SECTION -->
-	<div class="about-box">
-		<div class="container">
-			<div class="row">
-                <!-- Breadcrumbs -->
-                <nav id="breadcrumbs">
-                    <ul>
-                        <li><a href="index.html"><i class="fa fa-home global-radius fa-lg"></i></a></li>
-                        <li>Οργανισμός ΟΑΣΑ</li>
-                    </ul>
-                </nav>
-            
-				<div class="item">
-					<div class="single-feature" style="margin-top: 50px;">
-                        <div class="icon"><i class="fa fa-info fa-4x" style="height: 20%; width: 20%; float:left;"></i>
-                            <h4 style="text-align: left;"><a href="news.html">Νέα-Ανακοινώσεις</a></h4 style="text-align: left;">
-                            <p style="text-align: left;"> Ενημερωθείτε σχετικά με την κατάσταση των μέσων που υπάγονται στον οργανισμό ΟΑΣΑ και με τα νέα του οργανισμού.</p>
-                        </div>
-					</div> 
-				</div>
-			</div>
-			
-			<hr class="hr1">
-			
-			<div class="row">
-				<div class="col-md-6">
-                    <div class="post-media wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
-                        <img src="uploads/oasa-marathon-1200x600.jpg" alt="" class="img-responsive">                        
-                    </div><!-- end media -->
-                </div>
-				<div class="col-md-6">
-					<div class="message-box right-ab">
-                        <h4>Η Ανωνυμη Εταιρεια με την επωνυμια «ΟΡΓΑΝΙΣΜΟΣ ΑΣΤΙΚΩΝ ΣΥΓΚΟΙΝΩΝΙΩΝ ΑΘΗΝΩΝ» και τον διακριτικο τιτλο «Ο.Α.Σ.Α. Α.Ε.»</h4>
-                        <h2>Ο.Α.Σ.Α.</h2>
-                        <p>Η Ο.Α.Σ.Α. Α.Ε. είναι ο μοναδικός μέτοχος των εταιρειών παροχής συγκοινωνιακού έργου, «ΟΔΙΚΕΣ ΣΥΓΚΟΙΝΩΝΙΕΣ» (Ο.ΣΥ. Α.Ε) αρμόδια για τη λειτουργία των Λεωφορείων και των Τρόλεϊ και «ΣΤΑΘΕΡΕΣ ΣΥΓΚΟΙΝΩΝΙΕΣ» (ΣΤΑ.ΣΥ. Α.Ε), 
-                            αρμόδια για τη λειτουργία των γραμμών 1 (πρώην ηλεκτρικός σιδηρόδρομος), 2 & 3 του ΜΕΤΡΟ και του Τραμ. Οι τρεις εταιρείες αποτελούν τον Όμιλο Ο.Α.Σ.Α.</p>
-						<a href="org.html" class="btn btn-light btn-radius grd1 btn-brd"> Μάθετε Περισσότερα!</a>
+    <div class="about-box">
+        <div class="container ">
+            <!-- Breadcrumbs -->
+            <nav id="breadcrumbs">
+                <ul>
+                    <li><a href="index.php"><i class="fa fa-home global-radius fa-lg"></i></a></li>
+                    <li><a href="accesibility.php">Προσβασιμότητα</a></li>
+                    <li>Προσβάσιμα Σημεία</li>
+                </ul>
+            </nav>
+
+
+        </br>
+        </br>
+        <div>
+            <p style="text-align: center;">
+                Παρακαλώ να ενημερώνεστε σχετικά με την κατάσταση των προσβάσιμων σημείων <a href="acs_news.php" style="color: #00599C;"> εδώ</a> 
+                διότι, μεν σε κάθε σταθμό του μετρό υπάρχει τρέχουσα σχετική ηχιτική ενημέρωση, αλλά όχι και στις στάσεις των λεωφορείων/τρόλει.  
+            </p>
+        </div>
+        </br>
+        </br>
+            <div class="accordion" id="accordion-tab-1">
+                <div class="card">
+                    <div class="card-header" id="accordion-tab-1-heading-1">
+                        <h2 style="font-size: 70%;">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-1-content-1" aria-expanded="false" aria-controls="accordion-tab-1-content-1">
+                                ΛΕΩΦΟΡΕΙΑ/ΤΡΟΛΕΙ:
+                            </button>
+                        </h2>
                     </div>
-				</div>
-			</div>
-			
-		</div>
+                    <div class="collapse" id="accordion-tab-1-content-1" aria-labelledby="accordion-tab-1-heading-1" data-parent="#accordion-tab-1">
+                        <div class="card-body">
+                            <p>
+                                Για την καλύτερη εξυπηρέτηση των επιβατών αλλά και των ΑμεΑ, ο ΟΑΣΑ έχει τοποθετήσει στις παρακάτω στάσεις ειδικές προεξοχές για την ευκολότερη πρόσβαση των επιβατών στα οχήματα, Λεωφορεία και Τρόλει.
+                                ...λιστα απο βάση?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <hr class="hr4">
+                <div class="card">
+                    <div class="card-header" id="accordion-tab-1-heading-3">
+                        <h2 style="font-size: 70%;">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-1-content-3" aria-expanded="false" aria-controls="accordion-tab-1-content-3">
+                                ΜΕΤΡΟ:
+                            </button>
+                        </h2>
+                    </div>
+                    <div class="collapse" id="accordion-tab-1-content-3" aria-labelledby="accordion-tab-1-heading-3" data-parent="#accordion-tab-1">
+                        <div class="card-body">
+                            <p> Όλοι οι σταθμοί του μετρό σε όλες τις γραμμές, διαθέτουν ανεκλυστήρες, πλήρεις προσβάσιμους στην είσοδο τους και έξοδο, που οδηγούν στις αποβάθρες των σταθμών.</p>
+                        </div>
+                    </div>
+                </div>
+                <hr class="hr4">
+            </div>
+        </div>
     </div>
     <!-- end of SECTION -->
-   
+
     <!--FOOTER-->
     <footer class="footer">
         <div class="container">
@@ -221,12 +246,12 @@
                         </div>
 
                         <ul class="twitter-widget footer-links">
-                            <li><a href="status.html">Κατάσταση μέσων</a></li>
+                            <li><a href="status.php">Κατάσταση μέσων</a></li>
                             <li><a href="#">Χάρτες</a></li>
                             <li><a href="#">Εισιτήρια-Κάρτες</a></li>
-							<li><a href="accesibility.html">Προσβασιμότητα</a></li>
-							<li><a href="about.html">Οργανισμός ΟΑΣΑ</a></li>
-							<li><a href="contact.html">Επικοινωνία</a></li>
+							<li><a href="accesibility.php">Προσβασιμότητα</a></li>
+							<li><a href="about.php">Οργανισμός ΟΑΣΑ</a></li>
+							<li><a href="contact.php">Επικοινωνία</a></li>
                         </ul><!-- end links -->
                     </div><!-- end clearfix -->
                 </div><!-- end col -->
@@ -239,7 +264,7 @@
 
                         <ul class="footer-links">
                             <li><a href="mailto:#">_oasa@oasa.gr</a></li>
-                            <li><a href="index.html">_oasa.gr</a></li>
+                            <li><a href="index.php">_oasa.gr</a></li>
                             <li>Μετσόβου 15, Αθήνα 106 82</li>
                             <li>210 8200999</li>
                         </ul><!-- end links -->
@@ -267,17 +292,19 @@
 
     <!-- COPYRIGHTS -->
     <div class="copyrights">
-            <div class="container">
-                <div class="footer-distributed">
-                    <div class="footer-left">
-                        <p class="footer-company-name">2018 &copy;<a href="index.html"> ΟΑΣΑ</a>  Σχεδιασμός: <a href="https://html.design/">html design</a></p>
-                    </div>
+        <div class="container">
+            <div class="footer-distributed">
+                <div class="footer-left">
+                    <p class="footer-company-name">2018 &copy;<a href="index.php"> ΟΑΣΑ</a>  Σχεδιασμός: <a href="https://html.design/">html design</a></p>
                 </div>
-            </div><!-- end container -->
+            </div>
+        </div><!-- end container -->
     </div>
     <!-- end of COPYRIGHTS -->
 
+    <!--SCROLL TO TOP-->
     <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+    <!--end of SCROLL TO-->
 
     <!-- ALL JS FILES -->
     <script src="js/all.js"></script>

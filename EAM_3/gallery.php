@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -58,16 +62,16 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"><img src="images/logos/logo.png" alt="image"></a>
+                    <a class="navbar-brand" href="index.php"><img src="images/logos/logo.png" alt="image"></a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About us </a></li>
-                        <li><a href="service.html">Service</a></li>
-                        <li><a class="active" href="gallery.html">Gallery</a></li>
-                        <li><a href="properties.html">Properties</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="about.php">About us </a></li>
+                        <li><a href="service.php">Service</a></li>
+                        <li><a class="active" href="gallery.php">Gallery</a></li>
+                        <li><a href="properties.php">Properties</a></li>
+                        <li><a href="contact.php">Contact</a></li>
                         <li class="social-links"><a href="#"><i class="fa fa-twitter global-radius"></i></a></li>
                         <li class="social-links"><a href="#"><i class="fa fa-facebook global-radius"></i></a></li>
                         <li class="social-links"><a href="#"><i class="fa fa-linkedin global-radius"></i></a></li>

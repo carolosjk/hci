@@ -1,5 +1,13 @@
 <?php
-
+    session_start();
+    if ( isset( $_SESSION['user_id']))
+    {
+    }
+    $get = (isset($_GET['success'])) ? $_GET['success'] : '';
+    if((!empty($get)) && ($get == 1))
+    {
+        //login successful...
+    }
 ?>
 
 <!DOCTYPE html>
@@ -84,15 +92,15 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"><img src="images/logos/oasa_logo2.png" alt="image"></a>
+                    <a class="navbar-brand" href="index.php"><img src="images/logos/oasa_logo2.png" alt="image"></a>
                 </div>
                 <!--end of NAV HEADER-->
 
                 <!--NAV-BAR-->
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a class="active" href="index.html">Αρχική</a></li>
-                        <li><a href="status.html">Κατάσταση Μέσων</a></li>
+                        <li><a class="active" href="index.php">Αρχική</a></li>
+                        <li><a href="status.php">Κατάσταση Μέσων</a></li>
                         <li><a href="#">Χάρτες</a></li>
                         <li class="dropdown" >
                             <a href="#" class="dropbtn">Εισιτήρια-Κάρτες</a>
@@ -103,90 +111,70 @@
                             </div>
                         </li>
                         <li class="dropdown" >
-                            <a href="accesibility.html" class="dropbtn">Προσβασιμότητα</a>
+                            <a href="accesibility.php" class="dropbtn">Προσβασιμότητα</a>
                             <div class="dropdown-content">
-                                <a href="acs_instrc.html">Οδηγίες Πρόσβασης</a>
-                                <a href="acs_points.html">Προσβάσιμα Σημεία</a>
-                                <a href="acs_news.html">Ανακοινώσεις</a>
+                                <a href="acs_instrc.php">Οδηγίες Πρόσβασης</a>
+                                <a href="acs_points.php">Προσβάσιμα Σημεία</a>
+                                <a href="acs_news.php">Ανακοινώσεις</a>
                             </div>
                         </li> 
                         <li class="dropdown" >
-                            <a href="about.html" class="dropbtn">Οργανισμός ΟΑΣΑ</a>
+                            <a href="about.php" class="dropbtn">Οργανισμός ΟΑΣΑ</a>
                             <div class="dropdown-content">
-                                <a href="news.html">Νέα-Ανακοινώσεις</a>
-                                <a href="org.html">Προφίλ Οργανισμού</a>
+                                <a href="news.php">Νέα-Ανακοινώσεις</a>
+                                <a href="org.php">Προφίλ Οργανισμού</a>
                             </div>
                         </li>   
-                        <li><a href="contact.html">Επικοινωνία</a></li>
+                        <li><a href="contact.php">Επικοινωνία</a></li>
                         <li class="search-option">
                             <button class="search tran3s dropdown-toggle" id="searchDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search" aria-hidden="true"></i></button>
                             <form action="#" class="p-color-bg dropdown-menu tran3s" aria-labelledby="searchDropdown">
                                 <input type="text" placeholder="Αναζήτηση...">
                                 <button class="p-color-bg"><i class="fa fa-search" aria-hidden="true"></i></button>
                             </form>
-                    </li> 
-                    <li>
-                        <div id="myModal" class="modal fade">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                        <button data-dismiss="modal" class="close">&times;</button>
-                                        <ul class="nav nav-tabs" role="tablist">
-                                            <li role="presentation" class="active">
-                                                <a href="#home" aria-controls="home" role="tab" data-toggle="tab">Σύνδεση</a>
-                                            </li>
-                                            <li role="presentation"><a href="#next" aria-controls="next" role="tab" data-toggle="tab">Εγγραφή</a>
-                                            </li>
-                                        </ul>
-                                        <div class="tab-content">
-                                            <div role="tabpanel" class="tab-pane active" id="home">
-                                                <!-- <form id="login-form"> -->
-                                                <form id="login-form" method="post" action="authen_login.php">
-                                                    <input type="email" name="user_id" class="username form-control" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required oninvalid="setCustomValidity('Άδειο πεδίο ή μη έγκυρη διεύθυνση email! Προσθέστε έγκυρη διεύθυνση email.')" oninput="setCustomValidity('')"/>
-                                                    <input type="password" name="user_pass" class="password form-control" placeholder="Συνθηματικό" required oninvalid="setCustomValidity('Άδειο πεδίο! Προσθέστε συνθηματικό.')" oninput="setCustomValidity('')"/>
-                                                    <input class="btn login" type="submit" value="Είσοδος"/>
-                                                </form>
-
-                                                <!-- <script>
-                                                    $('#login_form').submit(function(e)
-                                                    {
-                                                        e.preventDefault();
-                                                        $.ajax({
-                                                            url: authen_login.php,
-                                                            type: post,
-                                                            data: $('#login_form').serialize(),
-                                                            success: function()
-                                                            {
-                                                                alert('Επιτυχής Είσοδος!')
-                                                            },
-                                                            error: function()
-                                                            {
-                                                                alert("Ανεπιτυχής Σύνδεση! Δοκιμάστε ξανά, αλλιώς κάνετε εγγραφή αν δεν είστε ήδη εγγεγραμμένος.");
-                                                            }
-                                                        });
-                                                    });
-                                                </script> -->
-                                            </div>
-                                            <div role="tabpanel" class="tab-pane" id="next">
-                                                <form id="register-form" method="post" action="register.php">
-                                                    <input type="text" name="username" class="username form-control" placeholder="Email"/>
-                                                    <input type="password" name="password1" class="password form-control" placeholder="Συνθηματικό"/>
-                                                    <input type="password" name="password2" class="password form-control" placeholder="Επανάληψη Συνθηματικού"/>
-                                                    <input type="text" name="name" class="username form-control" placeholder="Όνομα"/>
-                                                    <input type="text" name="surname" class="username form-control" placeholder="Επώνυμο"/>
-                                                    <input type="text" name="address" class="username form-control" placeholder="Διεύθυνση"/>
-                                                    <input class="btn login" type="submit" value="Εγγραφή"/>
-                                                    <input class="btn login" type="reset" value="Καθαρισμός"/>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        </li> 
                         <!-- <button class="login-trigger" onclick="javascript:$('#myModal').modal('show');"><i class="fa fa-user" aria-hidden="true"></i></button> -->
-                        <button class="login-trigger" onclick="window.open('userpass.php', '_blank')"><i class="fa fa-user" aria-hidden="true"></i></button>
-                        </li>
+                        <li class="dropdown" id="loginDropdown">
+                            <div class="loginSet">
+                                <button class="login-trigger" onclick="window.open('userpass.php', '_self')"><i class="fa fa-user" aria-hidden="true"></i></button>
+                                <div style='display:inline;' id="loginButtonName" >
+                                <?php
+                                    if ( isset( $_SESSION['user_id']))
+                                    {
+                                    echo $_SESSION['name'];
+                                    }
+                                    else{
+                                        echo "Σύνδεση";
+                                    }
+                                    ?>
+                            </div>
+                            </div>
+                            <div class="dropdown-content">
+                                <?php
+                                    if ( isset( $_SESSION['user_id']))
+                                    {
+                                    echo "Kαλωσόρισες "; 
+                                    echo $_SESSION['name'];
+                                    echo "
+                                            <div id=\"header_DIV_11\">
+                                                <ul id=\"header_UL_12\">
+                                                    <li id=\"header_LI_13\">
+                                                        <a href=\"userProfile.php\" rel=\"nofollow\" id=\"header_A_14\">Λογαριασμός</a>
+                                                    </li>
+                                                    <li id=\"header_LI_15\">
+                                                        <a href=\"logout.php\" rel=\"nofollow\" id=\"header_A_16\">Αποσύνδεση</a>
+                                                    </li>
+                                                </ul>
+                                            </div>";
+                                    }
+                                    else{
+                                        echo "<a href=\"userpass.php\">Σύνδεση</a>";
+                                        echo "<a href=\"userpass.php#signin\">Εγγραφή</a>";
+                                    }
+                                ?>
+                            </div>
+                        </li>   
+                        <!-- <button class="login-trigger" onclick="window.open('userpass.php', '_self')"><i class="fa fa-user" aria-hidden="true"></i></button> -->
                     </ul>
                 </div>
                 <!--end of NAV-BAR-->
@@ -329,7 +317,7 @@
 					<div class="item">
 						<div class="single-feature">
                             <div class="icon"><i class="fa fa-bus fa-5x" style="height: 25%; width: 25%; float:left;"></i>
-                                <h4><a href="buses.html">Λεωφορεία</a></h4>
+                                <h4><a href="buses.php">Λεωφορεία</a></h4>
                                 <h4><a href="#">Τρόλει</a></h4>
                             </div>  
                         </div> 
@@ -350,7 +338,7 @@
                                 <div class="item">
                                     <div class="single-feature">
                                         <div class="icon" style="text-align: right;"><i class="fa fa-info-circle fa-3x" style="height: 20%; width: 20%; float:left;"></i>
-                                            <h5><a href="contact.html">Επικοινωνία</a></h5>
+                                            <h5><a href="contact.php">Επικοινωνία</a></h5>
                                         </div>
                                     </div> 
                                 </div>
@@ -359,7 +347,7 @@
                             <div class="item">
                                 <div class="single-feature">
                                     <div class="icon" style="text-align: right;"><i class="fa fa-question-circle fa-3x" style="height: 20%; width: 20%; float:left;"></i>
-                                        <h5><a href="faq.html">Συχνές Ερωτήσεις</a></h5>
+                                        <h5><a href="faq.php">Συχνές Ερωτήσεις</a></h5>
                                     </div>
                                 </div> 
                             </div>
@@ -393,12 +381,12 @@
                         </div>
 
                         <ul class="twitter-widget footer-links">
-                            <li><a href="status.html">Κατάσταση μέσων</a></li>
+                            <li><a href="status.php">Κατάσταση μέσων</a></li>
                             <li><a href="#">Χάρτες</a></li>
                             <li><a href="#">Εισιτήρια-Κάρτες</a></li>
-							<li><a href="accesibility.html">Προσβασιμότητα</a></li>
-							<li><a href="about.html">Οργανισμός ΟΑΣΑ</a></li>
-							<li><a href="contact.html">Επικοινωνία</a></li>
+							<li><a href="accesibility.php">Προσβασιμότητα</a></li>
+							<li><a href="about.php">Οργανισμός ΟΑΣΑ</a></li>
+							<li><a href="contact.php">Επικοινωνία</a></li>
                         </ul><!-- end links -->
                     </div><!-- end clearfix -->
                 </div><!-- end col -->
@@ -411,7 +399,7 @@
 
                         <ul class="footer-links">
                             <li><a href="mailto:#">_oasa@oasa.gr</a></li>
-                            <li><a href="index.html">_oasa.gr</a></li>
+                            <li><a href="index.php">_oasa.gr</a></li>
                             <li>Μετσόβου 15, Αθήνα 106 82</li>
                             <li>210 8200999</li>
                         </ul><!-- end links -->
@@ -442,7 +430,7 @@
         <div class="container">
             <div class="footer-distributed">
                 <div class="footer-left">
-                    <p class="footer-company-name">2018 &copy;<a href="index.html"> ΟΑΣΑ</a>  Σχεδιασμός: <a href="https://html.design/">html design</a></p>
+                    <p class="footer-company-name">2018 &copy;<a href="index.php"> ΟΑΣΑ</a>  Σχεδιασμός: <a href="https://html.design/">html design</a></p>
                 </div>
             </div>
         </div><!-- end container -->

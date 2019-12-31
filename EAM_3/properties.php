@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -58,16 +62,16 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"><img src="images/logos/logo.png" alt="image"></a>
+                    <a class="navbar-brand" href="index.php"><img src="images/logos/logo.png" alt="image"></a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About us </a></li>
-                        <li><a class="active" href="service.html">Service</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="properties.html">Properties</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="about.php">About us </a></li>
+                        <li><a href="service.php">Service</a></li>
+                        <li><a href="gallery.php">Gallery</a></li>
+                        <li><a class="active" href="properties.php">Properties</a></li>
+                        <li><a href="contact.php">Contact</a></li>
                         <li class="social-links"><a href="#"><i class="fa fa-twitter global-radius"></i></a></li>
                         <li class="social-links"><a href="#"><i class="fa fa-facebook global-radius"></i></a></li>
                         <li class="social-links"><a href="#"><i class="fa fa-linkedin global-radius"></i></a></li>
@@ -84,62 +88,170 @@
         </nav>
     </header>
 	
-	<div class="about-box">
+	<div class="all-title-box">
 		<div class="container">
-            <nav id="breadcrumbs">
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li>Service</li>
-                </ul>
-            </nav>
-			<div class="section-title row text-center">
-                <div class="col-md-8 col-md-offset-2">
-                    <h3>OUR SERVICES</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non mi vitae risus blandit rutrum ac id arcu. Vivamus sodales metus id posuere pulvinar. In id arcu et purus vehicula euismod. Fusce eu nibh sit amet neque suscipit malesuada. </p>
-                </div><!-- end col -->
-            </div><!-- end title -->
-			
 			<div class="row">
-				<div class="col-md-4 col-sm-4 col-sm-12">
-					<div class="single-services">
-						<div class="single-services-img">
-							<img src="uploads/icon-01.png" class="img-responsive" alt="">
-						</div>
-						<div class="single-services-desc">
-							<h4><a href="#">Full Furnished</a></h4>
-							<p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus. Sed a tellus quis mi rhoncus dignissim.</p>
-						</div>
-						<a href="#" class="btn btn-light btn-radius grd1 btn-brd"> Read More </a>
-                    </div>
-				</div>
-				<div class="col-md-4 col-sm-4 col-sm-12">
-                    <div class="single-services">
-						<div class="single-services-img">
-							<img src="uploads/icon-02.png" class="img-responsive" alt="">
-						</div>
-						<div class="single-services-desc">
-							<h4><a href="#">Living Inside a Nature</a></h4>
-							<p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus. Sed a tellus quis mi rhoncus dignissim.</p>
-						</div>
-						<a href="#" class="btn btn-light btn-radius grd1 btn-brd"> Read More </a>
-                    </div>
-                </div>
-				<div class="col-md-4 col-sm-4 col-sm-12">
-					<div class="single-services">
-						<div class="single-services-img">
-							<img src="uploads/icon-03.png" class="img-responsive" alt="">
-						</div>
-						<div class="single-services-desc">
-							<h4><a href="#">Luxurious Fittings</a></h4>
-							<p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus. Sed a tellus quis mi rhoncus dignissim.</p>
-						</div>
-						<a href="#" class="btn btn-light btn-radius grd1 btn-brd"> Read More </a>
-                    </div>
+				<div class="col-md-12">
+					<h2>Properties</h2>
+					<!-- Breadcrumbs -->
+					<nav id="breadcrumbs">
+						<ul>
+							<li><a href="#">Home</a></li>
+							<li>Properties</li>
+						</ul>
+					</nav>
 				</div>
 			</div>
-			
 		</div>
 	</div>
+	
+	<div id="features" class="section wb">
+	<div class="container">
+		<div class="section-title row text-center">
+			<div class="col-md-8 col-md-offset-2">
+				<small>All Awesome Property Details</small>
+				<h3>Property Details</h3>
+				<p class="lead">Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus. Sed a tellus quis mi rhoncus dignissim.</p>
+			</div><!-- end col -->
+		</div><!-- end title -->
+		
+		<hr class="invis"> 
+
+		<div class="row">
+			<div class="col-md-4 col-sm-6 col-xs-12">
+				<div class="service-widget">
+					<div class="property-main">
+						<div class="property-wrap">
+							<figure class="post-media wow fadeIn">
+								<a href="uploads/estate_01.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
+								<img src="uploads/estate_01.jpg" alt="" class="img-responsive">
+								<div class="label-inner">
+									<span class="label-status label">Popular</span>
+								</div>
+								<div class="price">
+									<span class="item-sub-price">$5.550/sq ft</span> 
+								</div>
+							</figure>
+							<div class="item-body">
+								<h3>Spacious and Large Garden</h3>
+								<div class="info">
+									<p><span>Bedroom: 4</span> <span>Bathroom: 2</span> <span>Land Size: <span class="estate-x-size">5000</span> <span class="estate-x-unit">square</span></span> <span>Building Size: <span class="estate-x-size">2400</span> <span class="estate-x-unit">square</span></span> </p>
+									<p>House</p> 
+								</div>
+								<div class="adderess">
+									<i class="fa fa-map-pin" aria-hidden="true"></i>
+									334, Rock Hill, New York, Mississippi, 12775, USA
+								</div>
+							</div>
+						</div>
+						<div class="item-foot">
+							<div class="pull-left">
+								<span class="prop-user-agent">
+									<i class="fa fa-user" aria-hidden="true"></i>
+									john S.Allen
+								</span>
+							</div>
+							<div class="pull-right">
+								<span class="prop-date">
+									<i class="fa fa-calendar" aria-hidden="true"></i>
+									9 months ago
+								</span>
+							</div>
+						</div>
+					</div>
+				</div><!-- end service -->
+			</div>
+
+			<div class="col-md-4 col-sm-6 col-xs-12">
+				<div class="service-widget">
+					<div class="property-main">
+						<div class="property-wrap">
+							<figure class="post-media wow fadeIn">
+								<a href="uploads/estate_03.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
+								<img src="uploads/estate_03.jpg" alt="" class="img-responsive">
+								<div class="label-inner">
+									<span class="label-status label">Popular</span>
+								</div>
+								<div class="price">
+									<span class="item-sub-price">$5.550/sq ft</span> 
+								</div>
+							</figure>
+							<div class="item-body">
+								<h3>With its Own Pool</h3>
+								<div class="info">
+									<p><span>Bedroom: 2</span> <span>Bathroom: 2</span> <span>Land Size: <span class="estate-x-size">3000</span> <span class="estate-x-unit">square</span></span> <span>Building Size: <span class="estate-x-size">1400</span> <span class="estate-x-unit">square</span></span> </p>
+									<p>House</p> 
+								</div>
+								<div class="adderess">
+									<i class="fa fa-map-pin" aria-hidden="true"></i>
+									804, Rock Hill, New York, Mississippi, 12785, USA
+								</div>
+							</div>
+							<div class="item-foot">
+								<div class="pull-left">
+									<span class="prop-user-agent">
+										<i class="fa fa-user" aria-hidden="true"></i>
+										john S.Allen
+									</span>
+								</div>
+								<div class="pull-right">
+									<span class="prop-date">
+										<i class="fa fa-calendar" aria-hidden="true"></i>
+										9 months ago
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div><!-- end service -->
+			</div>
+
+			<div class="col-md-4 col-sm-6 col-xs-12">
+				<div class="service-widget">
+					<div class="property-main">
+						<div class="property-wrap">
+							<figure class="post-media wow fadeIn">
+								<a href="uploads/estate_02.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
+								<img src="uploads/estate_02.jpg" alt="" class="img-responsive">
+								<div class="label-inner">
+									<span class="label-status label">Popular</span>
+								</div>
+								<div class="price">
+									<span class="item-sub-price">$5.550/sq ft</span> 
+								</div>
+							</figure>
+							<div class="item-body">
+								<h3>In Forests- Fresh Clean Air</h3>
+								<div class="info">
+									<p><span>Bedroom: 3</span> <span>Bathroom: 2</span> <span>Land Size: <span class="estate-x-size">4000</span> <span class="estate-x-unit">square</span></span> <span>Building Size: <span class="estate-x-size">2000</span> <span class="estate-x-unit">square</span></span> </p>
+									<p>House</p>
+								</div>
+								<div class="adderess">
+									<i class="fa fa-map-pin" aria-hidden="true"></i> 
+									904, Rock Hill, New York, Mississippi, 12705, USA
+								</div>
+							</div>
+							<div class="item-foot">
+								<div class="pull-left">
+									<span class="prop-user-agent">
+										<i class="fa fa-user" aria-hidden="true"></i>
+										john S.Allen
+									</span>
+								</div>
+								<div class="pull-right">
+									<span class="prop-date">
+										<i class="fa fa-calendar" aria-hidden="true"></i>
+										9 months ago
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div><!-- end service -->
+			</div>
+		</div><!-- end row -->
+	</div><!-- end container -->
+</div><!-- end section -->
 
     <div id="testimonials" class="section lb">
         <div class="container">
