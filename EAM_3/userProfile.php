@@ -176,7 +176,7 @@
 						</li>
 						<li id="userProf_LI_12">
 							<div id="userProf_DIV_13">
-								 <a href="https://www.insomnia.gr/settings/email/" id="userProf_A_14">Αλλαγή</a>
+								 <a href="changeMail.php" id="userProf_A_14">Αλλαγή</a>
 								<h4 id="userProf_H4_15">
 									<strong id="userProf_STRONG_16">Διεύθυνση email </strong>
                                 </h4><br id="userProf_BR_17" /> 
@@ -187,7 +187,7 @@
 						</li>
 						<li id="userProf_LI_18">
 							<div id="userProf_DIV_19">
-								 <a href="https://www.insomnia.gr/settings/password/" id="userProf_A_20">Αλλαγή</a>
+								 <a href="changePassword.php" id="userProf_A_20">Αλλαγή</a>
 								<h4 id="userProf_H4_21">
 									<strong id="userProf_STRONG_22">Password</strong>
 								</h4><br id="userProf_BR_23" /> ********
@@ -202,7 +202,7 @@
 						</h3><br id="userProf_BR_27" /><br id="userProf_BR_28" />
 						<ul id="userProf_UL_29">
 							<li id="userProf_LI_30">
-								<a href="https://www.insomnia.gr/settings/_deletemyaccount/" id="userProf_A_31">Διαγραφή Λογαριασμού</a>
+								<a href="deleteAccount.php" id="userProf_A_31">Διαγραφή Λογαριασμού</a>
 							</li>
                         </ul>
                         <ul id="userProf_UL_29">
