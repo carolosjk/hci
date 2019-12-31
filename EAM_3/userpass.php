@@ -78,12 +78,18 @@
                 <div class="col-md-4 wow hidden-xs hidden-sm">
 
                 <ul class="nav nav-pills" id="mynav" style="position: center;">
-                    <li class="active"><a data-toggle="pill" href="#login">Είσοδος</a></li>
-                    <li><a data-toggle="pill" href="#signin">Εγγραφή</a></li>
+                    <li id="loginli"><a data-toggle="pill" href="#login">Είσοδος</a></li>
+                    <li id="signinli"><a data-toggle="pill" href="#signin">Εγγραφή</a></li>
+                    <script>
+                        if (location.hash == '#signin')
+                            document.getElementById("signinli").classList.add('active');
+                        else
+                            document.getElementById("loginli").classList.add('active');
+                    </script>
                 </ul>
     
                 <div class="tab-content">
-                    <div id="login" class="tab-pane fade in active">
+                    <div id="login" class="tab-pane fade in">
                         <div class="contact_form" style="margin-bottom:50px;">
                             <form id="login-form" method="post" action="php_utils/authen_login.php">
                                 <input type="email" style="margin-bottom: 5px;" name="user_id" class="username form-control" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required oninvalid="setCustomValidity('Άδειο πεδίο ή μη έγκυρο email! Προσθέστε έγκυρο email.')" oninput="setCustomValidity('')"/>
@@ -97,7 +103,7 @@
                         </div>
                     </div>
     
-                    <div id="signin" class="tab-pane fade">
+                    <div id="signin" class="tab-pane fade in">
                         <div class="contact_form" style="margin-bottom:50px;">
                             <form id="register-form" method="post" action="php_utils/register.php">
                                 <input type="text" name="username" class="username form-control" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required oninvalid="setCustomValidity('Άδειο πεδίο ή μη έγκυρο email! Προσθέστε έγκυρο email.')" oninput="setCustomValidity('')"/>
@@ -126,6 +132,13 @@
                             </form>
                         </div>
                     </div>
+
+                    <script>
+                        if (location.hash == '#signin')
+                            document.getElementById("signin").classList.add('active');
+                        else
+                            document.getElementById("login").classList.add('active');
+                    </script>
                 </div>
                 
                 </div>
