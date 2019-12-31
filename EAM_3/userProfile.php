@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
  
      <!-- Site Metas -->
-    <title>ΟΑΣΑ Είσοδος/Εγγραφή</title>  
+    <title>ΟΑΣΑ Προφίλ</title>  
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -109,6 +109,46 @@
                                 <button class="p-color-bg"><i class="fa fa-search" aria-hidden="true"></i></button>
                             </form>
                     </li> 
+                    <li class="dropdown" id="loginDropdown">
+                            <div class="loginSet">
+                                <button class="login-trigger" onclick="window.open('userpass.php', '_self')"><i class="fa fa-user" aria-hidden="true"></i></button>
+                                <div style='display:inline;' id="loginButtonName" >
+                                <?php
+                                    if ( isset( $_SESSION['user_id']))
+                                    {
+                                    echo $_SESSION['name'];
+                                    }
+                                    else{
+                                        echo "Σύνδεση";
+                                    }
+                                    ?>
+                            </div>
+                            </div>
+                            <div class="dropdown-content">
+                                <?php
+                                    if ( isset( $_SESSION['user_id']))
+                                    {
+                                    echo "Kαλωσόρισες "; 
+                                    echo $_SESSION['name'];
+                                    echo "
+                                            <div id=\"header_DIV_11\">
+                                                <ul id=\"header_UL_12\">
+                                                    <li id=\"header_LI_13\">
+                                                        <a href=\"userProfile.php\" rel=\"nofollow\" id=\"header_A_14\">Λογαριασμός</a>
+                                                    </li>
+                                                    <li id=\"header_LI_15\">
+                                                        <a href=\"logout.php\" rel=\"nofollow\" id=\"header_A_16\">Αποσύνδεση</a>
+                                                    </li>
+                                                </ul>
+                                            </div>";
+                                    }
+                                    else{
+                                        echo "<a href=\"userpass.php\">Σύνδεση</a>";
+                                        echo "<a href=\"userpass.php#signin\">Εγγραφή</a>";
+                                    }
+                                ?>
+                            </div>
+                        </li>
                     </ul>
                 </div>
                 <!--end of NAV-BAR-->
@@ -137,85 +177,87 @@
 					<li>Προφίλ Χρήστη</li>
 				</ul>
             </nav>
+        
+            <div id="userProf_DIV_1" style="padding-top: 20px;">
+                <section id="userProf_SECTION_2">
+                    <div id="userProf_DIV_3">
+                        <div id="userProf_DIV_4">
+                            <div id="userProf_DIV_5">
+                                <ul id="userProf_UL_6">
+                                    <li id="userProf_LI_7">
+                                        <div id="userProf_DIV_8">
+                                            <h4 id="userProf_H4_9">
+                                                <strong id="userProf_STRONG_10">Όνομα</strong>
+                                            </h4><br id="userProf_BR_11" /> 
+                                                <?php
+                                                    echo $_SESSION["name"];
+                                                ?>
+                                        </div>
+                                    </li>
+                                    <li id="userProf_LI_7">
+                                        <div id="userProf_DIV_8">
+                                            <h4 id="userProf_H4_9">
+                                                <strong id="userProf_STRONG_10">Επώνυμο</strong>
+                                            </h4><br id="userProf_BR_11" /> 
+                                                <?php
+                                                    echo $_SESSION["surname"];
+                                                ?>
+                                        </div>
+                                    </li>
+                                    <li id="userProf_LI_7">
+                                        <div id="userProf_DIV_8">
+                                            <h4 id="userProf_H4_9">
+                                                <strong id="userProf_STRONG_10">Διεύθυνση</strong>
+                                            </h4><br id="userProf_BR_11" /> 
+                                                <?php
+                                                    echo $_SESSION["address"];
+                                                ?>
+                                        </div>
+                                    </li>
+                                    <li id="userProf_LI_12">
+                                        <div id="userProf_DIV_13">
+                                            <a href="changeMail.php" id="userProf_A_14">Αλλαγή</a>
+                                            <h4 id="userProf_H4_15">
+                                                <strong id="userProf_STRONG_16">Διεύθυνση email </strong>
+                                            </h4><br id="userProf_BR_17" /> 
+                                            <?php
+                                                echo $_SESSION["user_id"];
+                                            ?>
+                                        </div>
+                                    </li>
+                                    <li id="userProf_LI_18">
+                                        <div id="userProf_DIV_19">
+                                            <a href="changePassword.php" id="userProf_A_20">Αλλαγή</a>
+                                            <h4 id="userProf_H4_21">
+                                                <strong id="userProf_STRONG_22">Password</strong>
+                                            </h4><br id="userProf_BR_23" /> ********
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="userProf_DIV_24">
+                                <div id="userProf_DIV_25">
+                                    <h3 id="userProf_H3_26">
+                                        Άλλες ρυθμίσεις
+                                    </h3><br id="userProf_BR_27" /><br id="userProf_BR_28" />
+                                    <ul id="userProf_UL_29">
+                                        <li id="userProf_LI_30">
+                                            <a href="deleteAccount.php" id="userProf_A_31">Διαγραφή Λογαριασμού</a>
+                                        </li>
+                                    </ul>
+                                    <ul id="userProf_UL_29">
+                                        <li id="userProf_LI_30">
+                                            <a href="logout.php" id="userProf_A_31">Αποσύνδεση</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>    
         </div>
-    <div id="userProf_DIV_1">
-	<section id="userProf_SECTION_2">
-		<div id="userProf_DIV_3">
-			<div id="userProf_DIV_4">
-				<div id="userProf_DIV_5">
-					<ul id="userProf_UL_6">
-						<li id="userProf_LI_7">
-							<div id="userProf_DIV_8">
-								<h4 id="userProf_H4_9">
-									<strong id="userProf_STRONG_10">Όνομα</strong>
-                                </h4><br id="userProf_BR_11" /> 
-                                    <?php
-                                        echo $_SESSION["name"];
-                                    ?>
-							</div>
-                        </li>
-                        <li id="userProf_LI_7">
-							<div id="userProf_DIV_8">
-								<h4 id="userProf_H4_9">
-									<strong id="userProf_STRONG_10">Επώνυμο</strong>
-                                </h4><br id="userProf_BR_11" /> 
-                                    <?php
-                                        echo $_SESSION["surname"];
-                                    ?>
-							</div>
-                        </li>
-                        <li id="userProf_LI_7">
-							<div id="userProf_DIV_8">
-								<h4 id="userProf_H4_9">
-									<strong id="userProf_STRONG_10">Διεύθυνση</strong>
-                                </h4><br id="userProf_BR_11" /> 
-                                    <?php
-                                        echo $_SESSION["address"];
-                                    ?>
-							</div>
-						</li>
-						<li id="userProf_LI_12">
-							<div id="userProf_DIV_13">
-								 <a href="changeMail.php" id="userProf_A_14">Αλλαγή</a>
-								<h4 id="userProf_H4_15">
-									<strong id="userProf_STRONG_16">Διεύθυνση email </strong>
-                                </h4><br id="userProf_BR_17" /> 
-                                <?php
-                                    echo $_SESSION["user_id"];
-                                ?>
-							</div>
-						</li>
-						<li id="userProf_LI_18">
-							<div id="userProf_DIV_19">
-								 <a href="changePassword.php" id="userProf_A_20">Αλλαγή</a>
-								<h4 id="userProf_H4_21">
-									<strong id="userProf_STRONG_22">Password</strong>
-								</h4><br id="userProf_BR_23" /> ********
-							</div>
-						</li>
-					</ul>
-				</div>
-				<div id="userProf_DIV_24">
-					<div id="userProf_DIV_25">
-						<h3 id="userProf_H3_26">
-							Άλλες ρυθμίσεις
-						</h3><br id="userProf_BR_27" /><br id="userProf_BR_28" />
-						<ul id="userProf_UL_29">
-							<li id="userProf_LI_30">
-								<a href="deleteAccount.php" id="userProf_A_31">Διαγραφή Λογαριασμού</a>
-							</li>
-                        </ul>
-                        <ul id="userProf_UL_29">
-							<li id="userProf_LI_30">
-								<a href="logout.php" id="userProf_A_31">Αποσύνδεση</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-</div>
+    </div>
 
     
     <!-- end of SECTION -->
