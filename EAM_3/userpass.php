@@ -56,66 +56,8 @@
     </div><!-- end loader -->
     <!-- END LOADER -->
    
-    <!--HEADER-->
-    <header class="header header_style_01">
-        <nav class="megamenu navbar navbar-default">
-            <div class="container-fluid">
-            <!--NAV-HEADER (logo button to index.php)-->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.php"><img src="images/logos/oasa_logo2.png" alt="image"></a>
-                </div>
-                <!--end of NAV HEADER-->
-
-                <!--NAV-BAR-->
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="index.php">Αρχική</a></li>
-                        <li><a href="status.php">Κατάσταση Μέσων</a></li>
-                        <li><a href="#">Χάρτες</a></li>
-                        <li class="dropdown" >
-                            <a href="#" class="dropbtn">Εισιτήρια-Κάρτες</a>
-                            <div class="dropdown-content">
-                                <a href="#">Σημεία Έκδοσης/Επαναφόρτισης</a>
-                                <a href="#">Τιμές Εισιτηρίων</a>
-                                <a href="#">Online Αγορά Εισιτηρίων</a>
-                            </div>
-                        </li>
-                        <li class="dropdown" >
-                            <a href="accesibility.php" class="dropbtn">Προσβασιμότητα</a>
-                            <div class="dropdown-content">
-                                <a href="acs_instrc.php">Οδηγίες Πρόσβασης</a>
-                                <a href="acs_points.php">Προσβάσιμα Σημεία</a>
-                                <a href="acs_news.php">Ανακοινώσεις</a>
-                            </div>
-                        </li> 
-                        <li class="dropdown" >
-                            <a href="about.php" class="dropbtn">Οργανισμός ΟΑΣΑ</a>
-                            <div class="dropdown-content">
-                                <a href="news.php">Νέα-Ανακοινώσεις</a>
-                                <a href="org.php">Προφίλ Οργανισμού</a>
-                            </div>
-                        </li>   
-                        <li><a href="contact.php">Επικοινωνία</a></li>
-                        <li class="search-option">
-                            <button class="search tran3s dropdown-toggle" id="searchDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search" aria-hidden="true"></i></button>
-                            <form action="#" class="p-color-bg dropdown-menu tran3s" aria-labelledby="searchDropdown">
-                                <input type="text" placeholder="Αναζήτηση...">
-                                <button class="p-color-bg"><i class="fa fa-search" aria-hidden="true"></i></button>
-                            </form>
-                    </li> 
-                    </ul>
-                </div>
-                <!--end of NAV-BAR-->
-            </div>
-        </nav>
-    </header>
-    <!--end of HEADER-->
+    <!-- HEADER -->
+    <?php include 'utils/uheader.php'; ?>
 	
     <!-- SECTION -->
 	<div id="support" class="section wb">
@@ -143,7 +85,7 @@
                 <div class="tab-content">
                     <div id="login" class="tab-pane fade in active">
                         <div class="contact_form" style="margin-bottom:50px;">
-                            <form id="login-form" method="post" action="authen_login.php">
+                            <form id="login-form" method="post" action="php_utils/php_user_utils/authen_login.php">
                                 <input type="email" style="margin-bottom: 5px;" name="user_id" class="username form-control" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required oninvalid="setCustomValidity('Άδειο πεδίο ή μη έγκυρο email! Προσθέστε έγκυρο email.')" oninput="setCustomValidity('')"/>
                                 <a href="" style="color: #00599C; float:right; font-size:14px;"> Ξέχασα email</a>
                                 </br>
@@ -157,7 +99,7 @@
     
                     <div id="signin" class="tab-pane fade">
                         <div class="contact_form" style="margin-bottom:50px;">
-                            <form id="register-form" method="post" action="register.php">
+                            <form id="register-form" method="post" action="php_utils/php_user_utils/register.php">
                                 <input type="text" name="username" class="username form-control" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required oninvalid="setCustomValidity('Άδειο πεδίο ή μη έγκυρο email! Προσθέστε έγκυρο email.')" oninput="setCustomValidity('')"/>
                                 <input type="password" name="password1" class="password form-control" placeholder="Συνθηματικό" pattern=".{6,}" required oninvalid="setCustomValidity('Άδειο πεδίο ή συνθηματικό με λιγότερο από 6 χαρακτήρες! Προσθέστε έγκυρο συνθηματικό.')" oninput="setCustomValidity('')"/>
                                 <input type="password" name="password2" class="password form-control" placeholder="Επανάληψη Συνθηματικού" pattern=".{6,}" required oninvalid="setCustomValidity('Άδειο πεδίο ή συνθηματικό με λιγότερο από 6 χαρακτήρες! Επανάβετε το έγκυρο συνθηματικό.')" oninput="setCustomValidity('')"/>
@@ -193,7 +135,7 @@
     <!-- end of SECTION -->
 
     <!--FOOTER-->
-    <?php include 'footer.php'; ?>
+    <?php include 'utils/footer.php'; ?>
 
 </body>
 </html>

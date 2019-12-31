@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!--FOOTER-->
 <footer class="footer">
     <div class="container">
         <div class="row">
@@ -89,4 +88,3 @@
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
 <!-- MAP & CONTACT -->
 <script src="js/map.js"></script>
-
