@@ -13,5 +13,5 @@ setcookie(session_name(), '', time() - 86400, $cookie_par['path'], $cookie_par['
 /* Destroy the session data */
 session_destroy();
 
-header('Location: index.php');
+header('Location: ../index.php');
 ?>

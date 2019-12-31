@@ -85,7 +85,7 @@
                 <div class="tab-content">
                     <div id="login" class="tab-pane fade in active">
                         <div class="contact_form" style="margin-bottom:50px;">
-                            <form id="login-form" method="post" action="php_utils/php_user_utils/authen_login.php">
+                            <form id="login-form" method="post" action="php_utils/authen_login.php">
                                 <input type="email" style="margin-bottom: 5px;" name="user_id" class="username form-control" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required oninvalid="setCustomValidity('Άδειο πεδίο ή μη έγκυρο email! Προσθέστε έγκυρο email.')" oninput="setCustomValidity('')"/>
                                 <a href="" style="color: #00599C; float:right; font-size:14px;"> Ξέχασα email</a>
                                 </br>
@@ -99,7 +99,7 @@
     
                     <div id="signin" class="tab-pane fade">
                         <div class="contact_form" style="margin-bottom:50px;">
-                            <form id="register-form" method="post" action="php_utils/php_user_utils/register.php">
+                            <form id="register-form" method="post" action="php_utils/register.php">
                                 <input type="text" name="username" class="username form-control" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required oninvalid="setCustomValidity('Άδειο πεδίο ή μη έγκυρο email! Προσθέστε έγκυρο email.')" oninput="setCustomValidity('')"/>
                                 <input type="password" name="password1" class="password form-control" placeholder="Συνθηματικό" pattern=".{6,}" required oninvalid="setCustomValidity('Άδειο πεδίο ή συνθηματικό με λιγότερο από 6 χαρακτήρες! Προσθέστε έγκυρο συνθηματικό.')" oninput="setCustomValidity('')"/>
                                 <input type="password" name="password2" class="password form-control" placeholder="Επανάληψη Συνθηματικού" pattern=".{6,}" required oninvalid="setCustomValidity('Άδειο πεδίο ή συνθηματικό με λιγότερο από 6 χαρακτήρες! Επανάβετε το έγκυρο συνθηματικό.')" oninput="setCustomValidity('')"/>

@@ -24,10 +24,10 @@ and isset($_POST['surname'])  and isset($_POST['address']))
         $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
 
         if ($result)
-            { header('Location: profile.php'); }
+            { header('Location: ../profile.php'); }
         else
         // error from db for PRIMARY_KEY !!!
-            { header('Location: userpass.php?error=emailinuse'); }
+            { header('Location: ../userpass.php?error=emailinuse'); }
     // }
 }
 ?>

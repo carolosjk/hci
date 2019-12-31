@@ -80,7 +80,7 @@
                                                         <a href=\"userProfile.php\" rel=\"nofollow\" id=\"header_A_14\">Λογαριασμός</a>
                                                     </li>
                                                     <li id=\"header_LI_15\">
-                                                        <a href=\"logout.php\" rel=\"nofollow\" id=\"header_A_16\">Αποσύνδεση</a>
+                                                        <a href=\"php_utils/logout.php\" rel=\"nofollow\" id=\"header_A_16\">Αποσύνδεση</a>
                                                     </li>
                                                 </ul>
                                             </div>";

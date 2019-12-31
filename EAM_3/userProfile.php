@@ -144,12 +144,12 @@
                                     </h3><br id="userProf_BR_27" /><br id="userProf_BR_28" />
                                     <ul id="userProf_UL_29">
                                         <li id="userProf_LI_30">
-                                            <a href="php_utils/php_user_utils/deleteAccount.php" id="userProf_A_31">Διαγραφή Λογαριασμού</a>
+                                            <a href="php_utils/deleteAccount.php" id="userProf_A_31">Διαγραφή Λογαριασμού</a>
                                         </li>
                                     </ul>
                                     <ul id="userProf_UL_29">
                                         <li id="userProf_LI_30">
-                                            <a href="php_utils/php_user_utils/logout.php" id="userProf_A_31">Αποσύνδεση</a>
+                                            <a href="php_utils/logout.php" id="userProf_A_31">Αποσύνδεση</a>
                                         </li>
                                     </ul>
                                 </div>

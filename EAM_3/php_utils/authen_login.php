@@ -28,7 +28,7 @@ if (isset($_POST['user_id']) and isset($_POST['user_pass']))
 
         // comment out to work with ajax, js
         // echo "<script> alert('Login Credentials Verified');</script>";
-        header('Location: index.php?success=1');
+        header('Location: ../index.php?success=1');
     }
     else
     {
@@ -42,7 +42,7 @@ if (isset($_POST['user_id']) and isset($_POST['user_pass']))
         //     window.location.href= 'userpass.php';
         //  }, 0); </script>";
 
-        header('Location: userpass.php?error=invalidcredentials');
+        header('Location: ../userpass.php?error=invalidcredentials');
     }
 }
 ?>
