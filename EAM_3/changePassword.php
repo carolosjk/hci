@@ -71,6 +71,109 @@
     
     <!-- SECTION -->
 
+    <div id="userProfile" class="section wb">
+        <div class="container">
+            <!-- Breadcrumbs -->
+            <nav id="breadcrumbs">
+				<ul>
+					<li><a href="index.php"><i class="fa fa-home global-radius fa-lg"></i></a></li>
+					<li><a href="userProfile.php">Προφίλ Χρήστη</a></li>
+                    <li>Αλλαγή Κωδικού</li>
+				</ul>
+            </nav>
+        <?php
+            if (isset($_GET['error'])) 
+            {       
+                if ($_GET['error'] == 'wrongPassword')  
+                    { 
+                        echo "</br><div class='section-title text-center'> <h4><b>Δώθηκε λάθος τωρινός κωδικός.</b></h4></br></div>"; 
+                    }
+                    if ($_GET['error'] == 'passwordMatch')  
+                    { 
+                        echo "</br><div class='section-title text-center'> <h4><b>Οι κωδικοί δεν ταιριάζουν.</b></h4></br></div>"; 
+                    }
+            }
+            else{
+                $get = (isset($_GET['success'])) ? $_GET['success'] : '';
+                if((!empty($get)) && ($get == 1))
+                {
+                    echo "</br><div class='successMessage'> <h4><b>Ο κωδικός αλλάχθηκε επιτυχώς.</b></h4></br></div>"; 
+                }
+            }
+        ?>
+        
+            <div id="userProf_DIV_1" style="padding-top: 20px;">
+                <section id="userProf_SECTION_2">
+                    <div id="userProf_DIV_3">
+                        <div id="userProf_DIV_4">
+                            <div id="userProf_DIV_5">
+                                <ul id="userProf_UL_6">
+                                    <form action="php_utils/changePasswordForm.php" method="post" enctype="multipart/form-data" id="mail_FORM_1">
+                                        <ul id="mail_UL_6">
+                                            <li id="mail_LI_10">
+                                                
+                                                <label for="elInput_new_email" id="mail_LABEL_11">
+                                                    Τωρινός κωδικός
+                                                </label>
+                                                <div id="mail_DIV_13">
+                                                    <input type="password" id="mail_INPUT_14" name="cur_pass" /><br id="mail_BR_15" /> 
+                                                    <span id="mail_SPAN_16">Για να σιγουρευτείτε ότι η αλλαγή είναι ασφαλής </span>
+                                                </div>
+                                            </li>
+                                            <li id="pass_LI_10">
+                                                
+                                                <label for="elInput_new_email" id="mail_LABEL_11">
+                                                    Νέος κωδικός
+                                                </label>
+                                                <div id="mail_DIV_13">
+                                                    <input type="password" id="mail_INPUT_14" name="pass1" />
+                                                </div>
+                                            </li>
+                                            <li id="pass_LI_10">
+                                                
+                                                <label for="elInput_new_email" id="mail_LABEL_11">
+                                                    Επιβεβαιώστε τον νέο κωδικό
+                                                </label>
+                                                <div id="mail_DIV_13">
+                                                    <input type="password" id="mail_INPUT_14" name="pass2" />
+                                                </div>
+                                            </li>
+                                            <li id="mail_LI_17">
+                                                <div id="mail_DIV_18">
+                                                
+                                                <button id="submit" class="btn login" type="submit" value="SEND" style="background-color:#00599C;">Αποθήκευση</button>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </form>
+                                </ul>
+                            </div>
+                            <div id="userProf_DIV_24">
+                                <div id="userProf_DIV_25">
+                                    <h3 id="userProf_H3_26">
+                                        Άλλες ρυθμίσεις
+                                    </h3><br id="userProf_BR_27" /><br id="userProf_BR_28" />
+                                    <ul id="userProf_UL_29">
+                                        <li id="userProf_LI_30">
+                                            <a href="php_utils/deleteAccount.php" id="userProf_A_31">Διαγραφή Λογαριασμού</a>
+                                        </li>
+                                    </ul>
+                                    <ul id="userProf_UL_29">
+                                        <li id="userProf_LI_30">
+                                            <a href="php_utils/logout.php" id="userProf_A_31">Αποσύνδεση</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>    
+        </div>
+    </div>
+
+    
+
     <!-- end of SECTION -->
 
     <!--FOOTER-->

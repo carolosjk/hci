@@ -2402,7 +2402,6 @@ select.mobile-device {
     font-weight: 400;
     font-size: 20px;
     text-transform: capitalize;
-    line-height: !important;
 }
 
 .footer {
@@ -2649,7 +2648,7 @@ select.mobile-device {
     color: #999 !important;
     margin: 0 !important;
     padding: 0 !important;
-    line-height: 1 !important:
+    line-height: 1 !important;
 }
 
 .stat-wrap p {
@@ -2658,7 +2657,7 @@ select.mobile-device {
     margin: 0;
     font-weight: 300;
     padding: 4px 0 0;
-    line-height: 1 !important:
+    line-height: 1 !important;
 }
 
 #preloader {
@@ -3648,7 +3647,7 @@ select.mobile-device {
     box-sizing: border-box;
     color: rgb(120, 126, 132);
     display: table-cell;
-    height: 203px;
+    height: 339px;
     left: 0px;
     position: relative;
     right: 0px;
@@ -4703,5 +4702,55 @@ select.mobile-device {
 }/*#mail_BUTTON_19:before*/
 
 
+#pass_LI_10 {
+    box-sizing: border-box;
+    color: rgb(120, 126, 132);
+    height: 50px;
+    text-decoration: none solid rgb(120, 126, 132);
+    text-size-adjust: 100%;
+    width: 711px;
+    column-rule-color: rgb(120, 126, 132);
+    perspective-origin: 355.5px 40px;
+    transform-origin: 355.5px 40px;
+    caret-color: rgb(120, 126, 132);
+    border: 0px none rgb(120, 126, 132);
+    border-spacing: 15px 15px;
+    font: 17.92px / 20.608px roboto, "helvetica neue", Helvetica, Arial, sans-serif;
+    list-style: outside none none;
+    margin: 0px 0px 15px;
+    outline: rgb(120, 126, 132) none 0px;
+}
 
+#pass_LI_10:after {
+    clear: both;
+    color: rgb(120, 126, 132);
+    content: '"' '"';
+    display: block;
+    height: 0px;
+    text-decoration: none solid rgb(120, 126, 132);
+    text-size-adjust: 100%;
+    visibility: hidden;
+    width: 711px;
+    column-rule-color: rgb(120, 126, 132);
+    perspective-origin: 355.5px 0px;
+    transform-origin: 355.5px 0px;
+    caret-color: rgb(120, 126, 132);
+    border: 0px none rgb(120, 126, 132);
+    border-spacing: 15px 15px;
+    font: 0px / 0px roboto, "helvetica neue", Helvetica, Arial, sans-serif;
+    list-style: outside none none;
+    outline: rgb(120, 126, 132) none 0px;
+}
 
+#pass_LI_10:before {
+    color: rgb(120, 126, 132);
+    text-decoration: none solid rgb(120, 126, 132);
+    text-size-adjust: 100%;
+    column-rule-color: rgb(120, 126, 132);
+    caret-color: rgb(120, 126, 132);
+    border: 0px none rgb(120, 126, 132);
+    border-spacing: 15px 15px;
+    font: 17.92px / 20.608px roboto, "helvetica neue", Helvetica, Arial, sans-serif;
+    list-style: outside none none;
+    outline: rgb(120, 126, 132) none 0px;
+}

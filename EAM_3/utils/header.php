@@ -29,7 +29,7 @@
                             </div>
                         </li>
                         <li class="dropdown" >
-                            <a href="accesibility.php" class="dropbtn">Προσβασιμότητα</a>
+                            <a href="accesibility.php" <?php if (basename($_SERVER['PHP_SELF']) == 'accesibility.php') echo 'class="active"' ?> class="dropbtn">Προσβασιμότητα</a>
                             <div class="dropdown-content">
                                 <a href="acs_instrc.php">Οδηγίες Πρόσβασης</a>
                                 <a href="acs_points.php">Προσβάσιμα Σημεία</a>
@@ -67,7 +67,7 @@
                                     ?>
                             </div>
                             </div>
-                            <div class="dropdown-content">
+                            <div class="dropdown-content" style="right:0" >
                                 <?php
                                     if ( isset( $_SESSION['user_id']))
                                     {

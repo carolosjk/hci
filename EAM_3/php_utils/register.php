@@ -5,10 +5,10 @@ if (isset($_POST['username']) and isset($_POST['password1'])
 and isset($_POST['password2'])  and isset($_POST['name'])
 and isset($_POST['surname'])  and isset($_POST['address']))
 {
-    // if ($_POST['password1'] != $_POST['password2'])
-    // {
-    //     echo "<script type='text/javascript'>alert('Passwords need to match')</script>";
-    // }
+    if ($_POST['password1'] != $_POST['password2'])
+    {
+        header('Location: ../userpass.php?error=passwordMatch');
+    }
     // else
     // {
         // Assigning POST values to variables.

@@ -80,14 +80,29 @@
                     <li>Αλλαγή Email</li>
 				</ul>
             </nav>
-        </div>
-    <div id="userProf_DIV_1">
+        <?php
+            if (isset($_GET['error'])) 
+            {       
+                if ($_GET['error'] == 'duplicateMail')  
+                    { 
+                        echo "</br><div class='section-title text-center'> <h4><b>Το email που εισήχθει χρησιμοποιείται ήδη.</b></h4></br></div>"; 
+                    }
+            }
+            else{
+                $get = (isset($_GET['success'])) ? $_GET['success'] : '';
+                if((!empty($get)) && ($get == 1))
+                {
+                    echo "</br><div class='successMessage'> <h4><b>Το email αλλάχθηκε επιτυχώς.</b></h4></br></div>"; 
+                }
+            }
+        ?>
+    <div id="userProf_DIV_1" style="padding-top: 20px;">
 	<section id="userProf_SECTION_2">
 		<div id="userProf_DIV_3">
 			<div id="userProf_DIV_4">
 				<div id="userProf_DIV_5">
 					<ul id="userProf_UL_6">
-                        <form action="changeEmailForm.php" method="post" enctype="multipart/form-data" id="mail_FORM_1">
+                        <form action="php_utils/changeEmailForm.php" method="post" enctype="multipart/form-data" id="mail_FORM_1">
                             <ul id="mail_UL_6">
                                 <li id="mail_LI_7">
                                     
@@ -109,15 +124,13 @@
                                         Νέα διεύθυνση email
                                     </label>
                                     <div id="mail_DIV_13">
-                                        <input type="email" name="new_email" id="mail_INPUT_14" /><br id="mail_BR_15" /> <span id="mail_SPAN_16">Παραχωρήστε μια νέα διεύθυνση email </span>
+                                        <input type="email" name="new_mail" id="mail_INPUT_14" /><br id="mail_BR_15" /> <span id="mail_SPAN_16">Παραχωρήστε μια νέα διεύθυνση email </span>
                                     </div>
                                 </li>
                                 <li id="mail_LI_17">
                                     <div id="mail_DIV_18">
                                         
-                                        <button type="submit" id="mail_BUTTON_19">
-                                            Αποθήκευση
-                                        </button>
+                                        <button id="submit" class="btn login" type="submit" value="SEND" style="background-color:#00599C;">Αποθήκευση</button>
                                     </div>
                                 </li>
                             </ul>
@@ -145,6 +158,8 @@
 		</div>
 	</section>
 </div>
+</div>
+
 
     
     <!-- end of SECTION -->

@@ -4,6 +4,7 @@
     {
         header('Location: userProfile.php');
     }
+
 ?>
 
 <!DOCTYPE html>
@@ -70,6 +71,8 @@
                         { echo "</br><div class='section-title text-center'> <h4><b>Ανεπιτυχής είσοδος! Δοκιμάστε ξανά.</b></h4></br>"; }
                     else if ($_GET['error'] == 'emailinuse')  
                         { echo "</br><div class='section-title text-center'> <h4><b>Ανεπιτυχής εγγραφή! Το email που εισήχθει χρησιμοποιείται ήδη.</b></h4></br>"; }
+                        else if ($_GET['error'] == 'passwordMatch')  
+                        { echo "</br><div class='section-title text-center'> <h4><b>Οι κωδικοί δεν ταιριάζουν.</b></h4></br>"; }
                 }
             ?>
                 <!-- in order to center nav-pills  -->

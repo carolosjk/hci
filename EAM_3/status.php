@@ -136,13 +136,16 @@
                         <form id="contactform1" class="row" name="contactform" method="post">
                             <fieldset class="row-fluid">
                                 <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
-                                    <select name="select_bus" id="select_bus" class="selectpicker form-control" data-style="btn-white" data-live-search="true">
+                                    
+                                    <!--<select name="select_bus" id="select_bus" class="selectpicker form-control" data-style="btn-white" data-live-search="true">-->
+                                    <select name="select_bus" id="select_bus" class="form-control" data-style="btn-white" data-live-search="true">
+                                    <option selected="" value="0">Επιλέξτε γραμμή</option>
                                         <?php  
 
                                         require('php_utils/db_connect.php');
                                         $sql = mysqli_query($connection, "SELECT * FROM `buses`");
                                         while ($row = $sql->fetch_assoc()){
-                                            echo "<option value=\"bus1\">" . $row['id'] . " : " . $row['start'] . " - " . $row['end'] . "</option>";
+                                            echo "<option value=". $row['id'] .">" . $row['id'] . " : " . $row['start'] . " - " . $row['end'] . "</option>";
                                         }
                                         ?>
                                     </select>
