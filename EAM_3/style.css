@@ -616,7 +616,8 @@ body.realestate_version .header_style_01 .navbar-right > li.search-option form.d
 	position: absolute;
 	height: 50px;
 	width: 280px;
-	padding: 5px;
+    padding: 5px;
+    margin-left: 10px;
 	border-radius: 0;
 	right: 0;
 	left: auto;

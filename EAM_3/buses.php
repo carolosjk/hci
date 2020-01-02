@@ -102,8 +102,8 @@
                                     <fieldset class="row-fluid">
                                         <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
                                             <br/><h4>Επιλέξτε γραμμή:</h4>
-                                            <select name="select_bus" id="select_bus" class="selectpicker form-control" data-style="btn-white" data-live-search="true">
-                                            <!--<input type="text" name="line" id="line" class="form-control" style="margin-top:5px;" placeholder="">-->
+                                            <select name="select_bus" id="select_bus" class="form-control" data-style="btn-white" data-live-search="true">
+                                            <!--<input type="text" name="line" id="line" class="selectpicker form-control" style="margin-top:5px;" placeholder="">-->
                                                 <?php  
 
                                                 require('php_utils/db_connect.php');
@@ -159,7 +159,7 @@
                                     <fieldset class="row-fluid">
                                         <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
                                             <br/><h4>Επιλέξτε στάση:</h4>
-                                            <select name="select_station" id="select_station" class="selectpicker form-control" data-style="btn-white" data-live-search="true">
+                                            <select name="select_station" id="select_station" class="form-control" data-style="btn-white" data-live-search="true">
                                                 <?php  
 
                                                 require('php_utils/db_connect.php');
