@@ -173,10 +173,6 @@
 
                         <div id="map"></div>
 
-                        <script async defer
-                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8KJaatiP81moBO1rRAnkULvByDcQ_k5Y&callback=initMap">
-                        </script>
-
                         </br>
                         <ul class="nav nav-pills nav-fill" id="direction_nav">
                             <li style="width:100%"><a data-toggle="pill">Κατεύθυνση</a>

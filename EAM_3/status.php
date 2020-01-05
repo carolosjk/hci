@@ -48,9 +48,6 @@
 
     <!-- Modernizer for Portfolio -->
     <script src="js/modernizer.js"></script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8KJaatiP81moBO1rRAnkULvByDcQ_k5Y&callback=initMap">
-    </script>
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
