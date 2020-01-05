@@ -2777,6 +2777,15 @@ select.mobile-device {
     color: black;
 }
 
+.hours {
+    border: 1px solid #e1e1e1;
+}
+
+.hours > li {
+    border: 1px solid #e1e1e1;
+    font-size: 16px;
+}
+
 /*------------------------------------------------------------------
     BUTTONS
 -------------------------------------------------------------------*/

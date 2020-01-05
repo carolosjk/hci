@@ -106,11 +106,11 @@
                                             <!--<input type="text" name="line" id="line" class="selectpicker form-control" style="margin-top:5px;" placeholder="">-->
                                                 <?php  
 
-                                                require('php_utils/db_connect.php');
-                                                $sql = mysqli_query($connection, "SELECT * FROM `buses`");
-                                                while ($row = $sql->fetch_assoc()){
-                                                    echo "<option value=\"bus1\">" . $row['id'] . " : " . $row['start'] . " - " . $row['end'] . "</option>";
-                                                }
+                                                    require('php_utils/db_connect.php');
+                                                    $sql = mysqli_query($connection, "SELECT * FROM `buses`");
+                                                    while ($row = $sql->fetch_assoc()){
+                                                        echo "<option value=\"" . $row['id'] . "\">" . $row['id'] . " : " . $row['start'] . " - " . $row['end'] . "</option>";
+                                                    }
                                                 ?>
                                             </select>
                                         </div>
@@ -119,22 +119,21 @@
                                             <input type="text" name="address1" id="address1" class="form-control" style="margin-top:5px;" placeholder="">
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-lg-offset-8 text-center">
-                                            <button type="submit" value=">>" id="submit" class="btn btn-light btn-radius btn-brd grd1 btn-block">>></button>
+                                            <!--<button type="submit" value=">>" id="submit" class="btn btn-light btn-radius btn-brd grd1 btn-block">>></button>-->
+                                            <input type="submit" value=">>" name="submit1" id="submit1" class="btn btn-light btn-radius btn-brd grd1 btn-block" onclick="selectedLine(event)">
 
                                             <script>
-                                                $(document).ready(function(){
-                                                    $("button").click(function(event){
-                                                        var selected = $('#select_bus option:selected').text();
-                                                        //var selectedNum = selected.split(' : ')[0];
-                                                        window.location.hash = 'lineDetails_'+selected;
-                                                        $(".item").empty();
-                                                        event.preventDefault();
+                                                function selectedLine(event) {
+                                                    event.preventDefault();
+                                                    var selected = $('#select_bus option:selected').text();
+                                                    //var selectedNum = selected.split(' : ')[0];
+                                                    window.location.hash = 'lineDetails_'+selected;
+                                                    $(".item").empty();
 
-                                                        $("#lineInfo").slideDown();
+                                                    $("#lineInfo").slideDown();
 
-                                                        changeLineInfo(selected);
-                                                    });
-                                                });
+                                                    changeLineInfo(selected);
+                                                }
                                             </script>
 
                                             <script>
@@ -142,8 +141,8 @@
                                                     var number = selected.split(' : ')[0];
                                                     var h = 'Πληροφορίες γραμμής: ' + selected + '<i class="fa fa-heart" style="float:right; line-height:25px"></i>';
                                                     document.getElementById("infoTitle").innerHTML = h;
-                                                    document.getElementById("option1").innerHTML = number;  //doesn't work
-                                                    document.getElementById("option2").innerHTML = number;
+                                                    //document.getElementById("option1").innerHTML = number;
+                                                    //document.getElementById("option2").innerHTML = number;
                                                 }
                                             </script>
                                         </div>
@@ -210,8 +209,21 @@
                         <ul class="nav nav-pills nav-fill" id="direction_nav">
                             <li style="width:100%"><a data-toggle="pill">Κατεύθυνση</a>
                         
-                            <select name="direction" id="direction" class="selectpicker form-control" data-style="btn-white">
-                                <option value="option1" id="option1"></option>
+                            <select name="direction" id="direction" class="form-control" data-style="btn-white">
+                                <option value="option1" id="option1">
+                                    <?php
+                                        /*if(isset($_POST['submit1'])){   //doesn't work
+                                            $selected_val = $_POST['select_bus'];
+                                            echo "You have selected :" .$selected_val;
+                                            
+                                            $sql = mysqli_query($connection, "SELECT * FROM `buses` where id = '$selected_val'");
+                                            $row = $sql->fetch_assoc();
+                                            echo $row['start'] . " - " . $row['end'];
+                                        }
+                                        else
+                                            echo "You haven't selected";*/
+                                    ?>
+                                </option>
                                 <option value="option2" id="option2"></option>
                             </select>
                             </li>
@@ -219,10 +231,37 @@
 
                         </br>
                         <ul class="nav nav-pills nav-fill" id="schedule_nav">
-                            <li class="active" style="width:33%"><a data-toggle="pill" href="#everyday">Καθημερινή</a></li>
+                            <li class="active" style="width:33%"><a data-toggle="pill" href="#weekday">Καθημερινή</a></li>
                             <li style="width:33%"><a data-toggle="pill" href="#saturday">Σάββατο</a></li>
                             <li style="width:33%"><a data-toggle="pill" href="#sunday">Κυριακή</a></li>
                         </ul>
+
+                        <div class="tab-content">
+                            <div id="weekday" class="tab-pane fade in active">
+                                <?php
+                                    /*require('php_utils/db_connect.php');
+                                    if(isset($_POST['submit1'])){   //doesn't work
+                                        $selected_val = $_POST['select_bus'];
+                                        echo "You have selected :" .$selected_val;
+
+                                        $sql = mysqli_query($connection, "SELECT * FROM `bustimetable` WHERE day = 'weekday' and id = '$selected_val'");
+                                        echo "<ul class=\"hours\">";
+                                        while ($row = $sql->fetch_assoc()){
+                                            echo "<li>" . $row['time'] . "</li>";
+                                        }
+                                        echo "</ul>";
+                                    }
+                                    else
+                                        echo "You haven't selected";*/
+                                ?>
+                            </div>
+                            <div id="saturday" class="tab-pane fade in">
+                                <h2>Saturday</h2>
+                            </div>
+                            <div id="sunday" class="tab-pane fade in">
+                                <h2>Sunday</h2>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
