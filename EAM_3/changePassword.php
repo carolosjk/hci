@@ -78,7 +78,7 @@
 				<ul>
 					<li><a href="index.php"><i class="fa fa-home global-radius fa-lg"></i></a></li>
 					<li><a href="userProfile.php">Προφίλ Χρήστη</a></li>
-                    <li>Αλλαγή Κωδικού</li>
+                    <li>Αλλαγή Συνθηματικού</li>
 				</ul>
             </nav>
         <?php
@@ -86,8 +86,9 @@
             {       
                 if ($_GET['error'] == 'wrongPassword')  
                     { 
-                        echo "</br><div class='section-title text-center'> <h4><b>Δώθηκε λάθος τωρινός κωδικός.</b></h4></br></div>"; 
+                        echo "</br><div class='section-title text-center'> <h4><b>Δώθηκε λάθος τωρινό συνθηματικό.</b></h4></br></div>"; 
                     }
+                    // validation in form works 
                     if ($_GET['error'] == 'passwordMatch')  
                     { 
                         echo "</br><div class='section-title text-center'> <h4><b>Οι κωδικοί δεν ταιριάζουν.</b></h4></br></div>"; 
@@ -97,7 +98,7 @@
                 $get = (isset($_GET['success'])) ? $_GET['success'] : '';
                 if((!empty($get)) && ($get == 1))
                 {
-                    echo "</br><div class='successMessage'> <h4><b>Ο κωδικός αλλάχθηκε επιτυχώς.</b></h4></br></div>"; 
+                    echo "</br><div class='successMessage'> <h4><b>Το συνθηματικό αλλάχθηκε επιτυχώς.</b></h4></br></div>"; 
                 }
             }
         ?>
@@ -113,7 +114,7 @@
                                             <li id="mail_LI_10">
                                                 
                                                 <label for="elInput_new_email" id="mail_LABEL_11">
-                                                    Τωρινός κωδικός
+                                                    Τωρινό Συνθηματικό
                                                 </label>
                                                 <div id="mail_DIV_13">
                                                     <input type="password" id="mail_INPUT_14" name="cur_pass" pattern=".{6,}" required oninvalid="setCustomValidity('Άδειο πεδίο ή συνθηματικό με λιγότερο από 6 χαρακτήρες! Προσθέστε έγκυρο συνθηματικό.')" oninput="setCustomValidity('')"/> 
@@ -123,7 +124,7 @@
                                             <li id="pass_LI_10">
                                                 
                                                 <label for="elInput_new_email" id="mail_LABEL_11">
-                                                    Νέος κωδικός
+                                                    Νέο Συνθηματικό
                                                 </label>
                                                 <div id="mail_DIV_13">
                                                 <input name="pass1" id="mail_INPUT_14" type="password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Άδειο πεδίο ή συνθηματικό με λιγότερο από 6 χαρακτήρες! Προσθέστε έγκυρο συνθηματικό.' : ''); if(this.checkValidity()) form.pass2.pattern = this.value;" required>
@@ -131,12 +132,11 @@
                                             </li>
                                             <li id="pass_LI_10">
                                                 
-                                                <label for="elInput_new_email" id="mail_LABEL_11">
-                                                    Επιβεβαιώστε τον νέο κωδικό
+                                                <label for="elInput_new_email" id="mail_LABEL_11" style="padding-bottom:35px;">
+                                                    Επιβεβαιώστε το νέο συνθηματικό
                                                 </label>
                                                 <div id="mail_DIV_13">
                                                 <input name="pass2" id="mail_INPUT_14" type="password"  pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Οι κωδικοί πρέπει να ταιριάζουν.' : '');" required>
-                                                    <!-- <span id='message'></span> -->
                                                 </div>
                                             </li>
                                             <li id="mail_LI_17">
@@ -146,19 +146,6 @@
                                                 </div>
                                             </li>
                                         </ul>
-                                        <!-- validation and confirmation of password given should occur before calling the php validation -->
-                                        <!-- <script> 
-                                            var check = function() {
-                                                if (document.getElementByName('pass1').value ==
-                                                    document.getElementByName('pass2').value) {
-                                                    document.getElementById('message').style.color = 'green';
-                                                    document.getElementById('message').innerHTML = 'Ταιριάζουν';
-                                                } else {
-                                                    document.getElementById('message').style.color = 'red';
-                                                    document.getElementById('message').innerHTML = 'Δεν ταιριάζουν';
-                                                }
-                                            }
-                                        </script> -->
                                     </form>
                                 </ul>
                             </div>
