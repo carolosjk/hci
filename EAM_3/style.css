@@ -2755,28 +2755,6 @@ select.mobile-device {
 	}
 }
 
-/* status alert */
-
-.alert {
-    background-color: #4c8ab9;
-    font-weight: bold;
-    color: white;
-}
-  
-.closebtn {
-    margin-left: 15px;
-    font-weight: bold;
-    float: right;
-    font-size: 26px;
-    line-height: 24px;
-    cursor: pointer;
-    transition: all .3s ease-in-out;
-}
-  
-.closebtn:hover {
-    color: black;
-}
-
 .hours {
     border: 1px solid #e1e1e1;
 }
@@ -2943,10 +2921,6 @@ select.mobile-device {
 	text-transform: capitalize;
 	color: #aaa;
 	font-weight: 400;
-}
-
-#lineInfo {
-    display: none;
 }
 
 #userProf_DIV_1 {

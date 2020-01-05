@@ -84,12 +84,13 @@
                         <li>Κατάσταση μέσων</li>
                     </ul>
                 </nav>
-                <!--<div class="col-md-12">
-                    <div class="alert">
-                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-                        <strong>Προσοχή!</strong> Απεργία...
+                
+                <div class="col-md-12">
+                    <div id="message" class="hide" role="alert">
+                        <div id="content"></div>
                     </div>
-                </div>-->
+                </div>
+
             <div class="row">
                 <div class="col-md-12">
                     <ul class="nav nav-pills nav-fill" id="mynav">
@@ -151,12 +152,36 @@
                                     </select>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-lg-offset-8 text-center">
-                                    <button type="submit" value="SEND" id="submit" class="btn btn-light btn-radius btn-brd grd1 btn-block">>></button>
+                                    <input type="submit" value=">>" name="submit" id="submit" class="btn btn-light btn-radius btn-brd grd1 btn-block" onclick="selectedBus(event)">
                                 </div>
+
+                                <script>
+                                    function selectedBus(event) {
+                                        event.preventDefault();
+
+                                        var selected = $('#select_bus option:selected').text();
+                                        var date = $("#datetimepicker").find("input").val();
+                                        var number = selected.split(' : ')[0];
+
+                                        if (number == 131 && date == "15/02/2020") {
+                                            $('#message').removeClass('hide').addClass('alert alert-danger alert-dismissible').slideDown().show();
+                                            $('#content').html('<strong>Προσοχή!</strong> Το λεωφορείο 131 εκτός υπηρεσίας στις 15/02/2020. <button type="button" class="close" data-dismiss="alert">&times;</button>');
+                                            return;
+                                        }
+
+                                        var $activeLi = $('#mynav li.active');
+                                        var activeId = $activeLi.children('a').attr('href').substr(1);
+                                        if (number == 250 && activeId == "week") {
+                                            $('#message').removeClass('hide').addClass('alert alert-danger alert-dismissible').slideDown().show();
+                                            $('#content').html('<strong>Προσοχή!</strong> Το λεωφορείο 250 εκτός υπηρεσίας αυτή την εβδομάδα. <button type="button" class="close" data-dismiss="alert">&times;</button>');
+                                        }
+                                    }
+                                </script>
                             </fieldset>
                         </form>
                     </div>    
                 </div>
+
 
                 <div class="col-md-8 wow slideInRight hidden-xs hidden-sm">
                     <div id="map"></div>

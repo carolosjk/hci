@@ -138,7 +138,7 @@
                                                 require('php_utils/db_connect.php');
                                                 $sql = mysqli_query($connection, "SELECT * FROM `stations`");
                                                 while ($row = $sql->fetch_assoc()){
-                                                    echo "<option value=\"" . $row['station'] . "\">" . $row['station'] . "</option>";
+                                                    echo "<option value=\"stop1\">" . $row['station'] . "</option>";
                                                 }
                                                 ?>
                                             </select>
@@ -158,22 +158,77 @@
                     
                 </div>
 
-                <div class="col-md-8">
-					<div class="item" id="item1">
-                        <div class="single-feature" style="pointer-events: none;">
-                            <h1 style="text-align: left;"><i class="fa fa-question-circle"></i> Οδηγίες</h1>
-                            <h5 style="text-align: left;">Για πληροφορίες σχετικά με τον προγραμματισμό, χρησιμοποιήστε το εργαλείο <strong>"Πληροφορίες Γραμμής"</strong>.</h5>
-                            <h5 style="text-align: left;">Για πληροφορίες σχετικά με αφίξεις, χρησιμοποιήστε το εργαλείο <strong>"Πληροφορίες Στάσης"</strong>.</h5>
-                        </div>
-                    </div>
+                <div id="busInfo">
+                    <div class="col-md-8">
+                        <h3 style="text-align: left; border-bottom:solid 1px #e1e1e1;">
+                        <?php
+                            $selected_val = $_POST['select_bus'];
+                            echo "Πληροφορίες γραμμής: " . $selected_val . " " . "<i class=\"fa fa-heart\" style=\"float:right; line-height:25px\"></i>";
+                                            
+                            $sql = mysqli_query($connection, "SELECT * FROM `buses` where id = '$selected_val'");
+                            $row = $sql->fetch_assoc();
+                            echo $row['start'] . " - " . $row['end'];
+                        ?>
+                        </h3>
 
-					<div class="item" id="item2">
-                        <div class="single-feature" style="margin-top:50px;">
-                            <h1 style="text-align: left;"><i class="fa fa-info-circle"></i><a href="contact.php"> Στοιχεία επικοινωνίας</a></h1>
+                        <div id="map" style="margin-top:20px"></div>
+
+                        </br>
+                        <ul class="nav nav-pills nav-fill" id="direction_nav">
+                            <li style="width:100%"><a data-toggle="pill">Κατεύθυνση</a>
+                        
+                            <select name="direction" id="direction" class="form-control" data-style="btn-white">
+                                <option value="option1" id="option1">
+                                    <?php
+                                        $selected_val = $_POST['select_bus'];
+                                            
+                                        $sql = mysqli_query($connection, "SELECT * FROM `buses` where id = '$selected_val'");
+                                        $row = $sql->fetch_assoc();
+                                        echo $row['start'] . " - " . $row['end'];
+                                    ?>
+                                </option>
+                                <option value="option2" id="option2">
+                                    <?php
+                                        $selected_val = $_POST['select_bus'];
+                                            
+                                        $sql = mysqli_query($connection, "SELECT * FROM `buses` where id = '$selected_val'");
+                                        $row = $sql->fetch_assoc();
+                                        echo $row['end'] . " - " . $row['start'];
+                                    ?>
+                                </option>
+                            </select>
+                            </li>
+                        </ul>
+
+                        </br>
+                        <ul class="nav nav-pills nav-fill" id="schedule_nav">
+                            <li class="active" style="width:33%"><a data-toggle="pill" href="#weekday">Καθημερινή</a></li>
+                            <li style="width:33%"><a data-toggle="pill" href="#saturday">Σάββατο</a></li>
+                            <li style="width:33%"><a data-toggle="pill" href="#sunday">Κυριακή</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div id="weekday" class="tab-pane fade in active">
+                                <?php
+                                    $selected_val = $_POST['select_bus'];
+                                    
+                                    $sql = mysqli_query($connection, "SELECT * FROM `bustimetable` WHERE day = 'weekday' and id = '$selected_val'");
+                                    echo "<ul class=\"hours\">";
+                                    while ($row = $sql->fetch_assoc()){
+                                        echo "<li>" . $row['time'] . "</li>";
+                                    }
+                                    echo "</ul>";
+                                ?>
+                            </div>
+                            <div id="saturday" class="tab-pane fade in">
+                                <h2>Saturday</h2>
+                            </div>
+                            <div id="sunday" class="tab-pane fade in">
+                                <h2>Sunday</h2>
+                            </div>
                         </div>
                     </div>
                 </div>
-
             </div>
 
         </div>
