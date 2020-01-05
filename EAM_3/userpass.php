@@ -88,6 +88,10 @@
                             document.getElementById("signinli").classList.add('active');
                         else
                             document.getElementById("loginli").classList.add('active');
+
+                        window.onload = function Scrolldown() {
+                            window.scroll(0,0); 
+                        };     
                     </script>
                 </ul>
     
@@ -112,20 +116,20 @@
                                 <input type="text" name="username" class="username form-control" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required oninvalid="setCustomValidity('Άδειο πεδίο ή μη έγκυρο email! Προσθέστε έγκυρο email.')" oninput="setCustomValidity('')"/>
                                 <input type="password" name="password1" class="password form-control" placeholder="Συνθηματικό" pattern=".{6,}" required oninvalid="setCustomValidity('Άδειο πεδίο ή συνθηματικό με λιγότερο από 6 χαρακτήρες! Προσθέστε έγκυρο συνθηματικό.')" oninput="setCustomValidity('')"/>
                                 <input type="password" name="password2" class="password form-control" placeholder="Επανάληψη Συνθηματικού" pattern=".{6,}" required oninvalid="setCustomValidity('Άδειο πεδίο ή συνθηματικό με λιγότερο από 6 χαρακτήρες! Επανάβετε το έγκυρο συνθηματικό.')" oninput="setCustomValidity('')"/>
-                                <!-- !! confirm password here, in a way gamo to spiti toy rather than in register.php -->
-                                
-                                <!-- onkeyup="check(this); in input tag"
-                                <script>
-                                   var check = function() {
-                                        if (document.getElementById('password1').value ==
-                                            document.getElementById('password2').value) {
-                                            document.getElementById('message').style.color = 'green';
-                                            document.getElementById('message').innerHTML = 'matching';
+                                <!-- !! confirm password matching here -->
+                                <!-- <script>
+                                   var password = document.getElementByName("password1"), confirm_password = document.getElementByName("password2");
+
+                                    function validatePassword(){
+                                        if(password.value != confirm_password.value) {
+                                            confirm_password.setCustomValidity("Τα συνθηματικά δεν ταιριάζουν");
                                         } else {
-                                            document.getElementById('message').style.color = 'red';
-                                            document.getElementById('message').innerHTML = 'not matching';
+                                            confirm_password.setCustomValidity('');
                                         }
                                     }
+
+                                    password.onchange = validatePassword;
+                                    confirm_password.onkeyup = validatePassword;
                                 </script> -->
                                 <input type="text" name="name" class="username form-control" placeholder="Όνομα" required oninvalid="setCustomValidity('Άδειο πεδίο! Προσθέστε όνομα.')" oninput="setCustomValidity('')"/>
                                 <input type="text" name="surname" class="username form-control" placeholder="Επώνυμο" required oninvalid="setCustomValidity('Άδειο πεδίο! Προσθέστε επώνυμο.')" oninput="setCustomValidity('')"/>

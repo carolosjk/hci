@@ -7,8 +7,12 @@ if (!isset($_POST)) exit();
 if (isset($_POST['cur_pass']) and isset($_POST['pass1']) and isset($_POST['pass2']))
 {
 
+    // doesnt work !!
     if ($_POST['pass1'] != $_POST['pass2'])
     {
+        // echo $_POST['pass1'];
+        // echo $_POST['pass2'];
+        // exit();
         header('Location: ../changePassword.php?error=passwordMatch');
     }
 

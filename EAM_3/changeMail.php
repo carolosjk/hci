@@ -124,7 +124,7 @@
                                         Νέα διεύθυνση email
                                     </label>
                                     <div id="mail_DIV_13">
-                                        <input type="email" name="new_mail" id="mail_INPUT_14" /><br id="mail_BR_15" /> <span id="mail_SPAN_16">Παραχωρήστε μια νέα διεύθυνση email </span>
+                                        <input type="email" name="new_mail" id="mail_INPUT_14" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required oninvalid="setCustomValidity('Άδειο πεδίο ή μη έγκυρη διεύθυνση email! Προσθέστε έγκυρη διεύθυνση email.')" oninput="setCustomValidity('')"/><br id="mail_BR_15" /> <span id="mail_SPAN_16">Παραχωρήστε μια νέα διεύθυνση email </span>
                                     </div>
                                 </li>
                                 <li id="mail_LI_17">

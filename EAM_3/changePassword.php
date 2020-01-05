@@ -116,7 +116,7 @@
                                                     Τωρινός κωδικός
                                                 </label>
                                                 <div id="mail_DIV_13">
-                                                    <input type="password" id="mail_INPUT_14" name="cur_pass" /><br id="mail_BR_15" /> 
+                                                    <input type="password" id="mail_INPUT_14" name="cur_pass" pattern=".{6,}" required oninvalid="setCustomValidity('Άδειο πεδίο ή συνθηματικό με λιγότερο από 6 χαρακτήρες! Προσθέστε έγκυρο συνθηματικό.')" oninput="setCustomValidity('')"/> 
                                                     <span id="mail_SPAN_16">Για να σιγουρευτείτε ότι η αλλαγή είναι ασφαλής </span>
                                                 </div>
                                             </li>
@@ -126,7 +126,7 @@
                                                     Νέος κωδικός
                                                 </label>
                                                 <div id="mail_DIV_13">
-                                                    <input type="password" id="mail_INPUT_14" name="pass1" />
+                                                    <input type="password" id="mail_INPUT_14" name="pass1" pattern=".{6,}" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Must have at least 6 characters' : ''); if(this.checkValidity()) form.password_two.pattern = this.value;"  required oninvalid="setCustomValidity('Άδειο πεδίο ή συνθηματικό με λιγότερο από 6 χαρακτήρες! Προσθέστε έγκυρο συνθηματικό.')" oninput="setCustomValidity('')"/>
                                                 </div>
                                             </li>
                                             <li id="pass_LI_10">
@@ -135,7 +135,8 @@
                                                     Επιβεβαιώστε τον νέο κωδικό
                                                 </label>
                                                 <div id="mail_DIV_13">
-                                                    <input type="password" id="mail_INPUT_14" name="pass2" />
+                                                    <input type="password" id="mail_INPUT_14" name="pass2" pattern=".{6,}" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Please enter the same Password as above' : '');" required oninvalid="setCustomValidity('Άδειο πεδίο ή συνθηματικό με λιγότερο από 6 χαρακτήρες! Προσθέστε έγκυρο συνθηματικό.')" oninput="setCustomValidity('')"/>
+                                                    <!-- <span id='message'></span> -->
                                                 </div>
                                             </li>
                                             <li id="mail_LI_17">
@@ -145,6 +146,19 @@
                                                 </div>
                                             </li>
                                         </ul>
+                                        <!-- validation and confirmation of password given should occur before calling the php validation -->
+                                        <!-- <script> 
+                                            var check = function() {
+                                                if (document.getElementByName('pass1').value ==
+                                                    document.getElementByName('pass2').value) {
+                                                    document.getElementById('message').style.color = 'green';
+                                                    document.getElementById('message').innerHTML = 'Ταιριάζουν';
+                                                } else {
+                                                    document.getElementById('message').style.color = 'red';
+                                                    document.getElementById('message').innerHTML = 'Δεν ταιριάζουν';
+                                                }
+                                            }
+                                        </script> -->
                                     </form>
                                 </ul>
                             </div>

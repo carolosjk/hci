@@ -5,6 +5,7 @@ if (isset($_POST['username']) and isset($_POST['password1'])
 and isset($_POST['password2'])  and isset($_POST['name'])
 and isset($_POST['surname'])  and isset($_POST['address']))
 {
+    // doent work!!
     if ($_POST['password1'] != $_POST['password2'])
     {
         header('Location: ../userpass.php?error=passwordMatch');
@@ -24,7 +25,7 @@ and isset($_POST['surname'])  and isset($_POST['address']))
         $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
 
         if ($result)
-            { header('Location: ../profile.php'); }
+            { header('Location: ../userProfile.php'); }
         else
         // error from db for PRIMARY_KEY !!!
             { header('Location: ../userpass.php?error=emailinuse'); }
