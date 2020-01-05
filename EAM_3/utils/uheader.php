@@ -24,7 +24,7 @@
                         <li><a href="status.php">Κατάσταση Μέσων</a></li>
                         <li><a href="maps.php">Χάρτες</a></li>
                         <li class="dropdown" >
-                            <a href="#" class="dropbtn">Εισιτήρια-Κάρτες</a>
+                            <a href="tickets.php" class="dropbtn">Εισιτήρια-Κάρτες</a>
                             <div class="dropdown-content">
                                 <a href="#">Σημεία Έκδοσης/Επαναφόρτισης</a>
                                 <a href="#">Τιμές Εισιτηρίων</a>

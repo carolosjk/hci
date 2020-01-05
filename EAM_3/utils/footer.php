@@ -21,7 +21,7 @@
                     <ul class="twitter-widget footer-links">
                         <li><a href="status.php">Κατάσταση μέσων</a></li>
                         <li><a href="#">Χάρτες</a></li>
-                        <li><a href="#">Εισιτήρια-Κάρτες</a></li>
+                        <li><a href="tickets.php">Εισιτήρια-Κάρτες</a></li>
                         <li><a href="accesibility.php">Προσβασιμότητα</a></li>
                         <li><a href="about.php">Οργανισμός ΟΑΣΑ</a></li>
                         <li><a href="contact.php">Επικοινωνία</a></li>

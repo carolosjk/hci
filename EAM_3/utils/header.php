@@ -21,7 +21,7 @@
                         <li><a <?php if (basename($_SERVER['PHP_SELF']) == 'status.php') echo 'class="active"' ?> href="status.php">Κατάσταση Μέσων</a></li>
                         <li><a <?php if (basename($_SERVER['PHP_SELF']) == 'maps.php') echo 'class="active"' ?> href="maps.php">Χάρτες</a></li>
                         <li class="dropdown" >
-                            <a href="#" class="dropbtn">Εισιτήρια-Κάρτες</a>
+                            <a href="tickets.php" class="dropbtn">Εισιτήρια-Κάρτες</a>
                             <div class="dropdown-content">
                                 <a href="#">Σημεία Έκδοσης/Επαναφόρτισης</a>
                                 <a href="#">Τιμές Εισιτηρίων</a>
