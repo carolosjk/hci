@@ -10,8 +10,8 @@ and isset($_POST['surname'])  and isset($_POST['address']))
     {
         header('Location: ../userpass.php?error=passwordMatch');
     }
-    // else
-    // {
+    else
+    {
         // Assigning POST values to variables.
         $username = $_POST['username'];
         $password = $_POST['password1'];
@@ -29,6 +29,6 @@ and isset($_POST['surname'])  and isset($_POST['address']))
         else
         // error from db for PRIMARY_KEY !!!
             { header('Location: ../userpass.php?error=emailinuse'); }
-    // }
+    }
 }
 ?>

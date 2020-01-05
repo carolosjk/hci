@@ -110,27 +110,13 @@
                         </div>
                     </div>
     
+                    </script> 
                     <div id="signin" class="tab-pane fade in">
                         <div class="contact_form" style="margin-bottom:50px;">
                             <form id="register-form" method="post" action="php_utils/register.php">
                                 <input type="text" name="username" class="username form-control" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required oninvalid="setCustomValidity('Άδειο πεδίο ή μη έγκυρο email! Προσθέστε έγκυρο email.')" oninput="setCustomValidity('')"/>
-                                <input type="password" name="password1" class="password form-control" placeholder="Συνθηματικό" pattern=".{6,}" required oninvalid="setCustomValidity('Άδειο πεδίο ή συνθηματικό με λιγότερο από 6 χαρακτήρες! Προσθέστε έγκυρο συνθηματικό.')" oninput="setCustomValidity('')"/>
-                                <input type="password" name="password2" class="password form-control" placeholder="Επανάληψη Συνθηματικού" pattern=".{6,}" required oninvalid="setCustomValidity('Άδειο πεδίο ή συνθηματικό με λιγότερο από 6 χαρακτήρες! Επανάβετε το έγκυρο συνθηματικό.')" oninput="setCustomValidity('')"/>
-                                <!-- !! confirm password matching here -->
-                                <!-- <script>
-                                   var password = document.getElementByName("password1"), confirm_password = document.getElementByName("password2");
-
-                                    function validatePassword(){
-                                        if(password.value != confirm_password.value) {
-                                            confirm_password.setCustomValidity("Τα συνθηματικά δεν ταιριάζουν");
-                                        } else {
-                                            confirm_password.setCustomValidity('');
-                                        }
-                                    }
-
-                                    password.onchange = validatePassword;
-                                    confirm_password.onkeyup = validatePassword;
-                                </script> -->
+                                <input name="password1" class="password form-control" type="password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Άδειο πεδίο ή συνθηματικό με λιγότερο από 6 χαρακτήρες! Προσθέστε έγκυρο συνθηματικό.' : ''); if(this.checkValidity()) form.password2.pattern = this.value;" placeholder="Κωδικός" required>
+                                <input name="password2" type="password" class="password form-control" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Οι κωδικοί πρέπει να ταιριάζουν.' : '');" placeholder="Επιβεβαίωση κωδικού" required>
                                 <input type="text" name="name" class="username form-control" placeholder="Όνομα" required oninvalid="setCustomValidity('Άδειο πεδίο! Προσθέστε όνομα.')" oninput="setCustomValidity('')"/>
                                 <input type="text" name="surname" class="username form-control" placeholder="Επώνυμο" required oninvalid="setCustomValidity('Άδειο πεδίο! Προσθέστε επώνυμο.')" oninput="setCustomValidity('')"/>
                                 <input type="text" name="address" class="username form-control" placeholder="Διεύθυνση" required oninvalid="setCustomValidity('Άδειο πεδίο! Προσθέστε διεύθυνση.')" oninput="setCustomValidity('')"/>

@@ -126,7 +126,7 @@
                                                     Νέος κωδικός
                                                 </label>
                                                 <div id="mail_DIV_13">
-                                                    <input type="password" id="mail_INPUT_14" name="pass1" pattern=".{6,}" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Must have at least 6 characters' : ''); if(this.checkValidity()) form.password_two.pattern = this.value;"  required oninvalid="setCustomValidity('Άδειο πεδίο ή συνθηματικό με λιγότερο από 6 χαρακτήρες! Προσθέστε έγκυρο συνθηματικό.')" oninput="setCustomValidity('')"/>
+                                                <input name="pass1" id="mail_INPUT_14" type="password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Άδειο πεδίο ή συνθηματικό με λιγότερο από 6 χαρακτήρες! Προσθέστε έγκυρο συνθηματικό.' : ''); if(this.checkValidity()) form.pass2.pattern = this.value;" required>
                                                 </div>
                                             </li>
                                             <li id="pass_LI_10">
@@ -135,7 +135,7 @@
                                                     Επιβεβαιώστε τον νέο κωδικό
                                                 </label>
                                                 <div id="mail_DIV_13">
-                                                    <input type="password" id="mail_INPUT_14" name="pass2" pattern=".{6,}" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Please enter the same Password as above' : '');" required oninvalid="setCustomValidity('Άδειο πεδίο ή συνθηματικό με λιγότερο από 6 χαρακτήρες! Προσθέστε έγκυρο συνθηματικό.')" oninput="setCustomValidity('')"/>
+                                                <input name="pass2" id="mail_INPUT_14" type="password"  pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Οι κωδικοί πρέπει να ταιριάζουν.' : '');" required>
                                                     <!-- <span id='message'></span> -->
                                                 </div>
                                             </li>
