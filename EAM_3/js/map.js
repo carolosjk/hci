@@ -1,7 +1,8 @@
     /* ==============================================
     MAP -->
     =============================================== */
-    //function initMap() {
+    var map;
+    function initMap() {
         var mapOptions = {
             zoom: 12,
             scrollwheel: false,
@@ -19,21 +20,22 @@
             }]
         }
     
-        var map=new google.maps.Map(document.getElementById('map'), mapOptions)
-    //}
+        map = new google.maps.Map(document.getElementById('map'), mapOptions);
+        addPolyline();
+    }
 
-    /*function addPolyline() {
-        var locations=[
+    function addPolyline() {
+        var locations = [
             {lat: 37.945778, lng: 23.641284},
             {lat: 37.972078, lng: 23.758553}
         ];
 
-        var mypath = google.maps.Polyline({
+        var mypath = new google.maps.Polyline({
+            map: map,
             path: locations,
             geodesic: true,
             strokeColor: '#FF0000',
             strokeOpacity: 1.0,
             strokeWeight: 2
         });
-        mypath.setMap(map);
-    }*/
+    }

@@ -48,6 +48,9 @@
 
     <!-- Modernizer for Portfolio -->
     <script src="js/modernizer.js"></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8KJaatiP81moBO1rRAnkULvByDcQ_k5Y&callback=initMap">
+    </script>
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -159,6 +162,13 @@
                                     function selectedBus(event) {
                                         event.preventDefault();
 
+                                        statusAlert();
+                                        $('#map').removeClass('hide').show();
+                                    }
+                                </script>
+
+                                <script>
+                                    function statusAlert() {
                                         var selected = $('#select_bus option:selected').text();
                                         var date = $("#datetimepicker").find("input").val();
                                         var number = selected.split(' : ')[0];
@@ -183,8 +193,8 @@
                 </div>
 
 
-                <div class="col-md-8 wow slideInRight hidden-xs hidden-sm">
-                    <div id="map"></div>
+                <div class="col-md-8">
+                    <div id="map" class="hide"></div>
                 </div>
 
             </div>
