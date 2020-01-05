@@ -105,7 +105,44 @@
                         <div class="card-body">
                             <p>
                                 Για την καλύτερη εξυπηρέτηση των επιβατών αλλά και των ΑμεΑ, ο ΟΑΣΑ έχει τοποθετήσει στις παρακάτω στάσεις ειδικές προεξοχές για την ευκολότερη πρόσβαση των επιβατών στα οχήματα, Λεωφορεία και Τρόλει.
-                                ...λιστα απο βάση?
+                                </br>
+                                <?php  
+                                    require('php_utils/db_connect.php');
+                                    $sql = mysqli_query($connection, "SELECT * FROM `access_points`");
+                                    echo sql_to_html_table( $sql, $delim="\n" );
+                                    mysqli_close($connection);
+
+                                    function sql_to_html_table($sqlresult, $delim="\n")
+                                    {
+                                        // starting table
+                                        $htmltable =  "<table>" . $delim ;   
+                                        $counter   = 0 ;
+                                        // putting in lines
+                                        while( $row = $sqlresult->fetch_assoc())
+                                        {
+                                          if ( $counter===0 ) 
+                                          {
+                                            // table header
+                                            $htmltable .=   "<tr>"  . $delim;
+                                            foreach ($row as $key => $value ) {
+                                                $htmltable .=   "<th style=' padding:0 20px 10px 0;'>" . $key . "</th>"  . $delim ;
+                                            }
+                                            $htmltable .=   "</tr>"  . $delim ; 
+                                            $counter = 22;
+                                          } 
+                                            // table body
+                                            $htmltable .=   "<tr>"  . $delim ;
+                                            foreach ($row as $key => $value ) {
+                                                $htmltable .=   "<td style='padding:0 20px 0 0;'>" . $value . "</td>"  . $delim ;
+                                            }
+                                            $htmltable .=   "</tr>"   . $delim ;
+                                        }
+                                        // closing table
+                                        $htmltable .=   "</table>"   . $delim ; 
+                                        // return
+                                        return( $htmltable ) ; 
+                                    }
+                                ?>
                             </p>
                         </div>
                     </div>
@@ -122,6 +159,12 @@
                     <div class="collapse" id="accordion-tab-1-content-3" aria-labelledby="accordion-tab-1-heading-3" data-parent="#accordion-tab-1">
                         <div class="card-body">
                             <p> Όλοι οι σταθμοί του μετρό σε όλες τις γραμμές, διαθέτουν ανεκλυστήρες, πλήρεις προσβάσιμους στην είσοδο τους και έξοδο, που οδηγούν στις αποβάθρες των σταθμών.</p>
+                            <?php  
+                                    // require('php_utils/db_connect.php');
+                                    // $sql = mysqli_query($connection, "SELECT * FROM `stations`");
+                                    // echo sql_to_html_table( $sql, $delim="\n" );
+                                    // mysqli_close($connection);
+                            ?>
                         </div>
                     </div>
                 </div>
