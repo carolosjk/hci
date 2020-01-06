@@ -24,7 +24,7 @@
                             <a href="tickets.php" class="dropbtn">Εισιτήρια-Κάρτες</a>
                             <div class="dropdown-content">
                                 <a href="#">Σημεία Έκδοσης/Επαναφόρτισης</a>
-                                <a href="ticket_prices.php">Κόμιστρα Εισιτηρίων</a>
+                                <a href="ticket_prices.php">Κόμιστρα Εισιτηρίων-Καρτών</a>
                                 <a href="#">Online Αγορά Εισιτηρίων</a>
                             </div>
                         </li>
