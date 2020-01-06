@@ -83,7 +83,7 @@
                     <div class="item">
                         <div class="single-feature" style="margin-top: 50px;">
                             <div class="icon"><i class="fa fa-ticket fa-4x" style="height: 20%; width: 20%; float:left; margin-right:5%;"></i>
-                                <h4 style="text-align: left;"><a href="#">Κόμιστρα εισιτηρίων-καρτών</a></h4 style="text-align: left;">
+                                <h4 style="text-align: left;"><a href="ticket_prices.php">Κόμιστρα εισιτηρίων-καρτών</a></h4 style="text-align: left;">
                                 <p style="text-align: left;"> Ενημερωθείτε σχετικά με τις τιμές των εισιτηρίων.</p>
                             </div>
                         </div> 
@@ -100,7 +100,7 @@
                 </div>
 
                 <hr class="hr1">
-                
+
                 <div class="col-md-6 wow slideInRight hidden-xs hidden-sm">
                     <div class="post-media wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
                         <a href="#"> <img src="uploads/ticktick.png" alt="" class="img-responsive"></a>                       
