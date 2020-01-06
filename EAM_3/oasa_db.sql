@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2020 at 06:24 PM
+-- Generation Time: Jan 06, 2020 at 04:34 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -674,6 +674,34 @@ INSERT INTO `bustimetable` (`id`, `time`, `day`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `new_ticket_prices`
+--
+
+CREATE TABLE `new_ticket_prices` (
+  `ΠΡΟΙΟΝ` varchar(200) NOT NULL,
+  `ΤΙΜΗ (€)` double NOT NULL,
+  `ΤΙΜΗ / ΕΙΣΙΤΗΡΙΟ (€)` double DEFAULT NULL,
+  `ΕΚΠΤΩΣΗ` varchar(200) NOT NULL,
+  `ΤΥΠΟΙ ΕΙΣΙΤΗΡΙΩΝ` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `new_ticket_prices`
+--
+
+INSERT INTO `new_ticket_prices` (`ΠΡΟΙΟΝ`, `ΤΙΜΗ (€)`, `ΤΙΜΗ / ΕΙΣΙΤΗΡΙΟ (€)`, `ΕΚΠΤΩΣΗ`, `ΤΥΠΟΙ ΕΙΣΙΤΗΡΙΩΝ`) VALUES
+('10+1 ΕΙΝΑΙΑ ΕΙΣΙΤΗΡΙΑ 1.40€', 13.5, 1.23, '1 επιπλέον εισιτήριο', 'ΠΡΟΣΩΠΟΠΟΙΗΜΕΝΗ ΚΑΡΤΑ, ΑΝΩΝΥΜΗ ΚΑΡΤΑ, ΠΟΛΛΑΠΛΟ ΕΙΣΙΤΗΡΙΟ'),
+('10+1 ΕΙΝΑΙΑ ΕΙΣΙΤΗΡΙΑ ΜΕΙΩΜΕΝΑ 0.60€	', 6, NULL, '1 επιπλέον εισιτήριο	', 'ΠΡΟΣΩΠΟΠΟΙΗΜΕΝΗ ΚΑΡΤΑ, ΠΟΛΛΑΠΛΟ ΕΙΣΙΤΗΡΙΟ'),
+('2πλό ΕΝΙΑΙΟ  ΕΙΣΙΤΗΡΙΟ 1.40€', 2.7, 1.35, '0.10', 'ΠΡΟΣΩΠΟΠΟΙΗΜΕΝΗ ΚΑΡΤΑ, ΑΝΩΝΥΜΗ ΚΑΡΤΑ, ΠΟΛΛΑΠΛΟ ΕΙΣΙΤΗΡΙΟ'),
+('2πλό ΕΝΙΑΙΟ ΕΙΣΙΤΗΡΙΟ ΜΕΙΩΜΕΝΟ 0.60€', 1.2, 0.6, '', 'ΠΡΟΣΩΠΟΠΟΙΗΜΕΝΗ ΚΑΡΤΑ'),
+('5πλό ΕΝΙΑΙΟ ΕΙΣΙΤΗΡΙΟ 1.40€', 6.5, 1.3, '0.50', 'ΠΡΟΣΩΠΟΠΟΙΗΜΕΝΗ ΚΑΡΤΑ, ΑΝΩΝΥΜΗ ΚΑΡΤΑ, ΠΟΛΛΑΠΛΟ ΕΙΣΙΤΗΡΙΟ'),
+('5πλό ΕΝΙΑΙΟ ΕΙΣΙΤΗΡΙΟ ΜΕΙΩΜΕΝΟ 0.60€	', 3, NULL, '', 'ΠΡΟΣΩΠΟΠΟΙΗΜΕΝΗ ΚΑΡΤΑ'),
+('ΕΝΙΑΙΟ ΕΙΣΙΤΗΡΙΟ 1.40€ (μονό)', 1.4, 1.4, '', 'ΠΡΟΣΩΠΟΠΟΙΗΜΕΝΗ ΚΑΡΤΑ, ΑΝΩΝΥΜΗ ΚΑΡΤΑ, ΠΟΛΛΑΠΛΟ ΕΙΣΙΤΗΡΙΟ'),
+('ΕΝΙΑΙΟ ΕΙΣΙΤΗΡΙΟ ΜΕΙΩΜΕΝΟ 0.60€ (μονό)', 0.6, 0.6, '', 'ΠΡΟΣΩΠΟΠΟΙΗΜΕΝΗ ΚΑΡΤΑ');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `stations`
 --
 
@@ -700,6 +728,120 @@ INSERT INTO `stations` (`station`) VALUES
 ('ΣΤ. ΚΑΛΛΙΘΕΑ'),
 ('ΣΤ. ΣΥΓΓΡΟΥ ΦΙΞ'),
 ('ΣΥΝΤΑΓΜΑ');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tickets`
+--
+
+CREATE TABLE `tickets` (
+  `ΕΝΙΑΙΑ ΕΙΣΙΤΗΡΙΑ` varchar(400) NOT NULL,
+  `ΛΕΩΦΟΡΕΙΑ / ΤΡΟΛΕY / ΤΡΑΜ / ΜΕΤΡΟ (€)` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tickets`
+--
+
+INSERT INTO `tickets` (`ΕΝΙΑΙΑ ΕΙΣΙΤΗΡΙΑ`, `ΛΕΩΦΟΡΕΙΑ / ΤΡΟΛΕY / ΤΡΑΜ / ΜΕΤΡΟ (€)`) VALUES
+('ΕΙΣΙΤΗΡΙΟ ΠΕΝΤΕ ΗΜΕΡΩΝ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ (ΕΚΤΟΣ ΓΡΑΜΜΩΝ ΑΕΡΟΔΡΟΜΙΟΥ & ΓΡΑΜΜΗΣ Χ80)', 9),
+('ΕΝΙΑΙΟ ΕΙΣΙΤΗΡΙΟ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ 90 ΛΕΠΤΩΝ (ΕΚΤΟΣ ΓΡΑΜΜΩΝ ΑΕΡΟΔΡΟΜΙΟΥ & ΓΡΑΜΜΗΣ Χ80)', 1.4),
+('ΗΜΕΡΗΣΙΟ ΕΙΣΙΤΗΡΙΟ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ (ΕΚΤΟΣ ΓΡΑΜΜΩΝ ΑΕΡΟΔΡΟΜΙΟΥ)', 4.5),
+('ΜΕΙΩΜΕΝΟ ΕΝΙΑΙΟ ΕΙΣΙΤΗΡΙΟ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ 90 ΛΕΠΤΩΝ (ΕΚΤΟΣ ΓΡΑΜΜΩΝ ΑΕΡΟΔΡΟΜΙΟΥ & ΓΡΑΜΜΗΣ Χ80)', 0.6),
+('ΤΟΥΡΙΣΤΙΚΟ ΕΙΣΙΤΗΡΙΟ 3 ΗΜΕΡΩΝ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ (ΠΕΡΙΛΑΜΒΑΝΕΙ 1 ΔΙΑΔΡΟΜΗ ΑΠΟ & ΠΡΟΣ ΤΟ ΑΕΡΟΔΡΟΜΙΟ)', 22);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tickets_airport`
+--
+
+CREATE TABLE `tickets_airport` (
+  `ΕΙΣΙΤΗΡΙΑ ΓΡΑΜΜΩΝ ΑΕΡΟΔΡΟΜΙΟΥ` varchar(300) NOT NULL,
+  `ΛΕΩΦΟΡΕIA (€)` double DEFAULT NULL,
+  `ΤΡΟΛEY (€)` double DEFAULT NULL,
+  `ΤΡΑΜ (€)` double DEFAULT NULL,
+  `ΜΕΤΡΟ (€)` double DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tickets_airport`
+--
+
+INSERT INTO `tickets_airport` (`ΕΙΣΙΤΗΡΙΑ ΓΡΑΜΜΩΝ ΑΕΡΟΔΡΟΜΙΟΥ`, `ΛΕΩΦΟΡΕIA (€)`, `ΤΡΟΛEY (€)`, `ΤΡΑΜ (€)`, `ΜΕΤΡΟ (€)`) VALUES
+('ΕΙΣΙΤΗΡΙΟ ΑΕΡΟΔΡΟΜΙΟΥ ΑΠΟ & ΠΡΟΣ ΤΟΥΣ ΣΤΑΘΜΟΥΣ ΠΑΛΛΗΝΗ - ΚΑΝΤΖΑ - ΚΟΡΩΠΙ ΜΕΤΡΟ', NULL, NULL, NULL, 6),
+('ΕΙΣΙΤΗΡΙΟ ΑΕΡΟΔΡΟΜΙΟΥ ΜΕΤ\' ΕΠΙΣΤΡΟΦΗΣ ΜΕΤΡΟ', NULL, NULL, NULL, 18),
+('ΚΑΝΟΝΙΚΟ ΕΙΣΙΤΗΡΙΟ ΛΕΩΦΟΡΕΙΩΝ EXPRESS', 6, NULL, NULL, NULL),
+('ΚΑΝΟΝΙΚΟ ΕΙΣΙΤΗΡΙΟ ΜΕΤΡΟ				', NULL, NULL, NULL, 10),
+('ΜΕΙΩΜΕΝΟ ΕΙΣΙΤΗΡΙΟ ΑΕΡΟΔΡΟΜΙΟΥ ΑΠΟ & ΠΡΟΣ ΤΟΥΣ ΣΤΑΘΜΟΥΣ ΠΑΛΛΗΝΗ - ΚΑΝΤΖΑ - ΚΟΡΩΠΙ ΜΕΤΡΟ', NULL, NULL, NULL, 3),
+('ΜΕΙΩΜΕΝΟ ΕΙΣΙΤΗΡΙΟ ΛΕΩΦΟΡΕΙΩΝ EXPRESS	', 3, NULL, NULL, NULL),
+('ΜΕΙΩΜΕΝΟ ΕΙΣΙΤΗΡΙΟ ΜΕΤΡΟ				', NULL, NULL, NULL, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tickets_x80`
+--
+
+CREATE TABLE `tickets_x80` (
+  `ΕΙΣΙΤΗΡΙΑ ΠΟΥ ΙΣΧΥΟΥΝ ΣΤΗ ΓΡΑΜΜΗ EXPRESS Χ80` varchar(300) NOT NULL,
+  `ΛΕΩΦΟΡΕΙΑ / ΤΡΟΛΕY / ΤΡΑΜ / ΜΕΤΡΟ (€)` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tickets_x80`
+--
+
+INSERT INTO `tickets_x80` (`ΕΙΣΙΤΗΡΙΑ ΠΟΥ ΙΣΧΥΟΥΝ ΣΤΗ ΓΡΑΜΜΗ EXPRESS Χ80`, `ΛΕΩΦΟΡΕΙΑ / ΤΡΟΛΕY / ΤΡΑΜ / ΜΕΤΡΟ (€)`) VALUES
+('ΗΜΕΡΗΣΙΟ ΕΙΣΙΤΗΡΙΟ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ, ΕΚΤΟΣ ΑΕΡΟΔΡΟΜΙΟ', 4.5),
+('ΤΟΥΡΙΣΤΙΚΟ ΕΙΣΙΤΗΡΙΟ 3 ΗΜΕΡΩΝ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ (ΠΕΡΙΛΑΜΒΑΝΕΙ 1 ΔΙΑΔΡΟΜΗ ΑΠΟ & ΠΡΟΣ ΤΟ ΑΕΡΟΔΡΟΜΙΟ)', 22);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `timed_tickets`
+--
+
+CREATE TABLE `timed_tickets` (
+  `30 ΗΜΕΡΩΝ` int(11) NOT NULL,
+  `90 ΗΜΕΡΩΝ` int(11) NOT NULL,
+  `180 ΗΜΕΡΩΝ` int(11) NOT NULL,
+  `365 ΗΜΕΡΩΝ` int(11) NOT NULL,
+  `ΌΛΑ ΤΑ ΜΕΣΑ` varchar(10) NOT NULL,
+  `ΌΛΑ ΤΑ ΜΕΣΑ ΑΠΟ ΚΑΙ ΠΡΟΣ ΤΟ ΑΕΡΟΔΡΟΜΙΟ` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `timed_tickets`
+--
+
+INSERT INTO `timed_tickets` (`30 ΗΜΕΡΩΝ`, `90 ΗΜΕΡΩΝ`, `180 ΗΜΕΡΩΝ`, `365 ΗΜΕΡΩΝ`, `ΌΛΑ ΤΑ ΜΕΣΑ`, `ΌΛΑ ΤΑ ΜΕΣΑ ΑΠΟ ΚΑΙ ΠΡΟΣ ΤΟ ΑΕΡΟΔΡΟΜΙΟ`) VALUES
+(30, 85, 170, 330, 'ΝΑΙ', ''),
+(49, 142, 250, 490, '', 'ΝΑΙ');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `timed_tickets_red`
+--
+
+CREATE TABLE `timed_tickets_red` (
+  `30 ΗΜΕΡΩΝ` int(11) NOT NULL,
+  `90 ΗΜΕΡΩΝ` int(11) NOT NULL,
+  `180 ΗΜΕΡΩΝ` int(11) NOT NULL,
+  `365 ΗΜΕΡΩΝ` int(11) NOT NULL,
+  `ΌΛΑ ΤΑ ΜΕΣΑ` varchar(10) NOT NULL,
+  `ΌΛΑ ΤΑ ΜΕΣΑ ΑΠΟ ΚΑΙ ΠΡΟΣ ΤΟ ΑΕΡΟΔΡΟΜΙΟ` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `timed_tickets_red`
+--
+
+INSERT INTO `timed_tickets_red` (`30 ΗΜΕΡΩΝ`, `90 ΗΜΕΡΩΝ`, `180 ΗΜΕΡΩΝ`, `365 ΗΜΕΡΩΝ`, `ΌΛΑ ΤΑ ΜΕΣΑ`, `ΌΛΑ ΤΑ ΜΕΣΑ ΑΠΟ ΚΑΙ ΠΡΟΣ ΤΟ ΑΕΡΟΔΡΟΜΙΟ`) VALUES
+(15, 43, 85, 165, 'ΝΑΙ', ''),
+(25, 71, 125, 245, '', 'ΝΑΙ');
 
 -- --------------------------------------------------------
 
@@ -741,10 +883,46 @@ ALTER TABLE `buses`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `new_ticket_prices`
+--
+ALTER TABLE `new_ticket_prices`
+  ADD PRIMARY KEY (`ΠΡΟΙΟΝ`);
+
+--
 -- Indexes for table `stations`
 --
 ALTER TABLE `stations`
   ADD PRIMARY KEY (`station`);
+
+--
+-- Indexes for table `tickets`
+--
+ALTER TABLE `tickets`
+  ADD PRIMARY KEY (`ΕΝΙΑΙΑ ΕΙΣΙΤΗΡΙΑ`);
+
+--
+-- Indexes for table `tickets_airport`
+--
+ALTER TABLE `tickets_airport`
+  ADD PRIMARY KEY (`ΕΙΣΙΤΗΡΙΑ ΓΡΑΜΜΩΝ ΑΕΡΟΔΡΟΜΙΟΥ`);
+
+--
+-- Indexes for table `tickets_x80`
+--
+ALTER TABLE `tickets_x80`
+  ADD PRIMARY KEY (`ΕΙΣΙΤΗΡΙΑ ΠΟΥ ΙΣΧΥΟΥΝ ΣΤΗ ΓΡΑΜΜΗ EXPRESS Χ80`);
+
+--
+-- Indexes for table `timed_tickets`
+--
+ALTER TABLE `timed_tickets`
+  ADD PRIMARY KEY (`30 ΗΜΕΡΩΝ`);
+
+--
+-- Indexes for table `timed_tickets_red`
+--
+ALTER TABLE `timed_tickets_red`
+  ADD PRIMARY KEY (`30 ΗΜΕΡΩΝ`);
 
 --
 -- Indexes for table `users`
