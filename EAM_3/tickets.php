@@ -103,7 +103,7 @@
 
                 <div class="col-md-6 wow slideInRight hidden-xs hidden-sm">
                     <div class="post-media wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
-                        <a href="#"> <img src="uploads/ticktick.png" alt="" class="img-responsive"></a>                       
+                        <a href="tickets_purchase.php"> <img src="uploads/ticktick.png" alt="" class="img-responsive"></a>                       
                     </div>
                 </div>
 
