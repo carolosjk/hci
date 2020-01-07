@@ -71,8 +71,10 @@
                         { echo "</br><div class='section-title text-center'> <h4><b>Ανεπιτυχής είσοδος! Δοκιμάστε ξανά.</b></h4></br>"; }
                     else if ($_GET['error'] == 'emailinuse')  
                         { echo "</br><div class='section-title text-center'> <h4><b>Ανεπιτυχής εγγραφή! Το email που εισήχθει χρησιμοποιείται ήδη.</b></h4></br>"; }
-                        else if ($_GET['error'] == 'passwordMatch')  
-                        { echo "</br><div class='section-title text-center'> <h4><b>Οι κωδικοί δεν ταιριάζουν.</b></h4></br>"; }
+                    else if ($_GET['error'] == 'err')  
+                    { echo "</br><div class='section-title text-center'> <h4><b>Κάτι πήγε λάθος κατά την εγγραφή!</b></h4></br>"; }
+                    else if ($_GET['error'] == 'passwordMatch')  
+                    { echo "</br><div class='section-title text-center'> <h4><b>Οι κωδικοί δεν ταιριάζουν.</b></h4></br>"; }
                 }
             //     if (isset($_GET['reg']))
             //         { echo "</br><div class='section-title text-center'> <h4><b>Επιτυχής εγγραφή! Μπορείτε πλέον να συνδεθείτε με τον νέο σας λογαριασμό.</b></h4></br>"; }
@@ -103,16 +105,16 @@
                             <form id="login-form" method="post" action="php_utils/authen_login.php">
                                 <input type="email" style="margin-bottom: 5px;" name="user_id" class="username form-control" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required oninvalid="setCustomValidity('Άδειο πεδίο ή μη έγκυρο email! Προσθέστε έγκυρο email.')" oninput="setCustomValidity('')"/>
                                 <a href="" style="color: #00599C; float:right; font-size:14px;"> Ξέχασα email</a>
-                                </br>
+                                
                                 <input type="password" style="margin-bottom: 5px;" name="user_pass" class="password form-control" placeholder="Συνθηματικό" pattern=".{6,}"  required oninvalid="setCustomValidity('Άδειο πεδίο ή συνθηματικό με λιγότερο από 6 χαρακτήρες! Προσθέστε έγκυρο συνθηματικό.')" oninput="setCustomValidity('')"/>
                                 <a href="" style="color: #00599C; float:right; font-size:14px;"> Ξέχασα συνθηματικό</a>
-                                </br>
+                                
                                 <button id="submit" class="btn login" type="submit" value="SEND" style="background-color:#00599C;">Είσοδος</button>
                             </form>
                         </div>
                     </div>
     
-                    </script> 
+                    
                     <div id="signin" class="tab-pane fade in">
                         <div class="contact_form" style="margin-bottom:50px;">
                             <form id="register-form" method="post" action="php_utils/register.php">
