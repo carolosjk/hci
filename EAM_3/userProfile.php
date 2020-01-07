@@ -144,7 +144,21 @@
                                     </h3><br id="userProf_BR_27" /><br id="userProf_BR_28" />
                                     <ul id="userProf_UL_29">
                                         <li id="userProf_LI_30">
-                                            <a href="php_utils/deleteAccount.php" id="userProf_A_31">Διαγραφή Λογαριασμού</a>
+                                            <!-- <a href="php_utils/deleteAccount.php" id="userProf_A_31">Διαγραφή Λογαριασμού</a> -->
+                                            <a href="#" onclick="openP()" id="userProf_A_31">Διαγραφή Λογαριασμού</a></i></h4>
+                                        
+                                            <div class="form-popup" id="deltp" style="display: none; position: fixed; top: 34%; right: 25%; border: 4px solid #f1f1f1; z-index: 9;">
+                                                <form action="php_utils/deleteAccount.php" class="form-container">
+                                                    <h4 style="padding-right: 10px; padding-left: 10px; padding-top:20px; color:rgb(120, 126, 132);"><b>Ο λογαριασμός σας πρόκειται να διαγραφεί! Είστε σίγουρος/η για αυτή την ενέργεια;</b></h3>
+                                                    <button type="submit" class="btn" style="display:center;margin-left: 455px;margin-right:5px;">Ναι</button>
+                                                    <button type="button" class="btn cancel" onclick="closeP()">Όχι</button>
+                                                </form>
+                                            </div>
+
+                                            <script>
+                                                function openP() { document.getElementById("deltp").style.display = "block"; }
+                                                function closeP() { document.getElementById("deltp").style.display = "none"; }
+                                            </script>
                                         </li>
                                     </ul>
                                     <ul id="userProf_UL_29">

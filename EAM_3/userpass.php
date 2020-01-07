@@ -74,6 +74,8 @@
                         else if ($_GET['error'] == 'passwordMatch')  
                         { echo "</br><div class='section-title text-center'> <h4><b>Οι κωδικοί δεν ταιριάζουν.</b></h4></br>"; }
                 }
+            //     if (isset($_GET['reg']))
+            //         { echo "</br><div class='section-title text-center'> <h4><b>Επιτυχής εγγραφή! Μπορείτε πλέον να συνδεθείτε με τον νέο σας λογαριασμό.</b></h4></br>"; }
             ?>
                 <!-- in order to center nav-pills  -->
                 <div class="col-md-4 wow hidden-xs hidden-sm"></div>

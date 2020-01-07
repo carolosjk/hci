@@ -25,7 +25,7 @@ and isset($_POST['surname'])  and isset($_POST['address']))
         $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
 
         if ($result)
-            { header('Location: ../userProfile.php'); }
+            { header('Location: ../userProfile.php?reg=success'); }
         else
         // error from db for PRIMARY_KEY !!!
             { header('Location: ../userpass.php?error=emailinuse'); }
