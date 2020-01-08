@@ -88,7 +88,7 @@
                 </ul>
             </nav>
 
-            <div class="row" style="padding-top:2%;">
+            <div class="row" style="margin-top:50px;">
                 <div class="col-md-3">
                     <ul class="nav nav-pills nav-stacked" id="mynav">
                         <li style="width:100%"><a data-toggle="pill" href="#metro">Μετρό</a></li>

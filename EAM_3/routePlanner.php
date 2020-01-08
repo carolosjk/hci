@@ -135,13 +135,19 @@
                                 <select name="end" data-live-search="true" title="Προς" data-live-search-placeholder="Επιλέξτε προορισμό" class="form-control">
                                         <option selected disabled hidden value=1>Προς</option>
                                         <?php  
-
-                                        require('php_utils/db_connect.php');
-                                        $sql = mysqli_query($connection, "SELECT * FROM `stations`");
-                                        while ($row = $sql->fetch_assoc()){
-                                            echo "<option ";
-                                            if($row['station'] == $end) echo "selected=\"selected\"";
-                                            echo " value=\"" . $row['station'] . "\">" . $row['station'] . "</option>";
+                                        if (isset($_GET['go']))
+                                        {
+                                            echo "<option selected='selected' value='ΑΕΡΟΛ. ΑΘΗΝΩΝ'> 'ΑΕΡΟΛ. ΑΘΗΝΩΝ' </option>";
+                                        }
+                                        else
+                                        {
+                                            require('php_utils/db_connect.php');
+                                            $sql = mysqli_query($connection, "SELECT * FROM `stations`");
+                                            while ($row = $sql->fetch_assoc()){
+                                                echo "<option ";
+                                                if($row['station'] == $end) echo "selected=\"selected\"";
+                                                echo " value=\"" . $row['station'] . "\">" . $row['station'] . "</option>";
+                                            }
                                         }
                                         ?>
                                     </select>

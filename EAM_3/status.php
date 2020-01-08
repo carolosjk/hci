@@ -92,7 +92,7 @@
                     </div>
                 </div>
 
-            <div class="row">
+            <div class="row" style="margin-top:50px;">
                 <div class="col-md-12">
                     <ul class="nav nav-pills nav-fill" id="mynav">
                         <li class="active" style="width:33%"><a data-toggle="pill" href="#now">Τώρα</a></li>
@@ -132,7 +132,7 @@
             </div>
 
             <div class="row" style="margin-top: 20px;">
-                <div class="col-md-4 wow slideInLeft hidden-xs hidden-sm">
+                <div class="col-md-4 wow slideInLeft hidden-xs hidden-sm" style="margin-top:20px;">
                     <div class="contact_form">
                         <h3>Αναζήτηση Γραμμής</h3>
                         <form id="contactform1" class="row" name="contactform" method="post">
