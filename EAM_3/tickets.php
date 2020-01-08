@@ -103,7 +103,7 @@
                     <hr class="hr1" style="margin-bottom:5%;">
                     <h4 style="font-size:16px;text-align:center;color:#999;margin-bottom:5%;"> Μεταβείτε παρακάτω στην αγορά/φόρτιση εισιτηρίου/ών που επιθυμείτε.</h4>                    
                     <div class="post-media wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
-                        <a href="tickets_purchase.php"> <img src="uploads/ticktick.png" alt="" class="img-responsive"></a>                       
+                        <a href="tickets_purchase.php" target="_blank" rel="noopener noreferrer"> <img src="uploads/ticktick.png" alt="" class="img-responsive"></a>                       
                     </div>
                 </div>
 
