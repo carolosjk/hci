@@ -92,7 +92,7 @@
                     <div class="item">
                         <div class="single-feature" style="margin-top: 50px;">
                             <div class="icon"><i class="fa fa-map-marker fa-4x" style="height: 20%; width: 20%; float:left; margin-right:5%;"></i>
-                                <h4 style="text-align: left;"><a href="#">Σημεία έκδοσης/επαναφόρτωσης εισιτηρίων-καρτών</a></h4 style="text-align: left;">
+                                <h4 style="text-align: left;"><a href="ticket_maps.php">Σημεία έκδοσης/επαναφόρτωσης εισιτηρίων-καρτών</a></h4 style="text-align: left;">
                                 <p style="text-align: left;"> Δείτε τα σημεία όπου μπορείτε να αγοράσετε ή/και να επαναφορτίσετε το εισιτήριο ή την κάρτα σας.</p>
                             </div>
                         </div> 
