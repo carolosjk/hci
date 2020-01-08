@@ -183,7 +183,6 @@
                                         return( $htmltable ) ; 
                                     }
                             ?>
-                            <br>
                             <h5 style="font-size:16px;"> Αν επιθυμείτε να κάνετε αγορά/φόρτιση εισιτηρίου/ών, μπορείτε <a href="tickets_purchase.php" target="_blank" rel="noopener noreferrer" style="color: #00599C;"> εδώ.</a></h5>
                         </div>      
                     </div>

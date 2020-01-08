@@ -322,35 +322,24 @@
                                         }, false);
                                     </script>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" id="qq" style="display:none;" onchage>
-                                <input id="alice" type="number" style="float:center;width: 75%;margin-left:15px; margin-top:12px; text-align:center;" onKeyDown="return false" min="1" step="1" max="12" name='qqty' id='qqty' placeholder="Ποσότητα" required/>
 
-                                
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" id="qq" style="display:none;" onchage>
+                                <input id="alice" type="number" style="float:center;width: 75%;margin-left:15px; margin-top:12px; text-align:center;" onKeyDown="return false" min="1" step="1" max="12" name='qqty' id='qqty' placeholder="Ποσότητα" value="" required oninvalid="setCustomValidity('Δεν έχει γίνει καμία επιλογή! Επιλέξτε ποσότητα εισιτηρίων.')" oninput="setCustomValidity('')"/>
                                 <script> 
                                     jQuery(function($) {
 
                                         $('#alice').on('input', function() {
                                             $('#mirror').show();
+                                            document.getElementById("myamount").innerHTML = $('#alice').val();;
                                         });
                                     });
                                 </script>
-    
-                                <!-- <input type='number' style="float:center;width: 60%;margin-left:16px; margin-top:10px; text-align:center;" onKeyDown="return false"onkeypress="foo()" min="1" step="1" max="12" name='qqty' id='qqty' placeholder="Ποσότητα" required/>
-                                    <input type='button' style="float:right;margin-top:10px;" name='add' onclick='javascript:  if (document.getElementById("qqty").value < 12) document.getElementById("qqty").value++;' value='+'/>
-                                    <input type='button' style="float:left;margin-top:10px;" name='subtract' onclick='javascript: if (document.getElementById("qqty").value > 1) document.getElementById("qqty").value--;' value='-'/>
-                                        
-                                        <script> 
-                                            function foo()
-                                            {
-                                                document.getElementById("credt").style.display = "block";
-                                            }
-                                        </script> -->
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="padding-bottom:5px;">
-                                    
                                 </div>
                             </fieldset>
                             <fieldset class="row-fluid" id="mirror" style="display:none;">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                                    <p>Έχετε επιλέξει <span id="myamount"></span> εισιτήρια</p>
+                                </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Επώνυμο" required oninvalid="setCustomValidity('Άδειο πεδίο. Χρειάζεται να εισαχθεί επώνυμο!')" oninput="setCustomValidity('')">
                                 </div>
