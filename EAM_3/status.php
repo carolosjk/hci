@@ -164,7 +164,7 @@
 
                                         statusAlert();
                                         $('#map').removeClass('hide').show();
-                                        //calcRoute(number);
+                                        //calcRoute();
                                     }
                                 </script>
 
@@ -191,6 +191,7 @@
                             </fieldset>
                         </form>
                     </div>    
+                    <div id="directions-panel"></div>
                 </div>
 
 

@@ -2764,6 +2764,11 @@ select.mobile-device {
     font-size: 16px;
 }
 
+#right-panel {
+    font-family: 'Roboto','sans-serif';
+    line-height: 30px;
+}
+
 /*------------------------------------------------------------------
     BUTTONS
 -------------------------------------------------------------------*/
