@@ -48,7 +48,6 @@
 
     <!-- Modernizer for Portfolio -->
     <script src="js/modernizer.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxGFJJ5M8-O_JCjSR-Ib5U_53P4Hpj2uk&libraries=places&callback=initMap"></script>
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -164,7 +163,7 @@
 
                                         statusAlert();
                                         $('#map').removeClass('hide').show();
-                                        //calcRoute();
+                                        calcRoute();
                                     }
                                 </script>
 
@@ -205,6 +204,8 @@
 
     <!--FOOTER-->
     <?php include 'utils/footer.php'; ?>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxGFJJ5M8-O_JCjSR-Ib5U_53P4Hpj2uk&libraries=places&language=el&callback=initMap"></script>
 
 </body>
 </html>
