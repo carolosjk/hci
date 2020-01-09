@@ -157,6 +157,7 @@
                                             format:'MM/DD/YYYY HH:mm:ss',
                                                 minDate:    new Date()
                                             });
+                                            </script>
 
 
                                         <script>

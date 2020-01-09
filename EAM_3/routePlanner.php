@@ -134,7 +134,7 @@
                                         <input name="end" class="form-control" placeholder="<?php if($end!="1") echo $end; else echo "Προς";?>" type="text" id="input2" />  
 
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <h4 style="margin-top:5px"><i class="fa fa-clock-o global-radius"></i> ΦΕΥΓΩ: <i>
+                                <h4 style="margin-top:5px"><i class="fa fa-clock-o global-radius"></i> ΦΕΥΓΩ: <i>
                                     <a href="#" onclick="openTime()">όρισε ώρα</a></i></h4>
                                     <div id="times" style="display: none;">
 
@@ -148,20 +148,12 @@
                                         </div>
                                         
                                         <script>
-                                            $('#datetimepicker').datetimepicker({
-                                                locale: 'el', 
-                                                format:'MM/DD/YYYY HH:mm:ss',
-                                                minDate: getFormattedDate(new Date())
+                                            $('#datetimepicker').datetimepicker({locale: 'el', 
+                                            format:'MM/DD/YYYY HH:mm:ss',
+                                                minDate:    new Date()
                                             });
+                                            </script>
 
-                                            function getFormattedDate(date) {
-                                                var day = date.getDate();
-                                                var month = date.getMonth() + 1;
-                                                var year = date.getFullYear().toString().slice(2);
-                                                return day + '-' + month + '-' + year;
-                                            }
-
-                                        </script>
 
                                         <script>
                                             function openTime() {
@@ -184,7 +176,7 @@
                                                     <li style="font-size: 13px;">
                                                         <label>
                                                             <input type="radio" class="option-input radio" name="radio" value="radio1" checked/>
-                                                            Βέλτιστη Διαδρομή
+                                                            <?php echo $date;?>,
                                                         </label>                    
                                                     </li>
                                                     <li style="font-size: 13px;">
@@ -278,7 +270,7 @@
                             echo " modes: ['BUS'], ";
                     }
                     if($date !="1")
-                        echo "departureTime: new Date(\"11/01/2020 5:32 ΠΜ\")";
+                        echo "departureTime: new Date(\"".$date."\")";
                 ?>
                 }
             };
