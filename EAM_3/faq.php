@@ -91,7 +91,7 @@
                     <div class="card-header" id="accordion-tab-1-heading-1">
                         <h2 style="font-size: 70%;">
                             <button <?php if (!isset($_GET['redtckt'])) { echo 'class="btn btn-link collapsed" aria-expanded="false"'; } else { echo 'class="btn btn-link" aria-expanded="true"'; } ?> type="button" data-toggle="collapse" data-target="#accordion-tab-1-content-1" aria-controls="accordion-tab-1-content-1">
-                                Δικαιούμαι μειωμένο κόμιστρο;
+                                Δικαιούμαι μειωμένη τιμή;
                             </button>
                         </h2>
                     </div>
@@ -129,7 +129,7 @@
                     <div class="card-header" id="accordion-tab-1-heading-3">
                         <h2 style="font-size: 70%;">
                             <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-1-content-3" aria-expanded="false" aria-controls="accordion-tab-1-content-3">
-                                Ποιες είναι οι νέες ενιαίες κάρτες απεριορίστων διαδρομών και οι τιμές τους;
+                                Ποιες είναι οι νέες κάρτες απεριορίστων διαδρομών και οι τιμές τους;
                             </button>
                         </h2>
                     </div>
@@ -149,13 +149,13 @@
                     <div class="card-header" id="accordion-tab-1-heading-4">
                         <h2 style="font-size: 70%;">
                             <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-1-content-4" aria-expanded="false" aria-controls="accordion-tab-1-content-4">
-                                Είμαι δικαιούχος μειωμένου κομίστρου. Τι χρειάζεται να εκδώσω για να μετακινούμαι με τα μέσα;
+                                Είμαι δικαιούχος μειωμένης τιμής. Τι χρειάζεται να εκδώσω για να μετακινούμαι με τα μέσα;
                             </button>
                         </h2>
                     </div>
                     <div class="collapse" id="accordion-tab-1-content-4" aria-labelledby="accordion-tab-1-heading-4" data-parent="#accordion-tab-1">
                         <div class="card-body">
-                            <p>Προσωποποιημένη κάρτα, στην οποία μπορείτε να φορτώσετε όποιον τύπο μειωμένης τιμής κομίστρου σας εξυπηρετεί, δηλαδή μηνιαίες ή άλλες χρονικές κάρτες αλλά και
+                            <p>Προσωποποιημένη κάρτα, στην οποία μπορείτε να φορτώσετε όποιον τύπο εισιτηρίου μειωμένης τιμής σας εξυπηρετεί, δηλαδή μηνιαίες ή άλλες χρονικές κάρτες αλλά και
                                  εισιτήρια μειωμένης τιμής ή χρηματική αξία έως 50 ευρώ, από την οποία αφαιρείται η αξία ενός μειωμένου εισιτηρίου κάθε φορά που μετακινήστε.</p>  
                         </div>
                     </div>

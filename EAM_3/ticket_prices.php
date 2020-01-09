@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
  
      <!-- Site Metas -->
-    <title>ΟΑΣΑ Κόμιστρα</title>  
+    <title>ΟΑΣΑ Τιμές</title>  
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -73,7 +73,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h2>Κόμιστρα Εισιτηρίων-Καρτών</h2>
+					<h2>Τιμές Εισιτηρίων-Καρτών</h2>
 				</div>
 			</div>
 		</div>
@@ -85,22 +85,22 @@
                 <ul>
                     <li><a href="index.php"><i class="fa fa-home global-radius fa-lg"></i></a></li>
                     <li><a href="tickets.php">Εισιτήρια-Κάρτες</a></li>
-                    <li>Κόμιστρα Εισιτηρίων-Καρτών</li>
+                    <li>Τιμές Εισιτηρίων-Καρτών</li>
                 </ul>
             </nav>
 
             <div class="row" style="padding-top:2%;">
                 <div class="col-md-3">
                     <ul class="nav nav-pills nav-stacked">
-                    <li role="presentation" class="" style="width:100%"><a data-target="#tab-a" data-toggle="tab">Κόμιστρο Εισιτηρίων για Όλα τα Μέσα</a></li>
-                    <li role="presentation" style="width:100%"><a data-target="#tab-b" data-toggle="tab">Κόμιστρο Εισιτηρίων βάσει Χρονικού Διαστήματος</a></li>
-                    <li role="presentation" style="width:100%"><a data-target="#tab-c" data-toggle="tab">Κόμιστρο Περιόδου Προσαρμογής στο Ήλεκτρονικό Εισιτήριο</a></li>
+                    <li role="presentation" class="" style="width:100%"><a data-target="#tab-a" data-toggle="tab">Τιμή Εισιτηρίων για Όλα τα Μέσα</a></li>
+                    <li role="presentation" style="width:100%"><a data-target="#tab-b" data-toggle="tab">Τιμή Εισιτηρίων βάσει Χρονικού Διαστήματος</a></li>
+                    <li role="presentation" style="width:100%"><a data-target="#tab-c" data-toggle="tab">Τιμή Περιόδου Προσαρμογής στο Ήλεκτρονικό Εισιτήριο</a></li>
                     </ul>
                 </div>
                 <div class="col-md-9">
                     <div class="tab-content">
                         <div class="tab-pane" id="tab-a" style="padding-left:30px;">
-                            <h5 style="font-size:16px;"> Κόμιστρα εισιτηρίων στα διάφορα μέσα που υπάγονται στον ΟΑΣΑ:</h5>
+                            <h5 style="font-size:16px;"> Τιμές εισιτηρίων στα διάφορα μέσα που υπάγονται στον ΟΑΣΑ:</h5>
                             <br>
                             <?php  
                                 require('php_utils/db_connect.php');
@@ -118,10 +118,10 @@
 
                                 mysqli_close($connection);
                             ?>
-                            <h5 style="font-size:16px;"> Μάθετε <a href="faq.php?redtckt" target="_blank" rel="noopener noreferrer" style="color: #00599C;"> εδώ</a> αν δικαιούστε μειωμένο κόμιστρο.<br>Αν επιθυμείτε να κάνετε αγορά/φόρτιση εισιτηρίου/ών, μπορείτε <a href="tickets_purchase.php" target="_blank" rel="noopener noreferrer" style="color: #00599C;"> εδώ.</a></h5>
+                            <h5 style="font-size:16px;"> Μάθετε <a href="faq.php?redtckt" target="_blank" rel="noopener noreferrer" style="color: #00599C;"> εδώ</a> αν δικαιούστε μειωμένη τιμή.<br>Αν επιθυμείτε να κάνετε αγορά/φόρτιση εισιτηρίου/ών, μπορείτε <a href="tickets_purchase.php" target="_blank" rel="noopener noreferrer" style="color: #00599C;"> εδώ.</a></h5>
                         </div>
                         <div class="tab-pane" id="tab-b" style="padding-left:30px;">
-                            <h5 style="font-size:16px;">Παρακάτω παρατίθενται τα κόμιστρα για εισιτήρια χρονικού διαστήματος 30, 90, 180 και 365 ημερών.<br><br>
+                            <h5 style="font-size:16px;">Παρακάτω παρατίθενται οι τιμές για εισιτήρια χρονικού διαστήματος 30, 90, 180 και 365 ημερών.<br><br>
                             Διακρίνονται περαιτέρω σε:<br>
                             <b> - αυτά που απευθύνονται σε όλα τα μέσα </b>, λεωφορεία (εκτός των γραμμών Express του Αεροδρομίου & της γραμμής Χ80), 
                             τρόλλευ, τραμ, ηλεκτρικός, μετρό (έως το σταθμό Κορωπίου) και ΤΡΑΙΝΟΣΕ που εξυπηρετέι το τμήμα Μαγούλα - Πειραιάς - Κωροπί.<br>
@@ -132,18 +132,18 @@
                                 $sql = mysqli_query($connection, "SELECT * FROM `timed_tickets`");
                                 echo sql_to_html_table( $sql, $delim="\n" );
 
-                                echo '<br><br> <h5 style="font-size:16px;">Για κόμιστρα μειωμένης τιμής:</h5>';
+                                echo '<br><br> <h5 style="font-size:16px;">Για Τιμές μειωμένης τιμής:</h5>';
                                 $sql = mysqli_query($connection, "SELECT * FROM `timed_tickets_red`");
                                 echo sql_to_html_table( $sql, $delim="\n" );
-                                echo '<br><h5 style="font-size:16px;"> Μάθετε <a href="faq.php?redtckt" target="_blank" rel="noopener noreferrer" style="color: #00599C;"> εδώ</a> αν δικαιούστε μειωμένο κόμιστρο.<br>Αν επιθυμείτε να κάνετε αγορά/φόρτιση εισιτηρίου/ών, μπορείτε <a href="tickets_purchase.php" target="_blank" rel="noopener noreferrer" style="color: #00599C;"> εδώ.</a></h5>';
+                                echo '<br><h5 style="font-size:16px;"> Μάθετε <a href="faq.php?redtckt" target="_blank" rel="noopener noreferrer" style="color: #00599C;"> εδώ</a> αν δικαιούστε μειωμένη τιμή.<br>Αν επιθυμείτε να κάνετε αγορά/φόρτιση εισιτηρίου/ών, μπορείτε <a href="tickets_purchase.php" target="_blank" rel="noopener noreferrer" style="color: #00599C;"> εδώ.</a></h5>';
 
                                 mysqli_close($connection);
                             ?>
                         </div>
                         <div class="tab-pane" id="tab-c" style="padding-left:30px;">
-                            <h5 style="font-size:16px;">Η τρέχουσα τιμολογιακή πολιτική για τα μέσα αρμοδιότητας ΟΑΣΑ, αναφέρεται στο ΦΕΚ 126Β/ 28.01.2016. Η τιμολογιακή πολιτική  ισχύει ανεξάρτητα από την εγκατάσταση του νέου συστήματος, το οποίο έχει τη δυνατότητα να υποστηρίξει τους υπάρχοντες τύπους κομίστρου.
+                            <h5 style="font-size:16px;">Η τρέχουσα τιμολογιακή πολιτική για τα μέσα αρμοδιότητας ΟΑΣΑ, αναφέρεται στο ΦΕΚ 126Β/ 28.01.2016. Η τιμολογιακή πολιτική  ισχύει ανεξάρτητα από την εγκατάσταση του νέου συστήματος, το οποίο έχει τη δυνατότητα να υποστηρίξει τους υπάρχοντες τύπους τιμής.
                             <br>Ταυτόχρονα, από τη Δευτέρα 20 Νοεμβρίου 2017 ξεκίνησε η νέα εκπτωτική πολιτική για την περίοδο προσαρμογής στο ηλεκτρονικό εισιτήριο.</h5>
-                            <h5 style="font-size:16px;"> Μάθετε <a href="faq.php?redtckt" target="_blank" rel="noopener noreferrer" style="color: #00599C;"> εδώ</a> αν δικαιούστε μειωμένο κόμιστρο.</h5>
+                            <h5 style="font-size:16px;"> Μάθετε <a href="faq.php?redtckt" target="_blank" rel="noopener noreferrer" style="color: #00599C;"> εδώ</a> αν δικαιούστε μειωμένη τιμή.</h5>
                             </br>
                             <h5 style="font-size:16px;"> ΝΕΑ ΕΚΠΤΩΤΙΚΗ ΠΟΛΙΤΙΚΗ ΓΙΑ ΤΗΝ ΠΕΡΙΟΔΟ ΠΡΟΣΑΡΜΟΓΗΣ ΣΤΟ ΗΛΕΚΤΡΟΝΙΚΟ ΕΙΣΙΤΗΡΙΟ:</h5>
                             <?php  

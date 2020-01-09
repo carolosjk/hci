@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 09, 2020 at 02:53 AM
+-- Generation Time: Jan 09, 2020 at 07:07 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `OASA`
+-- Database: `oasa`
 --
 
 -- --------------------------------------------------------
@@ -681,23 +681,20 @@ CREATE TABLE `new_ticket_prices` (
   `ΠΡΟΙΟΝ` varchar(200) NOT NULL,
   `ΤΙΜΗ (€)` double NOT NULL,
   `ΤΙΜΗ / ΕΙΣΙΤΗΡΙΟ (€)` double DEFAULT NULL,
-  `ΕΚΠΤΩΣΗ` varchar(200) NOT NULL,
-  `ΤΥΠΟΙ ΕΙΣΙΤΗΡΙΩΝ` varchar(200) NOT NULL
+  `ΕΚΠΤΩΣΗ` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `new_ticket_prices`
 --
 
-INSERT INTO `new_ticket_prices` (`ΠΡΟΙΟΝ`, `ΤΙΜΗ (€)`, `ΤΙΜΗ / ΕΙΣΙΤΗΡΙΟ (€)`, `ΕΚΠΤΩΣΗ`, `ΤΥΠΟΙ ΕΙΣΙΤΗΡΙΩΝ`) VALUES
-('10+1 ΕΙΝΑΙΑ ΕΙΣΙΤΗΡΙΑ 1.40€', 13.5, 1.23, '1 επιπλέον εισιτήριο', 'ΠΡΟΣΩΠΟΠΟΙΗΜΕΝΗ ΚΑΡΤΑ, ΑΝΩΝΥΜΗ ΚΑΡΤΑ, ΠΟΛΛΑΠΛΟ ΕΙΣΙΤΗΡΙΟ'),
-('10+1 ΕΙΝΑΙΑ ΕΙΣΙΤΗΡΙΑ ΜΕΙΩΜΕΝΑ 0.60€	', 6, NULL, '1 επιπλέον εισιτήριο	', 'ΠΡΟΣΩΠΟΠΟΙΗΜΕΝΗ ΚΑΡΤΑ, ΠΟΛΛΑΠΛΟ ΕΙΣΙΤΗΡΙΟ'),
-('2πλό ΕΝΙΑΙΟ  ΕΙΣΙΤΗΡΙΟ 1.40€', 2.7, 1.35, '0.10', 'ΠΡΟΣΩΠΟΠΟΙΗΜΕΝΗ ΚΑΡΤΑ, ΑΝΩΝΥΜΗ ΚΑΡΤΑ, ΠΟΛΛΑΠΛΟ ΕΙΣΙΤΗΡΙΟ'),
-('2πλό ΕΝΙΑΙΟ ΕΙΣΙΤΗΡΙΟ ΜΕΙΩΜΕΝΟ 0.60€', 1.2, 0.6, '', 'ΠΡΟΣΩΠΟΠΟΙΗΜΕΝΗ ΚΑΡΤΑ'),
-('5πλό ΕΝΙΑΙΟ ΕΙΣΙΤΗΡΙΟ 1.40€', 6.5, 1.3, '0.50', 'ΠΡΟΣΩΠΟΠΟΙΗΜΕΝΗ ΚΑΡΤΑ, ΑΝΩΝΥΜΗ ΚΑΡΤΑ, ΠΟΛΛΑΠΛΟ ΕΙΣΙΤΗΡΙΟ'),
-('5πλό ΕΝΙΑΙΟ ΕΙΣΙΤΗΡΙΟ ΜΕΙΩΜΕΝΟ 0.60€	', 3, NULL, '', 'ΠΡΟΣΩΠΟΠΟΙΗΜΕΝΗ ΚΑΡΤΑ'),
-('ΕΝΙΑΙΟ ΕΙΣΙΤΗΡΙΟ 1.40€ (μονό)', 1.4, 1.4, '', 'ΠΡΟΣΩΠΟΠΟΙΗΜΕΝΗ ΚΑΡΤΑ, ΑΝΩΝΥΜΗ ΚΑΡΤΑ, ΠΟΛΛΑΠΛΟ ΕΙΣΙΤΗΡΙΟ'),
-('ΕΝΙΑΙΟ ΕΙΣΙΤΗΡΙΟ ΜΕΙΩΜΕΝΟ 0.60€ (μονό)', 0.6, 0.6, '', 'ΠΡΟΣΩΠΟΠΟΙΗΜΕΝΗ ΚΑΡΤΑ');
+INSERT INTO `new_ticket_prices` (`ΠΡΟΙΟΝ`, `ΤΙΜΗ (€)`, `ΤΙΜΗ / ΕΙΣΙΤΗΡΙΟ (€)`, `ΕΚΠΤΩΣΗ`) VALUES
+('10+1 ΔΙΑΔΡΟΜΩΝ ΕΙΣΙΤΗΡΙΟ 1.40€', 13.5, 1.23, '1 επιπλέον εισιτήριο'),
+('10+1 ΔΙΑΔΡΟΜΩΝ ΕΙΣΙΤΗΡΙΟ ΜΕΙΩΜΕΝΟ 0.60€	', 6, NULL, '1 επιπλέον εισιτήριο	'),
+('2 ΔΙΑΔΡΟΜΩΝ ΕΙΣΙΤΗΡΙΟ 1.40€', 2.7, 1.35, '0.10'),
+('2 ΔΙΑΔΡΟΜΩΝ ΕΙΣΙΤΗΡΙΟ ΜΕΙΩΜΕΝΟ 0.60€', 1.2, 0.6, ''),
+('5 ΔΙΑΔΡΟΜΩΝ ΕΙΣΙΤΗΡΙΟ 1.40€', 6.5, 1.3, '0.50'),
+('5 ΔΙΑΔΡΟΜΩΝ ΕΙΣΙΤΗΡΙΟ ΜΕΙΩΜΕΝΟ 0.60€	', 3, NULL, '');
 
 -- --------------------------------------------------------
 
@@ -736,7 +733,7 @@ INSERT INTO `stations` (`station`) VALUES
 --
 
 CREATE TABLE `tickets` (
-  `ΕΝΙΑΙΑ ΕΙΣΙΤΗΡΙΑ` varchar(400) NOT NULL,
+  `ΕΙΣΙΤΗΡΙΑ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ ΕΚΤΟΣ ΓΡΑΜΜΩΝ ΑΕΡΟΔΡΟΜΙΟΥ` varchar(400) NOT NULL,
   `ΛΕΩΦΟΡΕΙΑ / ΤΡΟΛΕY / ΤΡΑΜ / ΜΕΤΡΟ (€)` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -744,11 +741,11 @@ CREATE TABLE `tickets` (
 -- Dumping data for table `tickets`
 --
 
-INSERT INTO `tickets` (`ΕΝΙΑΙΑ ΕΙΣΙΤΗΡΙΑ`, `ΛΕΩΦΟΡΕΙΑ / ΤΡΟΛΕY / ΤΡΑΜ / ΜΕΤΡΟ (€)`) VALUES
+INSERT INTO `tickets` (`ΕΙΣΙΤΗΡΙΑ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ ΕΚΤΟΣ ΓΡΑΜΜΩΝ ΑΕΡΟΔΡΟΜΙΟΥ`, `ΛΕΩΦΟΡΕΙΑ / ΤΡΟΛΕY / ΤΡΑΜ / ΜΕΤΡΟ (€)`) VALUES
+('ΕΙΣΙΤΗΡΙΟ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ 90 ΛΕΠΤΩΝ (ΕΚΤΟΣ ΓΡΑΜΜΩΝ ΑΕΡΟΔΡΟΜΙΟΥ & ΓΡΑΜΜΗΣ Χ80)', 1.4),
 ('ΕΙΣΙΤΗΡΙΟ ΠΕΝΤΕ ΗΜΕΡΩΝ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ (ΕΚΤΟΣ ΓΡΑΜΜΩΝ ΑΕΡΟΔΡΟΜΙΟΥ & ΓΡΑΜΜΗΣ Χ80)', 9),
-('ΕΝΙΑΙΟ ΕΙΣΙΤΗΡΙΟ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ 90 ΛΕΠΤΩΝ (ΕΚΤΟΣ ΓΡΑΜΜΩΝ ΑΕΡΟΔΡΟΜΙΟΥ & ΓΡΑΜΜΗΣ Χ80)', 1.4),
 ('ΗΜΕΡΗΣΙΟ ΕΙΣΙΤΗΡΙΟ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ (ΕΚΤΟΣ ΓΡΑΜΜΩΝ ΑΕΡΟΔΡΟΜΙΟΥ)', 4.5),
-('ΜΕΙΩΜΕΝΟ ΕΝΙΑΙΟ ΕΙΣΙΤΗΡΙΟ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ 90 ΛΕΠΤΩΝ (ΕΚΤΟΣ ΓΡΑΜΜΩΝ ΑΕΡΟΔΡΟΜΙΟΥ & ΓΡΑΜΜΗΣ Χ80)', 0.6),
+('ΜΕΙΩΜΕΝΟ ΕΙΣΙΤΗΡΙΟ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ 90 ΛΕΠΤΩΝ (ΕΚΤΟΣ ΓΡΑΜΜΩΝ ΑΕΡΟΔΡΟΜΙΟΥ & ΓΡΑΜΜΗΣ Χ80)', 0.6),
 ('ΤΟΥΡΙΣΤΙΚΟ ΕΙΣΙΤΗΡΙΟ 3 ΗΜΕΡΩΝ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ (ΠΕΡΙΛΑΜΒΑΝΕΙ 1 ΔΙΑΔΡΟΜΗ ΑΠΟ & ΠΡΟΣ ΤΟ ΑΕΡΟΔΡΟΜΙΟ)', 22);
 
 -- --------------------------------------------------------
@@ -771,8 +768,8 @@ CREATE TABLE `tickets_airport` (
 
 INSERT INTO `tickets_airport` (`ΕΙΣΙΤΗΡΙΑ ΓΡΑΜΜΩΝ ΑΕΡΟΔΡΟΜΙΟΥ`, `ΛΕΩΦΟΡΕIA (€)`, `ΤΡΟΛEY (€)`, `ΤΡΑΜ (€)`, `ΜΕΤΡΟ (€)`) VALUES
 ('ΕΙΣΙΤΗΡΙΟ ΑΕΡΟΔΡΟΜΙΟΥ ΑΠΟ & ΠΡΟΣ ΤΟΥΣ ΣΤΑΘΜΟΥΣ ΠΑΛΛΗΝΗ - ΚΑΝΤΖΑ - ΚΟΡΩΠΙ ΜΕΤΡΟ', NULL, NULL, NULL, 6),
-('ΚΑΝΟΝΙΚΟ ΕΙΣΙΤΗΡΙΟ ΛΕΩΦΟΡΕΙΩΝ EXPRESS', 6, NULL, NULL, NULL),
-('ΚΑΝΟΝΙΚΟ ΕΙΣΙΤΗΡΙΟ ΜΕΤΡΟ				', NULL, NULL, NULL, 10),
+('ΕΙΣΙΤΗΡΙΟ ΛΕΩΦΟΡΕΙΩΝ EXPRESS', 6, NULL, NULL, NULL),
+('ΕΙΣΙΤΗΡΙΟ ΜΕΤΡΟ				', NULL, NULL, NULL, 10),
 ('ΜΕΙΩΜΕΝΟ ΕΙΣΙΤΗΡΙΟ ΑΕΡΟΔΡΟΜΙΟΥ ΑΠΟ & ΠΡΟΣ ΤΟΥΣ ΣΤΑΘΜΟΥΣ ΠΑΛΛΗΝΗ - ΚΑΝΤΖΑ - ΚΟΡΩΠΙ ΜΕΤΡΟ', NULL, NULL, NULL, 3),
 ('ΜΕΙΩΜΕΝΟ ΕΙΣΙΤΗΡΙΟ ΛΕΩΦΟΡΕΙΩΝ EXPRESS	', 3, NULL, NULL, NULL),
 ('ΜΕΙΩΜΕΝΟ ΕΙΣΙΤΗΡΙΟ ΜΕΤΡΟ				', NULL, NULL, NULL, 5);
@@ -890,17 +887,19 @@ CREATE TABLE `users` (
   `password` varchar(200) NOT NULL,
   `name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `surname` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `address` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
+  `address` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `redtkt_prevlg` tinyint(1) NOT NULL,
+  `ticket_code` varchar(12) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`email`, `password`, `name`, `surname`, `address`) VALUES
-('admin', 'admin', 'admin', 'admin', 'admin'),
-('carolosjk@hotmail.com', '123456', 'Karolos', 'Giampouonka-Kanellakos', 'Adrianoupoleos 54, Nea Smirni'),
-('sdi1600030@di.uoa.gr', '123456', 'Karolos', 'Giampouonka-Kanellakos', 'Adrianoupoleos 54');
+INSERT INTO `users` (`email`, `password`, `name`, `surname`, `address`, `redtkt_prevlg`, `ticket_code`) VALUES
+('admin', 'admin', 'admin', 'admin', 'admin', 1, '123456789123'),
+('carolosjk@hotmail.com', '123456', 'Karolos', 'Giampouonka-Kanellakos', 'Adrianoupoleos 54, Nea Smirni', 0, NULL),
+('sdi1600030@di.uoa.gr', '123456', 'Karolos', 'Giampouonka-Kanellakos', 'Adrianoupoleos 54', 1, '123456789784');
 
 --
 -- Indexes for dumped tables
@@ -934,7 +933,7 @@ ALTER TABLE `stations`
 -- Indexes for table `tickets`
 --
 ALTER TABLE `tickets`
-  ADD PRIMARY KEY (`ΕΝΙΑΙΑ ΕΙΣΙΤΗΡΙΑ`);
+  ADD PRIMARY KEY (`ΕΙΣΙΤΗΡΙΑ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ ΕΚΤΟΣ ΓΡΑΜΜΩΝ ΑΕΡΟΔΡΟΜΙΟΥ`);
 
 --
 -- Indexes for table `tickets_airport`
