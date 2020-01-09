@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 09, 2020 at 03:34 PM
+-- Generation Time: Jan 09, 2020 at 07:07 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -889,7 +889,7 @@ CREATE TABLE `users` (
   `surname` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `address` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `redtkt_prevlg` tinyint(1) NOT NULL,
-  `ticket_code` varchar(12) NOT NULL
+  `ticket_code` varchar(12) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -898,8 +898,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`email`, `password`, `name`, `surname`, `address`, `redtkt_prevlg`, `ticket_code`) VALUES
 ('admin', 'admin', 'admin', 'admin', 'admin', 1, '123456789123'),
-('carolosjk@hotmail.com', '123456', 'Karolos', 'Giampouonka-Kanellakos', 'Adrianoupoleos 54, Nea Smirni', 0, ''),
-('sdi1600030@di.uoa.gr', '123456', 'Karolos', 'Giampouonka-Kanellakos', 'Adrianoupoleos 54', 1, '');
+('carolosjk@hotmail.com', '123456', 'Karolos', 'Giampouonka-Kanellakos', 'Adrianoupoleos 54, Nea Smirni', 0, NULL),
+('sdi1600030@di.uoa.gr', '123456', 'Karolos', 'Giampouonka-Kanellakos', 'Adrianoupoleos 54', 1, '123456789784');
 
 --
 -- Indexes for dumped tables
