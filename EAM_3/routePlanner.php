@@ -64,7 +64,7 @@
     <!-- END LOADER -->
    
     <!--HEADER-->
-    <?php include 'utils/uheader.php'; ?>
+    <?php include 'utils/header.php'; ?>
 
     <div class="all-title-box">
 		<div class="container">
@@ -78,18 +78,20 @@
     
     
     <!-- SECTION -->
-	<div id="userProfile" class="section wb">
-        <div class="container">
+	<div class="section wb">
+        <div id="routeCont" class="container" style="width:80%;">
             <!-- Breadcrumbs -->
+            <div class="row" style="margin-left:4%">
 			<nav id="breadcrumbs">
 				<ul>
 					<li><a href="index.php"><i class="fa fa-home global-radius fa-lg"></i></a></li>
 					<li>Εύρεση Διαδρομής</li>
 				</ul>
             </nav>
-            <div class="row" style="float:left;width:200;">
-            <div class="col-md-4 wow slideInLeft hidden-xs hidden-sm" style = "visibility: visible; animation-name: slideInLeft;">
-            <div  style="float:left;width:200" id="routeFind" class="contact_form">
+            </div>
+            <div class="row" style="width:90%;height:80%;margin-left:4%;">
+            <div class="col-md-4 wow slideInLeft hidden-xs hidden-sm" style = "width:35%;visibility: visible; animation-name: slideInLeft;">
+            <div  style="float:left;" id="routeFind" class="contact_form">
                         <h3><i class="fa fa-map-marker grd1 global-radius"></i> ΒΡΕΣ NEA ΔΙΑΔΡΟΜΗ</h3>
                         <form action="routePlanner.php" id="contactform1" class="row" name="contactform" method="post">
                             <fieldset class="row-fluid">
@@ -222,31 +224,49 @@
                                     </script>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-lg-offset-12 text-center">
-                                    <button type="submit" value="SEND" id="submit1" class="btn btn-light btn-radius btn-brd grd1 btn-block">Πάμε!</button>
+                                    <button type="submit" value="SEND" style="margin-left:10px;"id="submit1" class="btn btn-light btn-radius btn-brd grd1 btn-block">Πάμε!</button>
                                 </div>
                             </fieldset>
                         </form>
                     </div>
                     </div>
                     
-                                        
-            <div class="column">
-                <div id="routeMap"  style=" margin-left:10px" >
+                    
+            
+                <div id="routeMap"  style=" height:80%; " >
                     <?php
                     if($start != "1" and $end !="1")
                     echo "<iframe src=\"https://www.google.com/maps/embed/v1/directions".
                         "?key=".$_SESSION['APIkey'].
                         "&origin=".$start.
                         "&destination=".$end.
-                        "&mode=transit&language=el\" width=\"700\" height=\"600\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"true\"></iframe>";
+                        "&mode=transit&language=el\" width=\"60%\" height=\"500px\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"true\"></iframe>";
                     ?>
                 </div>
-            </div>
+                <script>
+                    if (location.hash == '#map')
+                        document.getElementById("signin").classList.add('active');
+                    
+                </script>   
             
+            </div>
+            <div id="directions" class="contact_formdd" style="margin-left:8    %;background-color:rgb(255,255,255);">
+                <div class="row">
+                    <!-- <div><img src="images/metro_logo.png">
+                    </div>
+                    <div>
+                        <div class = "row">
+                            <img src="images/metro_line2_next.png">
+                            <img src="images/metro_line3.png" style="">
+                        </div>
+                        <div class = "row"><span>Φεύγει από Δάφνη - Dafni</span></div>
+                        <div class = "row"><span>7:00MM - 7:20MM</span>    </div>
+                    </div> -->
+                    <img src="images/route1_img.png">
+                </div>
             </div>
         </div>
     </div>
-
     
     <!-- end of SECTION -->
 

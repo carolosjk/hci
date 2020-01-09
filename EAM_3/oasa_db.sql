@@ -2,10 +2,10 @@
 -- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 06, 2020 at 04:34 AM
--- Server version: 10.4.10-MariaDB
--- PHP Version: 7.3.12
+-- Host: localhost
+-- Generation Time: Jan 07, 2020 at 10:51 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `oasa`
+-- Database: `OASA`
 --
 
 -- --------------------------------------------------------
@@ -800,6 +800,43 @@ INSERT INTO `tickets_x80` (`ΕΙΣΙΤΗΡΙΑ ΠΟΥ ΙΣΧΥΟΥΝ ΣΤΗ ΓΡ
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `ticket_points`
+--
+
+CREATE TABLE `ticket_points` (
+  `id` varchar(150) NOT NULL,
+  `type` varchar(150) NOT NULL,
+  `latitude` decimal(10,8) NOT NULL,
+  `longitude` decimal(10,8) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ticket_points`
+--
+
+INSERT INTO `ticket_points` (`id`, `type`, `latitude`, `longitude`) VALUES
+('Αγ. Μαρίνα', 'metro', '37.99684700', '23.66756200'),
+('Αγίας Φωτεινής', 'tram', '37.94654600', '23.71501500'),
+('Αεροδρόμιο', 'metro', '37.93668500', '23.94455900'),
+('Αεροδρόμιο - Χώρος αφίξεων', 'bus', '37.93709000', '23.94723500'),
+('Αμπελόκηποι', 'metro', '37.98736300', '23.75703500'),
+('Δάφνη', 'metro', '37.94925400', '23.73721800'),
+('Δουκ. Πλακεντίας', 'metro', '38.02391300', '23.83360100'),
+('Ευαγγελισμός', 'metro', '37.97635900', '23.74738700'),
+('Κηφισιά', 'metro', '38.07370300', '23.80830500'),
+('Μοναστηράκι', 'metro', '37.97616700', '23.72569400'),
+('Μουσών', 'tram', '37.92204000', '23.69981000'),
+('Νέος Κόσμος', 'metro', '37.95761000', '23.72846900'),
+('Όθωνος', 'bus', '37.97500000', '23.73500000'),
+('Ομόνοια', 'metro', '37.98418700', '23.72869000'),
+('Πανεπιστήμιο', 'metro', '37.98045700', '23.73306500'),
+('Πειραιά', 'metro', '37.94814000', '23.64326700'),
+('Συγγρού-Φιξ', 'metro', '37.96416100', '23.72642500'),
+('Σύνταγμα', 'metro', '37.97508600', '23.73568600');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `timed_tickets`
 --
 
@@ -911,6 +948,12 @@ ALTER TABLE `tickets_airport`
 --
 ALTER TABLE `tickets_x80`
   ADD PRIMARY KEY (`ΕΙΣΙΤΗΡΙΑ ΠΟΥ ΙΣΧΥΟΥΝ ΣΤΗ ΓΡΑΜΜΗ EXPRESS Χ80`);
+
+--
+-- Indexes for table `ticket_points`
+--
+ALTER TABLE `ticket_points`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `timed_tickets`
