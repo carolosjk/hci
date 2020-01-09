@@ -90,9 +90,6 @@
                                         <option id="admOption" value="φόρτιση">Φόρτιση</option>
                                     </select>
                                 </div>
-                                <div id="admDivCheck" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="display:none;">
-                                    <input type="tel" style="margin-top:0px;" name="code" id="code"  pattern="[0-9]{12}" class="form-control" placeholder="Αριθμός Εισιτηρίου" required oninvalid="setCustomValidity('Άδειο πεδίο ή μη έγκυρος αριθμός εισιτηρίου! Προσθέστε έγκυρο 12ψήφιο αριθμό εισιτηρίου.')" oninput="setCustomValidity('')">
-                                </div>
                                 <script> 
                                    function admSelectCheck(nameSelect)
                                     {
@@ -103,20 +100,20 @@
                                             { 
                                                 if (document.getElementById("tickets").style.display == "block")
                                                     { document.getElementById("tickets").style.display = "none"; } 
-                                                document.getElementById("admDivCheck").style.display = "block"; 
+                                                // document.getElementById("admDivCheck").style.display = "block"; 
                                                 document.getElementById("tickets_red").style.display = "block"; 
                                             }
                                             else
                                             { 
                                                 if (document.getElementById("tickets_red").style.display == "block")
                                                     { document.getElementById("tickets_red").style.display = "none"; } 
-                                                document.getElementById("admDivCheck").style.display = "none"; 
+                                                // document.getElementById("admDivCheck").style.display = "none"; 
                                                 document.getElementById("tickets").style.display = "block"; 
                                             }
                                         }
                                         else
                                         { 
-                                            document.getElementById("admDivCheck").style.display = "none"; 
+                                            // document.getElementById("admDivCheck").style.display = "none"; 
                                             document.getElementById("tickets_red").style.display = "none"; 
                                             document.getElementById("tickets").style.display = "none"; 
                                         }
@@ -142,10 +139,10 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="padding-bottom:5px;">
                                     <select class="form-control" id="selectC" required oninvalid="setCustomValidity('Δεν έχει γίνει καμία επιλογή! Επιλέξτε ένα τύπο εισιτηρίου.')" oninput="setCustomValidity('')">
                                         <option selected disabled hidden value="">Είδος Εισιτηρίου</option>    
-                                        <option id="candy1">Ενιαίο Εισιτήριο</option>
-                                        <option id="candy2">Πολλαπλό Εισιτήριο</option>
-                                        <option id="candy3">Γραμμών Αεροδρομίου</option>
-                                        <option id="candy4">Χρονικού Διαστήματος</option>
+                                        <option id="candy1">Εισιτήριο για Όλα τα Μέσα εκτός Γραμμών Αεροδρομίου</option>
+                                        <option id="candy2">Εισιτήριο Πολλαπλών Διαδρομών</option>
+                                        <option id="candy3">Εισιτήριο Γραμμών Αεροδρομίου</option>
+                                        <option id="candy4">Εισιτήριο Χρονικού Διαστήματος</option>
                                     </select>
                                     <script> 
                                         jQuery(function($) {
@@ -181,7 +178,7 @@
                                                 $sql = mysqli_query($connection, "SELECT * FROM `tickets`");
                                                 $c = 0;
                                                 while ($row = $sql->fetch_assoc()){
-                                                if ($c != 3) { echo "<option value=". $row['ΛΕΩΦΟΡΕΙΑ / ΤΡΟΛΕY / ΤΡΑΜ / ΜΕΤΡΟ (€)'] .">" . $row['ΕΝΙΑΙΑ ΕΙΣΙΤΗΡΙΑ'] . "</option>"; $c=$c+1;}
+                                                if ($c != 3) { echo "<option value=". $row['ΛΕΩΦΟΡΕΙΑ / ΤΡΟΛΕY / ΤΡΑΜ / ΜΕΤΡΟ (€)'] .">" . $row['ΕΙΣΙΤΗΡΙΑ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ ΕΚΤΟΣ ΓΡΑΜΜΩΝ ΑΕΡΟΔΡΟΜΙΟΥ'] . "</option>"; $c=$c+1;}
                                                 else { $c=$c+1; }
                                                 }
                                             ?>
@@ -342,39 +339,28 @@
                                         <p><span id="myticket"></span> <span id="x"></span> <span id="myamount"></span><span id="myticketprice" style="display:none;"></span> <span id="eq"></span> <span id="total"></span> <span id="cur"></span></p>
                                     </div>
 
-                                    <?php
-                                        // if (!isset($_SESSION['user_id']))
-                                        // {
-                                        //     echo '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left"> <p> Παρακαλώ εισάγετε τα παρακάτω στοιχεία για αποστολή των παραπάνω εισιτηρίων που έχετε επιλέξει και απόδειξης αυτών.</p></div><div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        //     <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Επώνυμο" required oninvalid="setCustomValidity("Άδειο πεδίο. Χρειάζεται να εισαχθεί επώνυμο!")" oninput="setCustomValidity('')">
-                                        // </div>
-                                        // <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        //     <input type="text" name="first_name" id="first_name" class="form-control" placeholder="Όνομα" required oninvalid="setCustomValidity("Άδειο πεδίο. Χρειάζεται να εισαχθεί όνομα!")" oninput="setCustomValidity('')">
-                                        // </div>
-                                        // <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-                                        //     <input type="email" name="email" id="email" class="form-control" placeholder="example@example.com/gr" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required oninvalid="setCustomValidity("Άδειο πεδίο ή μη έγκυρη διεύθυνση email! Προσθέστε έγκυρη διεύθυνση email.")" oninput="setCustomValidity('')">
-                                        // </div>';
-                                        // }
-                                    ?>
-                                    <!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" <?php if (!isset($_SESSION['user_id'])) { echo 'style="display:block; margin-top:15px;"'; } else { echo 'style="display:none"'; } ?>>
+                                        <span> Παρακαλώ εισάγετε τα παρακάτω στοιχεία για χρέωση, αποστολή των επιλεγμένων εισιτηρίων και απόδειξη αυτών!</span>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" <?php if (!isset($_SESSION['user_id'])) { echo 'style="display:block"'; } else { echo 'style="display:none"'; } ?>>
                                         <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Επώνυμο" required oninvalid="setCustomValidity('Άδειο πεδίο. Χρειάζεται να εισαχθεί επώνυμο!')" oninput="setCustomValidity('')">
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" <?php if (!isset($_SESSION['user_id'])) { echo 'style="display:block"'; } else { echo 'style="display:none"'; }?>>
                                         <input type="text" name="first_name" id="first_name" class="form-control" placeholder="Όνομα" required oninvalid="setCustomValidity('Άδειο πεδίο. Χρειάζεται να εισαχθεί όνομα!')" oninput="setCustomValidity('')">
                                     </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" <?php if (!isset($_SESSION['user_id'])) { echo 'style="display:block"'; } else { echo 'style="display:none"'; }?>>
                                         <input type="email" name="email" id="email" class="form-control" placeholder="example@example.com/gr" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required oninvalid="setCustomValidity('Άδειο πεδίο ή μη έγκυρη διεύθυνση email! Προσθέστε έγκυρη διεύθυνση email.')" oninput="setCustomValidity('')">
-                                    </div> -->
+                                    </div>
                                 </div>                                 
                             </fieldset> 
                             <fieldset class="row-fluid" id="tickets_red" style="display:none;">    
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="padding-bottom:5px;">
                                     <select class="form-control" id="sselectC" required oninvalid="setCustomValidity('Δεν έχει γίνει καμία επιλογή! Επιλέξτε ένα τύπο εισιτηρίου.')" oninput="setCustomValidity('')">
                                         <option selected disabled hidden value="">Είδος Εισιτηρίου</option>    
-                                        <option id="ccandy1">Ενιαίο Εισιτήριο</option>
-                                        <option id="ccandy2">Πολλαπλό Εισιτήριο</option>
-                                        <option id="ccandy3">Γραμμών Αεροδρομίου</option>
-                                        <option id="ccandy4">Χρονικού Διαστήματος</option>
+                                        <option id="ccandy1">Εισιτήριο για Όλα τα Μέσα εκτός Γραμμών Αεροδρομίου</option>
+                                        <option id="ccandy2">Εισιτήριο Πολλαπλό Εισιτήριο</option>
+                                        <option id="ccandy3">Εισιτήριο Γραμμών Αεροδρομίου</option>
+                                        <option id="ccandy4">Εισιτήριο Χρονικού Διαστήματος</option>
                                     </select>
                                     <script> 
                                         jQuery(function($) {
@@ -408,7 +394,7 @@
                                                 require('php_utils/db_connect.php');
                                                 $sql = mysqli_query($connection, "SELECT * FROM `tickets`");
                                                 while ($row = $sql->fetch_assoc()){
-                                                    echo "<option value=". $row['ΛΕΩΦΟΡΕΙΑ / ΤΡΟΛΕY / ΤΡΑΜ / ΜΕΤΡΟ (€)'] .">" . $row['ΕΝΙΑΙΑ ΕΙΣΙΤΗΡΙΑ'] . "</option>";
+                                                    echo "<option value=". $row['ΛΕΩΦΟΡΕΙΑ / ΤΡΟΛΕY / ΤΡΑΜ / ΜΕΤΡΟ (€)'] .">" . $row['ΕΙΣΙΤΗΡΙΑ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ ΕΚΤΟΣ ΓΡΑΜΜΩΝ ΑΕΡΟΔΡΟΜΙΟΥ'] . "</option>";
                                                 }
                                             ?>
                                         </select>
@@ -578,7 +564,22 @@
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left">
                                         <p><span id="mmyticket"></span> <span id="X"></span> <span id="mmyamount"></span><span id="mmyticketprice" style="display:none;"></span> <span id="eeq"></span> <span id="ttotal"></span> <span id="ccur"> </p>
                                     </div>
+                                    <?php
+                                        if (isset($_SESSION['user_id']))
+                                        {
+                                            require('php_utils/db_connect.php');
+                                            $mail = $_SESSION['user_id'];
+                                            $query = "SELECT * FROM `users` WHERE email='$mail'";
+                                            $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
+                                            $row = $sql->fetch_assoc();
 
+                                            $_SESSION['tkt_code'] = $row['ticket_code'];
+                                            $_SESSION['prvlg'] = $row['redtkt_prvlg'];
+                                        }
+                                    ?>
+                                    <div id="admDivCheck" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" <?php  if (!isset($_SESSION['user_id']) or $_SESSION['prvlg'] == 0 or $_SESSION['tkt_code'].length == 0) { echo "style='display:block;'"; } else { echo "style='display:none;'"; } ?>>
+                                        <input type="tel" style="margin-top:0px;" name="code" id="code"  pattern="[0-9]{12}" class="form-control" placeholder="Αριθμός Εισιτηρίου" required oninvalid="setCustomValidity('Άδειο πεδίο ή μη έγκυρος αριθμός εισιτηρίου! Προσθέστε έγκυρο 12ψήφιο αριθμό εισιτηρίου.')" oninput="setCustomValidity('')">
+                                    </div>
                                 </div> 
                             </fieldset>
                             <fieldset class="row-fluid">     
@@ -603,11 +604,12 @@
                         <div class="collapse" id="accordion-tab-1-content-2" aria-labelledby="accordion-tab-1-heading-2" data-parent="#accordion-tab-1">
                             <div class="card-body">
                                 <p>
-                                    <b>-</b> Επιλέξτε την ενέργεια που επιθυμείτε να κάνετε, αγορά ή φόρτιση εισιτηρίων. Μπορεί να γίνει μόνο φόρτιση των εισιτηρίων μειωμένου κομίστρου και όχι αγορά.<br>   
+                                    <b>-</b> Επιλέξτε την ενέργεια που επιθυμείτε να κάνετε, αγορά ή φόρτιση εισιτηρίων. Μπορεί να γίνει μόνο φόρτιση των εισιτηρίων μειωμένης τιμής, αν την δικαιούστε, και όχι αγορά.<br>   
                                     <b>-</b> Επιλέξτε είδος εισιτηρίου, ενα εκ των προσφερόμενων εισιτηρίων αυτού και την ποσότητα που επιθυμείτε. <br>
                                     <b>-</b> Με την ολοκλήρωση των παραπάνω βημάτων, έχετε εμφανείς εν τέλει τις λεπτομέρειες για την ενέργεια που επιθυμείτε να κάνετε, τύπος εισιτηρίου και την ποσότητα που επιλέξατε και την συνολική τιμή των επιλογών σας.<br>
-                                    <b>-</b> Προκειμένου να ολοκληρωθεί επιτυχώς η διαδικασία χρειάζεται, εφόσον δεν είστε εγγεγραμμένος χρήστης, να εισάγετε τα στοιχεία απαραίτητα για την χρέωση και αποστολή απόδειξης των εισιτηρίων που αποκτήσατε. Aν επιθυμείτε μπορείτε να εγραφτείτε αργότερα. 
-                                    Αν είστε ήδη εγγεγραμμένος, και είστε ήδη συνδεδεμένος δεν χρειάζεται να εισάγετε κάποιο στοιχείο, αλλά αν δεν είστε συνδεδεμένος έχετε την δυνατότητα να το κάνετε.<br>
+                                    <b>-</b> Προκειμένου να ολοκληρωθεί επιτυχώς η διαδικασία χρειάζεται, εφόσον δεν είστε εγγεγραμμένος χρήστης, να εισαγάγετε τα στοιχεία απαραίτητα για την χρέωση, αποστολή των εισιτηρίων που αποκτήσατε και της απόδειξης αυτών. 
+                                    Αν είστε ήδη εγγεγραμμένος, και είστε ήδη συνδεδεμένος δεν χρειάζεται να εισαγάγετε κάποιο στοιχείο εκτός και αν δεν έχετε αποθηκεύσει αριθμό εισιτηρίου που θα χρειαστεί να εισαχθεί σε περίπτωση φόρτισης.
+                                    Αν δεν είστε συνδεδεμένος, έχετε την δυνατότητα να το κάνετε πριν ξεκινήσετε την παραπάνω διαδικασία και να μεταβείτε ξανά στην σελίδα αυτή.<br>
                                     <b>-</b> Μετά την ολοκλήρωση θα λάβετε ενημερωτικό μήνυμα για την αγορά/φόρτιση που εκτελέσατε.
                                 </p>
                             </div>
