@@ -377,18 +377,19 @@
                                         <option id="ccandy4">Χρονικού Διαστήματος</option>
                                     </select>
                                     <script> 
-                                        // jQuery(function($) {
+                                        jQuery(function($) {
 
-                                        //     $('#sselectC').on('change', function() {
-                                        //         document.getElementById("mmyticket").innerHTML = "";
-                                        //         document.getElementById("mmyamount").innerHTML = "";
-                                        //         document.getElementById("X").innerHTML = "";
-                                        //         document.getElementById("aalice").value = "";
-                                        //         document.getElementById("eeq").innerHTML = "";
-                                        //         document.getElementById("ccur").innerHTML = ""; 
-                                        //         document.getElementById("ttotal").innerHTML = "";                                                
-                                        //     });
-                                        // });
+                                            $('#sselectC').on('change', function() {
+                                                document.getElementById("mmyticket").innerHTML = "";
+                                                document.getElementById("mmyticketprice").innerHTML = "";
+                                                document.getElementById("mmyamount").innerHTML = "";
+                                                document.getElementById("X").innerHTML = "";
+                                                document.getElementById("aalice").value = "";
+                                                document.getElementById("eeq").innerHTML = "";
+                                                document.getElementById("ccur").innerHTML = ""; 
+                                                document.getElementById("ttotal").innerHTML = "";                                                
+                                            });
+                                        });
                                     </script>
                                 </div>
                                 <script>
@@ -554,13 +555,6 @@
                                             document.querySelector('#nnoCandy4').style.display = 'block';
                                             document.querySelector('#qq').style.display = 'block';
                                         }
-                                        document.getElementById("mmyticket").innerHTML = "";
-                                                document.getElementById("mmyamount").innerHTML = "";
-                                                document.getElementById("X").innerHTML = "";
-                                                document.getElementById("aalice").value = "";
-                                                document.getElementById("eeq").innerHTML = "";
-                                                document.getElementById("ccur").innerHTML = ""; 
-                                                document.getElementById("ttotal").innerHTML = "";
                                         }, false);
                                     </script>
                                 </div>
