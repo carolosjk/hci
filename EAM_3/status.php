@@ -163,7 +163,7 @@
 
                                         statusAlert();
                                         $('#map').removeClass('hide').show();
-                                        calcRoute();
+                                        //calcRoute();
                                     }
                                 </script>
 
