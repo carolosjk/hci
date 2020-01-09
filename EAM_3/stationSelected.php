@@ -1,10 +1,10 @@
 <?php
     session_start();
-    if (isset($_POST['select_bus'])){
-        $id = $_POST['select_bus'];
+    if (isset($_POST['select_station'])){
+        $station = $_POST['select_station'];
     }
     else{
-        $id = "1";
+        $station = "1";
     }
 ?>
 
@@ -96,26 +96,25 @@
                 <div class="col-md-4 wow hidden-xs hidden-sm">
 
                     <ul class="nav nav-pills" id="mynav">
-                        <li class="active"><a data-toggle="pill" href="#lines">Γραμμές</a></li>
-                        <li><a data-toggle="pill" href="#stops">Στάσεις</a></li>
+                        <li><a data-toggle="pill" href="#lines">Γραμμές</a></li>
+                        <li class="active"><a data-toggle="pill" href="#stops">Στάσεις</a></li>
                     </ul>
 
                     <div class="tab-content">
-                        <div id="lines" class="tab-pane fade in active">
+                        <div id="lines" class="tab-pane fade">
                             <div class="contact_form">
                                 <h2>Πληροφορίες Γραμμής</h2>
-                                <form id="contactform1" class="row" name="contactform" method="post" action="busSelected.php">
+                                <form id="contactform1" class="row" name="contactform1" method="post" action="busSelected.php">
                                     <fieldset class="row-fluid">
                                         <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
                                             <br/><h4>Επιλέξτε γραμμή:</h4>
                                             <select name="select_bus" id="select_bus" class="form-control" data-style="btn-white" data-live-search="true">
-                                                <?php
+                                                <?php  
+
                                                     require('php_utils/db_connect.php');
                                                     $sql = mysqli_query($connection, "SELECT * FROM `buses`");
                                                     while ($row = $sql->fetch_assoc()){
-                                                        echo "<option ";
-                                                        if($row['id'] == $id) echo "selected=\"selected\"";
-                                                        echo " value=\"" . $row['id'] . "\">" . $row['id'] . " : " . $row['start'] . " - " . $row['end'] . "</option>";
+                                                        echo "<option value=\"" . $row['id'] . "\">" . $row['id'] . " : " . $row['start'] . " - " . $row['end'] . "</option>";
                                                     }
                                                 ?>
                                             </select>
@@ -132,7 +131,7 @@
                             </div>
                         </div>
 
-                        <div id="stops" class="tab-pane fade">
+                        <div id="stops" class="tab-pane fade in active">
                             <div class="contact_form">
                                 <h2>Πληροφορίες Στάσης</h2>
                                 <form id="contactform2" class="row" name="contactform2" method="post" action="stationSelected.php">
@@ -145,7 +144,9 @@
                                                 require('php_utils/db_connect.php');
                                                 $sql = mysqli_query($connection, "SELECT * FROM `stations`");
                                                 while ($row = $sql->fetch_assoc()){
-                                                    echo "<option value=\"" . $row['station'] . "\">" . $row['station'] . "</option>";
+                                                    echo "<option ";
+                                                    if($row['station'] == $station) echo "selected=\"selected\"";
+                                                    echo " value=\"" . $row['station'] . "\">" . $row['station'] . "</option>";
                                                 }
                                                 ?>
                                             </select>
@@ -165,69 +166,16 @@
                     
                 </div>
 
-                <div id="busInfo">
+                <div id="stationInfo">
                     <div class="col-md-8">
                         <h3 style="text-align: left; border-bottom:solid 1px #e1e1e1;">
                         <?php
-                            echo "Πληροφορίες γραμμής: " . $id . " " . "<i class=\"fa fa-heart\" style=\"float:right; line-height:25px\"></i>";
-                                            
-                            $sql = mysqli_query($connection, "SELECT * FROM `buses` where id = '$id'");
-                            $row = $sql->fetch_assoc();
-                            echo $row['start'] . " - " . $row['end'];
+                            echo "Πληροφορίες στάσης: " . $station . " " . "<i class=\"fa fa-heart\" style=\"float:right; line-height:25px\"></i>";
                         ?>
                         </h3>
 
                         <div id="map"></div>
-                        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxGFJJ5M8-O_JCjSR-Ib5U_53P4Hpj2uk&libraries=places&callback=initMap"></script>
-
-                        </br>
-                        <ul class="nav nav-pills nav-fill" id="direction_nav">
-                            <li style="width:100%"><a data-toggle="pill">Κατεύθυνση</a>
-                        
-                            <select name="direction" id="direction" class="form-control" data-style="btn-white">
-                                <option value="option1" id="option1">
-                                    <?php
-                                        $sql = mysqli_query($connection, "SELECT * FROM `buses` where id = '$id'");
-                                        $row = $sql->fetch_assoc();
-                                        echo $row['start'] . " - " . $row['end'];
-                                    ?>
-                                </option>
-                                <option value="option2" id="option2">
-                                    <?php
-                                        $sql = mysqli_query($connection, "SELECT * FROM `buses` where id = '$id'");
-                                        $row = $sql->fetch_assoc();
-                                        echo $row['end'] . " - " . $row['start'];
-                                    ?>
-                                </option>
-                            </select>
-                            </li>
-                        </ul>
-
-                        </br>
-                        <ul class="nav nav-pills nav-fill" id="schedule_nav">
-                            <li class="active" style="width:33%"><a data-toggle="pill" href="#weekday">Καθημερινή</a></li>
-                            <li style="width:33%"><a data-toggle="pill" href="#saturday">Σάββατο</a></li>
-                            <li style="width:33%"><a data-toggle="pill" href="#sunday">Κυριακή</a></li>
-                        </ul>
-
-                        <div class="tab-content">
-                            <div id="weekday" class="tab-pane fade in active">
-                                <?php
-                                    $sql = mysqli_query($connection, "SELECT * FROM `bustimetable` WHERE day = 'weekday' and id = '$id'");
-                                    echo "<ul class=\"hours\">";
-                                    while ($row = $sql->fetch_assoc()){
-                                        echo "<li>" . $row['time'] . "</li>";
-                                    }
-                                    echo "</ul>";
-                                ?>
-                            </div>
-                            <div id="saturday" class="tab-pane fade in">
-                                <h2>Saturday</h2>
-                            </div>
-                            <div id="sunday" class="tab-pane fade in">
-                                <h2>Sunday</h2>
-                            </div>
-                        </div>
+                        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxGFJJ5M8-O_JCjSR-Ib5U_53P4Hpj2uk&libraries=places&language=el&callback=initMap"></script>
                     </div>
                 </div>
             </div>
@@ -238,6 +186,33 @@
 
     <!--FOOTER-->
     <?php include 'utils/footer.php'; ?>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxGFJJ5M8-O_JCjSR-Ib5U_53P4Hpj2uk&libraries=places&language=el&callback=displayStation"></script>
+    <script>
+        function displayStation() {
+            initMap();
+            <?php
+                if($station != "1")
+                echo "var request = {
+                    query: '".$station."',
+                    fields: ['name', 'geometry'],
+                };"
+            ?>
+                    
+            var service = new google.maps.places.PlacesService(map);
+                    
+            service.findPlaceFromQuery(request, function(results, status) {
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location
+                    });
+                    map.setCenter(results[0].geometry.location);
+                    map.setZoom(16);
+                }
+            });
+        }
+    </script>
 
 </body>
 </html>

@@ -118,7 +118,7 @@
 
                                 mysqli_close($connection);
                             ?>
-                            <h5 style="font-size:16px;"> Μάθετε <a href="faq.php?redtckt" style="color: #00599C;"> εδώ</a> αν δικαιούστε μειωμένο κόμιστρο.</h5>
+                            <h5 style="font-size:16px;"> Μάθετε <a href="faq.php?redtckt" target="_blank" rel="noopener noreferrer" style="color: #00599C;"> εδώ</a> αν δικαιούστε μειωμένο κόμιστρο.<br>Αν επιθυμείτε να κάνετε αγορά/φόρτιση εισιτηρίου/ών, μπορείτε <a href="tickets_purchase.php" target="_blank" rel="noopener noreferrer" style="color: #00599C;"> εδώ.</a></h5>
                         </div>
                         <div class="tab-pane" id="tab-b" style="padding-left:30px;">
                             <h5 style="font-size:16px;">Παρακάτω παρατίθενται τα κόμιστρα για εισιτήρια χρονικού διαστήματος 30, 90, 180 και 365 ημερών.<br><br>
@@ -135,7 +135,7 @@
                                 echo '<br><br> <h5 style="font-size:16px;">Για κόμιστρα μειωμένης τιμής:</h5>';
                                 $sql = mysqli_query($connection, "SELECT * FROM `timed_tickets_red`");
                                 echo sql_to_html_table( $sql, $delim="\n" );
-                                echo '<br><h5 style="font-size:16px;"> Μάθετε <a href="faq.php?redtckt" style="color: #00599C;"> εδώ</a> αν δικαιούστε μειωμένο κόμιστρο.</h5>';
+                                echo '<br><h5 style="font-size:16px;"> Μάθετε <a href="faq.php?redtckt" target="_blank" rel="noopener noreferrer" style="color: #00599C;"> εδώ</a> αν δικαιούστε μειωμένο κόμιστρο.<br>Αν επιθυμείτε να κάνετε αγορά/φόρτιση εισιτηρίου/ών, μπορείτε <a href="tickets_purchase.php" target="_blank" rel="noopener noreferrer" style="color: #00599C;"> εδώ.</a></h5>';
 
                                 mysqli_close($connection);
                             ?>
@@ -143,7 +143,7 @@
                         <div class="tab-pane" id="tab-c" style="padding-left:30px;">
                             <h5 style="font-size:16px;">Η τρέχουσα τιμολογιακή πολιτική για τα μέσα αρμοδιότητας ΟΑΣΑ, αναφέρεται στο ΦΕΚ 126Β/ 28.01.2016. Η τιμολογιακή πολιτική  ισχύει ανεξάρτητα από την εγκατάσταση του νέου συστήματος, το οποίο έχει τη δυνατότητα να υποστηρίξει τους υπάρχοντες τύπους κομίστρου.
                             <br>Ταυτόχρονα, από τη Δευτέρα 20 Νοεμβρίου 2017 ξεκίνησε η νέα εκπτωτική πολιτική για την περίοδο προσαρμογής στο ηλεκτρονικό εισιτήριο.</h5>
-                            <h5 style="font-size:16px;"> Μάθετε <a href="faq.php?redtckt" style="color: #00599C;"> εδώ</a> αν δικαιούστε μειωμένο κόμιστρο.</h5>
+                            <h5 style="font-size:16px;"> Μάθετε <a href="faq.php?redtckt" target="_blank" rel="noopener noreferrer" style="color: #00599C;"> εδώ</a> αν δικαιούστε μειωμένο κόμιστρο.</h5>
                             </br>
                             <h5 style="font-size:16px;"> ΝΕΑ ΕΚΠΤΩΤΙΚΗ ΠΟΛΙΤΙΚΗ ΓΙΑ ΤΗΝ ΠΕΡΙΟΔΟ ΠΡΟΣΑΡΜΟΓΗΣ ΣΤΟ ΗΛΕΚΤΡΟΝΙΚΟ ΕΙΣΙΤΗΡΙΟ:</h5>
                             <?php  
@@ -183,6 +183,7 @@
                                         return( $htmltable ) ; 
                                     }
                             ?>
+                            <h5 style="font-size:16px;"> Αν επιθυμείτε να κάνετε αγορά/φόρτιση εισιτηρίου/ών, μπορείτε <a href="tickets_purchase.php" target="_blank" rel="noopener noreferrer" style="color: #00599C;"> εδώ.</a></h5>
                         </div>      
                     </div>
 

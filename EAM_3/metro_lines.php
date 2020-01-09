@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
  
      <!-- Site Metas -->
-    <title>ΟΑΣΑ Χάρτες</title>  
+    <title>ΟΑΣΑ Γραμμές</title>  
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -36,11 +36,15 @@
     <link rel="stylesheet" href="css/custom.css">
 
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css">
-    <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.12.4.js" type="text/javascript"></script>
     <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js" type="text/javascript"></script>
 
-    <link rel="stylesheet" href="/css/magnify.css">
-    <script src="/js/jquery.magnify.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment-with-locales.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/d004434a5ff76e7b97c8b07c01f34ca69e635d97/src/js/bootstrap-datetimepicker.js"></script>
+
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/d004434a5ff76e7b97c8b07c01f34ca69e635d97/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
 
     <!-- Modernizer for Portfolio -->
     <script src="js/modernizer.js"></script>
@@ -49,13 +53,6 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment-with-locales.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/d004434a5ff76e7b97c8b07c01f34ca69e635d97/src/js/bootstrap-datetimepicker.js"></script>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/d004434a5ff76e7b97c8b07c01f34ca69e635d97/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
 
 </head>
 <body class="realestate_version">
@@ -73,47 +70,41 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h2>Χάρτες</h2>
+					<h2>Μετρό</h2>
 				</div>
 			</div>
 		</div>
 	</div>
 
-    <div class="about-box" style="padding-bottom:20%;">
+    <div class="about-box">
 		<div class="container">
-            <nav id="breadcrumbs">
-                <ul>
-                    <li><a href="index.php"><i class="fa fa-home global-radius fa-lg"></i></a></li>
-                    <li>Χάρτες</li>
-                </ul>
-            </nav>
+                <nav id="breadcrumbs">
+                    <ul>
+                        <li><a href="index.php"><i class="fa fa-home global-radius fa-lg"></i></a></li>
+                        <li>Μετρό</li>
+                    </ul>
+                </nav>
 
             <div class="row" style="margin-top:50px;">
-                <div class="col-md-3">
-                    <ul class="nav nav-pills nav-stacked" id="mynav">
-                        <li style="width:100%"><a data-toggle="pill" href="#metro">Μετρό</a></li>
-                        <li style="width:100%"><a data-toggle="pill" href="#buses">Λεωφορεία</a></li>
-                        <li style="width:100%"><a data-toggle="pill" href="#trolleys">Τρόλει</a></li>
-                    </ul>
-
-                    <div class="tab-content" style="margin-top:-200px; margin-left: 300px;">
-                        <div id="metro" class="tab-pane fade">
-                            <img src="uploads/metromap.png" class="zoom" data-magnify-src="uploads/metromap-large.png"/>
-                        </div>
-
-                        <script>
-                            $(document).ready(function() {
-                              $('.zoom').magnify();
-                            });
-                        </script>
-                    </div>
+                <div class="col-md-12">
+                    <div id="map"></div>
                 </div>
+
             </div>
         </div>
     </div>
 
     <!--FOOTER-->
     <?php include 'utils/footer.php'; ?>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxGFJJ5M8-O_JCjSR-Ib5U_53P4Hpj2uk&libraries=places&language=el&callback=displayMetro"></script>
+    <script>
+        function displayMetro() {
+            initMap();
+            var transitLayer = new google.maps.TransitLayer();
+            transitLayer.setMap(map);
+        }
+    </script>
 
 </body>
 </html>

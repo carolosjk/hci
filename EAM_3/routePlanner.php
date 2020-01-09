@@ -2,13 +2,15 @@
     session_start();
     $_SESSION['APIkey'] = "AIzaSyBxGFJJ5M8-O_JCjSR-Ib5U_53P4Hpj2uk";
 
-    if (isset($_POST['start']) and isset($_POST['end'])){
+    if (isset($_POST['start']) and isset($_POST['end']) and isset($_POST['radio'])){
         $start = $_POST['start'];
         $end = $_POST['end'];
+        $radio = $_POST['radio'];
     }
     else{
         $start = "1";
         $end = "1";
+        $radio = "1";
     }
 
 ?>
@@ -90,33 +92,32 @@
             </nav>
             </div>
             <div class="row" style="width:90%;height:80%;margin-left:4%;">
-            <div class="col-md-4 wow slideInLeft hidden-xs hidden-sm" style = "width:35%;visibility: visible; animation-name: slideInLeft;">
-            <div  style="float:left;" id="routeFind" class="contact_form">
+                <div class="col-md-4 wow slideInLeft hidden-xs hidden-sm">
+                    <div style="float:left;" id="routeFind" class="contact_form">
                         <h3><i class="fa fa-map-marker grd1 global-radius"></i> ΒΡΕΣ NEA ΔΙΑΔΡΟΜΗ</h3>
                         <form action="routePlanner.php" id="contactform1" class="row" name="contactform" method="post">
                             <fieldset class="row-fluid">
                                 <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
-                                    <script type="text/javascript">
-                                        function initAutocomplete() {
-                                            // Create the autocomplete object, restricting the search to geographical
-                                            // location types.
-                                            autocomplete = new google.maps.places.Autocomplete(
-                                                /** @type {!HTMLInputElement} */(document.getElementById('input')),
-                                                {types: ['geocode']});
+                                <script type="text/javascript">
+                                    function initAutocomplete() {
+                                        // Create the autocomplete object, restricting the search to geographical
+                                        // location types.
+                                        autocomplete = new google.maps.places.Autocomplete(
+                                            /** @type {!HTMLInputElement} */(document.getElementById('input')),
+                                            {types: ['geocode']});
 
-                                            // When the user selects an address from the dropdown, populate the address
-                                            // fields in the form.
-                                            autocomplete.addListener('place_changed', fillInAddress);
-                                        }
+                                        // When the user selects an address from the dropdown, populate the address
+                                        // fields in the form.
+                                        autocomplete.addListener('place_changed', fillInAddress);
+                                    }
 
-                                        function fillInAddress() {
-                                            // Get the place details from the autocomplete object.
-                                            var place = autocomplete.getPlace();
+                                    function fillInAddress() {
+                                        // Get the place details from the autocomplete object.
+                                        var place = autocomplete.getPlace();
 
-                                        }
+                                    }
                                         </script>
-                                        <input name="start" class="form-control" placeholder="Από" type="text" id="input" />  
-
+                                    <input class="form-control" type="text" id="input" />
                                     <!-- <select name="select_station" id="select_station" class="selectpicker form-control" data-style="btn-white" data-live-search="true"> -->
                                     <!-- <select name="start" data-live-search="true" title="Από" data-live-search-placeholder="Επιλέξτε σημείο εκκίνησης" class="form-control">
                                         <option selected disabled hidden value=1>Από</option> -->
@@ -136,13 +137,19 @@
                                 <select name="end" data-live-search="true" title="Προς" data-live-search-placeholder="Επιλέξτε προορισμό" class="form-control">
                                         <option selected disabled hidden value=1>Προς</option>
                                         <?php  
-
-                                        require('php_utils/db_connect.php');
-                                        $sql = mysqli_query($connection, "SELECT * FROM `stations`");
-                                        while ($row = $sql->fetch_assoc()){
-                                            echo "<option ";
-                                            if($row['station'] == $end) echo "selected=\"selected\"";
-                                            echo " value=\"" . $row['station'] . "\">" . $row['station'] . "</option>";
+                                        if (isset($_GET['go']))
+                                        {
+                                            echo "<option selected='selected' value='ΑΕΡΟΛ. ΑΘΗΝΩΝ'> 'ΑΕΡΟΛ. ΑΘΗΝΩΝ' </option>";
+                                        }
+                                        else
+                                        {
+                                            require('php_utils/db_connect.php');
+                                            $sql = mysqli_query($connection, "SELECT * FROM `stations`");
+                                            while ($row = $sql->fetch_assoc()){
+                                                echo "<option ";
+                                                if($row['station'] == $end) echo "selected=\"selected\"";
+                                                echo " value=\"" . $row['station'] . "\">" . $row['station'] . "</option>";
+                                            }
                                         }
                                         ?>
                                     </select>
@@ -229,19 +236,27 @@
                             </fieldset>
                         </form>
                     </div>
-                    </div>
+                </div>
                     
                     
             
-                <div id="routeMap"  style=" height:80%; " >
-                    <?php
-                    if($start != "1" and $end !="1")
+                <!--<div id="routeMap"  style=" height:80%; " >
+                    /*if($start != "1" and $end !="1")
                     echo "<iframe src=\"https://www.google.com/maps/embed/v1/directions".
                         "?key=".$_SESSION['APIkey'].
                         "&origin=".$start.
                         "&destination=".$end.
-                        "&mode=transit&language=el\" width=\"60%\" height=\"500px\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"true\"></iframe>";
-                    ?>
+                        "&mode=transit&language=el\" width=\"60%\" height=\"500px\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"true\"></iframe>";*/
+                
+                <script>
+                    if (location.hash == '#map')
+                        document.getElementById("signin").classList.add('active');
+                    
+                </script>-->
+
+                <div class="col-md-8">
+                    <div id="map"></div>
+                    <div id="directions-panel"></div>
                 </div>
                 <script>
                     if (location.hash == '#map')
@@ -250,21 +265,7 @@
                 </script>   
             
             </div>
-            <div id="directions" class="contact_formdd" style="margin-left:8    %;background-color:rgb(255,255,255);">
-                <div class="row">
-                    <!-- <div><img src="images/metro_logo.png">
-                    </div>
-                    <div>
-                        <div class = "row">
-                            <img src="images/metro_line2_next.png">
-                            <img src="images/metro_line3.png" style="">
-                        </div>
-                        <div class = "row"><span>Φεύγει από Δάφνη - Dafni</span></div>
-                        <div class = "row"><span>7:00MM - 7:20MM</span>    </div>
-                    </div> -->
-                    <img src="images/route1_img.png">
-                </div>
-            </div>
+            
         </div>
     </div>
     
@@ -273,7 +274,72 @@
     <!--FOOTER-->
     <?php include 'utils/footer.php'; ?>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxGFJJ5M8-O_JCjSR-Ib5U_53P4Hpj2uk&libraries=places&callback=initAutocomplete" async defer></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxGFJJ5M8-O_JCjSR-Ib5U_53P4Hpj2uk&libraries=places&language=el&callback=calcRoute"></script>
+    <script>
+        function calcRoute() {
+            initMap();
+
+            <?php
+                if($start != "1" and $end !="1")
+                echo "var placeRequest = [{
+                    query: '".$start."',
+                    fields: ['name', 'geometry'],
+                }, {
+                    query: '".$end."',
+                    fields: ['name', 'geometry'],
+                }];"
+            ?>
+            
+            var service = new google.maps.places.PlacesService(map);
+            var lat1, lat2;
+            var long1, long2;
+                    
+            service.findPlaceFromQuery(placeRequest[0], function(results, status) {
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    lat1 = results[0].geometry.location.lat();
+                    long1 = results[0].geometry.location.lng();
+                }
+            });
+
+            service.findPlaceFromQuery(placeRequest[1], function(results, status) {
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    lat2 = results[0].geometry.location.lat();
+                    long2 = results[0].geometry.location.lng();
+                }
+            });
+
+            var directionsService = new google.maps.DirectionsService();
+            var directionsRenderer = new google.maps.DirectionsRenderer();
+
+            directionsRenderer.setMap(map);
+            directionsRenderer.setPanel(document.getElementById('directions-panel'));
+
+            var dirRequest = {
+                origin: new google.maps.LatLng(37.949211, 23.7372233),     //TODO: find way to get latlng from place queries + time choice
+                destination: new google.maps.LatLng(37.9645189, 23.7266716),
+                travelMode: 'TRANSIT',
+                <?php
+                    if($radio != "1") {
+                        if($radio == "radio2")
+                            echo "transitOptions: { routingPreference: ['FEWER_TRANSFERS'] }";
+                        if($radio == "radio3")
+                            echo "transitOptions: { routingPreference: ['LESS_WALKING'] }";
+                        if($radio == "radio4")
+                            echo "transitOptions: { modes: ['BUS'] }";
+                    }
+                ?>
+            };
+                
+            directionsService.route(dirRequest, function(dirResult, status2) {
+                if (status2 == 'OK') {
+                    directionsRenderer.setDirections(dirResult);
+                }
+                else {
+                    window.alert('Directions request failed due to ' + status2 + ' ' + lat1 + ' ' + long1 + ' ' + lat2 + ' ' + long2);
+                }   
+            });
+        }
+    </script>
 
 </body>
 </html>

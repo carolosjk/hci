@@ -2,10 +2,10 @@
 -- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jan 07, 2020 at 10:51 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.1
+-- Host: 127.0.0.1
+-- Generation Time: Jan 09, 2020 at 02:53 AM
+-- Server version: 10.4.10-MariaDB
+-- PHP Version: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -771,7 +771,6 @@ CREATE TABLE `tickets_airport` (
 
 INSERT INTO `tickets_airport` (`ΕΙΣΙΤΗΡΙΑ ΓΡΑΜΜΩΝ ΑΕΡΟΔΡΟΜΙΟΥ`, `ΛΕΩΦΟΡΕIA (€)`, `ΤΡΟΛEY (€)`, `ΤΡΑΜ (€)`, `ΜΕΤΡΟ (€)`) VALUES
 ('ΕΙΣΙΤΗΡΙΟ ΑΕΡΟΔΡΟΜΙΟΥ ΑΠΟ & ΠΡΟΣ ΤΟΥΣ ΣΤΑΘΜΟΥΣ ΠΑΛΛΗΝΗ - ΚΑΝΤΖΑ - ΚΟΡΩΠΙ ΜΕΤΡΟ', NULL, NULL, NULL, 6),
-('ΕΙΣΙΤΗΡΙΟ ΑΕΡΟΔΡΟΜΙΟΥ ΜΕΤ\' ΕΠΙΣΤΡΟΦΗΣ ΜΕΤΡΟ', NULL, NULL, NULL, 18),
 ('ΚΑΝΟΝΙΚΟ ΕΙΣΙΤΗΡΙΟ ΛΕΩΦΟΡΕΙΩΝ EXPRESS', 6, NULL, NULL, NULL),
 ('ΚΑΝΟΝΙΚΟ ΕΙΣΙΤΗΡΙΟ ΜΕΤΡΟ				', NULL, NULL, NULL, 10),
 ('ΜΕΙΩΜΕΝΟ ΕΙΣΙΤΗΡΙΟ ΑΕΡΟΔΡΟΜΙΟΥ ΑΠΟ & ΠΡΟΣ ΤΟΥΣ ΣΤΑΘΜΟΥΣ ΠΑΛΛΗΝΗ - ΚΑΝΤΖΑ - ΚΟΡΩΠΙ ΜΕΤΡΟ', NULL, NULL, NULL, 3),

@@ -76,35 +76,38 @@
                         <li>Προσβασιμότητα</li>
                     </ul>
                 </nav>
+            </div>    
             
-				<div class="item">
-					<div class="single-feature" style="margin-top: 50px;">
-                        <div class="icon"><i class="fa fa-universal-access fa-4x" style="height: 20%; width: 20%; float:left; padding-bottom: 30px;"></i>
-                            <h4 style="text-align: left;"><a href="acs_instrc.php">Οδηγίες Πρόσβασης</a></h4 style="text-align: left;">
-                            <p style="text-align: left;"> Οι οδηγίες απευθύνονται σε Αμεα, ηλικιωμένους και άτομα με κινητικά προβλήματα
-                            και αφορούν την πρόσβαση αυτών σε στάσεις λεωφορείων/τρόλει και σε σταθμούς μετρό.</p>
-                        </div>
-					</div> 
-				</div>
-			</div>
-			<div class="row">
-                <div class="single-feature" style="margin-top: 50px;">
-                    <div class="icon"><i class="fa fa-info-circle fa-4x" style="height: 20%; width: 20%; float:left; padding-bottom: 30px;"></i>
-                        <h4 style="text-align: left;"><a href="acs_points.php">Προσβάσιμα Σημεία</a></h4 style="text-align: left;">
-                        <p style="text-align: left;"> Πληροφορίες για Αμεα, ηλικιωμένους και άτομα με κινητικά προβλήματα σχετικά με ποιες στάσεις λεωφορείων/τρόλει
-                             και ποιοι σταθμοί μετρό μπορούν να χρησιμοποιήσουν για να διευκολυνθούν κατά την μετακίνησή τους με τα μέσα.</p>
-                    </div>
-                </div> 
-            </div>	
             <div class="row">
-                <div class="single-feature" style="margin-top: 50px;">
-                    <div class="icon"><i class="fa fa-info fa-4x" style="height: 20%; width: 20%; float:left;"></i>
-                        <h4 style="text-align: left;"><a href="acs_news.php">Ανακοινώσεις</a></h4 style="text-align: left;">
-                        <p style="text-align: left;"> Ενημερωθείτε για προβλήματα στα διάφορα προσβάσιμα σημεία, στάσεις λεωφορείων/τρόλει και σταθμών μετρό.</p>
+                <div class="col-md-6 wow slideInLeft hidden-xs hidden-sm">
+                    <hr class="hr1" style="margin-bottom:5%;margin-top:15%">
+                    <h4 style="font-size:16px;text-align:center;color:#999;margin-bottom:10%;"> Πληροφορίες για Αμεα, ηλικιωμένους και άτομα με κινητικά προβλήματα σχετικά με ποιες στάσεις λεωφορείων/τρόλει
+                             και ποιοι σταθμοί μετρό μπορούν να χρησιμοποιήσουν για να διευκολυνθούν κατά την μετακίνησή τους με τα μέσα.</h4>
+                    <div class="post-media wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                        <a href="acs_points.php"> <img src="uploads/ac.jpg" alt="" class="img-responsive"></a>                       
                     </div>
-                </div> 
-            </div>
-
+                </div>
+                <div class="col-md-4 wow slideInRight hidden-xs hidden-sm" style="margin-left:150px;">
+                    <div class="item">
+                        <div class="single-feature" style="margin-top: 50px;">
+                            <div class="icon"><i class="fa fa-universal-access fa-4x" style="height: 20%; width: 20%; float:left; padding-bottom:30px;margin-right:20px;"></i>
+                                <h4 style="text-align: left;"><a href="acs_instrc.php">Οδηγίες Πρόσβασης</a></h4 style="text-align: left;">
+                                <p style="text-align: left;"> Οι οδηγίες απευθύνονται σε Αμεα, ηλικιωμένους και άτομα με κινητικά προβλήματα
+                                και αφορούν την πρόσβαση αυτών σε στάσεις λεωφορείων/τρόλει και σε σταθμούς μετρό.</p>
+                            </div>
+                        </div> 
+                    </div>
+                    
+                    <div class="item">
+                        <div class="single-feature" style="margin-top: 50px;">
+                            <div class="icon"><i class="fa fa-info fa-4x" style="height: 24%; width: 24%; float:left;margin-right:20px;"></i>
+                                <h4 style="text-align: left;"><a href="acs_news.php">Ανακοινώσεις</a></h4 style="text-align: left;">
+                                <p style="text-align: left;"> Ενημερωθείτε για προβλήματα στα διάφορα προσβάσιμα σημεία, στάσεις λεωφορείων/τρόλει και σταθμών μετρό.</p>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+			</div>
 		</div>
     </div>
     <!-- end of SECTION -->

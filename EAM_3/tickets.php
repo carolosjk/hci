@@ -92,18 +92,18 @@
                     <div class="item">
                         <div class="single-feature" style="margin-top: 50px;">
                             <div class="icon"><i class="fa fa-map-marker fa-4x" style="height: 20%; width: 20%; float:left; margin-right:5%;"></i>
-                                <h4 style="text-align: left;"><a href="#">Σημεία έκδοσης/επαναφόρτωσης εισιτηρίων-καρτών</a></h4 style="text-align: left;">
+                                <h4 style="text-align: left;"><a href="ticket_maps.php">Σημεία έκδοσης/επαναφόρτωσης εισιτηρίων-καρτών</a></h4 style="text-align: left;">
                                 <p style="text-align: left;"> Δείτε τα σημεία όπου μπορείτε να αγοράσετε ή/και να επαναφορτίσετε το εισιτήριο ή την κάρτα σας.</p>
                             </div>
                         </div> 
                     </div>
                 </div>
 
-                <hr class="hr1">
-
                 <div class="col-md-6 wow slideInRight hidden-xs hidden-sm">
+                    <hr class="hr1" style="margin-bottom:5%;">
+                    <h4 style="font-size:16px;text-align:center;color:#999;margin-bottom:5%;"> Μεταβείτε παρακάτω στην αγορά/φόρτιση εισιτηρίου/ών που επιθυμείτε.</h4>                    
                     <div class="post-media wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
-                        <a href="tickets_purchase.php"> <img src="uploads/ticktick.png" alt="" class="img-responsive"></a>                       
+                        <a href="tickets_purchase.php" target="_blank" rel="noopener noreferrer"> <img src="uploads/ticktick.png" alt="" class="img-responsive"></a>                       
                     </div>
                 </div>
 

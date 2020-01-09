@@ -92,7 +92,7 @@
                     </div>
                 </div>
 
-            <div class="row">
+            <div class="row" style="margin-top:50px;">
                 <div class="col-md-12">
                     <ul class="nav nav-pills nav-fill" id="mynav">
                         <li class="active" style="width:33%"><a data-toggle="pill" href="#now">Τώρα</a></li>
@@ -132,7 +132,7 @@
             </div>
 
             <div class="row" style="margin-top: 20px;">
-                <div class="col-md-4 wow slideInLeft hidden-xs hidden-sm">
+                <div class="col-md-4 wow slideInLeft hidden-xs hidden-sm" style="margin-top:20px;">
                     <div class="contact_form">
                         <h3>Αναζήτηση Γραμμής</h3>
                         <form id="contactform1" class="row" name="contactform" method="post">
@@ -164,7 +164,7 @@
 
                                         statusAlert();
                                         $('#map').removeClass('hide').show();
-                                        //calcRoute(number);
+                                        //calcRoute();
                                     }
                                 </script>
 
@@ -191,6 +191,7 @@
                             </fieldset>
                         </form>
                     </div>    
+                    <div id="directions-panel"></div>
                 </div>
 
 
@@ -204,6 +205,8 @@
 
     <!--FOOTER-->
     <?php include 'utils/footer.php'; ?>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxGFJJ5M8-O_JCjSR-Ib5U_53P4Hpj2uk&libraries=places&language=el&callback=initMap"></script>
 
 </body>
 </html>
