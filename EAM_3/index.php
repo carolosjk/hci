@@ -111,19 +111,42 @@
                         <form action="routePlanner.php" id="contactform1" class="row" name="contactform" method="post">
                             <fieldset class="row-fluid">
                                 <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
-                                    <!-- <select name="select_station" id="select_station" class="selectpicker form-control" data-style="btn-white" data-live-search="true"> -->
-                                    <select name="start" data-live-search="true" title="Από" data-live-search-placeholder="Επιλέξτε σημείο εκκίνησης" class="form-control">
-                                        <option selected disabled hidden value=1>Από</option>
-                                        <?php  
+                                    <script type="text/javascript">
+                                            function initAutocomplete() {
+                                                // Create the autocomplete object, restricting the search to geographical
+                                                // location types.
+                                                autocomplete = new google.maps.places.Autocomplete(
+                                                    /** @type {!HTMLInputElement} */(document.getElementById('input')),
+                                                    {types: ['geocode']});
 
-                                        require('php_utils/db_connect.php');
-                                        $sql = mysqli_query($connection, "SELECT * FROM `stations`");
-                                        while ($row = $sql->fetch_assoc()){
-                                            echo "<option value=\"" . $row['station'] . "\">" . $row['station'] . "</option>";
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
+                                                // When the user selects an address from the dropdown, populate the address
+                                                // fields in the form.
+                                                autocomplete.addListener('place_changed', fillInAddress);
+                                            }
+
+                                            function fillInAddress() {
+                                                // Get the place details from the autocomplete object.
+                                                var place = autocomplete.getPlace();
+
+                                            }
+                                            </script>
+                                            <input name="start" class="form-control" placeholder="Από" type="text" id="input" />  
+
+                                        <!-- <select name="select_station" id="select_station" class="selectpicker form-control" data-style="btn-white" data-live-search="true"> -->
+                                        <!-- <select name="start" data-live-search="true" title="Από" data-live-search-placeholder="Επιλέξτε σημείο εκκίνησης" class="form-control">
+                                            <option selected disabled hidden value=1>Από</option> -->
+                                            <?php  
+
+                                            // require('php_utils/db_connect.php');
+                                            // $sql = mysqli_query($connection, "SELECT * FROM `stations`");
+                                            // while ($row = $sql->fetch_assoc()){
+                                            //     echo "<option ";
+                                            //     if($row['station'] == $start) echo "selected=\"selected\"";
+                                            //     echo "  value=\"" . $row['station'] . "\">" . $row['station'] . "</option>";
+                                            // }
+                                            ?>
+                                        <!-- </select> -->
+                                    </div>
                                 <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
                                 <select name="end" data-live-search="true" title="Προς" data-live-search-placeholder="Επιλέξτε προορισμό" class="form-control">
                                         <option selected disabled hidden value=1>Προς</option>
@@ -175,25 +198,25 @@
                                                 <ul>
                                                     <li style="font-size: 13px;">
                                                         <label>
-                                                            <input type="radio" class="option-input radio" name="example" checked/>
+                                                            <input type="radio" class="option-input radio" name="radio" value="radio1" checked/>
                                                             Βέλτιστη Διαδρομή
                                                         </label>                    
                                                     </li>
                                                     <li style="font-size: 13px;">
                                                         <label>
-                                                            <input type="radio" class="option-input radio" name="example" />
+                                                            <input type="radio" class="option-input radio" name="radio" value="radio2"/>
                                                             Διαδρομή με τις λιγότερες αλλαγές
                                                           </label>
                                                     </li>
                                                     <li style="font-size: 13px;">
                                                         <label>
-                                                            <input type="radio" class="option-input radio" name="example" />
+                                                            <input type="radio" class="option-input radio" name="radio" value="radio3"/>
                                                             Διαδρομή με το λιγότερο περπάτημα
                                                           </label>
                                                     </li>
                                                     <li style="font-size: 13px;">
                                                         <label>
-                                                            <input type="radio" class="option-input radio" name="example" />
+                                                            <input type="radio" class="option-input radio" name="radio" value="radio4"/>
                                                             Διαδρομή μόνο μέσω λεωφορειακών γραμμών
                                                           </label>
                                                     </li>
@@ -239,8 +262,8 @@
 					<div class="item">
 						<div class="single-feature">
                             <div class="icon"><i class="fa fa-bus fa-5x" style="height: 25%; width: 25%; float:left;"></i>
-                                <h4><a href="buses.php">Λεωφορεία</a></h4>
-                                <h4><a href="#">Τρόλει</a></h4>
+                                <h4><a href="buses.php">Λεωφορεία - Τρόλει</a></h4>
+                                <h4><a href="metro_lines.php">Μετρό</a></h4>
                             </div>  
                         </div> 
                     </div>
@@ -284,5 +307,7 @@
 
     <!--FOOTER-->
     <?php include 'utils/footer.php'; ?>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxGFJJ5M8-O_JCjSR-Ib5U_53P4Hpj2uk&libraries=places&callback=initAutocomplete" async defer></script>
 </body>
 </html>

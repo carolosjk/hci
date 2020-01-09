@@ -98,7 +98,7 @@
                         <div id="lines" class="tab-pane fade in active">
                             <div class="contact_form">
                                 <h2>Πληροφορίες Γραμμής</h2>
-                                <form id="contactform1" class="row" name="contactform" method="post" action="busSelected.php">
+                                <form id="contactform1" class="row" name="contactform1" method="post" action="busSelected.php">
                                     <fieldset class="row-fluid">
                                         <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
                                             <br/><h4>Επιλέξτε γραμμή:</h4>
@@ -128,7 +128,7 @@
                         <div id="stops" class="tab-pane fade">
                             <div class="contact_form">
                                 <h2>Πληροφορίες Στάσης</h2>
-                                <form id="contactform1" class="row" name="contactform" method="post">
+                                <form id="contactform2" class="row" name="contactform2" method="post" action="stationSelected.php">
                                     <fieldset class="row-fluid">
                                         <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
                                             <br/><h4>Επιλέξτε στάση:</h4>
