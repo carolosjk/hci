@@ -175,25 +175,25 @@
                                                 <ul>
                                                     <li style="font-size: 13px;">
                                                         <label>
-                                                            <input type="radio" class="option-input radio" name="example" checked/>
+                                                            <input type="radio" class="option-input radio" name="radio" value="radio1" checked/>
                                                             Βέλτιστη Διαδρομή
                                                         </label>                    
                                                     </li>
                                                     <li style="font-size: 13px;">
                                                         <label>
-                                                            <input type="radio" class="option-input radio" name="example" />
+                                                            <input type="radio" class="option-input radio" name="radio" value="radio2"/>
                                                             Διαδρομή με τις λιγότερες αλλαγές
                                                           </label>
                                                     </li>
                                                     <li style="font-size: 13px;">
                                                         <label>
-                                                            <input type="radio" class="option-input radio" name="example" />
+                                                            <input type="radio" class="option-input radio" name="radio" value="radio3"/>
                                                             Διαδρομή με το λιγότερο περπάτημα
                                                           </label>
                                                     </li>
                                                     <li style="font-size: 13px;">
                                                         <label>
-                                                            <input type="radio" class="option-input radio" name="example" />
+                                                            <input type="radio" class="option-input radio" name="radio" value="radio4"/>
                                                             Διαδρομή μόνο μέσω λεωφορειακών γραμμών
                                                           </label>
                                                     </li>
@@ -239,8 +239,8 @@
 					<div class="item">
 						<div class="single-feature">
                             <div class="icon"><i class="fa fa-bus fa-5x" style="height: 25%; width: 25%; float:left;"></i>
-                                <h4><a href="buses.php">Λεωφορεία</a></h4>
-                                <h4><a href="#">Τρόλει</a></h4>
+                                <h4><a href="buses.php">Λεωφορεία - Τρόλει</a></h4>
+                                <h4><a href="metro_lines.php">Μετρό</a></h4>
                             </div>  
                         </div> 
                     </div>

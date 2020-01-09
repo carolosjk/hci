@@ -193,10 +193,10 @@
             initMap();
             <?php
                 if($station != "1")
-                    echo "var request = {
-                        query: '".$station."',
-                        fields: ['name', 'geometry'],
-                    };"
+                echo "var request = {
+                    query: '".$station."',
+                    fields: ['name', 'geometry'],
+                };"
             ?>
                     
             var service = new google.maps.places.PlacesService(map);

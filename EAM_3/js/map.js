@@ -38,29 +38,3 @@
             strokeWeight: 2
         });
     }
-
-    function calcRoute() {
-        var directionsService = new google.maps.DirectionsService();
-        var directionsRenderer = new google.maps.DirectionsRenderer();
-
-        directionsRenderer.setMap(map);
-        directionsRenderer.setPanel(document.getElementById('directions-panel'));
-        
-        var request = {
-            origin: new google.maps.LatLng(37.9460535, 23.6410725),     //218 start
-            destination: new google.maps.LatLng(37.948945, 23.737017),  //218 end
-            travelMode: 'TRANSIT',
-            transitOptions: {
-                modes: ['BUS']
-            }
-        };
-            
-        directionsService.route(request, function(result, status) {
-            if (status == 'OK') {
-                directionsRenderer.setDirections(result);
-            }
-            else {
-                window.alert('Directions request failed due to ' + status);
-            }   
-        });
-    }
