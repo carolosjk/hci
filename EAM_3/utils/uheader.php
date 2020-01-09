@@ -22,7 +22,13 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="index.php">Αρχική</a></li>
                         <li><a href="status.php">Κατάσταση Μέσων</a></li>
-                        <li><a href="maps.php">Χάρτες</a></li>
+                        <li class="dropdown" >
+                            <a>Γραμμές</a>
+                            <div class="dropdown-content">
+                                <a href="buses.php">Λεωφορεία - Τρόλει</a>
+                                <a href="metro_lines.php">Μετρό</a>
+                            </div>
+                        </li>
                         <li class="dropdown" >
                             <a href="tickets.php" class="dropbtn">Εισιτήρια-Κάρτες</a>
                             <div class="dropdown-content">

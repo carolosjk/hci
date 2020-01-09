@@ -19,9 +19,15 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a <?php if (basename($_SERVER['PHP_SELF']) == 'index.php') echo 'class="active"' ?> href="index.php">Αρχική</a></li>
                         <li><a <?php if (basename($_SERVER['PHP_SELF']) == 'status.php') echo 'class="active"' ?> href="status.php">Κατάσταση Μέσων</a></li>
-                        <li><a <?php if (basename($_SERVER['PHP_SELF']) == 'maps.php') echo 'class="active"' ?> href="maps.php">Χάρτες</a></li>
                         <li class="dropdown" >
-                            <a href="tickets.php" class="dropbtn">Εισιτήρια-Κάρτες</a>
+                            <a <?php if (basename($_SERVER['PHP_SELF']) == 'buses.php' || basename($_SERVER['PHP_SELF']) == 'metro_lines.php') echo 'class="active"' ?> class="dropbtn">Γραμμές</a>
+                            <div class="dropdown-content">
+                                <a href="buses.php">Λεωφορεία - Τρόλει</a>
+                                <a href="metro_lines.php">Μετρό</a>
+                            </div>
+                        </li>
+                        <li class="dropdown" >
+                            <a href="tickets.php" <?php if (basename($_SERVER['PHP_SELF']) == 'tickets.php') echo 'class="active"' ?> class="dropbtn">Εισιτήρια-Κάρτες</a>
                             <div class="dropdown-content">
                                 <a href="ticket_maps.php">Σημεία Έκδοσης/Επαναφόρτισης</a>
                                 <a href="ticket_prices.php">Τιμές Εισιτηρίων-Καρτών</a>
@@ -29,7 +35,7 @@
                             </div>
                         </li>
                         <li class="dropdown" >
-                            <a href="accesibility.php" <?php if (basename($_SERVER['PHP_SELF']) == 'accesibility.php') echo 'class="active"' ?> class="dropbtn">Προσβασιμότητα</a>
+                            <a href="accesibility.php" class="dropbtn">Προσβασιμότητα</a>
                             <div class="dropdown-content">
                                 <a href="acs_instrc.php">Οδηγίες Πρόσβασης</a>
                                 <a href="acs_points.php">Προσβάσιμα Σημεία</a>

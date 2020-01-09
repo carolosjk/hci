@@ -153,12 +153,12 @@
                                         </div>
                                         
                                         <script>
-                                            $('#datetimepicker').datetimepicker({locale: 'el', 
-                                            format:'MM/DD/YYYY HH:mm:ss',
-                                                minDate:    new Date()
+                                            $('#datetimepicker').datetimepicker({
+                                                locale: 'el', 
+                                                format:'MM/DD/YYYY HH:mm:ss',
+                                                minDate: new Date()
                                             });
-                                            </script>
-
+                                        </script>
 
                                         <script>
                                             function openTime() {
