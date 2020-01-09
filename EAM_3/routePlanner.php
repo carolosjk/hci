@@ -2,16 +2,22 @@
     session_start();
     $_SESSION['APIkey'] = "AIzaSyBxGFJJ5M8-O_JCjSR-Ib5U_53P4Hpj2uk";
 
-    if (isset($_POST['start']) and isset($_POST['end']) and isset($_POST['radio'])){
+    if (isset($_POST['start']) and isset($_POST['end'])     ){
         $start = $_POST['start'];
         $end = $_POST['end'];
-        $radio = $_POST['radio'];
     }
     else{
         $start = "1";
         $end = "1";
-        $radio = "1";
     }
+    if(isset($_POST['radio']))
+        $radio = $_POST['radio'];
+    else
+        $radio = 1;
+    if(isset($_POST['date']))
+        $date = $_POST['date'];
+    else
+        $date = 1;
 
 ?>
 
@@ -124,8 +130,8 @@
 
                                             }
                                         </script>
-                                        <input name="start" class="form-control" placeholder="Από" type="text" id="input1" />  
-                                        <input name="end" class="form-control" placeholder="Προς" type="text" id="input2" />  
+                                        <input name="start" class="form-control" placeholder="<?php if($start!="1") echo $start; else echo "Από";?>" type="text" id="input1" />  
+                                        <input name="end" class="form-control" placeholder="<?php if($end!="1") echo $end; else echo "Προς";?>" type="text" id="input2" />  
 
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <h4 style="margin-top:5px"><i class="fa fa-clock-o global-radius"></i> ΦΕΥΓΩ: <i>
@@ -133,8 +139,8 @@
                                     <div id="times" style="display: none;">
 
                                         <div class="form-group">
-                                            <div class='input-group date' id='datetimepicker1'>
-                                                    <input type='text' class="form-control" />
+                                            <div class='input-group date' id='datetimepicker'>
+                                                    <input type='text' name="date" class="form-control" />
                                                     <span class="input-group-addon">
                                                         <span class="glyphicon glyphicon-calendar"></span>
                                                     </span>
@@ -142,7 +148,19 @@
                                         </div>
                                         
                                         <script>
-                                            $('#datetimepicker1').datetimepicker({locale: 'el', minDate: new Date()});
+                                            $('#datetimepicker').datetimepicker({
+                                                locale: 'el', 
+                                                format:'MM/DD/YYYY HH:mm:ss',
+                                                minDate: getFormattedDate(new Date())
+                                            });
+
+                                            function getFormattedDate(date) {
+                                                var day = date.getDate();
+                                                var month = date.getMonth() + 1;
+                                                var year = date.getFullYear().toString().slice(2);
+                                                return day + '-' + month + '-' + year;
+                                            }
+
                                         </script>
 
                                         <script>
@@ -165,25 +183,25 @@
                                                 <ul>
                                                     <li style="font-size: 13px;">
                                                         <label>
-                                                            <input type="radio" class="option-input radio" name="example" checked/>
+                                                            <input type="radio" class="option-input radio" name="radio" value="radio1" checked/>
                                                             Βέλτιστη Διαδρομή
                                                         </label>                    
                                                     </li>
                                                     <li style="font-size: 13px;">
                                                         <label>
-                                                            <input type="radio" class="option-input radio" name="example" />
+                                                            <input type="radio" class="option-input radio" name="radio" value="radio2"/>
                                                             Διαδρομή με τις λιγότερες αλλαγές
                                                           </label>
                                                     </li>
                                                     <li style="font-size: 13px;">
                                                         <label>
-                                                            <input type="radio" class="option-input radio" name="example" />
+                                                            <input type="radio" class="option-input radio" name="radio" value="radio3"/>
                                                             Διαδρομή με το λιγότερο περπάτημα
                                                           </label>
                                                     </li>
                                                     <li style="font-size: 13px;">
                                                         <label>
-                                                            <input type="radio" class="option-input radio" name="example" />
+                                                            <input type="radio" class="option-input radio" name="radio" value="radio4"/>
                                                             Διαδρομή μόνο μέσω λεωφορειακών γραμμών
                                                           </label>
                                                     </li>
@@ -237,34 +255,7 @@
         function calcRoute() {
             initMap();
 
-            <?php
-                if($start != "1" and $end !="1")
-                echo "var placeRequest = [{
-                    query: '".$start."',
-                    fields: ['name', 'geometry'],
-                }, {
-                    query: '".$end."',
-                    fields: ['name', 'geometry'],
-                }];"
-            ?>
-            
-            var service = new google.maps.places.PlacesService(map);
-            var lat1, lat2;
-            var long1, long2;
-                    
-            service.findPlaceFromQuery(placeRequest[0], function(results, status) {
-                if (status === google.maps.places.PlacesServiceStatus.OK) {
-                    lat1 = results[0].geometry.location.lat();
-                    long1 = results[0].geometry.location.lng();
-                }
-            });
-
-            service.findPlaceFromQuery(placeRequest[1], function(results, status) {
-                if (status === google.maps.places.PlacesServiceStatus.OK) {
-                    lat2 = results[0].geometry.location.lat();
-                    long2 = results[0].geometry.location.lng();
-                }
-            });
+           
 
             var directionsService = new google.maps.DirectionsService();
             var directionsRenderer = new google.maps.DirectionsRenderer();
@@ -273,19 +264,23 @@
             directionsRenderer.setPanel(document.getElementById('directions-panel'));
 
             var dirRequest = {
-                origin: new google.maps.LatLng(37.949211, 23.7372233),     //TODO: find way to get latlng from place queries + time choice
-                destination: new google.maps.LatLng(37.9645189, 23.7266716),
+                origin: <?php echo "\"".$start."\"";?>,
+                destination: <?php echo "\"".$end."\"";?> ,
                 travelMode: 'TRANSIT',
+                transitOptions: {
                 <?php
                     if($radio != "1") {
                         if($radio == "radio2")
-                            echo "transitOptions: { routingPreference: ['FEWER_TRANSFERS'] }";
+                            echo " routingPreference: ['FEWER_TRANSFERS'], ";
                         if($radio == "radio3")
-                            echo "transitOptions: { routingPreference: ['LESS_WALKING'] }";
+                            echo " routingPreference: ['LESS_WALKING'], ";
                         if($radio == "radio4")
-                            echo "transitOptions: { modes: ['BUS'] }";
+                            echo " modes: ['BUS'], ";
                     }
+                    if($date !="1")
+                        echo "departureTime: new Date(\"11/01/2020 5:32 ΠΜ\")";
                 ?>
+                }
             };
                 
             directionsService.route(dirRequest, function(dirResult, status2) {

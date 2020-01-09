@@ -144,8 +144,8 @@
                                     <div id="times" style="display: none;">
 
                                         <div class="form-group">
-                                            <div class='input-group date' id='datetimepicker1'>
-                                                    <input type='text' class="form-control" />
+                                            <div class='input-group date' id='datetimepicker'>
+                                                    <input type='text' name="date" class="form-control" />
                                                     <span class="input-group-addon">
                                                         <span class="glyphicon glyphicon-calendar"></span>
                                                     </span>
@@ -153,8 +153,11 @@
                                         </div>
                                         
                                         <script>
-                                            $('#datetimepicker1').datetimepicker({locale: 'el', minDate: new Date()});
-                                        </script>
+                                            $('#datetimepicker').datetimepicker({locale: 'el', 
+                                            format:'MM/DD/YYYY HH:mm:ss',
+                                                minDate:    new Date()
+                                            });
+
 
                                         <script>
                                             function openTime() {
