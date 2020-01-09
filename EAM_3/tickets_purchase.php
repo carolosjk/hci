@@ -366,7 +366,7 @@
                                     <select class="form-control" id="sselectC" required oninvalid="setCustomValidity('Δεν έχει γίνει καμία επιλογή! Επιλέξτε ένα τύπο εισιτηρίου.')" oninput="setCustomValidity('')">
                                         <option selected disabled hidden value="">Είδος Εισιτηρίου</option>    
                                         <option id="ccandy1">Εισιτήριο για Όλα τα Μέσα εκτός Γραμμών Αεροδρομίου</option>
-                                        <option id="ccandy2">Εισιτήριο Πολλαπλό Εισιτήριο</option>
+                                        <option id="ccandy2">Εισιτήριο Πολλαπλών Διαδρομών</option>
                                         <option id="ccandy3">Εισιτήριο Γραμμών Αεροδρομίου</option>
                                         <option id="ccandy4">Εισιτήριο Χρονικού Διαστήματος</option>
                                     </select>
