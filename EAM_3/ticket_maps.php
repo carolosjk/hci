@@ -54,61 +54,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment-with-locales.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <script>
-        function calcPersonalized() {
-            initMap();
-
-            var infowindow = new google.maps.InfoWindow();
-
-            var icons = {
-                bus: {
-                    icon: '/uploads/symbol_bus.png'
-                },
-                metro: {
-                    icon: '/uploads/symbol_metro.png'
-                },
-                tram: {
-                    icon: '/uploads/symbol_tram.png'
-                }
-            };
-
-            var locations = [
-                <?php
-                    require('php_utils/db_connect.php');
-                    $sql = mysqli_query($connection, "SELECT * FROM `ticket_points`");
-                    while ($row = $sql->fetch_assoc()) {
-                        echo "{ ";
-                        $id = $row['id'];
-                        $type = $row['type'];
-                        $lat = $row['latitude'];
-                        $long = $row['longitude'];
-
-                        echo "name: '" . $id . "', ";
-                        echo "type: '" . $type . "', ";
-                        echo "position: new google.maps.LatLng(" . $lat . ", " . $long . ")}, ";
-                    }
-                ?>
-            ];
-        
-            function placeMarker(loc) {
-            //for (var i = 0; i < locations.length; i++) {
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: loc.position,
-                    icon: icons[loc.type].icon
-                });
-
-                google.maps.event.addListener(marker, 'click', function() {
-                    infowindow.close();
-                    infowindow.setContent(loc.name);
-                    infowindow.open(map, marker);
-                });
-            };
-
-            locations.forEach(placeMarker);
-
-        }
-    </script>
+    
     <script src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/d004434a5ff76e7b97c8b07c01f34ca69e635d97/src/js/bootstrap-datetimepicker.js"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -201,6 +147,62 @@
 
     <!--FOOTER-->
     <?php include 'utils/footer.php'; ?>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxGFJJ5M8-O_JCjSR-Ib5U_53P4Hpj2uk&libraries=places&callback=calcPersonalized"></script>
 
+    <script>
+        function calcPersonalized() {
+            initMap();
+
+            var infowindow = new google.maps.InfoWindow();
+
+            var icons = {
+                bus: {
+                    icon: '/uploads/symbol_bus.png'
+                },
+                metro: {
+                    icon: '/uploads/symbol_metro.png'
+                },
+                tram: {
+                    icon: '/uploads/symbol_tram.png'
+                }
+            };
+
+            var locations = [
+                <?php
+                    require('php_utils/db_connect.php');
+                    $sql = mysqli_query($connection, "SELECT * FROM `ticket_points`");
+                    while ($row = $sql->fetch_assoc()) {
+                        echo "{ ";
+                        $id = $row['id'];
+                        $type = $row['type'];
+                        $lat = $row['latitude'];
+                        $long = $row['longitude'];
+
+                        echo "name: '" . $id . "', ";
+                        echo "type: '" . $type . "', ";
+                        echo "position: new google.maps.LatLng(" . $lat . ", " . $long . ")}, ";
+                    }
+                ?>
+            ];
+        
+            function placeMarker(loc) {
+            //for (var i = 0; i < locations.length; i++) {
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: loc.position,
+                    icon: icons[loc.type].icon
+                });
+
+                google.maps.event.addListener(marker, 'click', function() {
+                    infowindow.close();
+                    infowindow.setContent(loc.name);
+                    infowindow.open(map, marker);
+                });
+            };
+
+            locations.forEach(placeMarker);
+
+        }
+    </script>
 </body>
 </html>

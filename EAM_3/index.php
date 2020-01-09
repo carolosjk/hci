@@ -115,13 +115,18 @@
                                             function initAutocomplete() {
                                                 // Create the autocomplete object, restricting the search to geographical
                                                 // location types.
-                                                autocomplete = new google.maps.places.Autocomplete(
-                                                    /** @type {!HTMLInputElement} */(document.getElementById('input')),
+                                                autocomplete1 = new google.maps.places.Autocomplete(
+                                                    /** @type {!HTMLInputElement} */(document.getElementById('input1')),
                                                     {types: ['geocode']});
+                                                autocomplete2 = new google.maps.places.Autocomplete(
+                                                /** @type {!HTMLInputElement} */(document.getElementById('input2')),
+                                                {types: ['geocode']});
+
 
                                                 // When the user selects an address from the dropdown, populate the address
                                                 // fields in the form.
-                                                autocomplete.addListener('place_changed', fillInAddress);
+                                                autocomplete1.addListener('place_changed', fillInAddress);
+                                                autocomplete2.addListener('place_changed', fillInAddress);
                                             }
 
                                             function fillInAddress() {
@@ -129,37 +134,10 @@
                                                 var place = autocomplete.getPlace();
 
                                             }
-                                            </script>
-                                            <input name="start" class="form-control" placeholder="Από" type="text" id="input" />  
+                                        </script>
+                                        <input name="start" class="form-control" placeholder="Από" type="text" id="input1" />  
+                                        <input name="end" class="form-control" placeholder="Προς" type="text" id="input2" />  
 
-                                        <!-- <select name="select_station" id="select_station" class="selectpicker form-control" data-style="btn-white" data-live-search="true"> -->
-                                        <!-- <select name="start" data-live-search="true" title="Από" data-live-search-placeholder="Επιλέξτε σημείο εκκίνησης" class="form-control">
-                                            <option selected disabled hidden value=1>Από</option> -->
-                                            <?php  
-
-                                            // require('php_utils/db_connect.php');
-                                            // $sql = mysqli_query($connection, "SELECT * FROM `stations`");
-                                            // while ($row = $sql->fetch_assoc()){
-                                            //     echo "<option ";
-                                            //     if($row['station'] == $start) echo "selected=\"selected\"";
-                                            //     echo "  value=\"" . $row['station'] . "\">" . $row['station'] . "</option>";
-                                            // }
-                                            ?>
-                                        <!-- </select> -->
-                                    </div>
-                                <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
-                                <select name="end" data-live-search="true" title="Προς" data-live-search-placeholder="Επιλέξτε προορισμό" class="form-control">
-                                        <option selected disabled hidden value=1>Προς</option>
-                                        <?php  
-
-                                        require('php_utils/db_connect.php');
-                                        $sql = mysqli_query($connection, "SELECT * FROM `stations`");
-                                        while ($row = $sql->fetch_assoc()){
-                                            echo "<option value=\"" . $row['station'] . "\">" . $row['station'] . "</option>";
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <h4 style="margin-top:5px"><i class="fa fa-clock-o global-radius"></i> ΦΕΥΓΩ: <i>
                                     <a href="#" onclick="openTime()">όρισε ώρα</a></i></h4>
@@ -308,6 +286,6 @@
     <!--FOOTER-->
     <?php include 'utils/footer.php'; ?>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxGFJJ5M8-O_JCjSR-Ib5U_53P4Hpj2uk&libraries=places&callback=initAutocomplete" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxGFJJ5M8-O_JCjSR-Ib5U_53P4Hpj2uk&libraries=places&callback=initAutocomplete&language=el" async defer></script>
 </body>
 </html>
