@@ -135,8 +135,8 @@
 
                                             }
                                         </script>
-                                        <input name="start" class="form-control" placeholder="Από" type="text" id="input1" />  
-                                        <input name="end" class="form-control" placeholder="Προς" type="text" id="input2" />  
+                                        <input name="start" class="form-control" placeholder="Από" type="text" id="input1" required oninvalid="setCustomValidity('Άδειο πεδίο. Προσθέστε αφετηρία!')" oninput="setCustomValidity('')"/>  
+                                        <input name="end" class="form-control" placeholder="Προς" type="text" id="input2" required oninvalid="setCustomValidity('Άδειο πεδίο. Προσθέστε προορισμό!')" oninput="setCustomValidity('')"/>  
 
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <h4 style="margin-top:5px"><i class="fa fa-clock-o global-radius"></i> ΦΕΥΓΩ: <i>

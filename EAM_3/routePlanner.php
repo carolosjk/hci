@@ -142,8 +142,8 @@
 
                                             }
                                         </script>
-                                        <input name="start" class="form-control" placeholder="<?php if($start!="1") echo $start; else echo "Από";?>" type="text" id="input1" />  
-                                        <input name="end" class="form-control" placeholder="<?php if($end!="1") echo $end; else echo "Προς";?>" type="text" id="input2" />  
+                                        <input name="start" class="form-control" placeholder="<?php if($start!="1") echo $start; else echo "Από";?>" type="text" id="input1" required oninvalid="setCustomValidity('Άδειο πεδίο. Προσθέστε αφετηρία!')" oninput="setCustomValidity('')"/>  
+                                        <input name="end" class="form-control" placeholder="<?php if($end!="1") echo $end; else echo "Προς";?>" type="text" id="input2" required oninvalid="setCustomValidity('Άδειο πεδίο. Προσθέστε προορισμό!')" oninput="setCustomValidity('')"/>  
 
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <h4 style="margin-top:5px"><i class="fa fa-clock-o global-radius"></i> ΦΕΥΓΩ: <i>
@@ -160,9 +160,10 @@
                                         </div>
                                         
                                         <script>
-                                            $('#datetimepicker').datetimepicker({locale: 'el', 
-                                            format:'MM/DD/YYYY HH:mm:ss',
-                                                minDate:    new Date()
+                                            $('#datetimepicker').datetimepicker({
+                                                locale: 'el', 
+                                                format:'MM/DD/YYYY HH:mm:ss',
+                                                minDate: new Date()
                                             });
                                             </script>
 
@@ -188,7 +189,7 @@
                                                     <li style="font-size: 13px;">
                                                         <label>
                                                             <input type="radio" class="option-input radio" name="radio" value="radio1" checked/>
-                                                            <?php echo $date;?>,
+                                                            Βέλτιστη Διαδρομή
                                                         </label>                    
                                                     </li>
                                                     <li style="font-size: 13px;">
