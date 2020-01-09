@@ -178,7 +178,6 @@
                         </h3>
 
                         <div id="map"></div>
-                        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxGFJJ5M8-O_JCjSR-Ib5U_53P4Hpj2uk&libraries=places&callback=initMap"></script>
 
                         </br>
                         <ul class="nav nav-pills nav-fill" id="direction_nav">
@@ -238,6 +237,7 @@
 
     <!--FOOTER-->
     <?php include 'utils/footer.php'; ?>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxGFJJ5M8-O_JCjSR-Ib5U_53P4Hpj2uk&libraries=places&callback=initMap"></script>
 
 </body>
 </html>
