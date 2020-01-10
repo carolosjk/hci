@@ -94,11 +94,11 @@
                 <div class="" style="margin-top:10%;margin-bottom:2%;display:center;margin-left:30%;margin-right:30%;">
                     <div class="contact_form">
                         <div id="message"></div>
-                        <form id="contactform" class="row" action="php_utils/purchaseticketsForm.php" name="contactform" method="post">
-                            <fieldset class="row-fluid">    
+                        <form id="contactform" class="row" action="php_utils/purchaseticketsForm.php" name="contactform" method="post">  
+                            <fieldset class="row-fluid">  
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-                                    <select id='tkt' name="tkt" data-live-search="true" title="" data-live-search-placeholder="" class="form-control" onchange="admSelectCheck(this);" required oninvalid="setCustomValidity('Δεν έχει γίνει καμία επιλογή! Επιλέξτε μία ενέργεια.')" oninput="setCustomValidity('')">
-                                        <option selected disabled hidden value="">Επιθυμητή ενέργεια</option>
+                                    <select id='tkt' name="tkt" class="form-control" onchange="admSelectCheck(this);" required oninvalid="setCustomValidity('Δεν έχει γίνει καμία επιλογή! Επιλέξτε μία ενέργεια.')" oninput="setCustomValidity('')">
+                                        <option hidden value="">Επιθυμητή ενέργεια</option>
                                         <option value="αγορά">Αγορά</option>
                                         <option id="admOption" value="φόρτιση">Φόρτιση</option>
                                     </select>
@@ -150,7 +150,7 @@
                             <fieldset class="row-fluid" id="tickets" style="display:none;">    
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="padding-bottom:5px;">
                                     <select class="form-control" id="selectC" name="selectC" required oninvalid="setCustomValidity('Δεν έχει γίνει καμία επιλογή! Επιλέξτε ένα τύπο εισιτηρίου.')" oninput="setCustomValidity('')">
-                                        <option selected disabled hidden value="">Είδος Εισιτηρίου</option>    
+                                        <option hidden value="">Είδος Εισιτηρίου</option>    
                                         <option id="candy1">Εισιτήριο για Όλα τα Μέσα εκτός Γραμμών Αεροδρομίου</option>
                                         <option id="candy2">Εισιτήριο Πολλαπλών Διαδρομών</option>
                                         <option id="candy3">Εισιτήριο Γραμμών Αεροδρομίου</option>
@@ -184,7 +184,7 @@
                                 <div id="opt" class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="float:left;">
                                     <div id="noCandy1" style="display:none;">
                                         <select class="form-control" id="selectC1" style="font-size:14px;margin-top:0px;" required oninvalid="setCustomValidity('Δεν έχει γίνει καμία επιλογή! Επιλέξτε ένα από τα προσφερόμενα εισιτήρια.')" oninput="setCustomValidity('')">
-                                            <option selected disabled hidden value="">Επιλέξτε...</option>    
+                                            <option hidden value="">Επιλέξτε...</option>    
                                             <?php  
                                                 $sql = mysqli_query($connection, "SELECT * FROM `tickets`");
                                                 $c = 0;
@@ -208,7 +208,7 @@
                                     </div>
                                     <div id="noCandy2" style="display:none;">
                                         <select class="form-control" id="selectC2" style="font-size:14px;margin-top:0px;" required oninvalid="setCustomValidity('Δεν έχει γίνει καμία επιλογή! Επιλέξτε ένα από τα προσφερόμενα εισιτήρια.')" oninput="setCustomValidity('')">
-                                            <option selected disabled hidden value="">Επιλέξτε...</option>    
+                                            <option hidden value="">Επιλέξτε...</option>    
                                             <?php  
                                                 $sql = mysqli_query($connection, "SELECT * FROM `new_ticket_prices`");
                                                 $count = mysqli_num_rows($sql);
@@ -234,7 +234,7 @@
                                     </div>
                                     <div id="noCandy3" style="display:none;">
                                         <select class="form-control" id="selectC3" style="font-size:14px;margin-top:0px;"  required oninvalid="setCustomValidity('Δεν έχει γίνει καμία επιλογή! Επιλέξτε ένα από τα προσφερόμενα εισιτήρια.')" oninput="setCustomValidity('')">
-                                            <option selected disabled hidden value="">Επιλέξτε...</option>    
+                                            <option hidden value="">Επιλέξτε...</option>    
                                             <?php  
                                                 $sql = mysqli_query($connection, "SELECT * FROM `tickets_airport`");
                                                 $c = 0;
@@ -266,7 +266,7 @@
                                     </div>
                                     <div id="noCandy4" style="display:none;">
                                         <select class="form-control" id="selectC4" style="font-size:14px;margin-top:0px;"  required oninvalid="setCustomValidity('Δεν έχει γίνει καμία επιλογή! Επιλέξτε ένα από τα προσφερόμενα εισιτήρια.')" oninput="setCustomValidity('')">
-                                            <option selected disabled hidden value="">Επιλέξτε...</option> 
+                                            <option hidden value="">Επιλέξτε...</option> 
                                             <?php
                                                 $sql = mysqli_query($connection, "SELECT * FROM `timed_tickets`");
                                                 $c = 0;
@@ -371,7 +371,7 @@
                             <fieldset class="row-fluid" id="tickets_red" style="display:none;">    
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="padding-bottom:5px;">
                                     <select class="form-control" id="sselectC" name="sselectC"required oninvalid="setCustomValidity('Δεν έχει γίνει καμία επιλογή! Επιλέξτε ένα τύπο εισιτηρίου.')" oninput="setCustomValidity('')">
-                                        <option selected disabled hidden value="">Είδος Εισιτηρίου</option>    
+                                        <option hidden value="">Είδος Εισιτηρίου</option>    
                                         <option id="ccandy1">Εισιτήριο για Όλα τα Μέσα εκτός Γραμμών Αεροδρομίου</option>
                                         <option id="ccandy2">Εισιτήριο Πολλαπλών Διαδρομών</option>
                                         <option id="ccandy3">Εισιτήριο Γραμμών Αεροδρομίου</option>
@@ -405,7 +405,7 @@
                                 <div id="oopt" class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="float:left;">
                                     <div id="nnoCandy1" style="display:none;">
                                         <select class="form-control" id="sselectC1" style="font-size:14px;margin-top:0px;" required oninvalid="setCustomValidity('Δεν έχει γίνει καμία επιλογή! Επιλέξτε ένα από τα προσφερόμενα εισιτήρια.')" oninput="setCustomValidity('')">
-                                            <option selected disabled hidden value="">Επιλέξτε...</option>    
+                                            <option hidden value="">Επιλέξτε...</option>    
                                             <?php  
                                                 $sql = mysqli_query($connection, "SELECT * FROM `tickets`");
                                                 $c = 0;
@@ -436,7 +436,7 @@
                                     </div>
                                     <div id="nnoCandy2" style="display:none;">
                                         <select class="form-control" id="sselectC2" style="font-size:14px;margin-top:0px;" required oninvalid="setCustomValidity('Δεν έχει γίνει καμία επιλογή! Επιλέξτε ένα από τα προσφερόμενα εισιτήρια.')" oninput="setCustomValidity('')">
-                                            <option selected disabled hidden value="">Επιλέξτε...</option>    
+                                            <option hidden value="">Επιλέξτε...</option>    
                                             <?php  
                                                 $sql = mysqli_query($connection, "SELECT * FROM `new_ticket_prices`");
                                                 $c = 0;
@@ -468,7 +468,7 @@
                                     </div>
                                     <div id="nnoCandy3" style="display:none;">
                                         <select class="form-control" id="sselectC3" style="font-size:14px;margin-top:0px;"  required oninvalid="setCustomValidity('Δεν έχει γίνει καμία επιλογή! Επιλέξτε ένα από τα προσφερόμενα εισιτήρια.')" oninput="setCustomValidity('')">
-                                            <option selected disabled hidden value="">Επιλέξτε...</option>    
+                                            <option hidden value="">Επιλέξτε...</option>    
                                             <?php  
                                                 $sql = mysqli_query($connection, "SELECT * FROM `tickets_airport`");
                                                 $c = 0;
@@ -513,7 +513,7 @@
                                     </div>
                                     <div id="nnoCandy4" style="display:none;">
                                         <select class="form-control" id="sselectC4" style="font-size:14px;margin-top:0px;"  required oninvalid="setCustomValidity('Δεν έχει γίνει καμία επιλογή! Επιλέξτε ένα από τα προσφερόμενα εισιτήρια.')" oninput="setCustomValidity('')">
-                                        <option selected disabled hidden value="">Επιλέξτε...</option>    
+                                        <option hidden value="">Επιλέξτε...</option>    
                                         <?php
                                                 $sql = mysqli_query($connection, "SELECT * FROM `timed_tickets`");
                                                 $c = 0;
