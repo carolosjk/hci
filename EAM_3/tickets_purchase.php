@@ -416,7 +416,8 @@
                                                     }
                                                     else
                                                     {
-                                                        echo "<option value=". $row['ΛΕΩΦΟΡΕΙΑ / ΤΡΟΛΕY / ΤΡΑΜ / ΜΕΤΡΟ (€)'] .">" . $row['ΕΙΣΙΤΗΡΙΑ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ ΕΚΤΟΣ ΓΡΑΜΜΩΝ ΑΕΡΟΔΡΟΜΙΟΥ'] . "</option>";
+                                                        if ($c != 0) { echo "<option value=". $row['ΛΕΩΦΟΡΕΙΑ / ΤΡΟΛΕY / ΤΡΑΜ / ΜΕΤΡΟ (€)'] .">" . $row['ΕΙΣΙΤΗΡΙΑ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ ΕΚΤΟΣ ΓΡΑΜΜΩΝ ΑΕΡΟΔΡΟΜΙΟΥ'] . "</option>"; $c=$c+1;}
+                                                        else { $c=$c+1; }
                                                     }
                                                 }  
                                             ?>
@@ -448,7 +449,9 @@
                                                     }
                                                     else
                                                     {
-                                                        echo "<option value=". $row['ΤΙΜΗ (€)'] .">" . $row['ΠΡΟΙΟΝ'] . "</option>";
+                                                        if ($c % 2 == 1)
+                                                        {echo "<option value=". $row['ΤΙΜΗ (€)'] .">" . $row['ΠΡΟΙΟΝ'] . "</option>"; $c=$c+1;}
+                                                        else { $c=$c+1; }
                                                     }    
                                                 }
                                             ?>
@@ -487,10 +490,7 @@
                                                     }
                                                     else
                                                     {
-                                                        if ($c == 0) { echo "<option value=". $row['ΜΕΤΡΟ (€)'] .">" . $row['ΕΙΣΙΤΗΡΙΑ ΓΡΑΜΜΩΝ ΑΕΡΟΔΡΟΜΙΟΥ'] . "</option>";  }
-                                                        else if ($c == 1) { echo "<option value=". $row['ΛΕΩΦΟΡΕIA (€)'] .">" . $row['ΕΙΣΙΤΗΡΙΑ ΓΡΑΜΜΩΝ ΑΕΡΟΔΡΟΜΙΟΥ'] . "</option>";  }
-                                                        else if ($c == 2) { echo "<option value=". $row['ΜΕΤΡΟ (€)'] .">" . $row['ΕΙΣΙΤΗΡΙΑ ΓΡΑΜΜΩΝ ΑΕΡΟΔΡΟΜΙΟΥ'] . "</option>";  }
-                                                        else if ($c == 3) { echo "<option value=". $row['ΜΕΤΡΟ (€)'] .">" . $row['ΕΙΣΙΤΗΡΙΑ ΓΡΑΜΜΩΝ ΑΕΡΟΔΡΟΜΙΟΥ'] . "</option>";  }
+                                                        if ($c == 3) { echo "<option value=". $row['ΜΕΤΡΟ (€)'] .">" . $row['ΕΙΣΙΤΗΡΙΑ ΓΡΑΜΜΩΝ ΑΕΡΟΔΡΟΜΙΟΥ'] . "</option>";  }
                                                         else if ($c == 4) { echo "<option value=". $row['ΛΕΩΦΟΡΕIA (€)'] .">" . $row['ΕΙΣΙΤΗΡΙΑ ΓΡΑΜΜΩΝ ΑΕΡΟΔΡΟΜΙΟΥ'] . "</option>";  } 
                                                         else if ($c == 5) { echo "<option value=". $row['ΜΕΤΡΟ (€)'] .">" . $row['ΕΙΣΙΤΗΡΙΑ ΓΡΑΜΜΩΝ ΑΕΡΟΔΡΟΜΙΟΥ'] . "</option>";  } 
                                                         $c=$c+1;
@@ -538,23 +538,23 @@
                                                 }
                                                 else
                                                 {
-                                                    while ($row = $sql->fetch_assoc()){
-                                                        if ($c == 0 )
-                                                        { 
-                                                            echo "<option value=". $row['30 ΗΜΕΡΩΝ'] ."> 30 ΗΜΕΡΩΝ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ </option>";  
-                                                            echo "<option value=". $row['90 ΗΜΕΡΩΝ'] ."> 90 ΗΜΕΡΩΝ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ </option>";
-                                                            echo "<option value=". $row['180 ΗΜΕΡΩΝ'] ."> 180 ΗΜΕΡΩΝ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ </option>";
-                                                            echo "<option value=". $row['365 ΗΜΕΡΩΝ'] ."> 365 ΗΜΕΡΩΝ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ </option>";
-                                                        }   
-                                                        else
-                                                        {
-                                                            echo "<option value=". $row['30 ΗΜΕΡΩΝ'] ."> 30 ΗΜΕΡΩΝ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ ΑΠΟ ΚΑΙ ΠΡΟΣ ΤΟ ΑΕΡΟΔΡΟΜΙΟ </option>";  
-                                                            echo "<option value=". $row['90 ΗΜΕΡΩΝ'] ."> 90 ΗΜΕΡΩΝ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ ΑΠΟ ΚΑΙ ΠΡΟΣ ΤΟ ΑΕΡΟΔΡΟΜΙΟ </option>";
-                                                            echo "<option value=". $row['180 ΗΜΕΡΩΝ'] ."> 180 ΗΜΕΡΩΝ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ ΑΠΟ ΚΑΙ ΠΡΟΣ ΤΟ ΑΕΡΟΔΡΟΜΙΟ </option>";
-                                                            echo "<option value=". $row['365 ΗΜΕΡΩΝ'] ."> 365 ΗΜΕΡΩΝ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ ΑΠΟ ΚΑΙ ΠΡΟΣ ΤΟ ΑΕΡΟΔΡΟΜΙΟ </option>";
-                                                        }
-                                                        $c=$c+1;
-                                                    }
+                                                    // while ($row = $sql->fetch_assoc()){
+                                                    //     if ($c == 0 )
+                                                    //     { 
+                                                    //         echo "<option value=". $row['30 ΗΜΕΡΩΝ'] ."> 30 ΗΜΕΡΩΝ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ </option>";  
+                                                    //         echo "<option value=". $row['90 ΗΜΕΡΩΝ'] ."> 90 ΗΜΕΡΩΝ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ </option>";
+                                                    //         echo "<option value=". $row['180 ΗΜΕΡΩΝ'] ."> 180 ΗΜΕΡΩΝ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ </option>";
+                                                    //         echo "<option value=". $row['365 ΗΜΕΡΩΝ'] ."> 365 ΗΜΕΡΩΝ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ </option>";
+                                                    //     }   
+                                                    //     else
+                                                    //     {
+                                                    //         echo "<option value=". $row['30 ΗΜΕΡΩΝ'] ."> 30 ΗΜΕΡΩΝ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ ΑΠΟ ΚΑΙ ΠΡΟΣ ΤΟ ΑΕΡΟΔΡΟΜΙΟ </option>";  
+                                                    //         echo "<option value=". $row['90 ΗΜΕΡΩΝ'] ."> 90 ΗΜΕΡΩΝ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ ΑΠΟ ΚΑΙ ΠΡΟΣ ΤΟ ΑΕΡΟΔΡΟΜΙΟ </option>";
+                                                    //         echo "<option value=". $row['180 ΗΜΕΡΩΝ'] ."> 180 ΗΜΕΡΩΝ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ ΑΠΟ ΚΑΙ ΠΡΟΣ ΤΟ ΑΕΡΟΔΡΟΜΙΟ </option>";
+                                                    //         echo "<option value=". $row['365 ΗΜΕΡΩΝ'] ."> 365 ΗΜΕΡΩΝ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ ΑΠΟ ΚΑΙ ΠΡΟΣ ΤΟ ΑΕΡΟΔΡΟΜΙΟ </option>";
+                                                    //     }
+                                                    //     $c=$c+1;
+                                                    // }
                                                     $sql = mysqli_query($connection, "SELECT * FROM `timed_tickets_red`");
                                                     $c = 0;
                                                     while ($row = $sql->fetch_assoc()){
