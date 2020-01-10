@@ -86,15 +86,15 @@
             </div>
         </nav>
     </header>
-	
+ 
     <!-- SECTION -->
 	<div id="support" class="section wb" style="padding-top:100px;">
         <div class="container">
-            <div class="row">
+            <div class="row" <?php if (isset($_GET['action'])) {echo "style='display:none;'";} else {echo "style='display:block;'";}?>>
                 <div class="" style="margin-top:10%;margin-bottom:2%;display:center;margin-left:30%;margin-right:30%;">
                     <div class="contact_form">
-                        <div id="message"></div>
-                        <form id="contactform" class="row" action="php_utils/purchaseticketsForm.php" name="contactform" method="post">  
+                        <div id="messagee"></div>
+                        <form id="contactformm" class="row" action="php_utils/purchaseticketsForm.php" name="contactformm" method="post">  
                             <fieldset class="row-fluid">  
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
                                     <select id='tkt' name="tkt" class="form-control" onchange="admSelectCheck(this);" required oninvalid="setCustomValidity('Δεν έχει γίνει καμία επιλογή! Επιλέξτε μία ενέργεια.')" oninput="setCustomValidity('')">
@@ -145,9 +145,8 @@
                                         }
                                     }       
                                 </script>
-                            </fieldset>
                             <!-- dont show tickets of reduced value which come only with charge of ticket and not purchase of one -->
-                            <fieldset class="row-fluid" id="tickets" style="display:none;">    
+                            <div class="row-fluid" id="tickets" style="display:none;">    
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="padding-bottom:5px;">
                                     <select class="form-control" id="selectC" name="selectC" required oninvalid="setCustomValidity('Δεν έχει γίνει καμία επιλογή! Επιλέξτε ένα τύπο εισιτηρίου.')" oninput="setCustomValidity('')">
                                         <option hidden value="">Είδος Εισιτηρίου</option>    
@@ -367,8 +366,8 @@
                                         }
                                     ?>
                                 </div>                                 
-                            </fieldset> 
-                            <fieldset class="row-fluid" id="tickets_red" style="display:none;">    
+                            </div> 
+                            <div class="row-fluid" id="tickets_red" style="display:none;">    
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="padding-bottom:5px;">
                                     <select class="form-control" id="sselectC" name="sselectC"required oninvalid="setCustomValidity('Δεν έχει γίνει καμία επιλογή! Επιλέξτε ένα τύπο εισιτηρίου.')" oninput="setCustomValidity('')">
                                         <option hidden value="">Είδος Εισιτηρίου</option>    
@@ -658,9 +657,9 @@
                                         </div>";
                                         }
                                     ?>
+                                </div>
                                 </div> 
-                            </fieldset>
-                            <fieldset class="row-fluid">     
+                            <div class="row-fluid">     
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <button type="submit" id="submit" value="SEND" class="btn btn-light btn-radius btn-brd grd1 btn-block" style="font-size:14px;padding-left:20px; margin-top:10px;">Ολοκλήρωση!</button>
                                 </div>
@@ -669,7 +668,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" <?php if (isset($_GET['action'])) {echo "style='display:none;'";} else {echo "style='display:block;'";}?>>
                 <div class="accordion" id="accordion-tab-1" style="display:center;margin-left:30%;margin-right:30%;">
                     <div class="card">
                         <div class="card-header" id="accordion-tab-1-heading-2">
@@ -693,6 +692,27 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="row" <?php if (!isset($_GET['action'])) {echo "style='display:none;'";} else {echo "style='display:block;'";}?>>
+                <div class="column" style="display:center;margin-top:10%;">
+                <?php 
+                    $act = $_GET['action'];
+                    echo "<div class='section-title text-center'>
+                    <h3>Η " .$act. "των επιλεγμένων εισιτηρίων εκτελέστηκε επιτυχώς!</h3>
+                    <p class='lead'> Θα λάβετε σύντομα τα εισιτήριά σας και απόδειξη αυτών στην καταχωρημένη διεύθυνση email σας.<br><br>
+                    <br><br><br><br>Επιστροφή στην αρχική σελίδα...</p>
+                    </div>";                    
+                    
+                    if (isset($_GET['action']))
+                    {
+                        echo "<script>
+                        var timer = setTimeout(function() {
+                            window.location='index.php'
+                        }, 5000);
+                        </script>";
+                    }
+                ?>
                 </div>
             </div>
         </div>
