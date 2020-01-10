@@ -2,7 +2,7 @@
     session_start();
     $_SESSION['APIkey'] = "AIzaSyBxGFJJ5M8-O_JCjSR-Ib5U_53P4Hpj2uk";
 
-    if (isset($_POST['start']) and isset($_POST['end'])     ){
+    if (isset($_POST['start']) and isset($_POST['end'])){
         $start = $_POST['start'];
         $end = $_POST['end'];
     }
@@ -116,22 +116,29 @@
                         <form action="routePlanner.php" id="contactform1" class="row" name="contactform" method="post">
                             <fieldset class="row-fluid">
                                 <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
-                                <script type="text/javascript">
+                                        <script type="text/javascript">
                                             function initAutocomplete() {
                                                 // Create the autocomplete object, restricting the search to geographical
                                                 // location types.
+
                                                 autocomplete1 = new google.maps.places.Autocomplete(
                                                     /** @type {!HTMLInputElement} */(document.getElementById('input1')),
                                                     {types: ['geocode']});
-                                                autocomplete2 = new google.maps.places.Autocomplete(
-                                                /** @type {!HTMLInputElement} */(document.getElementById('input2')),
-                                                {types: ['geocode']});
-
 
                                                 // When the user selects an address from the dropdown, populate the address
                                                 // fields in the form.
                                                 autocomplete1.addListener('place_changed', fillInAddress);
-                                                autocomplete2.addListener('place_changed', fillInAddress);
+
+                                                if (location.hash == "#airport") {
+                                                    document.getElementById('input2').value = "Διεθνής Αερολιμένας ΑΘηνών";
+                                                }
+                                                else {
+                                                    autocomplete2 = new google.maps.places.Autocomplete(
+                                                    /** @type {!HTMLInputElement} */(document.getElementById('input2')),
+                                                    {types: ['geocode']});
+
+                                                    autocomplete2.addListener('place_changed', fillInAddress);
+                                                }
 
                                                 calcRoute();
                                             }
@@ -139,7 +146,6 @@
                                             function fillInAddress() {
                                                 // Get the place details from the autocomplete object.
                                                 var place = autocomplete.getPlace();
-
                                             }
                                         </script>
                                         <input name="start" class="form-control" placeholder="<?php if($start!="1") echo $start; else echo "Από";?>" type="text" id="input1" required oninvalid="setCustomValidity('Άδειο πεδίο. Προσθέστε αφετηρία!')" oninput="setCustomValidity('')"/>  
@@ -239,11 +245,6 @@
                     <div id="map"></div>
                     <div id="directions-panel"></div>
                 </div>
-                <script>
-                    if (location.hash == '#map')
-                        document.getElementById("signin").classList.add('active');
-                    
-                </script>   
             
             </div>
             
@@ -259,8 +260,6 @@
     <script>
         function calcRoute() {
             initMap();
-
-           
 
             var directionsService = new google.maps.DirectionsService();
             var directionsRenderer = new google.maps.DirectionsRenderer();
