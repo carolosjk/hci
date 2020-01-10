@@ -98,7 +98,7 @@
                         <form id="contactform" class="row" action="php_utils/purchaseticketsForm.php" name="contactform" method="post">
                             <fieldset class="row-fluid">    
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-                                    <select id='tkt' name="end" data-live-search="true" title="" data-live-search-placeholder="" class="form-control" onchange="admSelectCheck(this);" required oninvalid="setCustomValidity('Δεν έχει γίνει καμία επιλογή! Επιλέξτε μία ενέργεια.')" oninput="setCustomValidity('')">
+                                    <select id='tkt' name="tkt" data-live-search="true" title="" data-live-search-placeholder="" class="form-control" onchange="admSelectCheck(this);" required oninvalid="setCustomValidity('Δεν έχει γίνει καμία επιλογή! Επιλέξτε μία ενέργεια.')" oninput="setCustomValidity('')">
                                         <option selected disabled hidden value="">Επιθυμητή ενέργεια</option>
                                         <option value="αγορά">Αγορά</option>
                                         <option id="admOption" value="φόρτιση">Φόρτιση</option>
@@ -109,46 +109,48 @@
                                     {
                                         if(nameSelect)
                                         {
+                                            $("#tickets").hide().find("select").prop("required", false);
+                                            $("#tickets").hide().find("input").prop("required", false); 
+                                            $("#selectC").val("");
+                                            $("#tickets_red").hide().find("select").prop("required", false);
+                                            $("#tickets_red").hide().find("input").prop("required", false); 
+                                            $("#sselectC").val("");
+                                            $('#mirror').hide().find("input").prop("required", false);
+                                            $('#mmirror').hide().find("input").prop("required", false);
+                                        
                                             admOptionValue = document.getElementById("admOption").value;
                                             if(admOptionValue == nameSelect.value)
                                             { 
                                                 if (document.getElementById("tickets").style.display == "block")
-                                                    { document.getElementById("tickets").style.display = "none"; } 
-                                                document.getElementById("tickets_red").style.display = "block"; 
+                                                { 
+                                                    $("#tickets").hide().find("select").prop("required", false);
+                                                    $("#tickets").hide().find("input").prop("required", false); 
+                                                    $("#selectC").val("");
+                                                } 
+                                                $("#tickets_red").show().find("select").prop("required", true);
+                                                $("#tickets_red").show().find("input").prop("required", true);
+                                                $("#sselectC").val("");
                                             }
                                             else
                                             { 
                                                 if (document.getElementById("tickets_red").style.display == "block")
-                                                    { document.getElementById("tickets_red").style.display = "none"; } 
-                                                document.getElementById("tickets").style.display = "block"; 
+                                                { 
+                                                    $("#tickets_red").hide().find("select").prop("required", false);
+                                                    $("#tickets_red").hide().find("input").prop("required", false); 
+                                                    $("#sselectC").val("");
+                                                } 
+                                                $("#tickets").show().find("select").prop("required", true);
+                                                $("#tickets").show().find("input").prop("required", true);
+                                                $("#selectC").val("");
                                             }
                                         }
-                                        else
-                                        { 
-                                            document.getElementById("tickets_red").style.display = "none"; 
-                                            document.getElementById("tickets").style.display = "none"; 
-                                        }
-
-                                        $('#mirror').hide();
-                                        $('#mmirror').hide();
-                                        var elems = document.querySelectorAll('#noCandy1,#noCandy2,#noCandy3,#noCandy4,#q')
-                                        for (var i = 0; i < elems.length; i++) {
-                                            elems[i].style.display = 'none'
-                                        }
-                                        elems = document.querySelectorAll('#nnoCandy1,#nnoCandy2,#nnoCandy3,#nnoCandy4,#qq') 
-                                        for (var i = 0; i < elems.length; i++) {
-                                            elems[i].style.display = 'none'
-                                        }
-
-                                        $("#selectC").val("");
-                                        $("#sselectC").val("");
                                     }       
                                 </script>
                             </fieldset>
                             <!-- dont show tickets of reduced value which come only with charge of ticket and not purchase of one -->
                             <fieldset class="row-fluid" id="tickets" style="display:none;">    
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="padding-bottom:5px;">
-                                    <select class="form-control" id="selectC" required oninvalid="setCustomValidity('Δεν έχει γίνει καμία επιλογή! Επιλέξτε ένα τύπο εισιτηρίου.')" oninput="setCustomValidity('')">
+                                    <select class="form-control" id="selectC" name="selectC" required oninvalid="setCustomValidity('Δεν έχει γίνει καμία επιλογή! Επιλέξτε ένα τύπο εισιτηρίου.')" oninput="setCustomValidity('')">
                                         <option selected disabled hidden value="">Είδος Εισιτηρίου</option>    
                                         <option id="candy1">Εισιτήριο για Όλα τα Μέσα εκτός Γραμμών Αεροδρομίου</option>
                                         <option id="candy2">Εισιτήριο Πολλαπλών Διαδρομών</option>
@@ -167,12 +169,11 @@
                                                 document.getElementById("eq").innerHTML = "";
                                                 document.getElementById("cur").innerHTML = "";
                                                 document.getElementById("total").innerHTML = "";
-                                                $('#mirror').hide();                                               
+                                                $('#mirror').hide().find("input").prop("required", false);                                              
                                             });
                                         });
                                     </script>                                    
                                 </div>
-
                                 <script>
                                     function multiply() { 
                                         const multiplicand = document.getElementById('myamount').innerHTML || 0; 
@@ -198,7 +199,7 @@
                                             jQuery(function($) {
 
                                                 $('#selectC1').on('change', function() {
-                                                    $('#mirror').show();
+                                                    $('#mirror').show().find("input").prop("required", true);
                                                     document.getElementById("myticket").innerHTML = $('#selectC1 :selected').text();
                                                     document.getElementById("myticketprice").innerHTML = $('#selectC1').val();
                                                     multiply();
@@ -224,7 +225,7 @@
                                             jQuery(function($) {
 
                                                 $('#selectC2').on('change', function() {
-                                                    $('#mirror').show();
+                                                    $('#mirror').show().find("input").prop("required", true);
                                                     document.getElementById("myticket").innerHTML = $('#selectC2 :selected').text();
                                                     document.getElementById("myticketprice").innerHTML = $('#selectC2').val();
                                                     multiply();
@@ -256,7 +257,7 @@
                                             jQuery(function($) {
 
                                                 $('#selectC3').on('change', function() {
-                                                    $('#mirror').show();
+                                                    $('#mirror').show().find("input").prop("required", true);
                                                     document.getElementById("myticket").innerHTML = $('#selectC3 :selected').text();
                                                     document.getElementById("myticketprice").innerHTML = $('#selectC3').val();  
                                                     multiply();                                                  
@@ -293,7 +294,7 @@
                                             jQuery(function($) {
 
                                                 $('#selectC4').on('change', function() {                                                    
-                                                    $('#mirror').show();
+                                                    $('#mirror').show().find("input").prop("required", true);
                                                     document.getElementById("myticket").innerHTML = $('#selectC4 :selected').text();
                                                     document.getElementById("myticketprice").innerHTML = $('#selectC4').val();
                                                     multiply();                                                  
@@ -305,34 +306,36 @@
                                         // Function to add event listener to table
                                         var el = document.getElementById("selectC");
                                         el.addEventListener("change", function() {
-                                        var elems = document.querySelectorAll('#noCandy1,#noCandy2,#noCandy3,#noCandy4,#q')
-                                        for (var i = 0; i < elems.length; i++) {
-                                            elems[i].style.display = 'none'
-                                        }
+                                        $('#noCandy1').hide().find("select").prop("required", false);
+                                        $('#noCandy2').hide().find("select").prop("required", false);
+                                        $('#noCandy3').hide().find("select").prop("required", false);
+                                        $('#noCandy4').hide().find("select").prop("required", false);
+                                        $('#q').hide().find("input").prop("required", false);
+
                                         if (this.selectedIndex === 1) {
-                                            document.querySelector('#noCandy1').style.display = 'block';
-                                            document.querySelector('#q').style.display = 'block';
+                                            $('#noCandy1').show().find("select").prop("required", true);
+                                            $('#q').show().find("input").prop("required", true);
                                         } else if (this.selectedIndex === 2) {
-                                            document.querySelector('#noCandy2').style.display = 'block';
-                                            document.querySelector('#q').style.display = 'block';
+                                            $('#noCandy2').show().find("select").prop("required", true);
+                                            $('#q').show().find("input").prop("required", true);
                                         }else if (this.selectedIndex === 3) {
-                                            document.querySelector('#noCandy3').style.display = 'block';
-                                            document.querySelector('#q').style.display = 'block';
+                                            $('#noCandy3').show().find("select").prop("required", true);
+                                            $('#q').show().find("input").prop("required", true);
                                         }
                                         else if (this.selectedIndex === 4) {
-                                            document.querySelector('#noCandy4').style.display = 'block';
-                                            document.querySelector('#q').style.display = 'block';
+                                            $('#noCandy4').show().find("select").prop("required", true);
+                                            $('#q').show().find("input").prop("required", true);
                                         }
                                         }, false);
                                     </script>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" id="q" style="display:none;" onchage>
-                                    <input id="alice" type="number" style="float:center;width: 75%;margin-left:15px; margin-top:12px; text-align:center;" onKeyDown="return false" min="1" step="1" max="12" name='qqty' id='qqty' placeholder="Ποσότητα" value="" required oninvalid="setCustomValidity('Δεν έχει γίνει καμία επιλογή! Επιλέξτε ποσότητα εισιτηρίων.')" oninput="setCustomValidity('')"/>
+                                    <input id="alice" type="number" style="float:center;width: 75%;margin-left:15px; margin-top:12px; text-align:center;" onKeyDown="return false" min="1" step="1" max="12" name='alice' placeholder="Ποσότητα" value="" required oninvalid="setCustomValidity('Δεν έχει γίνει καμία επιλογή! Επιλέξτε ποσότητα εισιτηρίων.')" oninput="setCustomValidity('')"/>
                                     <script> 
                                         jQuery(function($) {
 
                                             $('#alice').on('input', function() {
-                                                $('#mirror').show();
+                                                $('#mirror').show().find("input").prop("required", true);;
                                                 document.getElementById("myamount").innerHTML = $('#alice').val();
                                                 document.getElementById("x").innerHTML = "x";
                                                 document.getElementById("eq").innerHTML = "="; 
@@ -350,20 +353,25 @@
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" <?php if (!isset($_SESSION['user_id'])) { echo 'style="display:block; margin-top:15px;"'; } else { echo 'style="display:none"'; } ?>>
                                         <span> Παρακαλώ εισαγάγετε τα παρακάτω στοιχεία για χρέωση, αποστολή των επιλεγμένων εισιτηρίων και της απόδειξης αυτών!</span>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" <?php if (!isset($_SESSION['user_id'])) { echo 'style="display:block"'; } else { echo 'style="display:none"'; } ?>>
-                                        <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Επώνυμο" required oninvalid="setCustomValidity('Άδειο πεδίο. Χρειάζεται να εισαχθεί επώνυμο!')" oninput="setCustomValidity('')">
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" <?php if (!isset($_SESSION['user_id'])) { echo 'style="display:block"'; } else { echo 'style="display:none"'; }?>>
-                                        <input type="text" name="first_name" id="first_name" class="form-control" placeholder="Όνομα" required oninvalid="setCustomValidity('Άδειο πεδίο. Χρειάζεται να εισαχθεί όνομα!')" oninput="setCustomValidity('')">
-                                    </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" <?php if (!isset($_SESSION['user_id'])) { echo 'style="display:block"'; } else { echo 'style="display:none"'; }?>>
-                                        <input type="email" name="email" id="email" class="form-control" placeholder="example@example.com/gr" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required oninvalid="setCustomValidity('Άδειο πεδίο ή μη έγκυρη διεύθυνση email! Προσθέστε έγκυρη διεύθυνση email.')" oninput="setCustomValidity('')">
-                                    </div>
+                                    <?php 
+                                        if (!isset($_SESSION['user_id'])) 
+                                        {
+                                            echo "<div class='col-lg-6 col-md-6 col-sm-6 col-xs-12' style='display:block;'>
+                                            <input type='text' name='last_name' id='last_name' class='form-control' placeholder='Επώνυμο' required oninvalid='setCustomValidity('Άδειο πεδίο. Χρειάζεται να εισαχθεί επώνυμο!')' oninput='setCustomValidity('')'>
+                                        </div>
+                                        <div class='col-lg-6 col-md-6 col-sm-6 col-xs-12' style='display:block;'>
+                                            <input type='text' name='first_name' id='first_name' class='form-control' placeholder='Όνομα' required oninvalid='setCustomValidity('Άδειο πεδίο. Χρειάζεται να εισαχθεί όνομα!')' oninput='setCustomValidity('')'>
+                                        </div>
+                                        <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center' style='display:block';>
+                                            <input type='email' name='email' id='email' class='form-control' placeholder='example@example.com/gr' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$' required oninvalid='setCustomValidity('Άδειο πεδίο ή μη έγκυρη διεύθυνση email! Προσθέστε έγκυρη διεύθυνση email.')' oninput='setCustomValidity('')'>
+                                        </div>";
+                                        }
+                                    ?>
                                 </div>                                 
                             </fieldset> 
                             <fieldset class="row-fluid" id="tickets_red" style="display:none;">    
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="padding-bottom:5px;">
-                                    <select class="form-control" id="sselectC" required oninvalid="setCustomValidity('Δεν έχει γίνει καμία επιλογή! Επιλέξτε ένα τύπο εισιτηρίου.')" oninput="setCustomValidity('')">
+                                    <select class="form-control" id="sselectC" name="sselectC"required oninvalid="setCustomValidity('Δεν έχει γίνει καμία επιλογή! Επιλέξτε ένα τύπο εισιτηρίου.')" oninput="setCustomValidity('')">
                                         <option selected disabled hidden value="">Είδος Εισιτηρίου</option>    
                                         <option id="ccandy1">Εισιτήριο για Όλα τα Μέσα εκτός Γραμμών Αεροδρομίου</option>
                                         <option id="ccandy2">Εισιτήριο Πολλαπλών Διαδρομών</option>
@@ -382,7 +390,7 @@
                                                 document.getElementById("eeq").innerHTML = "";
                                                 document.getElementById("ccur").innerHTML = ""; 
                                                 document.getElementById("ttotal").innerHTML = "";    
-                                                $('#mmirror').hide();                                            
+                                                $('#mmirror').hide().find("input").prop("required", false);;                                            
                                             });
                                         });
                                     </script>
@@ -419,7 +427,7 @@
                                             jQuery(function($) {
 
                                                 $('#sselectC1').on('change', function() {
-                                                    $('#mmirror').show();
+                                                    $('#mmirror').show().find("input").prop("required", true);
                                                     document.getElementById("mmyticket").innerHTML = $('#sselectC1 :selected').text();
                                                     document.getElementById("mmyticketprice").innerHTML = $('#sselectC1').val();
                                                     mmultiply();                                                    
@@ -451,7 +459,7 @@
                                             jQuery(function($) {
 
                                                 $('#sselectC2').on('change', function() {
-                                                    $('#mmirror').show();
+                                                    $('#mmirror').show().find("input").prop("required", true);
                                                     document.getElementById("mmyticket").innerHTML = $('#sselectC2 :selected').text();
                                                     document.getElementById("mmyticketprice").innerHTML = $('#sselectC2').val();
                                                     mmultiply();
@@ -496,7 +504,7 @@
                                             jQuery(function($) {
 
                                                 $('#sselectC3').on('change', function() {
-                                                    $('#mmirror').show();
+                                                    $('#mmirror').show().find("input").prop("required", true);
                                                     document.getElementById("mmyticket").innerHTML = $('#sselectC3 :selected').text();
                                                     document.getElementById("mmyticketprice").innerHTML = $('#sselectC3').val();
                                                     mmultiply();
@@ -575,7 +583,7 @@
                                             jQuery(function($) {
 
                                                 $('#sselectC4').on('change', function() {
-                                                    $('#mmirror').show();
+                                                    $('#mmirror').show().find("input").prop("required", true);
                                                     document.getElementById("mmyticket").innerHTML = $('#sselectC4 :selected').text();
                                                     document.getElementById("mmyticketprice").innerHTML = $('#sselectC4').val();
                                                     mmultiply();
@@ -587,34 +595,37 @@
                                         // Function to add event listener to table
                                         var el = document.getElementById("sselectC");
                                         el.addEventListener("change", function() {
-                                        var elems = document.querySelectorAll('#nnoCandy1,#nnoCandy2,#nnoCandy3,#nnoCandy4,#qq')
-                                        for (var i = 0; i < elems.length; i++) {
-                                            elems[i].style.display = 'none'
-                                        }
+                                        $('#nnoCandy1').hide().find("select").prop("required", false);
+                                        $('#nnoCandy2').hide().find("select").prop("required", false);
+                                        $('#nnoCandy3').hide().find("select").prop("required", false);
+                                        $('#nnoCandy4').hide().find("select").prop("required", false);
+                                        $('#qq').hide().find("input").prop("required", false);
+
+                                        
                                         if (this.selectedIndex === 1) {
-                                            document.querySelector('#nnoCandy1').style.display = 'block';
-                                            document.querySelector('#qq').style.display = 'block';
+                                            $('#nnoCandy1').show().find("select").prop("required", true);
+                                            $('#qq').show().find("input").prop("required", true);
                                         } else if (this.selectedIndex === 2) {
-                                            document.querySelector('#nnoCandy2').style.display = 'block';
-                                            document.querySelector('#qq').style.display = 'block';
+                                            $('#nnoCandy2').show().find("select").prop("required", true);
+                                            $('#qq').show().find("input").prop("required", true);
                                         }else if (this.selectedIndex === 3) {
-                                            document.querySelector('#nnoCandy3').style.display = 'block';
-                                            document.querySelector('#qq').style.display = 'block';
+                                            $('#nnoCandy3').show().find("select").prop("required", true);
+                                            $('#qq').show().find("input").prop("required", true);
                                         }
                                         else if (this.selectedIndex === 4) {
-                                            document.querySelector('#nnoCandy4').style.display = 'block';
-                                            document.querySelector('#qq').style.display = 'block';
+                                            $('#nnoCandy4').show().find("select").prop("required", true);
+                                            $('#qq').show().find("input").prop("required", true);
                                         }
                                         }, false);
                                     </script>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" id="qq" style="display:none;" onchage>
-                                    <input id="aalice" type="number" style="float:center;width: 75%;margin-left:15px; margin-top:12px; text-align:center;" onKeyDown="return false" min="1" step="1" max="12" name='qqty' id='qqty' placeholder="Ποσότητα" value="" required oninvalid="setCustomValidity('Δεν έχει γίνει καμία επιλογή! Επιλέξτε ποσότητα εισιτηρίων.')" oninput="setCustomValidity('')"/>
+                                    <input id="aalice" type="number" style="float:center;width: 75%;margin-left:15px; margin-top:12px; text-align:center;" onKeyDown="return false" min="1" step="1" max="12" name='aalice'  placeholder="Ποσότητα" value="" required oninvalid="setCustomValidity('Δεν έχει γίνει καμία επιλογή! Επιλέξτε ποσότητα εισιτηρίων.')" oninput="setCustomValidity('')"/>
                                     <script> 
                                         jQuery(function($) {
 
                                             $('#aalice').on('input', function() {
-                                                $('#mmirror').show();
+                                                $('#mmirror').show().find("input").prop("required", true);
                                                 document.getElementById("mmyamount").innerHTML = $('#aalice').val();
                                                 document.getElementById("X").innerHTML = "X";
                                                 document.getElementById("eeq").innerHTML = "="; 
@@ -628,22 +639,31 @@
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left" style="margin-bottom:20px;">
                                         <p><span id="mmyticket"></span> <span id="X"></span> <span id="mmyamount"></span><span id="mmyticketprice" style="display:none;"></span> <span id="eeq"></span> <span id="ttotal"></span> <span id="ccur"> </p>
                                     </div>
-                                    <div id="admDivCheck" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" <?php  if (!isset($_SESSION['user_id']) or $_SESSION['prvlg'] == 0 or $_SESSION['tkt_code'] === NULL) { echo "style='display:block;'"; } else { echo "style='display:none;'"; } ?>>
-                                        <input type="tel" style="margin-top:10px;margin-bottom:10px;" name="code" id="code"  pattern="[0-9]{12}" class="form-control" placeholder="Αριθμός Εισιτηρίου" required oninvalid="setCustomValidity('Άδειο πεδίο ή μη έγκυρος αριθμός εισιτηρίου! Προσθέστε έγκυρο 12ψήφιο αριθμό εισιτηρίου.')" oninput="setCustomValidity('')">
-                                    </div>
-
+                                    <?php
+                                        if (!isset($_SESSION['user_id']) or $_SESSION['prvlg'] == 0 or $_SESSION['tkt_code'] === NULL)
+                                        {
+                                            echo "<div id='admDivCheck' class='col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center' style='display:block;'>
+                                            <input type='tel' style='margin-top:10px;margin-bottom:10px;' name='code' id='code'  pattern='[0-9]{12}' class='form-control' placeholder='Αριθμός Εισιτηρίου' required oninvalid='setCustomValidity('Άδειο πεδίο ή μη έγκυρος αριθμός εισιτηρίου! Προσθέστε έγκυρο 12ψήφιο αριθμό εισιτηρίου.')' oninput='setCustomValidity('')'>
+                                        </div>";                                        
+                                        }
+                                    ?>
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" <?php if (!isset($_SESSION['user_id'])) { echo 'style="display:block; margin-top:10px;margin-bottom:0px;"'; } else { echo 'style="display:none"'; } ?>>
                                         <span> Παρακαλώ εισαγάγετε τα παρακάτω στοιχεία για χρέωση, αποστολή των επιλεγμένων εισιτηρίων και της απόδειξης αυτών!</span>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" <?php if (!isset($_SESSION['user_id'])) { echo 'style="display:block"'; } else { echo 'style="display:none"'; } ?>>
-                                        <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Επώνυμο" required oninvalid="setCustomValidity('Άδειο πεδίο. Χρειάζεται να εισαχθεί επώνυμο!')" oninput="setCustomValidity('')">
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" <?php if (!isset($_SESSION['user_id'])) { echo 'style="display:block"'; } else { echo 'style="display:none"'; }?>>
-                                        <input type="text" name="first_name" id="first_name" class="form-control" placeholder="Όνομα" required oninvalid="setCustomValidity('Άδειο πεδίο. Χρειάζεται να εισαχθεί όνομα!')" oninput="setCustomValidity('')">
-                                    </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" <?php if (!isset($_SESSION['user_id'])) { echo 'style="display:block"'; } else { echo 'style="display:none"'; }?>>
-                                        <input type="email" name="email" id="email" class="form-control" placeholder="example@example.com/gr" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required oninvalid="setCustomValidity('Άδειο πεδίο ή μη έγκυρη διεύθυνση email! Προσθέστε έγκυρη διεύθυνση email.')" oninput="setCustomValidity('')">
-                                    </div>
+                                    <?php 
+                                        if (!isset($_SESSION['user_id'])) 
+                                        {
+                                            echo "<div class='col-lg-6 col-md-6 col-sm-6 col-xs-12' style='display:block;'>
+                                            <input type='text' name='llast_name' id='llast_name' class='form-control' placeholder='Επώνυμο' required oninvalid='setCustomValidity('Άδειο πεδίο. Χρειάζεται να εισαχθεί επώνυμο!')' oninput='setCustomValidity('')'>
+                                        </div>
+                                        <div class='col-lg-6 col-md-6 col-sm-6 col-xs-12' style='display:block;'>
+                                            <input type='text' name='ffirst_name' id='ffirst_name' class='form-control' placeholder='Όνομα' required oninvalid='setCustomValidity('Άδειο πεδίο. Χρειάζεται να εισαχθεί όνομα!')' oninput='setCustomValidity('')'>
+                                        </div>
+                                        <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center' style='display:block';>
+                                            <input type='email' name='eemail' id='eemail' class='form-control' placeholder='example@example.com/gr' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$' required oninvalid='setCustomValidity('Άδειο πεδίο ή μη έγκυρη διεύθυνση email! Προσθέστε έγκυρη διεύθυνση email.')' oninput='setCustomValidity('')'>
+                                        </div>";
+                                        }
+                                    ?>
                                 </div> 
                             </fieldset>
                             <fieldset class="row-fluid">     
