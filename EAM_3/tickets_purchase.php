@@ -116,6 +116,18 @@
                                             $("#sselectC").val("");
                                             $('#mirror').hide().find("input").prop("required", false);
                                             $('#mmirror').hide().find("input").prop("required", false);
+                                            $('#pay').hide().find("input").prop("required", false);
+                                            
+                                            $('#noCandy1').hide().find("select").prop("required", false);
+                                            $('#noCandy2').hide().find("select").prop("required", false);
+                                            $('#noCandy3').hide().find("select").prop("required", false);
+                                            $('#noCandy4').hide().find("select").prop("required", false);
+                                            $('#q').hide().find("input").prop("required", false);
+                                            $('#nnoCandy1').hide().find("select").prop("required", false);
+                                            $('#nnoCandy2').hide().find("select").prop("required", false);
+                                            $('#nnoCandy3').hide().find("select").prop("required", false);
+                                            $('#nnoCandy4').hide().find("select").prop("required", false);
+                                            $('#qq').hide().find("input").prop("required", false);
                                         
                                             admOptionValue = document.getElementById("admOption").value;
                                             if(admOptionValue == nameSelect.value)
@@ -168,6 +180,7 @@
                                                 document.getElementById("cur").innerHTML = "";
                                                 document.getElementById("total").innerHTML = "";
                                                 $('#mirror').hide().find("input").prop("required", false);                                              
+                                                $('#pay').hide().find("input").prop("required", false);                                              
                                             });
                                         });
                                     </script>                                    
@@ -198,6 +211,8 @@
 
                                                 $('#selectC1').on('change', function() {
                                                     $('#mirror').show().find("input").prop("required", true);
+                                                    $('#pay').show().find("input").prop("required", true);
+
                                                     document.getElementById("myticket").innerHTML = $('#selectC1 :selected').text();
                                                     document.getElementById("myticketprice").innerHTML = $('#selectC1').val();
                                                     multiply();
@@ -224,6 +239,8 @@
 
                                                 $('#selectC2').on('change', function() {
                                                     $('#mirror').show().find("input").prop("required", true);
+                                                    $('#pay').show().find("input").prop("required", true);
+
                                                     document.getElementById("myticket").innerHTML = $('#selectC2 :selected').text();
                                                     document.getElementById("myticketprice").innerHTML = $('#selectC2').val();
                                                     multiply();
@@ -256,6 +273,8 @@
 
                                                 $('#selectC3').on('change', function() {
                                                     $('#mirror').show().find("input").prop("required", true);
+                                                    $('#pay').show().find("input").prop("required", true);
+
                                                     document.getElementById("myticket").innerHTML = $('#selectC3 :selected').text();
                                                     document.getElementById("myticketprice").innerHTML = $('#selectC3').val();  
                                                     multiply();                                                  
@@ -293,6 +312,8 @@
 
                                                 $('#selectC4').on('change', function() {                                                    
                                                     $('#mirror').show().find("input").prop("required", true);
+                                                    $('#pay').show().find("input").prop("required", true);
+
                                                     document.getElementById("myticket").innerHTML = $('#selectC4 :selected').text();
                                                     document.getElementById("myticketprice").innerHTML = $('#selectC4').val();
                                                     multiply();                                                  
@@ -388,7 +409,8 @@
                                                 document.getElementById("eeq").innerHTML = "";
                                                 document.getElementById("ccur").innerHTML = ""; 
                                                 document.getElementById("ttotal").innerHTML = "";    
-                                                $('#mmirror').hide().find("input").prop("required", false);;                                            
+                                                $('#mmirror').hide().find("input").prop("required", false);                                            
+                                                $('#pay').hide().find("input").prop("required", false);                                            
                                             });
                                         });
                                     </script>
@@ -427,6 +449,8 @@
 
                                                 $('#sselectC1').on('change', function() {
                                                     $('#mmirror').show().find("input").prop("required", true);
+                                                    $('#pay').show().find("input").prop("required", true);
+
                                                     document.getElementById("mmyticket").innerHTML = $('#sselectC1 :selected').text();
                                                     document.getElementById("mmyticketprice").innerHTML = $('#sselectC1').val();
                                                     mmultiply();                                                    
@@ -461,6 +485,8 @@
 
                                                 $('#sselectC2').on('change', function() {
                                                     $('#mmirror').show().find("input").prop("required", true);
+                                                    $('#pay').show().find("input").prop("required", true);
+
                                                     document.getElementById("mmyticket").innerHTML = $('#sselectC2 :selected').text();
                                                     document.getElementById("mmyticketprice").innerHTML = $('#sselectC2').val();
                                                     mmultiply();
@@ -503,6 +529,8 @@
 
                                                 $('#sselectC3').on('change', function() {
                                                     $('#mmirror').show().find("input").prop("required", true);
+                                                    $('#pay').show().find("input").prop("required", true);
+
                                                     document.getElementById("mmyticket").innerHTML = $('#sselectC3 :selected').text();
                                                     document.getElementById("mmyticketprice").innerHTML = $('#sselectC3').val();
                                                     mmultiply();
@@ -565,6 +593,7 @@
 
                                                 $('#sselectC4').on('change', function() {
                                                     $('#mmirror').show().find("input").prop("required", true);
+                                                    $('#pay').show().find("input").prop("required", true);
                                                     document.getElementById("mmyticket").innerHTML = $('#sselectC4 :selected').text();
                                                     document.getElementById("mmyticketprice").innerHTML = $('#sselectC4').val();
                                                     mmultiply();
@@ -607,6 +636,8 @@
 
                                             $('#aalice').on('input', function() {
                                                 $('#mmirror').show().find("input").prop("required", true);
+                                                $('#pay').show().find("input").prop("required", true);
+
                                                 document.getElementById("mmyamount").innerHTML = $('#aalice').val();
                                                 document.getElementById("X").innerHTML = "X";
                                                 document.getElementById("eeq").innerHTML = "="; 
@@ -642,10 +673,17 @@
                                     ?>
                                 </div>
                                 </div> 
-                            <div class="row-fluid">     
+                            <div class="row-fluid" id="pay" style="display:none;">
+                                <div class='col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+                                    <input type='tel' name='card_num' id='card_num' pattern='[0-9]{16}' class='form-control' placeholder='Αριθμός Κάρτας' required oninvalid="setCustomValidity('Άδειο πεδίο ή μη έγκυρος αριθμός κάρτας! Προσθέστε έγκυρο 16ψήφιο αριθμό κάρτας.')" oninput="setCustomValidity('')">
+                                </div>
+                                <div class='col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+                                    <input type='text' name='card_name' id='card_name' class='form-control' placeholder='Όνομα Κάρτας' required oninvalid="setCustomValidity('Άδειο πεδίο. Χρειάζεται να εισαχθεί όνομα κάρτας!')" oninput="setCustomValidity('')">
+                                </div>                                 
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <button type="submit" id="submit" value="SEND" class="btn btn-light btn-radius btn-brd grd1 btn-block" style="font-size:14px;padding-left:20px; margin-top:10px;">Ολοκλήρωση!</button>
                                 </div>
+                            </div>    
                             </fieldset>
                         </form>
                     </div>
@@ -668,9 +706,8 @@
                                     - Επιλέξτε είδος εισιτηρίου, ενα εκ των προσφερόμενων εισιτηρίων αυτού και την ποσότητα που επιθυμείτε. <br>
                                     - Με την ολοκλήρωση των παραπάνω βημάτων, έχετε εμφανείς εν τέλει τις λεπτομέρειες για την ενέργεια που επιθυμείτε να κάνετε, τύπος εισιτηρίου και την ποσότητα που επιλέξατε και την συνολική τιμή των επιλογών σας.<br>
                                     - Προκειμένου να υποβληθεί επιτυχώς η διαδικασία χρειάζεται, εφόσον δεν είστε εγγεγραμμένος χρήστης, να εισαγάγετε τα στοιχεία απαραίτητα για την χρέωση, αποστολή των εισιτηρίων που αποκτήσατε και της απόδειξης αυτών. 
-                                    Αν είστε ήδη εγγεγραμμένος, και είστε ήδη συνδεδεμένος δεν χρειάζεται να εισαγάγετε κάποιο στοιχείο εκτός του αριθμού εισιτηρίου που θα χρειαστεί να εισαχθεί σε περίπτωση φόρτισης.<br>
-                                    - Με την υποβολή της παραπάνω διαδικασίας θα μεταβείτε σε νέα ασφαλής σελίδας όπου και θα σας ζητηθούν στοιχεία χρέωσης και θα ολοκληρωθεί η διαδικασία.<br>
-                                    - Μετά την ολοκλήρωση θα λάβετε ενημερωτικό μήνυμα για την αγορά/φόρτιση που εκτελέσατε.</b>
+                                    Αν είστε ήδη εγγεγραμμένος, και είστε ήδη συνδεδεμένος δεν χρειάζεται να εισαγάγετε κάποιο στοιχείο εκτός του αριθμού εισιτηρίου που θα χρειαστεί να εισαχθεί σε περίπτωση φόρτισης και τα στοιχεία χρέωσης.<br>
+                                    - Μετά την ολοκλήρωση της αγοράς/φόρτισης που υποβλήθηκε, θα λάβετε ενημερωτικό μήνυμα στο email που έχετε καταχωρήσει.</b>
                                 </p>
                             </div>
                         </div>
@@ -682,7 +719,7 @@
                 <?php 
                     $act = $_GET['action'];
                     echo "<div class='section-title text-center'>
-                    <h3>Η " .$act. "των επιλεγμένων εισιτηρίων εκτελέστηκε επιτυχώς!</h3>
+                    <h3>Η $act των επιλεγμένων εισιτηρίων εκτελέστηκε επιτυχώς!</h3>
                     <p class='lead'> Θα λάβετε σύντομα τα εισιτήριά σας και απόδειξη αυτών στην καταχωρημένη διεύθυνση email σας.<br><br>
                     <br><br><br><br>Επιστροφή στην αρχική σελίδα...</p>
                     </div>";                    
