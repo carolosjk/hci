@@ -48,6 +48,8 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 </head>
 <body class="realestate_version">
 
@@ -124,8 +126,33 @@
                                 <input type="text" name="name" class="username form-control" placeholder="Όνομα" required oninvalid="setCustomValidity('Άδειο πεδίο! Προσθέστε όνομα.')" oninput="setCustomValidity('')"/>
                                 <input type="text" name="surname" class="username form-control" placeholder="Επώνυμο" required oninvalid="setCustomValidity('Άδειο πεδίο! Προσθέστε επώνυμο.')" oninput="setCustomValidity('')"/>
                                 <input type="text" name="address" class="username form-control" placeholder="Διεύθυνση" required oninvalid="setCustomValidity('Άδειο πεδίο! Προσθέστε διεύθυνση.')" oninput="setCustomValidity('')"/>
-                                <button id="submit" class="btn login" type="submit" value="SEND" style="background-color:#00599C; margin-right:65px;">Εγγραφή</button>
-                                <button id="reset" class="btn login" type="reset" style="background-color:#00599C;">Εκκαθάριση</button>
+                                
+                                <p style="margin-bottom: 0px;"> Δικαιούστε εισιτήριο μειωμένης τιμής;</p>
+                                <input type="radio" class="option-input radio" name="choose" value='yes' style="margin-right: 5px;">Ναι, δικαιούμαι.
+                                <br>
+                                <input type="radio" class="option-input radio" name="choose" value='no' style="margin-right: 5px;">Όχι, δεν δικαιούμαι.
+                                <select id="optional" name="optiοnal" class="form-control">
+                                    <option hidden value=""> Επιλέξτε κατηγορία</option>
+                                    <option value="Φοιτητής/τρια">Φοιτητής/τρια</option>
+                                    <option value="Μαθήτης/τρια Γυμνασίου/Λυκείου">Μαθήτης/τρια Γυμνασίου/Λυκείου</option>
+                                    <option value="Νέος/α ηλικίας 13 έως 18 ετών">Νέος/α ηλικίας 13 έως 18 ετών </option>
+                                    <option value="Άτομo ηλικίας άνω των 65 ετών">Άτομo ηλικίας άνω των 65 ετών</option>
+                                    <option value="Άνεργος/η">Άνεργος/η</option>
+                                </select>
+                                <script>
+                                    $('input[name="choose"]').click(function(e) {
+                                    if(e.target.value === 'yes') {
+                                        $('#optional').show();
+                                    } else {
+                                        $('#optional').hide();
+                                    }
+                                    })
+
+                                    $('#optional').hide();                                
+                                </script>
+
+                                <button id="submit" class="btn login" type="submit" value="SEND" style="background-color:#00599C; margin-right:65px;margin-top:25px;">Εγγραφή</button>
+                                <button id="reset" class="btn login" type="reset" style="background-color:#00599C;margin-top:25px;">Εκκαθάριση</button>
                             </form>
                         </div>
                     </div>

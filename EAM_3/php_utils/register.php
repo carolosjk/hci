@@ -35,9 +35,18 @@ and isset($_POST['surname'])  and isset($_POST['address']))
             $name = $_POST['name'];
             $surname = $_POST['surname'];
             $address = $_POST['address'];
+            
+            $cat = 0;
+            $category = "";
+            if(isset($_POST['choose']) && $_POST['choose'] == 'yes')
+            {
+                $cat = 1;
+                if (isset($_POST['optiοnal']))
+                    { $category = $_POST['optiοnal']; }       
+            }
 
             // CHECK FOR THE RECORD FROM TABLE
-            $query = "INSERT INTO `users` (`email`, `password`, `name`, `surname`, `address`) VALUES ('$username', '$password', '$name', '$surname', '$address')";
+            $query = "INSERT INTO `users` (`email`, `password`, `name`, `surname`, `address`, `redtkt_prevlg`, `cat`) VALUES ('$username', '$password', '$name', '$surname', '$address', '$cat', '$category')";
             
             $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
 

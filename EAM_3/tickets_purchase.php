@@ -10,7 +10,6 @@
         if ($count == 1)
         {
             $array = mysqli_fetch_array($result,MYSQLI_ASSOC);
-            $_SESSION['tkt_code'] = $array['ticket_code'];
             $_SESSION['prvlg'] = $array['redtkt_prevlg'];                                                                                             
         }
     }
@@ -639,14 +638,9 @@
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left" style="margin-bottom:20px;">
                                         <p><span id="mmyticket"></span> <span id="X"></span> <span id="mmyamount"></span><span id="mmyticketprice" style="display:none;"></span> <span id="eeq"></span> <span id="ttotal"></span> <span id="ccur"> </p>
                                     </div>
-                                    <?php
-                                        if (!isset($_SESSION['user_id']) or $_SESSION['prvlg'] == 0 or $_SESSION['tkt_code'] === NULL)
-                                        {
-                                            echo "<div id='admDivCheck' class='col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center' style='display:block;'>
-                                            <input type='tel' style='margin-top:10px;margin-bottom:10px;' name='code' id='code'  pattern='[0-9]{12}' class='form-control' placeholder='Αριθμός Εισιτηρίου' required oninvalid='setCustomValidity('Άδειο πεδίο ή μη έγκυρος αριθμός εισιτηρίου! Προσθέστε έγκυρο 12ψήφιο αριθμό εισιτηρίου.')' oninput='setCustomValidity('')'>
-                                        </div>";                                        
-                                        }
-                                    ?>
+                                    <div id='admDivCheck' class='col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center' style='display:block;'>
+                                        <input type='tel' style='margin-top:10px;margin-bottom:10px;' name='code' id='code'  pattern='[0-9]{12}' class='form-control' placeholder='Αριθμός Εισιτηρίου' required oninvalid="setCustomValidity('Άδειο πεδίο ή μη έγκυρος αριθμός εισιτηρίου! Προσθέστε έγκυρο 12ψήφιο αριθμό εισιτηρίου.')" oninput="setCustomValidity('')">
+                                    </div>                                        
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" <?php if (!isset($_SESSION['user_id'])) { echo 'style="display:block; margin-top:10px;margin-bottom:0px;"'; } else { echo 'style="display:none"'; } ?>>
                                         <span> Παρακαλώ εισαγάγετε τα παρακάτω στοιχεία για χρέωση, αποστολή των επιλεγμένων εισιτηρίων και της απόδειξης αυτών!</span>
                                     </div>
@@ -679,7 +673,7 @@
                 <div class="accordion" id="accordion-tab-1" style="display:center;margin-left:30%;margin-right:30%;">
                     <div class="card">
                         <div class="card-header" id="accordion-tab-1-heading-2">
-                            <h2 style="font-size: 70%;">
+                            <h2 style="font-size: 75%;">
                                 <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-1-content-2" aria-expanded="false" aria-controls="accordion-tab-1-content-2">
                                     Χρειάζεστε βοήθεια;
                                 </button>
@@ -687,14 +681,14 @@
                         </div>
                         <div class="collapse" id="accordion-tab-1-content-2" aria-labelledby="accordion-tab-1-heading-2" data-parent="#accordion-tab-1">
                             <div class="card-body">
-                                <p>
-                                    <b>-</b> Επιλέξτε την ενέργεια που επιθυμείτε να κάνετε, αγορά ή φόρτιση εισιτηρίων. Μπορεί να γίνει μόνο φόρτιση των εισιτηρίων μειωμένης τιμής, αν την δικαιούστε, και όχι αγορά.<br>   
-                                    <b>-</b> Επιλέξτε είδος εισιτηρίου, ενα εκ των προσφερόμενων εισιτηρίων αυτού και την ποσότητα που επιθυμείτε. <br>
-                                    <b>-</b> Με την ολοκλήρωση των παραπάνω βημάτων, έχετε εμφανείς εν τέλει τις λεπτομέρειες για την ενέργεια που επιθυμείτε να κάνετε, τύπος εισιτηρίου και την ποσότητα που επιλέξατε και την συνολική τιμή των επιλογών σας.<br>
-                                    <b>-</b> Προκειμένου να ολοκληρωθεί επιτυχώς η διαδικασία χρειάζεται, εφόσον δεν είστε εγγεγραμμένος χρήστης, να εισαγάγετε τα στοιχεία απαραίτητα για την χρέωση, αποστολή των εισιτηρίων που αποκτήσατε και της απόδειξης αυτών. 
-                                    Αν είστε ήδη εγγεγραμμένος, και είστε ήδη συνδεδεμένος δεν χρειάζεται να εισαγάγετε κάποιο στοιχείο εκτός και αν δεν έχετε αποθηκεύσει αριθμό εισιτηρίου που θα χρειαστεί να εισαχθεί σε περίπτωση φόρτισης.
-                                    Αν δεν είστε συνδεδεμένος, έχετε την δυνατότητα να το κάνετε πριν ξεκινήσετε την παραπάνω διαδικασία και να μεταβείτε ξανά στην σελίδα αυτή.<br>
-                                    <b>-</b> Μετά την ολοκλήρωση θα λάβετε ενημερωτικό μήνυμα για την αγορά/φόρτιση που εκτελέσατε.
+                                <p style="font-size:14px;">
+                                    <b>- Επιλέξτε την ενέργεια που επιθυμείτε να κάνετε, αγορά ή φόρτιση εισιτηρίων. Μπορεί να γίνει μόνο φόρτιση των εισιτηρίων μειωμένης τιμής, αν την δικαιούστε, και όχι αγορά.<br>   
+                                    - Επιλέξτε είδος εισιτηρίου, ενα εκ των προσφερόμενων εισιτηρίων αυτού και την ποσότητα που επιθυμείτε. <br>
+                                    - Με την ολοκλήρωση των παραπάνω βημάτων, έχετε εμφανείς εν τέλει τις λεπτομέρειες για την ενέργεια που επιθυμείτε να κάνετε, τύπος εισιτηρίου και την ποσότητα που επιλέξατε και την συνολική τιμή των επιλογών σας.<br>
+                                    - Προκειμένου να υποβληθεί επιτυχώς η διαδικασία χρειάζεται, εφόσον δεν είστε εγγεγραμμένος χρήστης, να εισαγάγετε τα στοιχεία απαραίτητα για την χρέωση, αποστολή των εισιτηρίων που αποκτήσατε και της απόδειξης αυτών. 
+                                    Αν είστε ήδη εγγεγραμμένος, και είστε ήδη συνδεδεμένος δεν χρειάζεται να εισαγάγετε κάποιο στοιχείο εκτός του αριθμού εισιτηρίου που θα χρειαστεί να εισαχθεί σε περίπτωση φόρτισης.<br>
+                                    - Με την υποβολή της παραπάνω διαδικασίας θα μεταβείτε σε νέα ασφαλής σελίδας όπου και θα σας ζητηθούν στοιχεία χρέωσης και θα ολοκληρωθεί η διαδικασία.<br>
+                                    - Μετά την ολοκλήρωση θα λάβετε ενημερωτικό μήνυμα για την αγορά/φόρτιση που εκτελέσατε.</b>
                                 </p>
                             </div>
                         </div>

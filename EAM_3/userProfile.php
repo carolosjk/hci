@@ -81,7 +81,7 @@
             </nav>
         
             <div id="userProf_DIV_1" style="padding-top: 20px;">
-                <section id="userProf_SECTION_2">
+                <section id="userProf_SECTION_2" <?php if (isset($_SESSION['category'])) { echo 'style="height: 450px;"';} ?>>
                     <div id="userProf_DIV_3">
                         <div id="userProf_DIV_4">
                             <div id="userProf_DIV_5">
@@ -103,6 +103,16 @@
                                             </h4><br id="userProf_BR_11" /> 
                                                 <?php
                                                     echo $_SESSION["surname"];
+                                                ?>
+                                        </div>
+                                    </li>
+                                    <li id="userProf_LI_7" <?php if (isset($_SESSION['category'])) { echo "style='display:block;'"; } else { echo "style='display:none;'"; }?>>
+                                        <div id="userProf_DIV_8">
+                                            <h4 id="userProf_H4_9">
+                                                <strong id="userProf_STRONG_10">Κατηγορία</strong>
+                                            </h4><br id="userProf_BR_11" /> 
+                                                <?php
+                                                    echo $_SESSION["category"];
                                                 ?>
                                         </div>
                                     </li>

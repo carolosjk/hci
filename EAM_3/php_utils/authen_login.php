@@ -23,6 +23,7 @@ if (isset($_POST['user_id']) and isset($_POST['user_pass']))
         $_SESSION['name'] = $array["name"];
         $_SESSION['surname'] = $array["surname"];
         $_SESSION['address'] = $array["address"];
+        if ($array["redtkt_prevlg"] == 1) $_SESSION['category'] = $array["cat"];
 
         mysqli_close($connection);
 
