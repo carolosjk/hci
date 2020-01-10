@@ -409,7 +409,7 @@
                                                 $sql = mysqli_query($connection, "SELECT * FROM `tickets`");
                                                 $c = 0;
                                                 while ($row = $sql->fetch_assoc()){
-                                                    if (isset($_SESSION['prvlg']) and $_SESSION['prvlg'] == 0)
+                                                    if (isset($_SESSION['prvlg']) and $_SESSION['prvlg'] == 0 or !isset($_SESSION['user_id']))
                                                     {
                                                         if ($c != 3) { echo "<option value=". $row['ΛΕΩΦΟΡΕΙΑ / ΤΡΟΛΕY / ΤΡΑΜ / ΜΕΤΡΟ (€)'] .">" . $row['ΕΙΣΙΤΗΡΙΑ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ ΕΚΤΟΣ ΓΡΑΜΜΩΝ ΑΕΡΟΔΡΟΜΙΟΥ'] . "</option>"; $c=$c+1;}
                                                         else { $c=$c+1; }
@@ -441,7 +441,7 @@
                                                 $sql = mysqli_query($connection, "SELECT * FROM `new_ticket_prices`");
                                                 $c = 0;
                                                 while ($row = $sql->fetch_assoc()){
-                                                    if (isset($_SESSION['prvlg']) and $_SESSION['prvlg'] == 0)
+                                                    if (isset($_SESSION['prvlg']) and $_SESSION['prvlg'] == 0 or !isset($_SESSION['user_id']))
                                                     {
                                                         if ($c % 2 == 0)
                                                         {echo "<option value=". $row['ΤΙΜΗ (€)'] .">" . $row['ΠΡΟΙΟΝ'] . "</option>"; $c=$c+1;}
@@ -475,7 +475,7 @@
                                                 $sql = mysqli_query($connection, "SELECT * FROM `tickets_airport`");
                                                 $c = 0;
                                                 while ($row = $sql->fetch_assoc()){
-                                                    if (isset($_SESSION['prvlg']) and $_SESSION['prvlg'] == 0)
+                                                    if (isset($_SESSION['prvlg']) and $_SESSION['prvlg'] == 0 or !isset($_SESSION['user_id']))
                                                     {
                                                         if ($row['ΕΙΣΙΤΗΡΙΑ ΓΡΑΜΜΩΝ ΑΕΡΟΔΡΟΜΙΟΥ'] == "ΜΕΙΩΜΕΝΟ ΕΙΣΙΤΗΡΙΟ ΑΕΡΟΔΡΟΜΙΟΥ ΑΠΟ & ΠΡΟΣ ΤΟΥΣ ΣΤΑΘΜΟΥΣ ΠΑΛΛΗΝΗ - ΚΑΝΤΖΑ - ΚΟΡΩΠΙ ΜΕΤΡΟ" ||
                                                         $row['ΕΙΣΙΤΗΡΙΑ ΓΡΑΜΜΩΝ ΑΕΡΟΔΡΟΜΙΟΥ']  == "ΜΕΙΩΜΕΝΟ ΕΙΣΙΤΗΡΙΟ ΛΕΩΦΟΡΕΙΩΝ EXPRESS" || $row['ΕΙΣΙΤΗΡΙΑ ΓΡΑΜΜΩΝ ΑΕΡΟΔΡΟΜΙΟΥ'] == "ΜΕΙΩΜΕΝΟ ΕΙΣΙΤΗΡΙΟ ΜΕΤΡΟ") 
@@ -516,7 +516,7 @@
                                         <?php
                                                 $sql = mysqli_query($connection, "SELECT * FROM `timed_tickets`");
                                                 $c = 0;
-                                                if (isset($_SESSION['prvlg']) and $_SESSION['prvlg'] == 0)
+                                                if (isset($_SESSION['prvlg']) and $_SESSION['prvlg'] == 0 or !isset($_SESSION['user_id']))
                                                 {
                                                     while ($row = $sql->fetch_assoc()){
                                                         if ($c == 0 )
@@ -538,23 +538,6 @@
                                                 }
                                                 else
                                                 {
-                                                    // while ($row = $sql->fetch_assoc()){
-                                                    //     if ($c == 0 )
-                                                    //     { 
-                                                    //         echo "<option value=". $row['30 ΗΜΕΡΩΝ'] ."> 30 ΗΜΕΡΩΝ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ </option>";  
-                                                    //         echo "<option value=". $row['90 ΗΜΕΡΩΝ'] ."> 90 ΗΜΕΡΩΝ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ </option>";
-                                                    //         echo "<option value=". $row['180 ΗΜΕΡΩΝ'] ."> 180 ΗΜΕΡΩΝ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ </option>";
-                                                    //         echo "<option value=". $row['365 ΗΜΕΡΩΝ'] ."> 365 ΗΜΕΡΩΝ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ </option>";
-                                                    //     }   
-                                                    //     else
-                                                    //     {
-                                                    //         echo "<option value=". $row['30 ΗΜΕΡΩΝ'] ."> 30 ΗΜΕΡΩΝ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ ΑΠΟ ΚΑΙ ΠΡΟΣ ΤΟ ΑΕΡΟΔΡΟΜΙΟ </option>";  
-                                                    //         echo "<option value=". $row['90 ΗΜΕΡΩΝ'] ."> 90 ΗΜΕΡΩΝ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ ΑΠΟ ΚΑΙ ΠΡΟΣ ΤΟ ΑΕΡΟΔΡΟΜΙΟ </option>";
-                                                    //         echo "<option value=". $row['180 ΗΜΕΡΩΝ'] ."> 180 ΗΜΕΡΩΝ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ ΑΠΟ ΚΑΙ ΠΡΟΣ ΤΟ ΑΕΡΟΔΡΟΜΙΟ </option>";
-                                                    //         echo "<option value=". $row['365 ΗΜΕΡΩΝ'] ."> 365 ΗΜΕΡΩΝ ΓΙΑ ΟΛΑ ΤΑ ΜΕΣΑ ΑΠΟ ΚΑΙ ΠΡΟΣ ΤΟ ΑΕΡΟΔΡΟΜΙΟ </option>";
-                                                    //     }
-                                                    //     $c=$c+1;
-                                                    // }
                                                     $sql = mysqli_query($connection, "SELECT * FROM `timed_tickets_red`");
                                                     $c = 0;
                                                     while ($row = $sql->fetch_assoc()){
