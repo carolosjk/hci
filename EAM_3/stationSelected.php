@@ -175,7 +175,12 @@
                         </h3>
 
                         <div id="map"></div>
-                        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxGFJJ5M8-O_JCjSR-Ib5U_53P4Hpj2uk&libraries=places&language=el&callback=initMap"></script>
+                        </br>
+                        <h4 style="float: left">Βρες διαδρομή: </h4></br>
+                        <ul class="nav nav-pills nav-fill" id="direction_nav">
+                            <li style="width:50%; margin-left:-16% !important"><a href="routePlanner.php#Από:<?php echo $station?>">Από τη στάση</a></li>
+                            <li style="width:50%"><a href="routePlanner.php#Προς:<?php echo $station?>">Προς τη στάση</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -198,7 +203,8 @@
                     fields: ['name', 'geometry'],
                 };"
             ?>
-                    
+            
+            var infowindow = new google.maps.InfoWindow();
             var service = new google.maps.places.PlacesService(map);
                     
             service.findPlaceFromQuery(request, function(results, status) {
@@ -209,6 +215,22 @@
                     });
                     map.setCenter(results[0].geometry.location);
                     map.setZoom(16);
+
+                    google.maps.event.addListener(marker, 'click', function() {
+                        var content = '<h4>' + results[0].name + '</h4>';
+                        <?php
+                            require('php_utils/db_connect.php');
+                            $sql = mysqli_query($connection, "SELECT * FROM `stations` where station = '$station'");
+                            $row = $sql->fetch_assoc();
+                            if ($row['is_accessible'] == 0)
+                                echo "content += 'Όχι προσβάσιμη στάση';";
+                            else
+                                echo "content += 'Προσβάσιμη στάση';";
+                        ?>
+                        
+                        infowindow.setContent(content);
+                        infowindow.open(map, marker);
+                    });
                 }
             });
         }

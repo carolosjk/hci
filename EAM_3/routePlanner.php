@@ -125,18 +125,23 @@
                                                     /** @type {!HTMLInputElement} */(document.getElementById('input1')),
                                                     {types: ['geocode']});
 
-                                                // When the user selects an address from the dropdown, populate the address
-                                                // fields in the form.
-                                                autocomplete1.addListener('place_changed', fillInAddress);
-
-                                                if (location.hash == "#airport") {
-                                                    document.getElementById('input2').value = "Διεθνής Αερολιμένας ΑΘηνών";
-                                                }
-                                                else {
-                                                    autocomplete2 = new google.maps.places.Autocomplete(
+                                                autocomplete2 = new google.maps.places.Autocomplete(
                                                     /** @type {!HTMLInputElement} */(document.getElementById('input2')),
                                                     {types: ['geocode']});
 
+                                                if (location.hash != "") {
+                                                    var hash = decodeURIComponent(location.href.split("#")[1]);
+                                                    
+                                                    var direction = hash.split(":")[0];
+                                                    if (direction == "Από")
+                                                        document.getElementById('input1').value = hash.split(":")[1];
+                                                    else if (direction == "Προς")
+                                                        document.getElementById('input2').value = hash.split(":")[1];
+                                                }
+                                                else {
+                                                    // When the user selects an address from the dropdown, populate the address
+                                                    // fields in the form.
+                                                    autocomplete1.addListener('place_changed', fillInAddress);
                                                     autocomplete2.addListener('place_changed', fillInAddress);
                                                 }
 

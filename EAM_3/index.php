@@ -254,7 +254,7 @@
 					<div class="item" style="margin-left:25px;">
 						<div class="single-feature">
                             <div class="icon"><i class="fa fa-plane fa-5x" style="height: 25%; width: 25%; float:left;"></i>
-                                <h4><a href="routePlanner.php#airport">Πρόσβαση στο Αεροδρόμιο</a></h4>
+                                <h4><a href="routePlanner.php#Προς:Διεθνής Αερολιμένας Αθηνών">Πρόσβαση στο Αεροδρόμιο</a></h4>
                             </div>      
                         </div> 
                     </div>

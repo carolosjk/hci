@@ -2,10 +2,10 @@
 -- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 10, 2020 at 03:11 PM
--- Server version: 10.4.10-MariaDB
--- PHP Version: 7.3.12
+-- Host: localhost
+-- Generation Time: Jan 12, 2020 at 10:16 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `oasa`
+-- Database: `OASA`
 --
 
 -- --------------------------------------------------------
@@ -703,28 +703,29 @@ INSERT INTO `new_ticket_prices` (`ΠΡΟΙΟΝ`, `ΤΙΜΗ (€)`, `ΤΙΜΗ / �
 --
 
 CREATE TABLE `stations` (
-  `station` varchar(200) NOT NULL
+  `station` varchar(200) NOT NULL,
+  `is_accessible` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `stations`
 --
 
-INSERT INTO `stations` (`station`) VALUES
-('ΑΕΡΟΔΡΟΜΙΟ \"ΕΛΕΥΘΕΡΙΟΣ ΒΕΝΙΖΕΛΟΣ\"'),
-('ΑΚΡΟΠΟΛΗ'),
-('ΔΙΕΘΝΗΣ ΑΕΡΟΛΙΜΕΝΑΣ ΑΘΗΝΩΝ'),
-('ΚΤΕΛ ΚΗΦΙΣΟΥ'),
-('ΛΙΜΑΝΙ ΠΕΙΡΑΙΑ'),
-('ΠΑΝΕΠΙΣΤΗΜΙΟΥΠΟΛΗ'),
-('ΠΕΙΡΑΙΑΣ'),
-('ΠΛΑΤΕΙΑ ΝΕΑΣ ΣΜΥΡΝΗΣ'),
-('ΣΤ. ΔΑΦΝΗΣ'),
-('ΣΤ. ΕΥΑΓΓΕΛΙΣΜΟΥ'),
-('ΣΤ. ΚΑΛΛΙΘΕΑ'),
-('ΣΤ. ΣΥΓΓΡΟΥ ΦΙΞ'),
-('ΣΤ.ΑΓ. ΔΗΜΗΤΡΙΟΣ'),
-('ΣΥΝΤΑΓΜΑ');
+INSERT INTO `stations` (`station`, `is_accessible`) VALUES
+('10η ΚΑΙΣΑΡΙΑΝΗΣ', 1),
+('6η ΠΑΝΕΠΙΣΤΗΜΙΟΥΠΟΛΗΣ', 0),
+('ΑΓΟΡΑ ΒΥΡΩΝΑ', 1),
+('ΔΙΕΘΝΗΣ ΑΕΡΟΛΙΜΕΝΑΣ ΑΘΗΝΩΝ', 1),
+('ΚΤΕΛ ΚΗΦΙΣΟΥ', 0),
+('ΠΛ.Ν.ΣΜΥΡΝΗΣ ', 0),
+('ΣΤ. ΑΚΡΟΠΟΛΗ', 1),
+('ΣΤ. ΔΑΦΝΗΣ', 1),
+('ΣΤ. ΕΥΑΓΓΕΛΙΣΜΟΥ', 1),
+('ΣΤ. ΚΑΛΛΙΘΕΑ', 1),
+('ΣΤ. ΠΕΙΡΑΙΑ', 1),
+('ΣΤ. ΣΥΓΓΡΟΥ ΦΙΞ', 1),
+('ΣΤ.ΑΓ. ΔΗΜΗΤΡΙΟΣ', 1),
+('ΣΥΝΤΑΓΜΑ', 1);
 
 -- --------------------------------------------------------
 

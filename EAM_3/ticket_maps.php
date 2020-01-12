@@ -193,7 +193,12 @@
 
                 google.maps.event.addListener(marker, 'click', function() {
                     infowindow.close();
-                    infowindow.setContent(loc.name);
+                    var content = '<h5>' + loc.name + '</h5>';
+                    if (loc.type == 'bus')
+                        content += '<a href="http://www.osy.gr/ethelsite/pages/ticketBoxes.php" target="_blank">Ωράρια</a>'
+                    if (loc.type == 'metro' || loc.type == 'tram')
+                        content += '<a href="http://www.stasy.gr/index.php?id=77" target="_blank">Ωράρια</a>'
+                    infowindow.setContent(content);
                     infowindow.open(map, marker);
                 });
             };
