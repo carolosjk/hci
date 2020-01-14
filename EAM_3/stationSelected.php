@@ -3,6 +3,9 @@
     if (isset($_POST['select_station'])){
         $station = $_POST['select_station'];
     }
+    else if (isset($_GET['go'])) {
+        $station = $_GET['go'];
+    }
     else{
         $station = "1";
     }

@@ -178,8 +178,8 @@
                         </h3>
 
                         <div id="map"></div>
-
                         </br>
+
                         <ul class="nav nav-pills nav-fill" id="direction_nav">
                             <li style="width:100%"><a data-toggle="pill">Κατεύθυνση</a>
                         
@@ -201,8 +201,22 @@
                             </select>
                             </li>
                         </ul>
-
                         </br>
+
+                        <?php
+                            $sql = mysqli_query($connection, "SELECT * FROM `bus_routes` where id = '$id'");
+                            $row = $sql->fetch_assoc();
+                            if ($row != NULL) {
+                                echo '<ul class="nav nav-pills nav-fill" id="direction_nav">
+                                <li style="width:100%"><a data-toggle="pill">Στάσεις</a>';
+                                echo '<ul class="stops-list"><li><span></span><a href="stationSelected.php?go='.$row['station'].'">'.$row['station'].'</a></li>';
+                                while ($row = $sql->fetch_assoc()){
+                                    echo '<li><span></span><a href="stationSelected.php?go='.$row['station'].'">'.$row['station'].'</a></li>';
+                                }
+                                echo '</ul></li></ul></br>';
+                            }
+                        ?>
+
                         <ul class="nav nav-pills nav-fill" id="schedule_nav">
                             <li class="active" style="width:33%"><a data-toggle="pill" href="#weekday">Καθημερινή</a></li>
                             <li style="width:33%"><a data-toggle="pill" href="#saturday">Σάββατο</a></li>

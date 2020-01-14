@@ -53,13 +53,20 @@
                             </div>
                         </li>   
                         <li><a href="contact.php">Επικοινωνία</a></li>
+                        <li class="lang-option">
+                            <button class="lang tran3s dropdown-toggle" id="langDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="./uploads/greece.png"> Ελληνικά</button>
+                            <form action="#" class="p-color-bg dropdown-menu tran3s" aria-labelledby="langDropdown">
+                                <button class="p-color-bg"><img src="./uploads/greece.png"> Ελληνικά</button>
+                                <button class="p-color-bg"><img src="./uploads/united-kingdom.png"> Αγγλικά</button>
+                            </form>
+                        </li>
                         <li class="search-option">
                             <button class="search tran3s dropdown-toggle" id="searchDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search" aria-hidden="true"></i></button>
                             <form action="#" class="p-color-bg dropdown-menu tran3s" aria-labelledby="searchDropdown">
                                 <input type="text" placeholder="Αναζήτηση...">
                                 <button class="p-color-bg"><i class="fa fa-search" aria-hidden="true"></i></button>
                             </form>
-                    </li> 
+                        </li> 
                     </ul>
                 </div>
                 <!--end of NAV-BAR-->

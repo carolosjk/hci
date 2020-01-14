@@ -50,13 +50,22 @@
                             </div>
                         </li>   
                         <li><a <?php if (basename($_SERVER['PHP_SELF']) == 'contact.php') echo 'class="active"' ?> href="contact.php">Επικοινωνία</a></li>
+
+                        <li class="lang-option">
+                            <button class="lang tran3s dropdown-toggle" id="langDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="./uploads/greece.png"> Ελληνικά</button>
+                            <form action="#" class="p-color-bg dropdown-menu tran3s" aria-labelledby="langDropdown">
+                                <button class="p-color-bg"><img src="./uploads/greece.png"> Ελληνικά</button>
+                                <button class="p-color-bg"><img src="./uploads/united-kingdom.png"> Αγγλικά</button>
+                            </form>
+                        </li>
+
                         <li class="search-option">
                             <button class="search tran3s dropdown-toggle" id="searchDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search" aria-hidden="true"></i></button>
                             <form action="#" class="p-color-bg dropdown-menu tran3s" aria-labelledby="searchDropdown">
                                 <input type="text" placeholder="Αναζήτηση...">
                                 <button class="p-color-bg"><i class="fa fa-search" aria-hidden="true"></i></button>
                             </form>
-                        </li> 
+                        </li>
                         <!-- <button class="login-trigger" onclick="javascript:$('#myModal').modal('show');"><i class="fa fa-user" aria-hidden="true"></i></button> -->
                         <li class="dropdown" id="loginDropdown">
                             <div class="loginSet">
